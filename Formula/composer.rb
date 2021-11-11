@@ -1,8 +1,8 @@
 class Composer < Formula
   desc "Dependency Manager for PHP"
   homepage "https://getcomposer.org/"
-  url "https://getcomposer.org/download/2.1.10/composer.phar"
-  sha256 "cb8b04cc6a6fb167403f7495e8539650eb555657aa48873f115383bcd8f0b18d"
+  url "https://getcomposer.org/download/2.1.12/composer.phar"
+  sha256 "ae3ec292dd04b4e468aea1e5db4d085f169d8a803aabeb99707f69e9454bf218"
   license "MIT"
 
   livecheck do
@@ -11,12 +11,12 @@ class Composer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "71187cda00a0a72bc2fe2da657f98152d834f957909f8f7db23236ba888eb101"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "71187cda00a0a72bc2fe2da657f98152d834f957909f8f7db23236ba888eb101"
-    sha256 cellar: :any_skip_relocation, monterey:       "4dfab6bfb3f4ba36582199cbff36f3cb41bf7630ef21e872a023144aa8c078db"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4dfab6bfb3f4ba36582199cbff36f3cb41bf7630ef21e872a023144aa8c078db"
-    sha256 cellar: :any_skip_relocation, catalina:       "4dfab6bfb3f4ba36582199cbff36f3cb41bf7630ef21e872a023144aa8c078db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "71187cda00a0a72bc2fe2da657f98152d834f957909f8f7db23236ba888eb101"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8456f9ef766bfe290241a5dce114923b66d0b25f46e683a157463381b08685c8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8456f9ef766bfe290241a5dce114923b66d0b25f46e683a157463381b08685c8"
+    sha256 cellar: :any_skip_relocation, monterey:       "4b3e4fca1c26ac8eb6abbdcbf995130f5f78e6a4f9087b8de738b8e7ae3de11a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4b3e4fca1c26ac8eb6abbdcbf995130f5f78e6a4f9087b8de738b8e7ae3de11a"
+    sha256 cellar: :any_skip_relocation, catalina:       "4b3e4fca1c26ac8eb6abbdcbf995130f5f78e6a4f9087b8de738b8e7ae3de11a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8456f9ef766bfe290241a5dce114923b66d0b25f46e683a157463381b08685c8"
   end
 
   depends_on "php"

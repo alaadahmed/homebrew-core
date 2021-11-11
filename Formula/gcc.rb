@@ -14,6 +14,7 @@ class Gcc < Formula
     sha256 "d08edc536b54c372a1010ff6619dd274c0f1603aa49212ba20f7aa2cda36fa8b"
   end
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
+  revision 1
   head "https://gcc.gnu.org/git/gcc.git"
 
   # We can't use `url :stable` here due to the ARM-specific branch above.
@@ -23,12 +24,11 @@ class Gcc < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "23ec727fa684a9f65cf9f55d61d208486d5202fb6112585a01426ac636724e56"
-    sha256 monterey:      "082dd4e4f251a599ea5cc798046cb7d03d3dd26c8943002732f0d07d1d98ce5c"
-    sha256 big_sur:       "da675b722172d8866c8c3eed38a107ebdb7fb8c5e9a9a8589382d5537b38c925"
-    sha256 catalina:      "79ce1258429ea2a7150e3dd6e517753ecb3b53724f79143ef559f5eb9f955a88"
-    sha256 mojave:        "54a56a9e9d4e27353cfa3871048581385fd6591b63baddfaa79b57f999ffc33e"
-    sha256 x86_64_linux:  "7e46b50b4988c2391eb1a10bbf9b490a0f37037782e85c69188da90f419f74aa"
+    sha256                               arm64_big_sur: "c42ea3d26761eb66ebe869f878f0e01e9eeea2cd45cd4d8c93d49cc5cbca61ec"
+    sha256                               monterey:      "2222029b2dfd0a3a9bfb61805f22075ea6cf212bf448002cd9a4fb87c01c44a3"
+    sha256                               big_sur:       "eb6ffae4a2ab7261b2f22cf138cc7d1a1e8931a3d38435c874d69c11e1ae421f"
+    sha256                               catalina:      "c4166b5fce1f766ab357cf21a4cf9a2e83234e12372ceb36998d994209e14c24"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a266c0fa12bcfec194570e1e474e37962bc0bae57d1e196f0608a44fc4736ceb"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -54,6 +54,12 @@ class Gcc < Formula
   patch do
     url "https://github.com/iains/gcc-darwin-arm64/commit/20f61faaed3b335d792e38892d826054d2ac9f15.patch?full_index=1"
     sha256 "c0605179a856ca046d093c13cea4d2e024809ec2ad4bf3708543fc3d2e60504b"
+  end
+
+  # https://gcc.gnu.org/pipermail/gcc-patches/2021-November/583031.html
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/de47854e6e26ec9d0ebb43d1ca23b7384f5d7aa5/gcc/gcc-11.2-rtl-bug.diff"
+    sha256 "8f04ffa663a2a0d1ab3b8ed894ccfdbaaabeff621fb4074c53f94b06c44ef378"
   end
 
   def version_suffix

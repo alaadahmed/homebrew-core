@@ -1,8 +1,8 @@
 class IpinfoCli < Formula
   desc "Official CLI for the IPinfo IP Address API"
   homepage "https://ipinfo.io/"
-  url "https://github.com/ipinfo/cli/archive/ipinfo-2.2.0.tar.gz"
-  sha256 "14ff13cd52d1344c7b683de19eb8cbaa53852d7c20d11dfffc0dd28b66b4cd35"
+  url "https://github.com/ipinfo/cli/archive/ipinfo-2.4.0.tar.gz"
+  sha256 "cb5a5d7d330d30ae951e871f5451fb7133fae418bd3df3b49d900f9d7978cf07"
   license "Apache-2.0"
 
   livecheck do
@@ -11,18 +11,23 @@ class IpinfoCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cc14b9d6a438771809fe68121f2c9db0d72df6a7eddf202e983ce833368c8a96"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "72edbc4141b056d325e1fb22ea7dd294fee7598a4e1728c87da000388db700d2"
-    sha256 cellar: :any_skip_relocation, monterey:       "9df8e77ed1d5918d04bc25b531c54b21fa72ebb3e41e277e5ba7441352fd3294"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b07a99156cc74d938635140d298e0752e9e8572b24f1a8faaf5909f04bb2d696"
-    sha256 cellar: :any_skip_relocation, catalina:       "e3aa4bfc01d7d193c315b0c73faaef3498e04bf886856729e95204d5a6535f9c"
-    sha256 cellar: :any_skip_relocation, mojave:         "f8c44267de04947968db348deb8ba79b0d0286484f41a571008d9526ab9e49cf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cb89e1ea86ea6207500ce5bf4374db51174cf8833883a468d406db940a2c5930"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8c17ecd9001555f7452c45892e41ad352c6977ae59ae6bd313fa29b3e7848b0c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1a52b0bb4315f6ad226428a0a87b590f0712fa326cd77ef4360017d4ff9bea4b"
+    sha256 cellar: :any_skip_relocation, monterey:       "f313f39fa0f4a11e2ed6f93ee1260aa451ebafcee3347837eb803e1a2575595f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "027878128db321f16d722f3df42c19a492e218a40ced2b5765d66c4a59d4d186"
+    sha256 cellar: :any_skip_relocation, catalina:       "8926249393809267b7c6edcc1594bfc2c8da9c7e435425d85e8d736de98a78a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "38287f1224c8e9fa73bcaa50342a83c80ec67ec4ce31afd93b5e9d7da0e66cd0"
   end
 
   depends_on "go" => :build
 
   conflicts_with "ipinfo", because: "ipinfo and ipinfo-cli install the same binaries"
+
+  # Correct version string. Remove on next release.
+  patch do
+    url "https://github.com/ipinfo/cli/commit/f75931a7af513c8aa3d03b37aa4ab5854db54e89.patch?full_index=1"
+    sha256 "b5796aca4db45b2d05b40e3f96e4bf11c200510b5acc308dedbda0993a25d5b4"
+  end
 
   def install
     system "./ipinfo/build.sh"

@@ -1,8 +1,8 @@
 class Prometheus < Formula
   desc "Service monitoring system and time series database"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/prometheus/archive/v2.30.3.tar.gz"
-  sha256 "66a835096e717c11db2ecb5f948c6346868fa1f877196ee2237fb4630df97c06"
+  url "https://github.com/prometheus/prometheus/archive/v2.31.1.tar.gz"
+  sha256 "869a8be315721115be628f766ec3ff71aa50f1a027cee776ea54d7ba070a5026"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,12 @@ class Prometheus < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fefbed7117320e05da0bd4dbf48515877d5cef128c70799191a3593b2c8a362c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "97621b99e959e16419b9539bf7162a1fda9367580da427a8533a3e9e74cf3de9"
-    sha256 cellar: :any_skip_relocation, monterey:       "60ec8d5eeecb91faad842e889b9a559eb6143927bdc4900cffadd753ab80dd30"
-    sha256 cellar: :any_skip_relocation, big_sur:        "df45f718948efe0c8aac092333b79151aa9652b5927c2127c542cd40067f068d"
-    sha256 cellar: :any_skip_relocation, catalina:       "16b43830daf9666454eef51b71b190295ef777abc4c0f736147d1ffa44f9301c"
-    sha256 cellar: :any_skip_relocation, mojave:         "d4a48002a602a51a97a5a30206986979a6ff6bf751963d939ce706f3e4ff05d5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8e357ffc40d706b9732dfd82b4e8f6e92f51029524b5cd605c0b0e3599d794a1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0f5703657b49c2f3e4b90bd6fe47921386cc6f9360d7d092564e877c44f9258e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f727d9ffcaa74c371d893635550229c24ee71faf0dbe6982a94cb6e064c4f80e"
+    sha256 cellar: :any_skip_relocation, monterey:       "3d6dd4581a6f6b48bbb4bb827013d1ad2e9c9d62ee9ae948b49fe8e1496cfe27"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d3e6f30242f6a82d6bfd45dcaf5e545be4598d25ea9ed0406f1fdef71b915d58"
+    sha256 cellar: :any_skip_relocation, catalina:       "451a4aa54b431ff81b1f0da3166a6a660f67a0ef95e1801907856a353885b2bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "817cd8df03fadf69b53cedd8e357927babb0c5938c9efbe1f1a2772312f630b8"
   end
 
   depends_on "go" => :build

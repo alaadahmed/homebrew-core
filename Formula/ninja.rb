@@ -4,6 +4,7 @@ class Ninja < Formula
   url "https://github.com/ninja-build/ninja/archive/v1.10.2.tar.gz"
   sha256 "ce35865411f0490368a8fc383f29071de6690cbadc27704734978221f25e2bed"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/ninja-build/ninja.git", branch: "master"
 
   livecheck do
@@ -12,21 +13,19 @@ class Ninja < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "04c4a974715862de90cabc98e581cdb969b6b913b4712450cf3e62ee3467e0a7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2ba394fee0825079adf179dfaebd6d38ac3e4918d851f3e844b52bdd6a97b12b"
-    sha256 cellar: :any_skip_relocation, monterey:       "34eef7bc5f28ca0b489bbc02d0fc3a3b1b8f32492563985a68179d30b27fdab5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a024937b955212892b810dbe09af351b8966448cab497db3d81cd6ca829cd8ec"
-    sha256 cellar: :any_skip_relocation, catalina:       "07ce960dd5c57859916a09090ef9b747a28c56892d60cc91c29b85c8cc13d902"
-    sha256 cellar: :any_skip_relocation, mojave:         "b9c82b12477142c1a4ed7d030d9227b6c351fbe7747f3533e37607e5497db22b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f8668b179edcaf6f918dbd83aea05c421015c46c546a9b0744b5c723a2737d55"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8efac5a9c8b7028f64f5a092eb029ff40887b9895fe4235e3fb8bade6a24cada"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c2dc001768f9e52e1f5dc30c97e8c18e3b9711075ea68890a74adb4b4a5f2551"
+    sha256 cellar: :any_skip_relocation, monterey:       "7a28d090cbec60072c3df5c35be0fa45761d18ce06567120951aa0ded80ff72d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b3e0b14cffa2d227c0b4140c1a3742a2a4e7e3966a429e1d253b0e29acfb6293"
+    sha256 cellar: :any_skip_relocation, catalina:       "11c2a3cf1cd415a81ff7206f48b77dbe851b593bd163979dfdcb11266d24307a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f3837361ee7a7d2646a84db1aee70fff51f957c573e0c7a61b04a91f1ce1ae24"
   end
 
   # Ninja only needs Python for some non-core functionality.
-  depends_on "python@3.9" => [:build, :test]
+  depends_on "python@3.10" => [:build, :test]
 
   def install
-    py = Formula["python@3.9"].opt_bin/"python3"
+    py = Formula["python@3.10"].opt_bin/"python3"
     system py, "./configure.py", "--bootstrap", "--verbose", "--with-python=python3"
 
     bin.install "ninja"
@@ -49,9 +48,9 @@ class Ninja < Formula
     system bin/"ninja", "-t", "targets"
     port = free_port
     fork do
-      exec bin/"ninja", "-t", "browse", "--port=#{port}", "--no-browser", "foo.o"
+      exec bin/"ninja", "-t", "browse", "--port=#{port}", "--hostname=127.0.0.1", "--no-browser", "foo.o"
     end
     sleep 2
-    assert_match "foo.c", shell_output("curl -s http://localhost:#{port}?foo.o")
+    assert_match "foo.c", shell_output("curl -s http://127.0.0.1:#{port}?foo.o")
   end
 end

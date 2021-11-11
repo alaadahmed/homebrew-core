@@ -1,18 +1,16 @@
 class Octave < Formula
   desc "High-level interpreted language for numerical computing"
   homepage "https://www.gnu.org/software/octave/index.html"
-  url "https://ftp.gnu.org/gnu/octave/octave-6.3.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/octave/octave-6.3.0.tar.xz"
-  sha256 "fb472cb957c748670391cbc3385ff230cf44832bc314fee359e43c69cf9da5ef"
+  url "https://ftp.gnu.org/gnu/octave/octave-6.4.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/octave/octave-6.4.0.tar.xz"
+  sha256 "6c1555f5aff0e655b88cad8e8bc2b740ec3a6f3f61898e4997359c2af55e5d20"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
-    sha256 arm64_big_sur: "0b7a9156e2160caa28bf0d545b8e627582b9470c4517c19966de6d5e24e6141b"
-    sha256 big_sur:       "088f112687c0706417c97f8ea5492c64a46dc95577c27ed78d27ce5573d5f03e"
-    sha256 catalina:      "4321a0c3d4625f4503bd41e0b02b39f1a7993b6e3d6ebb1a216a403b8d366b1c"
-    sha256 mojave:        "1c4b0f3ec21cd8bf37154c3e9fb58a2174f8db5fc00be726427919160b40417d"
-    sha256 x86_64_linux:  "b9713f64b36cee185b8b580b5641724a371bb6529fa3dd906f6fde2142b6b812"
+    sha256 arm64_big_sur: "25dbd28b63a21bbe176111bea2b9234ff1b2f2c4fd2896d54357477ee15e06ed"
+    sha256 big_sur:       "58dd78d16e7a65a6377234623c8f99e19fcecdbf1e076564ebfbe7684831c316"
+    sha256 catalina:      "010b5a81eaa0f915eb4e83b84b43b86613436095cabe6361b7d76fb37b6cff68"
+    sha256 x86_64_linux:  "61a160547f61806c5c7458c7b5cd1e421fa6661c94c0e345e072d1acca10c9ae"
   end
 
   head do

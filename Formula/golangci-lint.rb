@@ -2,19 +2,18 @@ class GolangciLint < Formula
   desc "Fast linters runner for Go"
   homepage "https://golangci-lint.run/"
   url "https://github.com/golangci/golangci-lint.git",
-      tag:      "v1.42.1",
-      revision: "54f4301ddfc884a7eac5b6ebf68868d6078279d3"
+      tag:      "v1.43.0",
+      revision: "861262b71f42542304a28afe0b396e788e6e4638"
   license "GPL-3.0-only"
   head "https://github.com/golangci/golangci-lint.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3264cebec318f099ad435e4807a63bb8f740e3b63d84596ca93af30df43bc1ec"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0e7f13fd8b6e7eb315a66d810ee22d53e5337a40a4855f0befe3a7cb1fc511c0"
-    sha256 cellar: :any_skip_relocation, monterey:       "9a5b7e0013df38c9b1267e82e8bdff182fb59a71178a468aa4d69e096642db4d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bcbdd5583eeacfd97dde10cd5db41dff4a473f14ebf53d0cb7aa99ae9a241dbc"
-    sha256 cellar: :any_skip_relocation, catalina:       "218b2b3110ab2a1fe46b7eae2f8ebab0c320f92b44b3b3b00796e8bd9ce01256"
-    sha256 cellar: :any_skip_relocation, mojave:         "eb9c9bac43be153ec8a69329409fc0786744a8c8992fa93403797a4aa663f150"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "59b45d6e936c53b98f7e2420b2726bd8dc5ffa2d73bb3dbc2af6b7a2361066a1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a935b9b430bc899543fe6dd374c7e5624af57fda3e49098c61f9882b62eb641b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c090e8d091cb302aea16871dfa409256a9e0d27c58040c2de9e91940a531495b"
+    sha256 cellar: :any_skip_relocation, monterey:       "6a980f7ea6b0e0b8f975e23851971d53608e652d82777d02b49a6835642ea0c4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a1ba5745eecd393c4cc48b67beef04be690ff05e12b47a6973d5342452c992d3"
+    sha256 cellar: :any_skip_relocation, catalina:       "e0209be1eb5db379cec6e45658fc3f0a30211c025d99ee50bfa41f5a165522a1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad31ae03a4266eaf19e60777d93bf34f8e38728c2a681c6cea78305acfc093fb"
   end
 
   depends_on "go"

@@ -35,6 +35,9 @@
     "exclude_packages": ["six"]
   },
   "black": "black[d]",
+  "bpython": {
+    "exclude_packages": ["six"]
+  },
   "bpytop": "bpytop",
   "breezy": {
     "exclude_packages": ["six"]
@@ -201,6 +204,9 @@
   "organize-tool": {
     "exclude_packages": ["six"]
   },
+  "osc-cli": {
+    "exclude_packages": ["six"]
+  },
   "parliament": {
     "exclude_packages": ["six"]
   },
@@ -213,6 +219,9 @@
   },
   "pgcli": {
     "exclude_packages": ["six", "tabulate"]
+  },
+  "pipenv": {
+    "exclude_packages": ["six"]
   },
   "pipgrip": {
     "exclude_packages": ["six"],
@@ -412,6 +421,10 @@
   "tarsnapper": {
     "exclude_packages": ["six"]
   },
+  "trezor-agent": {
+    "exclude_packages": ["pillow", "six"],
+    "extra_packages": ["ledger-agent", "keepkey-agent"]
+  },
   "theharvester": {
     "exclude_packages": ["six"]
   },
@@ -422,6 +435,9 @@
     "exclude_packages": ["six"]
   },
   "twarc": {
+    "exclude_packages": ["six"]
+  },
+  "twine-pypi": {
     "exclude_packages": ["six"]
   },
   "virtualenv": {

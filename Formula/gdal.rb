@@ -1,10 +1,9 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "https://www.gdal.org/"
-  url "https://download.osgeo.org/gdal/3.3.2/gdal-3.3.2.tar.xz"
-  sha256 "630e34141cf398c3078d7d8f08bb44e804c65bbf09807b3610dcbfbc37115cc3"
+  url "https://download.osgeo.org/gdal/3.3.3/gdal-3.3.3.tar.xz"
+  sha256 "1e8fc8b19c77238c7f4c27857d04857b65d8b7e8050d3aac256d70fa48a21e76"
   license "MIT"
-  revision 3
 
   livecheck do
     url "https://download.osgeo.org/gdal/CURRENT/"
@@ -12,11 +11,10 @@ class Gdal < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "ec5a0e91c09eab98f8bd0196abfb4d25ae1ba5f36517f6159caef0a89cb99f52"
-    sha256 big_sur:       "37251c904a4e4377c7ee5be304e96b616306a223fe9fde09ee643172348bc2cf"
-    sha256 catalina:      "f0924428cee9dd28897ad594c55b8d1646194aa52e2d00b99200589dc61eac4d"
-    sha256 mojave:        "7b8ea1eeef50309b0c43086bfaa20dec57e505214d1e464c9062d8f727a5378d"
-    sha256 x86_64_linux:  "09110d7d9754270df1ed263910f9f1bfa5c33c44b25b6e856ab1439fa91f7c08"
+    sha256 arm64_big_sur: "cf24ff841159ef1e4a4dbcd1c64a543c7c806333fd7ff2ecf9122c1aff2f1560"
+    sha256 big_sur:       "1ff27b4aa2b0d3c7f21921703b95fc56d10c111ad824a8a348f8f9571ab1e7a8"
+    sha256 catalina:      "818ac10ec3a4785e92e09f527aad6c8cf69c14684275d84bfdfc4f53ab77d061"
+    sha256 x86_64_linux:  "2b6aeb16453955940fdfae76dd446bcdcd1a9610af98504077569bcaccb8bd9d"
   end
 
   head do
@@ -66,12 +64,6 @@ class Gdal < Formula
   conflicts_with "cpl", because: "both install cpl_error.h"
 
   fails_with gcc: "5"
-
-  # Fix build with Poppler 21.10+
-  patch :p2 do
-    url "https://github.com/OSGeo/gdal/commit/9c09870e374ca21d558101af3f4c09a6164fdfc3.patch?full_index=1"
-    sha256 "b633210796bf07bc7a98f55e80045fbaeeef77781c0a801831fa52c69576f420"
-  end
 
   def install
     args = [

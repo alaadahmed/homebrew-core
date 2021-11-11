@@ -3,17 +3,17 @@ class SvtplayDl < Formula
 
   desc "Download videos from https://www.svtplay.se/"
   homepage "https://svtplay-dl.se/"
-  url "https://files.pythonhosted.org/packages/75/24/b7383220b002857995ff8bc68c5ef37adea8a7283c742cb35cb5501ddc2c/svtplay-dl-4.8.tar.gz"
-  sha256 "195fcd1f691d72e7f3be89fb473b036c0c534be85e24f2316bad6427ef621307"
+  url "https://files.pythonhosted.org/packages/1a/bc/d74decb2cdb4277e5cbe51f24c751f45bbd387cb4f411079c8f2e23591a3/svtplay-dl-4.9.tar.gz"
+  sha256 "4e33a9e4cbca0b0504501f4de9cfc0b4066a61920515bc436269693eec2e7d28"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "7b9e4ff594b8acd6a8650526e8089e3e36165a606b323e9fb342ba17cd5f72d9"
-    sha256 cellar: :any,                 arm64_big_sur:  "901d1e60376756726ab39f48c52f79f0cf635699b4693c6bbc11b025ed05b548"
-    sha256 cellar: :any,                 monterey:       "d66cd94ceb1792a6d30d1b6588b1bb920758121347b5e60c3af89a33a48c7c4a"
-    sha256 cellar: :any,                 big_sur:        "9b0d5c7ae341bfd77dc184f30a3b03e49dda9bd25ebca39d8dafbac63d32c007"
-    sha256 cellar: :any,                 catalina:       "f1eac5019c9b2e39325c37d4b40ffebeed8264d7db11cef62cdff6e9760acb45"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0180271bb24b060fbe0d9611db38a424ff823296bfd7f2cfa2a49105bfbde254"
+    sha256 cellar: :any,                 arm64_monterey: "60c3c11b9f6151cb5baff614a0cbbf9589da44b8329eb123c9e88a094f83fe5e"
+    sha256 cellar: :any,                 arm64_big_sur:  "241db303b7829668a3c40091b3df0dc1c6832467496ff103a13e10a3a913d817"
+    sha256 cellar: :any,                 monterey:       "b68527b13896dd6ddee8809a47917d4c06655036e1836ff1a6b589b208a0d4ee"
+    sha256 cellar: :any,                 big_sur:        "2a4938fd4cffbc63613446190ab161d3cbafbbc18b384798af2ef9251e11c1c1"
+    sha256 cellar: :any,                 catalina:       "2302f7657538de3bf58ba28aa7f2deef4f602b80ee2e4d8af44307655b01ce72"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a3c57e5a40dd667d449953899624e5a6208fc5d715c3b5769bf950a92dec25d"
   end
 
   depends_on "rust" => :build

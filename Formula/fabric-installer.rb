@@ -1,8 +1,8 @@
 class FabricInstaller < Formula
   desc "Installer for Fabric for the vanilla launcher"
   homepage "https://fabricmc.net/"
-  url "https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.8.0/fabric-installer-0.8.0.jar"
-  sha256 "9ff97d46e058fb036a9aa1e93882f48fe503d4a16438cc75370aa31813903f0d"
+  url "https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.9.0/fabric-installer-0.9.0.jar"
+  sha256 "11bf2058eb2d0441e1af38f570c5b920571449dadb2e316fcf021ba78443592b"
   license "Apache-2.0"
 
   # The first-party download page (https://fabricmc.net/use/) uses JavaScript
@@ -13,7 +13,12 @@ class FabricInstaller < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "31aeacbd74a55ed5c749d3851d0b9a9ac582cf2664244ff940c82e6d6f9bdc7f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4b7fa19341a08ead6b8188ecf0cf61e4f6eca400c416ddb94b6f65de17b17a82"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4b7fa19341a08ead6b8188ecf0cf61e4f6eca400c416ddb94b6f65de17b17a82"
+    sha256 cellar: :any_skip_relocation, monterey:       "4b7fa19341a08ead6b8188ecf0cf61e4f6eca400c416ddb94b6f65de17b17a82"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4b7fa19341a08ead6b8188ecf0cf61e4f6eca400c416ddb94b6f65de17b17a82"
+    sha256 cellar: :any_skip_relocation, catalina:       "4b7fa19341a08ead6b8188ecf0cf61e4f6eca400c416ddb94b6f65de17b17a82"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4b7fa19341a08ead6b8188ecf0cf61e4f6eca400c416ddb94b6f65de17b17a82"
   end
 
   depends_on "openjdk"

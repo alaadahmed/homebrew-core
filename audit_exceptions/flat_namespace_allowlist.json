@@ -1,7 +1,10 @@
 [
+  "adios2",
   "arpack",
   "blast",
+  "libvirt",
   "mpich",
+  "omniorb",
   "open-mpi",
   "pypy",
   "pypy3",

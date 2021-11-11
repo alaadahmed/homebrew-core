@@ -1,8 +1,8 @@
 class Jenkins < Formula
   desc "Extendable open source continuous integration server"
   homepage "https://www.jenkins.io/"
-  url "https://get.jenkins.io/war/2.317/jenkins.war"
-  sha256 "063c1ae43e832f3ebcf82fb9191f9ae2e5a3d877c63861a8a58080249f9d04b9"
+  url "https://get.jenkins.io/war/2.320/jenkins.war"
+  sha256 "b847cf68825f2b81bd41981177b87e8e8ffa18a708085901c38f7ed2518f9027"
   license "MIT"
 
   livecheck do
@@ -11,11 +11,7 @@ class Jenkins < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "54ff174b8a8ae077680517132e61dec833542c359597baf238a0bbdb5081c66a"
-    sha256 cellar: :any_skip_relocation, big_sur:       "54ff174b8a8ae077680517132e61dec833542c359597baf238a0bbdb5081c66a"
-    sha256 cellar: :any_skip_relocation, catalina:      "54ff174b8a8ae077680517132e61dec833542c359597baf238a0bbdb5081c66a"
-    sha256 cellar: :any_skip_relocation, mojave:        "54ff174b8a8ae077680517132e61dec833542c359597baf238a0bbdb5081c66a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "92cb94ca4b56f7afa43494edbc85acc4360b4b9c487e43bf33b5788697cc606b"
+    sha256 cellar: :any_skip_relocation, all: "669eed92103ac0020e8faa1e94903f9e425b833760f3ab1ee727aa69cd8bf94c"
   end
 
   head do

@@ -1,8 +1,8 @@
 class Flyway < Formula
   desc "Database version control to control migrations"
   homepage "https://flywaydb.org/"
-  url "https://search.maven.org/remotecontent?filepath=org/flywaydb/flyway-commandline/8.0.1/flyway-commandline-8.0.1.tar.gz"
-  sha256 "2a32fb2cbc9ecb47f76f89cd00f2a7f670032ce630d3e735107ef799c7ab80ef"
+  url "https://search.maven.org/remotecontent?filepath=org/flywaydb/flyway-commandline/8.0.3/flyway-commandline-8.0.3.tar.gz"
+  sha256 "f68e94f830b747bdb5c7c8daaec18980a2c5473253cef4d913e0f8c79220ec13"
   license "Apache-2.0"
 
   livecheck do
@@ -11,7 +11,12 @@ class Flyway < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "fcbdde99d4bb0262c5946d1b4422dec57453e13c1d10ac09872a4f8c352a3368"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "823df6476a168a995f0d61c08a95293bb972431a35584befe480a676fe0d769c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "823df6476a168a995f0d61c08a95293bb972431a35584befe480a676fe0d769c"
+    sha256 cellar: :any_skip_relocation, monterey:       "823df6476a168a995f0d61c08a95293bb972431a35584befe480a676fe0d769c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "823df6476a168a995f0d61c08a95293bb972431a35584befe480a676fe0d769c"
+    sha256 cellar: :any_skip_relocation, catalina:       "823df6476a168a995f0d61c08a95293bb972431a35584befe480a676fe0d769c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "823df6476a168a995f0d61c08a95293bb972431a35584befe480a676fe0d769c"
   end
 
   depends_on "openjdk"

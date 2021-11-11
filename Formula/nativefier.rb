@@ -3,18 +3,17 @@ require "language/node"
 class Nativefier < Formula
   desc "Wrap web apps natively"
   homepage "https://github.com/nativefier/nativefier"
-  url "https://registry.npmjs.org/nativefier/-/nativefier-45.0.4.tgz"
-  sha256 "7c60f25d0e45bfcd7a33fd0571af6eb741d904a8793789137a218658a1d11113"
+  url "https://registry.npmjs.org/nativefier/-/nativefier-45.0.5.tgz"
+  sha256 "6c962e14cdbfd428e0e1ae524ba034f1c2fc2e1514a2f6edafbe56ffe605bbc5"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ce8e2839d76097452b473f9463eec42e6e0ccf01444b37b1a5692adaf81aec1a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c57703c3c97cee01650b15c63096e5f23385cdcf15fd97efaa26f208fdfc48e2"
-    sha256 cellar: :any_skip_relocation, monterey:       "0a9b546986eb3648b39b68984009ee28220aadad021d9b939541438a841f23c8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1cc32b34b41e7da11590706b36f317e340f2e6e9725cdeaf588b5228179102dc"
-    sha256 cellar: :any_skip_relocation, catalina:       "1cc32b34b41e7da11590706b36f317e340f2e6e9725cdeaf588b5228179102dc"
-    sha256 cellar: :any_skip_relocation, mojave:         "1cc32b34b41e7da11590706b36f317e340f2e6e9725cdeaf588b5228179102dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c57703c3c97cee01650b15c63096e5f23385cdcf15fd97efaa26f208fdfc48e2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5ff315eaecd82eae1478d0b72ebf6a6db93e98762cec28986a41365aded6d300"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5ff315eaecd82eae1478d0b72ebf6a6db93e98762cec28986a41365aded6d300"
+    sha256 cellar: :any_skip_relocation, monterey:       "ae009def671e5054a1af48325099b638065b85f91332e5b78a3a6a2c55f0b738"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ae009def671e5054a1af48325099b638065b85f91332e5b78a3a6a2c55f0b738"
+    sha256 cellar: :any_skip_relocation, catalina:       "ae009def671e5054a1af48325099b638065b85f91332e5b78a3a6a2c55f0b738"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5ff315eaecd82eae1478d0b72ebf6a6db93e98762cec28986a41365aded6d300"
   end
 
   depends_on "node"

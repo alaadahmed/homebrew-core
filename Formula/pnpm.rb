@@ -3,8 +3,8 @@ class Pnpm < Formula
 
   desc "📦🚀 Fast, disk space efficient package manager"
   homepage "https://pnpm.io/"
-  url "https://registry.npmjs.org/pnpm/-/pnpm-6.19.1.tgz"
-  sha256 "c3cdaafab9eb6d3a41e6c4e0deef0ed942a80dce92911410158c5d8c39f7a21e"
+  url "https://registry.npmjs.org/pnpm/-/pnpm-6.21.0.tgz"
+  sha256 "33b87b798524ee2b09fb8c4f63e391db99dfd717fbcc55fa4a8d56b1ecea22ce"
   license "MIT"
 
   livecheck do
@@ -13,15 +13,17 @@ class Pnpm < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5ba5ed7c23ef0a16a2de099215c0d16d1796e7204e1ca5ccf75485ba93874a37"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5ba5ed7c23ef0a16a2de099215c0d16d1796e7204e1ca5ccf75485ba93874a37"
-    sha256 cellar: :any_skip_relocation, monterey:       "3d6423aa8478f7d6d216d5e75f7916d599a03638879c2c48783e55ee31248821"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1116ba4b1d524325b5baf9d8c7a6347356ff52071ce69d4997c947e82d606fbc"
-    sha256 cellar: :any_skip_relocation, catalina:       "1116ba4b1d524325b5baf9d8c7a6347356ff52071ce69d4997c947e82d606fbc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5ba5ed7c23ef0a16a2de099215c0d16d1796e7204e1ca5ccf75485ba93874a37"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fb6229b341927b9af72abae4cc270e3a77965a526f56c621ad6ef57bde665eb2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fb6229b341927b9af72abae4cc270e3a77965a526f56c621ad6ef57bde665eb2"
+    sha256 cellar: :any_skip_relocation, monterey:       "26aefe3c41dffa14f9065497f0f4fb2289bbaf1c035367837a6290dc12f2c999"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d4bc7afa3e317dc3d941e3dbaa6200681efbd6766df28ea290b53347eb6fdd08"
+    sha256 cellar: :any_skip_relocation, catalina:       "d4bc7afa3e317dc3d941e3dbaa6200681efbd6766df28ea290b53347eb6fdd08"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb6229b341927b9af72abae4cc270e3a77965a526f56c621ad6ef57bde665eb2"
   end
 
   depends_on "node"
+
+  conflicts_with "corepack", because: "both installs `pnpm` and `pnpx` binaries"
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)

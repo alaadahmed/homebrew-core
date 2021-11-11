@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v0.70.0",
-      revision: "0acf0158796b0244a24623f3ee9d6ea0d9ac2dad"
+      tag:      "v0.72.0",
+      revision: "c93b7edcfc4793b20ac5909a921d0c0efcd4fece"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -15,11 +15,12 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "7655b45f87adcf6746abc73f36b4d581a6bf3f62b18cf26cec6fdbf495af8b76"
-    sha256 cellar: :any, big_sur:       "c1ba5e8c2cbd8344c6fddc47af2960b7c0709072cced99d81191c6d6b9ed53ca"
-    sha256 cellar: :any, catalina:      "a001c7cec9effd55f780e30e2db57c01c871760951f1220487cf9b5e9ffbdb1b"
-    sha256 cellar: :any, mojave:        "6ae74f296dd8ec58010e069b389f523fa3af1d1b8c655153406902bb46ef50ae"
-    sha256               x86_64_linux:  "b99357d0ebd92cd3e938b441b9e049d4e51e56726940bed272bc52e3c9c0e37f"
+    sha256 cellar: :any, arm64_monterey: "210e281456149bded7f685450f8350a803f7c3d5846e1f22de8f9a6a5a4ee6a8"
+    sha256 cellar: :any, arm64_big_sur:  "fd9901da91c0ed7f542542e6be65fca1609715554c58ae1495a0969c07b7e116"
+    sha256 cellar: :any, monterey:       "0517ccb2fb7daf20c5eb22c34a0b9b5884c7ffb756ed5f7690fa5e9aad9b87d0"
+    sha256 cellar: :any, big_sur:        "469c33693d51e097eb68603330f2d78f3a0a400bd7dd9b9edc89db3353617ebd"
+    sha256 cellar: :any, catalina:       "d5bb5baedc89fbb1bc79a2874d365796a51284839fb882d6fdf9d37c51d31a04"
+    sha256               x86_64_linux:   "2859373cb99dfddf0d60db6508722a254000b385f25a113a4b0d35a5ae5207e3"
   end
 
   depends_on "cmake" => :build
@@ -46,8 +47,8 @@ class Semgrep < Formula
   end
 
   resource "bracex" do
-    url "https://files.pythonhosted.org/packages/10/d5/0f2fa4d62d905c159ad3f81fb3b0446d5ef5a900ca942d2995f441b5c440/bracex-2.2.tar.gz"
-    sha256 "8230f3a03f1f76c192a7844377124300fbaec83870a728b629dfabd9be9e83d0"
+    url "https://files.pythonhosted.org/packages/bd/ef/6273bba9e5bc615aab4997159eeaddfe03c825eeabe2942c39e91be5afec/bracex-2.2.1.tar.gz"
+    sha256 "1c8d1296e00ad9a91030ccb4c291f9e4dc7c054f12c707ba3c5ff3e9a81bcd21"
   end
 
   resource "certifi" do
@@ -86,13 +87,13 @@ class Semgrep < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/df/86/aef78bab3afd461faecf9955a6501c4999933a48394e90f03cd512aad844/packaging-21.0.tar.gz"
-    sha256 "7dc96269f53a4ccec5c0670940a4281106dd0bb343f47b7471f779df49c2fbe7"
+    url "https://files.pythonhosted.org/packages/4d/34/523195b783e799fd401ad4bbc40d787926dd4c61838441df08bf42297792/packaging-21.2.tar.gz"
+    sha256 "096d689d78ca690e4cd8a89568ba06d07ca097e3306a4381635073ca91479966"
   end
 
   resource "peewee" do
-    url "https://files.pythonhosted.org/packages/c9/51/3b2ded25a1cd51d1096bda8e0d1474712fe71efd374ae39b86c73a83d648/peewee-3.14.4.tar.gz"
-    sha256 "9e356b327c2eaec6dd42ecea6f4ddded025793dba906a3d065a0452e726c51a2"
+    url "https://files.pythonhosted.org/packages/bc/02/7ad123e327bf339274f3ba407e747f23337c270bb25b94d7cc07fb0f52fc/peewee-3.14.8.tar.gz"
+    sha256 "01bd7f734defb08d7a3346a0c0ca7011bc8d0d685934ec0e001b3371d522ec53"
   end
 
   resource "pyparsing" do
@@ -111,8 +112,8 @@ class Semgrep < Formula
   end
 
   resource "ruamel.yaml" do
-    url "https://files.pythonhosted.org/packages/71/81/f597606e81f53eb69330e3f8287e9b5a3f7ed0481824036d550da705cd82/ruamel.yaml-0.17.16.tar.gz"
-    sha256 "1a771fc92d3823682b7f0893ad56cb5a5c87c48e62b5399d6f42c8759a583b33"
+    url "https://files.pythonhosted.org/packages/4d/15/7fc04de02ca774342800c9adf1a8239703977c49c5deaadec1689ec85506/ruamel.yaml-0.17.17.tar.gz"
+    sha256 "9751de4cbb57d4bfbf8fc394e125ed4a2f170fbff3dc3d78abf50be85924f8be"
   end
 
   resource "ruamel.yaml.clib" do

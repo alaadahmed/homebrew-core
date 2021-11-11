@@ -1,17 +1,17 @@
 class Actionlint < Formula
   desc "Static checker for GitHub Actions workflow files"
   homepage "https://rhysd.github.io/actionlint/"
-  url "https://github.com/rhysd/actionlint/archive/v1.6.6.tar.gz"
-  sha256 "af5c9e93053c16204d9d92d3dbc7bb3c1cd65f259d294a69e45af45113fd79ad"
+  url "https://github.com/rhysd/actionlint/archive/v1.6.7.tar.gz"
+  sha256 "21550aae8fc0369072b865e2f75b6064ad382314143e6c02d14791606af92759"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d63e74ca7623ab80f10e293947a7e397a33f2dc5a7193c63ed303c5d799a3318"
-    sha256 cellar: :any_skip_relocation, big_sur:       "fd683adc5b4b9b05915d8df60de311c22c5e945f2f222497d887b145cd160d77"
-    sha256 cellar: :any_skip_relocation, catalina:      "fd683adc5b4b9b05915d8df60de311c22c5e945f2f222497d887b145cd160d77"
-    sha256 cellar: :any_skip_relocation, mojave:        "fd683adc5b4b9b05915d8df60de311c22c5e945f2f222497d887b145cd160d77"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7a8893c093a81d33fdc180a79de742930db5a2c173ab7bf8a4567eff0108e75"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "aa3ef1e70003fd7f6d3acb239a61643d9a2f7ced9c3c5e867a626d3225b7be2e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "aa3ef1e70003fd7f6d3acb239a61643d9a2f7ced9c3c5e867a626d3225b7be2e"
+    sha256 cellar: :any_skip_relocation, monterey:       "0a8ecc15685af87c7a1ab8680e886a3cf010dbf74d7fd308b13874bc78850d7f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0a8ecc15685af87c7a1ab8680e886a3cf010dbf74d7fd308b13874bc78850d7f"
+    sha256 cellar: :any_skip_relocation, catalina:       "0a8ecc15685af87c7a1ab8680e886a3cf010dbf74d7fd308b13874bc78850d7f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c197da159e7a26b5dcfb91e260bb7ede4ddb538f2a32cd9b6d866c3c88d92808"
   end
 
   depends_on "go" => :build

@@ -3,20 +3,18 @@ class Fonttools < Formula
 
   desc "Library for manipulating fonts"
   homepage "https://github.com/fonttools/fonttools"
-  url "https://files.pythonhosted.org/packages/37/8b/867cdac69d5212b3eee781e40cfe539c4d9d7b2d4c9290bcdecd2d218176/fonttools-4.27.1.zip"
-  sha256 "6e483f77dc5b862452c2888ec944fca5b79cffb741c7469786a442360681b4e8"
+  url "https://files.pythonhosted.org/packages/47/bb/7d54c8764ec928c348a329bf745bc73029742cd57efffc1530f8c5ac6d4c/fonttools-4.28.1.zip"
+  sha256 "8c8f84131bf04f3b1dcf99b9763cec35c347164ab6ad006e18d2f99fcab05529"
   license "MIT"
-  revision 1
   head "https://github.com/fonttools/fonttools.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "65efa10b0d79980cf764344216335374c25bb7b8d6fab762a4864b736b3fb032"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "65efa10b0d79980cf764344216335374c25bb7b8d6fab762a4864b736b3fb032"
-    sha256 cellar: :any_skip_relocation, monterey:       "3591897c765569aee11951cddd69b1515bacaa87b9a686e1d9e80a7a87c9b7f0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3591897c765569aee11951cddd69b1515bacaa87b9a686e1d9e80a7a87c9b7f0"
-    sha256 cellar: :any_skip_relocation, catalina:       "3591897c765569aee11951cddd69b1515bacaa87b9a686e1d9e80a7a87c9b7f0"
-    sha256 cellar: :any_skip_relocation, mojave:         "3591897c765569aee11951cddd69b1515bacaa87b9a686e1d9e80a7a87c9b7f0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a929e130230b40b124171e2ca174d6c9caf2d7a210585386cf0a1e06e445fcf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "97fce3ec5330c878922b1fa75ea2a59159d6f64cf23970fcc4002fda844922ea"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "97fce3ec5330c878922b1fa75ea2a59159d6f64cf23970fcc4002fda844922ea"
+    sha256 cellar: :any_skip_relocation, monterey:       "57e6ff73ba7945dfde0227413a69e984fcb291d333ff53447e649bd063530d1b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "57e6ff73ba7945dfde0227413a69e984fcb291d333ff53447e649bd063530d1b"
+    sha256 cellar: :any_skip_relocation, catalina:       "57e6ff73ba7945dfde0227413a69e984fcb291d333ff53447e649bd063530d1b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "47edc19b0e0dd59c31c9f5ced3ba45d74185bd7c28473079013539363c94d8d9"
   end
 
   depends_on "python@3.10"

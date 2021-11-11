@@ -6,14 +6,18 @@ class Fennel < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "61413fc779425837a7498ece98d85016b3a5d26f1ffb5099f6363afe058b2290"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "9f4a301802dbcb62c3fc2e6aa60d8bacacdddbd851ec1f70a99df4d93eed63ef"
   end
 
   depends_on "lua"
 
   def install
-    system "make", "fennel"
+    system "make"
     bin.install "fennel"
+
+    lua = Formula["lua"]
+    (share/"lua"/lua.version.major_minor).install "fennel.lua"
   end
 
   test do

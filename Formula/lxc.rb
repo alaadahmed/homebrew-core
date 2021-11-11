@@ -1,8 +1,8 @@
 class Lxc < Formula
   desc "CLI client for interacting with LXD"
   homepage "https://linuxcontainers.org"
-  url "https://linuxcontainers.org/downloads/lxd/lxd-4.19.tar.gz"
-  sha256 "6e4cf6cb1549e1b56802d64ad24d812914e0c0102bfcf146bb18a8dcd1fbab57"
+  url "https://linuxcontainers.org/downloads/lxd/lxd-4.20.tar.gz"
+  sha256 "35504ef2e2dc7024b7088010987657969b1e2dea5581b24b4294f8f449248ed5"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,12 @@ class Lxc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ed9aac80ad29cd09778bdab57cc4bbcfbcb054d10d0cabe7ecd057e019d2d298"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cbbef2f6c2fc729ef7c9d4b5602715aa3045596bae6f259fcf90fb5c10cfaf1d"
-    sha256 cellar: :any_skip_relocation, monterey:       "0681cf660920b66674c24466a717e64ec1f8332c5520b7e380ce57e538052731"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9ba5f63e307465a3a961287559ce3473635ab2fcc2f73fe40fb5376f44b97881"
-    sha256 cellar: :any_skip_relocation, catalina:       "725720b4449d358517318a8d8a29df5dc9f476369ee8ba9c43b3ae0c53624b42"
-    sha256 cellar: :any_skip_relocation, mojave:         "5b52391136e53d428740b1eca815d61b9aa7c4f31c43924833ed9e2cb2db6323"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f4ea04b46a4aa396f9510e7f95f816e74c889621f0a01e5f191a311526ff871"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b45c85faf3771083a8f452fc5ac61e76f58bba74be0d21cc631346e9030c1377"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7fbf94307ed09f5283ae28ffa69396cdf3cce144a5744781864c5f0041ce5222"
+    sha256 cellar: :any_skip_relocation, monterey:       "5b30a6b7530b528d7fc9da11a48b5ebf0810757acd82ccea0bc9684f34466234"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d246824961d641893fa212daa7c078e0e4dbc5a7167da0911f25b9334dd4f352"
+    sha256 cellar: :any_skip_relocation, catalina:       "b2f3e1c8114b2d344fa9defa5df340a42c945f5d4222a571968951079223f71d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "03927c037f8d5bc9d08d93ddce1a9a840bf77dc8e0d2b6b949ade7e9910c3bb9"
   end
 
   depends_on "go" => :build

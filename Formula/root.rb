@@ -1,10 +1,9 @@
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch/"
-  url "https://root.cern.ch/download/root_v6.24.04.source.tar.gz"
-  sha256 "4a416f3d7aa25dba46d05b641505eb074c5f07b3ec1d21911451046adaea3ee7"
+  url "https://root.cern.ch/download/root_v6.24.06.source.tar.gz"
+  sha256 "907f69f4baca1e4f30eeb4979598ca7599b6aa803ca046e80e25b6bbaa0ef522"
   license "LGPL-2.1-or-later"
-  revision 1
   head "https://github.com/root-project/root.git", branch: "master"
 
   livecheck do
@@ -13,10 +12,10 @@ class Root < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "8a99e500668f1a9bbbc1a3f047a05058c669f37e92c0a6b8d6b1dddd36391b1b"
-    sha256 big_sur:       "b4f2256214d2a774b1135f500599d3835e49c65720e645664281c3a8b29edbab"
-    sha256 catalina:      "1885ade8c0b04f7c086a5cb0f9e3a1063627b994947d1085e4b83b2e4f9e7894"
-    sha256 x86_64_linux:  "3d11c2f6d4eb7f86c694ed9073e4525baa53a128bc58f7dfe7720c37fdc6dc64"
+    sha256 arm64_big_sur: "3422ef3c0940bbc0c4d0fd117410592d78fa7901398b8bc15a1acd705888bd6d"
+    sha256 big_sur:       "a8650bed59d9f3ee1a39e488dc4e59c454803a0a4001cb007160b6079680d3e5"
+    sha256 catalina:      "f9444e3459eb93fdbe984efb9b74ad3955688be1177c518b3311f5d9a1f76dc2"
+    sha256 x86_64_linux:  "9f92ea828e81a1749c4da6b574d88601f37ed844478286419055d2a8d453ef24"
   end
 
   depends_on "cmake" => :build

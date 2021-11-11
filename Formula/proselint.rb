@@ -3,27 +3,26 @@ class Proselint < Formula
 
   desc "Linter for prose"
   homepage "http://proselint.com"
-  url "https://files.pythonhosted.org/packages/e9/fc/acd766ee050c8a8a27439fcb37a7042d9fc44bf840b48ebb32a5546a9db8/proselint-0.12.0.tar.gz"
-  sha256 "2a98d9c14382d94ed9122a6c0b0657a814cd5c892c77d9477309fc99f86592e6"
+  url "https://files.pythonhosted.org/packages/a2/be/2c1bcc43d85b23fe97dae02efd3e39b27cd66cca4a9f9c70921718b74ac2/proselint-0.13.0.tar.gz"
+  sha256 "7dd2b63cc2aa390877c4144fcd3c80706817e860b017f04882fbcd2ab0852a58"
   license "BSD-3-Clause"
   head "https://github.com/amperser/proselint.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b6bc3c6d815d17f91c0fa132beeff0ff83cc92ae0b3d63cec8614847765cbc27"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d0b1ed00f35f99465b9781023fd59af96e986bc46b5cba41247cc70cbbe64f0d"
-    sha256 cellar: :any_skip_relocation, monterey:       "6e3b7e9089b83ab06c70d14df7adc58a5fc5af942e7e1d5afa8db9c06514866d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3a3865b2a11e676c91cab82ca02d9a5b1f7f7f2aeec309cfd85e065387ce2999"
-    sha256 cellar: :any_skip_relocation, catalina:       "adb95b9a130c0e44115b9e05b012be58870b56416189cfcf2bc02ebfb04f695a"
-    sha256 cellar: :any_skip_relocation, mojave:         "b2bc217150a230017811eb50ae36d85c812b44850afb6e60e5895d57c0ac9cca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ee110a0d127db7fe91ce694498faaf1a8834d1f32688c9a33274f40434e35c0c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "86ce440b8382d55169bf8a5088e24123fa4ffbdff93a9bc1294c752de28985d3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7932175feb36420223ffd74c73ea3c4c1a2fbd65ecfcb3070e3168dfe8d6cc34"
+    sha256 cellar: :any_skip_relocation, monterey:       "0e85fb768662e4fbca5d5940138165331cf74c1ff6d9f63468a2d41280224a53"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ba3901b022b0b7fbd1e2cf103630c32e4f2699f21e340e43483cbd2b06ba4dfc"
+    sha256 cellar: :any_skip_relocation, catalina:       "d9a903907f6228bc99fa1ffea34f0bd6d91119a7730fb1e6ea93a074f06a56ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb8027460f8ffaf0acab19e6dbd12291b2115c440ade85105b67a76d302daff7"
   end
 
   depends_on "python@3.9"
   depends_on "six"
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/21/83/308a74ca1104fe1e3197d31693a7a2db67c2d4e668f20f43a2fca491f9f7/click-8.0.1.tar.gz"
-    sha256 "8c04c11192119b1ef78ea049e0a6f0463e4c48ef00a30160c704337586f3ad7a"
+    url "https://files.pythonhosted.org/packages/f4/09/ad003f1e3428017d1c3da4ccc9547591703ffea548626f47ec74509c5824/click-8.0.3.tar.gz"
+    sha256 "410e932b050f5eed773c4cda94de75971c89cdb3155a72a0831139a79e5ecb5b"
   end
 
   resource "future" do

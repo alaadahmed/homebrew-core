@@ -1,8 +1,8 @@
 class Gtk4 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk/4.4/gtk-4.4.0.tar.xz"
-  sha256 "e0a1508f441686c3a20dfec48af533b19a4b2e017c18eaee31dccdb7d292505b"
+  url "https://download.gnome.org/sources/gtk/4.4/gtk-4.4.1.tar.xz"
+  sha256 "0faada983dc6b0bc409cb34c1713c1f3267e67c093f86b1e3b17db6100a3ddf4"
   license "LGPL-2.0-or-later"
 
   livecheck do
@@ -11,13 +11,12 @@ class Gtk4 < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "dad1b6f4abf268d8837b781c0ba7334c617e4dec300931c3c6434b412949deaa"
-    sha256 arm64_big_sur:  "22471fc7fc08a4e66c2443650865a3edabf50bc314ee876cf2baa7db8971e41e"
-    sha256 monterey:       "ea4af09f0bfc53a89c75ce79ff5c345660f8f36fcd18d249fdefe4075b1bca25"
-    sha256 big_sur:        "b1cf80bddf3a4189c17446bc0c11a4463a011f431b890b6ef4e0d7bb6046ca0c"
-    sha256 catalina:       "ef277cf48fef3b41c4ae365a5e40d0eaaf5aa2047cab688cebfdb8be5a621c4b"
-    sha256 mojave:         "f2fda50b0ae4009fc13ee19cb208d7b9e58ce55575070285e49b110630bcd2fd"
-    sha256 x86_64_linux:   "0c096305c0e1992062a81122a2dedf8af4ea701077292a9bb1f055af877fc4c9"
+    sha256 arm64_monterey: "21cfa9ea0cb1d4a894aa2055b178f204e814b9eaa89533ca00272c268b534a94"
+    sha256 arm64_big_sur:  "ebcdde6bcc46923c3846f8649f2985104841a595a80b74126594ea86d34a0213"
+    sha256 monterey:       "6fef029e3839d13d2a6813f9e34b84eb36addf8885113e6a2cbf7ffee447632a"
+    sha256 big_sur:        "92dde4ba678417f9832635306119890d880980fdfee1581559e2f41b2374603b"
+    sha256 catalina:       "ed2681c43dfbe6ddb05539a27330868d96ade6b3988995b6024af59113d0d495"
+    sha256 x86_64_linux:   "f16c2c380add2a64b162f8329673749e6346d7a56960f4a43aec83760d5fb5a1"
   end
 
   depends_on "docbook" => :build
@@ -41,6 +40,13 @@ class Gtk4 < Formula
     depends_on "libxkbcommon"
     depends_on "libxcursor"
   end
+
+  # This patch (embedded below) backports the upstream fix made by PR !4008
+  # (https://gitlab.gnome.org/GNOME/gtk/-/merge_requests/4008) to 4.4.1. It was
+  # unfortunately missed when the changes for 4.4.1 were reviewed but Gtk apps
+  # will crash on Apple Silicon Macs without it. The fix should be included in
+  # 4.6.0 when it is released, so this patch can be removed at that point.
+  patch :DATA
 
   def install
     args = std_meson_args + %w[
@@ -96,3 +102,19 @@ class Gtk4 < Formula
     assert_match version.to_s, shell_output("cat #{lib}/pkgconfig/gtk4.pc").strip
   end
 end
+__END__
+diff --git a/gdk/macos/gdkmacosglcontext.c b/gdk/macos/gdkmacosglcontext.c
+index cc0b5fa..9ab268a 100644
+--- a/gdk/macos/gdkmacosglcontext.c
++++ b/gdk/macos/gdkmacosglcontext.c
+@@ -227,8 +227,8 @@ gdk_macos_gl_context_real_realize (GdkGLContext  *context,
+ 
+   swapRect[0] = 0;
+   swapRect[1] = 0;
+-  swapRect[2] = surface->width;
+-  swapRect[3] = surface->height;
++  swapRect[2] = surface ? surface->width : 0;
++  swapRect[3] = surface ? surface->height : 0;
+ 
+   CGLSetParameter (cgl_context, kCGLCPSwapRectangle, swapRect);
+   CGLSetParameter (cgl_context, kCGLCPSwapInterval, &sync_to_framerate);
