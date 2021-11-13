@@ -3,18 +3,18 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/2.3.5.tar.gz"
-  sha256 "ca18fc27aa6421979ad378c1a6254a9cb5121fb8b4033a4e86576fde6f9148b6"
+  url "https://github.com/aws/aws-cli/archive/2.3.6.tar.gz"
+  sha256 "be30642a3d5ab10bd2656f6f65e1d095a1795782020bbecf5ec53221a4b72e31"
   license "Apache-2.0"
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "aa2c59037d025915a97a7b5f247af6c2a936ff7fa48e5efd581c19d8b00922be"
-    sha256 cellar: :any,                 arm64_big_sur:  "404ad4f033ba40c181aa37a4457cc947113e115d12d7eb8a30dc220e2ceef65a"
-    sha256 cellar: :any,                 monterey:       "6efd95f52671e632e2c4517fddbdfa7b77ab5dbf8ad215ea28c3e57b5e562dc4"
-    sha256 cellar: :any,                 big_sur:        "731754883ca656dbfcdaf9e2684e6be4b77c30d8389e44746ea87566c063f5c8"
-    sha256 cellar: :any,                 catalina:       "d0ef3be7daf1404530cab79edb8c765932fe53cae7ed0bbff6ef19193a2f5804"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b767bce23c418830a22016690d296a42814a42470b5bc4ad3402450f1e929327"
+    sha256 cellar: :any,                 arm64_monterey: "3c37de56fd67a9fe939eb7c1ab450c210fea5501a38d4568bb27eaa7cc91a9ad"
+    sha256 cellar: :any,                 arm64_big_sur:  "434098962dd46831f8b6fcd00afcca07c9f4ac13403615ee2deda71b2cc0020a"
+    sha256 cellar: :any,                 monterey:       "35f7b158090bf32dab53fcb4d8b8867cec7384e03fbe191f53d39a94637ce9f7"
+    sha256 cellar: :any,                 big_sur:        "fe7ff882c45405613ad9050afdd1e0b3464415ddca110244f7fd1f41ee206015"
+    sha256 cellar: :any,                 catalina:       "05f0b6faa5bfa94b5e34f142086c0f0b8e995a7fa33978540e6581e79ff95006"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "00a2b8f5b15ec727952c9896ae55474692f0fd9c1e16e16f0b992c65b0c1b966"
   end
 
   depends_on "cmake" => :build
@@ -69,8 +69,8 @@ class Awscli < Formula
   end
 
   resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/0f/86/e19659527668d70be91d0369aeaa055b4eb396b0f387a4f92293a20035bd/pycparser-2.20.tar.gz"
-    sha256 "2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"
+    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
+    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
   end
 
   resource "python-dateutil" do
