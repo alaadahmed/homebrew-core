@@ -1,8 +1,8 @@
 class Fnm < Formula
   desc "Fast and simple Node.js version manager"
   homepage "https://fnm.vercel.app"
-  url "https://github.com/Schniz/fnm/archive/v1.27.0.tar.gz"
-  sha256 "e0509c768be40094f01e0cee903d0ac2a02c064a5987c0bbc7208996686b98cd"
+  url "https://github.com/Schniz/fnm/archive/v1.28.1.tar.gz"
+  sha256 "9c05bf2cf3f43baa197eb3df582efa2cde5eaf66e3b0446a78e0fe6e46bc23b5"
   license "GPL-3.0-only"
   head "https://github.com/Schniz/fnm.git"
 
@@ -12,13 +12,12 @@ class Fnm < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "86b8692f33637fe310b36744e43477fe968631fb3e06b22c2d40399277b1e18e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8a7b6d36aa0cf64fb42f99a57686c7e771690b6b97eb19f6e65486365b9e262d"
-    sha256 cellar: :any_skip_relocation, monterey:       "c0473cfa5f4dd2f56ca25cbd06a80af862d5641b5b8481c26012aca73f619659"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1ed1913f1c9f70bcc703bac59e9e46540cb2030c5e42e0fb8cfe42eb1754ee75"
-    sha256 cellar: :any_skip_relocation, catalina:       "3195625f6b556c8eeee0894ba516b7a91a7fddd1fd31090867b942bcb583e917"
-    sha256 cellar: :any_skip_relocation, mojave:         "9921bb97be053afe96cb9a18bdcfd95fb34faa9a00dee89d0735938b52ea0a40"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a237dc5807cb312d8cde5f0d937046cc10a4c58d3d941d82064fe6fa49f0b96"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4273be0f2ab48b12c3b8a0f0319e626f331c73dd77ff0837606a75ad6d249785"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3b2b531986bf715a1db9bf2aaca5d3369a8142fcb5355747b565cdc284b79775"
+    sha256 cellar: :any_skip_relocation, monterey:       "1eab89a9dc5836b60f776024c58c41deca893698941f30b0550bce08bde01a95"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9aed41c0cdeefe733b4b72d43076e646fa9ab51dd929c72176622ae9b19e00ec"
+    sha256 cellar: :any_skip_relocation, catalina:       "0240c8cabbc2091ee43c393444c18bdaf86b73a872a6fb126e93fea1014de76e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "542989dce8d797165b4f6c15faae6b7085a6e27548282a51a56c80d43203cd9e"
   end
 
   depends_on "rust" => :build

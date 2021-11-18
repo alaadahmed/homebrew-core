@@ -3,18 +3,18 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://mesa.freedesktop.org/archive/mesa-21.2.5.tar.xz"
-  sha256 "8e49585fb760d973723dab6435d0c86f7849b8305b1e6d99f475138d896bacbb"
+  url "https://mesa.freedesktop.org/archive/mesa-21.3.0.tar.xz"
+  sha256 "a2753c09deef0ba14d35ae8a2ceff3fe5cd13698928c7bb62c2ec8736eb09ce1"
   license "MIT"
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
   bottle do
-    sha256 arm64_monterey: "3178fda9f52d21a9e00d3db74d0ea5c62de1bb9bbca44ae377cf0cf456d5880d"
-    sha256 arm64_big_sur:  "1c6867e7ae04c81f4a70cf32533909d8d7fcb43fb7a837582964854a160b604e"
-    sha256 monterey:       "a6dba72ab5df2ba4872d32620361e214a8b5074fe61e0f4e62dcd4747587326f"
-    sha256 big_sur:        "87e07fa7300884c0b05ba016c2fe8355388723c33dcfb162400b4cf17094e90b"
-    sha256 catalina:       "d6bf13578efbcb4284b4691bb6e8ee22159a732d86d71fc0caca2416371d6176"
-    sha256 x86_64_linux:   "268edb3cc8dc30ed4f224dbeeab10dedb8904123e46f8bfd51ff39021bbffe8a"
+    sha256 arm64_monterey: "c43f818be097a86009dc39c9f4f3826511f5ab783dbd3c4d307202efbf2e241b"
+    sha256 arm64_big_sur:  "e8ba6edd75b81a5639b3d700e5284e875dd76c3ce800e83b83c849172a82f2da"
+    sha256 monterey:       "1ed99c219fc789d87f997d0bc76f73e2d6498bd6a2a6a4209679bfa8c1ef5079"
+    sha256 big_sur:        "0cb0f0ea8e57c0e7c3707949e582bd20b7d9cfb03d598361095cb9a29d75f035"
+    sha256 catalina:       "cedeacee7e167fcf1295bec493384490df08cddab15b5fce0a0d957590a5edb3"
+    sha256 x86_64_linux:   "9f2538d09c8df76926d374bf224df91d96269b4519b694b676dcec2ab295ccde"
   end
 
   depends_on "meson" => :build
@@ -54,8 +54,8 @@ class Mesa < Formula
   fails_with gcc: "5"
 
   resource "Mako" do
-    url "https://files.pythonhosted.org/packages/d1/42/ff293411e980debfc647be9306d89840c8b82ea24571b014f1a35b2ad80f/Mako-1.1.5.tar.gz"
-    sha256 "169fa52af22a91900d852e937400e79f535496191c63712e3b9fda5a9bed6fc3"
+    url "https://files.pythonhosted.org/packages/af/b6/42cd322ae555aa770d49e31b8c5c28a243ba1bbb57ad927e1a5f5b064811/Mako-1.1.6.tar.gz"
+    sha256 "4e9e345a41924a954251b95b4b28e14a301145b544901332e658907a7464b6b2"
   end
 
   resource "glxgears.c" do

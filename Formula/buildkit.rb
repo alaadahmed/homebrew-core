@@ -2,8 +2,8 @@ class Buildkit < Formula
   desc "Сoncurrent, cache-efficient, and Dockerfile-agnostic builder toolkit"
   homepage "https://github.com/moby/buildkit"
   url "https://github.com/moby/buildkit.git",
-      tag:      "v0.9.2",
-      revision: "a14b4e097ae1dc7514c5febd6d75f742a166ea75"
+      tag:      "v0.9.3",
+      revision: "8d2625494a6a3d413e3d875a2ff7dd9b1ed1b1a9"
   license "Apache-2.0"
   head "https://github.com/moby/buildkit.git", branch: "master"
 
@@ -13,12 +13,12 @@ class Buildkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "99d47eb2ecd2e36ee0ee7ac63103134dfcd80e208c2886e812d767416d13a658"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cef0a7f2b373cee7c31aa6bd458fdd31d0f14504b68d39959e98f1c12dc81f6c"
-    sha256 cellar: :any_skip_relocation, monterey:       "188b3ca1bc597294653b18c8bf77046bc9cc9ea85cc00a8310bf2df58413aca9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4076c656b0122f1aad027149270b2e510bf7c3edf5cab5d5eb13d6659f4ec041"
-    sha256 cellar: :any_skip_relocation, catalina:       "a14409eed8abed2eb4b74fae761f4a85786d19fb0d2a3b2349eaf0d370fd1a6a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e9de9c6adadeca3f9911d3de8bc2433010b48b45f7c8863eeafdc7c9d1e405b1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ee3caab33349a360ec9370edb7970307ce9fdb23361c742c34a6f7171d56d7ce"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ed273fa26af866942e2dcd6bdee0ea768740e21519607bd195f07ed99242f29e"
+    sha256 cellar: :any_skip_relocation, monterey:       "4409329bb7bedd82c5634dbf8572077814a14af663311333819a1037acfd27f9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cdd64bc2daa0de481cf1d867f61d0d50362c8a9d44fc712a3d9ea2040cb859c6"
+    sha256 cellar: :any_skip_relocation, catalina:       "95b19784b8d086973cd81ef7af681bfbcca4f212c997748c0ec96978810ee949"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9ce198eb0ad3c2f4ba7e06207e8643ec715d755c432538cc246bfdff34f839f"
   end
 
   depends_on "go" => :build

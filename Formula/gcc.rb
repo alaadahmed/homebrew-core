@@ -14,8 +14,8 @@ class Gcc < Formula
     sha256 "d08edc536b54c372a1010ff6619dd274c0f1603aa49212ba20f7aa2cda36fa8b"
   end
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
-  revision 1
-  head "https://gcc.gnu.org/git/gcc.git"
+  revision 2
+  head "https://gcc.gnu.org/git/gcc.git", branch: "master"
 
   # We can't use `url :stable` here due to the ARM-specific branch above.
   livecheck do
@@ -24,11 +24,11 @@ class Gcc < Formula
   end
 
   bottle do
-    sha256                               arm64_big_sur: "c42ea3d26761eb66ebe869f878f0e01e9eeea2cd45cd4d8c93d49cc5cbca61ec"
-    sha256                               monterey:      "2222029b2dfd0a3a9bfb61805f22075ea6cf212bf448002cd9a4fb87c01c44a3"
-    sha256                               big_sur:       "eb6ffae4a2ab7261b2f22cf138cc7d1a1e8931a3d38435c874d69c11e1ae421f"
-    sha256                               catalina:      "c4166b5fce1f766ab357cf21a4cf9a2e83234e12372ceb36998d994209e14c24"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a266c0fa12bcfec194570e1e474e37962bc0bae57d1e196f0608a44fc4736ceb"
+    sha256                               arm64_big_sur: "eb3835c0e59c656d3a9eb06cd8eeaa5012900a685a6acc00a117df53eef1a706"
+    sha256                               monterey:      "3dabf9fa3b2bcbfde46223ae4f439d4ecf78dd2c1cf18d2dc83da47aa9e24308"
+    sha256                               big_sur:       "fbafac97c1a9d1e48b4f15aa9410eb9db11d1f2889c62989bb51275848682686"
+    sha256                               catalina:      "f13c1f501612180a12f801dbbde83705c29b5c8c07fd78b1707afbd4713487e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "beca6d1eddfdfa2d8b7b1eab50f473e838644d7997d915c6a7958db268759ec7"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -54,12 +54,6 @@ class Gcc < Formula
   patch do
     url "https://github.com/iains/gcc-darwin-arm64/commit/20f61faaed3b335d792e38892d826054d2ac9f15.patch?full_index=1"
     sha256 "c0605179a856ca046d093c13cea4d2e024809ec2ad4bf3708543fc3d2e60504b"
-  end
-
-  # https://gcc.gnu.org/pipermail/gcc-patches/2021-November/583031.html
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/de47854e6e26ec9d0ebb43d1ca23b7384f5d7aa5/gcc/gcc-11.2-rtl-bug.diff"
-    sha256 "8f04ffa663a2a0d1ab3b8ed894ccfdbaaabeff621fb4074c53f94b06c44ef378"
   end
 
   def version_suffix
@@ -89,6 +83,7 @@ class Gcc < Formula
       --libdir=#{lib}/gcc/#{version_suffix}
       --disable-nls
       --enable-checking=release
+      --with-gcc-major-version-only
       --enable-languages=#{languages.join(",")}
       --program-suffix=-#{version_suffix}
       --with-gmp=#{Formula["gmp"].opt_prefix}
@@ -233,6 +228,7 @@ class Gcc < Formula
       #     Noted that it should only be passed for the `gcc@*` formulae.
       #   * `-L#{HOMEBREW_PREFIX}/lib` instructs gcc to find the rest
       #     brew libraries.
+      # Note: *link will silently add #{libdir} first to the RPATH
       libdir = HOMEBREW_PREFIX/"lib/gcc/#{version_suffix}"
       specs.write specs_string + <<~EOS
         *cpp_unique_options:
@@ -242,9 +238,13 @@ class Gcc < Formula
         #{glibc_installed ? "-nostdlib -L#{libgcc}" : "+"} -L#{libdir} -L#{HOMEBREW_PREFIX}/lib
 
         *link:
-        + --dynamic-linker #{HOMEBREW_PREFIX}/lib/ld.so -rpath #{libdir} -rpath #{HOMEBREW_PREFIX}/lib
+        + --dynamic-linker #{HOMEBREW_PREFIX}/lib/ld.so -rpath #{libdir}
+
+        *homebrew_rpath:
+        -rpath #{HOMEBREW_PREFIX}/lib
 
       EOS
+      inreplace(specs, " %o ", "\\0%(homebrew_rpath) ")
     end
   end
 

@@ -1,28 +1,23 @@
 class CargoOutdated < Formula
   desc "Cargo subcommand for displaying when Rust dependencies are out of date"
   homepage "https://github.com/kbknapp/cargo-outdated"
-  url "https://github.com/kbknapp/cargo-outdated/archive/v0.9.17.tar.gz"
-  sha256 "9311409ce07bad0883439fdba4bfb160e8d0c7a63d84e45dc0c71fbeb5ac673a"
+  url "https://github.com/kbknapp/cargo-outdated/archive/v0.10.2.tar.gz"
+  sha256 "0f8a4badebeb98d01808bc811c0e840a261df3d0c6306b05a4a9e926b754fc02"
   license "MIT"
-  revision 2
   head "https://github.com/kbknapp/cargo-outdated.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "8e20a7d7500c5c58d454657d0b7b7ac2f251e09938340d9a18519ce1e379dd52"
-    sha256 cellar: :any, arm64_big_sur:  "1f8e5e78dac65f29b9d9a07d270dcd424cc3e3ad0d7c7c34224c6edcd3a0817a"
-    sha256 cellar: :any, monterey:       "fd847aa5052de2bebf2724d325567968e5c278fe7bc83eb465d16d53925576c6"
-    sha256 cellar: :any, big_sur:        "28864dc6c4e102e674ebf0d51a3e0967460502885a1ecb88538729ff4879613b"
-    sha256 cellar: :any, catalina:       "bf285ce68e96a08d37ceb0777dcdb586635582f70ceb70e529c49adf7564f847"
-    sha256 cellar: :any, mojave:         "328e96693648cd956cbe001f87d527a45cbe4318e3e4f1f2b28d89d44681f852"
+    sha256 cellar: :any,                 arm64_monterey: "a1a02a91c18803be32a47359119f65789037400c9225a567c484fb304ac49de3"
+    sha256 cellar: :any,                 arm64_big_sur:  "2a03fe15e0b7934985fb9cea65efe32b0b28ac7665d81463f49a29724bdfa507"
+    sha256 cellar: :any,                 monterey:       "8a353caa9e7e3237e1c05574151982f0c2a18a86c633dd389292059f05831a04"
+    sha256 cellar: :any,                 big_sur:        "5c52e6faa0351dd588b3f7a70320b140af0540ea6cb84cbb25757530c61f3081"
+    sha256 cellar: :any,                 catalina:       "42531a5f9b9bde7545cb11447244e2a118b504ecdf6e8030f409da5cd760dac6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0415af73396a4b7a6745885a5b5ed3a4f6d3603d7e9ebaf7c3e2af85aa4c27ba"
   end
 
   depends_on "libgit2"
   depends_on "openssl@1.1"
   depends_on "rust"
-
-  # Update `libgit2-sys` crate for Libgit2 1.2.0 support
-  # https://github.com/kbknapp/cargo-outdated/issues/279
-  patch :DATA
 
   def install
     system "cargo", "install", *std_cargo_args
@@ -51,21 +46,3 @@ class CargoOutdated < Formula
     end
   end
 end
-
-__END__
-diff --git a/Cargo.lock b/Cargo.lock
-index 6302b41..06ef1ce 100644
---- a/Cargo.lock
-+++ b/Cargo.lock
-@@ -591,9 +591,9 @@ checksum = "8916b1f6ca17130ec6568feccee27c156ad12037880833a3b842a823236502e7"
- 
- [[package]]
- name = "libgit2-sys"
--version = "0.12.18+1.1.0"
-+version = "0.12.23+1.2.0"
- source = "registry+https://github.com/rust-lang/crates.io-index"
--checksum = "3da6a42da88fc37ee1ecda212ffa254c25713532980005d5f7c0b0fbe7e6e885"
-+checksum = "29730a445bae719db3107078b46808cc45a5b7a6bae3f31272923af969453356"
- dependencies = [
-  "cc",
-  "libc",
