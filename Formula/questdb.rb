@@ -1,15 +1,15 @@
 class Questdb < Formula
   desc "Time Series Database"
   homepage "https://questdb.io"
-  url "https://github.com/questdb/questdb/releases/download/6.1.1/questdb-6.1.1-no-jre-bin.tar.gz"
-  sha256 "e2c2841e1fb67b469c2ad87e494c414e07904671273f7458e5b29110f7170d4d"
+  url "https://github.com/questdb/questdb/releases/download/6.1.2/questdb-6.1.2-no-jre-bin.tar.gz"
+  sha256 "2a295d54125083bd0437b5360ec264819d2cf8a2ab78d95e84368e76cb9b9952"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e85c4ce91eb9790759fadf401e8663f5cccedadbd1fbb116d914077e07846160"
-    sha256 cellar: :any_skip_relocation, big_sur:       "4b195e795c99440526d0a76c749f2f6bca8da7c2dc546f9b6e18cf2b156629a3"
-    sha256 cellar: :any_skip_relocation, catalina:      "4b195e795c99440526d0a76c749f2f6bca8da7c2dc546f9b6e18cf2b156629a3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e85c4ce91eb9790759fadf401e8663f5cccedadbd1fbb116d914077e07846160"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ed3f10447f582b734c2e053990abc117e28854637bace0488a590a652938b6b9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "bf42676e75b468303fc50faa639ffe8c16e98dd6d1da57f5e523e3cea3a1e43c"
+    sha256 cellar: :any_skip_relocation, catalina:      "bf42676e75b468303fc50faa639ffe8c16e98dd6d1da57f5e523e3cea3a1e43c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed3f10447f582b734c2e053990abc117e28854637bace0488a590a652938b6b9"
   end
 
   depends_on "openjdk@11"
