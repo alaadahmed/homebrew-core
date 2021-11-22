@@ -2,9 +2,9 @@ class PhpAT74 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-7.4.25.tar.xz"
-  mirror "https://fossies.org/linux/www/php-7.4.25.tar.xz"
-  sha256 "12a758f1d7fee544387a28d3cf73226f47e3a52fb3049f07fcc37d156d393c0a"
+  url "https://www.php.net/distributions/php-7.4.26.tar.xz"
+  mirror "https://fossies.org/linux/www/php-7.4.26.tar.xz"
+  sha256 "e305b3aafdc85fa73a81c53d3ce30578bc94d1633ec376add193a1e85e0f0ef8"
   license "PHP-3.01"
 
   livecheck do
@@ -13,12 +13,12 @@ class PhpAT74 < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "dd0720a0797bd42702bfca095a3091e0ba09f3092edb1d0eb14fc391d99624b3"
-    sha256 arm64_big_sur:  "a7c0b55136b03581bfd8daf59bd210493169042dbcabc5037c3cd94bdc8ea4c8"
-    sha256 monterey:       "325d65e1224571440fc59303ac6c2dcb630c0d1dd77db1c914500ed90b9f6531"
-    sha256 big_sur:        "a4958dfe72676fcf15eeddb6c63a5c32ac985ceeedd5e74997371194806ef4df"
-    sha256 catalina:       "96fa3574081298140713549219631e2e472cfa81de6c3963d58fced03e11a3e7"
-    sha256 x86_64_linux:   "12c5dddac7e717204a658cc86fa3e31095dc5db61f97a29ad7488a6b4ee6d4a4"
+    sha256 arm64_monterey: "12b50490d4d7178ef3f45747ebaea87bff6d0bc2ddd0c5ee72193a15e208beb3"
+    sha256 arm64_big_sur:  "beb4ee439929b2a2b0346e882b4ff3c1c2b88f7335279eec2e427f203916c286"
+    sha256 monterey:       "7fe8491f31083f09c2e28cec6d99c2d357a8901f22aff436d0e5f6e88800f77a"
+    sha256 big_sur:        "b879c5c2d5ce8d27536289fb17568d821dd4cbb7fdd369cab6465af10d2341e2"
+    sha256 catalina:       "8d8f392a34720743d4f6325ae7548105b10afe7d0c01ac1769208c7271b5de11"
+    sha256 x86_64_linux:   "600617b6582d0ee401c537d760993bd7b04c3c7146e1ce39fe6dcdb21bba05e2"
   end
 
   keg_only :versioned_formula

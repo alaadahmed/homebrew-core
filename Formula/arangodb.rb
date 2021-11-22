@@ -1,8 +1,8 @@
 class Arangodb < Formula
   desc "Multi-Model NoSQL Database"
   homepage "https://www.arangodb.com/"
-  url "https://download.arangodb.com/Source/ArangoDB-3.8.2.tar.bz2"
-  sha256 "87237591779bc85bb081097b1f5ee70f1a7f5c3eb715ebd18b08ddb3cc0dd470"
+  url "https://download.arangodb.com/Source/ArangoDB-3.8.3.tar.bz2"
+  sha256 "d7c6e705d59412eb5a87457c7f88a96a655af87845a201d5bf7e62fadcd50f78"
   license "Apache-2.0"
   head "https://github.com/arangodb/arangodb.git", branch: "devel"
 
@@ -12,8 +12,8 @@ class Arangodb < Formula
   end
 
   bottle do
-    sha256 big_sur:  "2ae0e56021ed33aad685cbe0b737ab528402ef3ea350adf4160198a57533503a"
-    sha256 catalina: "b8b2f80f9265871b8cae8ced1ac4b3be818d64b341dd7e92d6125d4327f4c900"
+    sha256 big_sur:  "edcde31b2fd366c7d758ffc0b77aa884f31730e936917515a7a4cd6cc9a51feb"
+    sha256 catalina: "a3d03ffa2a2164a2d88aff4ed462f4b08c5bbd9bc13d674e91fe1ad1cc436898"
   end
 
   depends_on "ccache" => :build
@@ -28,8 +28,8 @@ class Arangodb < Formula
   # with a unified CLI
   resource "starter" do
     url "https://github.com/arangodb-helper/arangodb.git",
-        tag:      "0.15.1",
-        revision: "3c27ad4cfb89e96db551445212f78706b7263851"
+        tag:      "0.15.3",
+        revision: "814f8be9e5cc613a63ac1dc161b879ccb7ec23e0"
   end
 
   def install

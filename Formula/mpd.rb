@@ -1,19 +1,18 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://www.musicpd.org/download/mpd/0.22/mpd-0.22.11.tar.xz"
-  sha256 "143f7f34aaee6e87888f3dd35d49aade6656052651b960ca42b46cbb518ca0a0"
+  url "https://www.musicpd.org/download/mpd/0.23/mpd-0.23.4.tar.xz"
+  sha256 "2f359d30dd980f762d2bc324d916e48b731e8a4d456d01d120c61ad657e4c754"
   license "GPL-2.0-or-later"
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "1b530b08224755e76ed13fe0a22c6f23fb274e650fbd3b46313da7ff7ebadfdd"
-    sha256 cellar: :any, arm64_big_sur:  "db9228271af87d44a6158f10d8a6a2cf0a238d6e378212951ed5a8c577ac0726"
-    sha256 cellar: :any, monterey:       "1338a11ed542b0fb1ea52555115a1da2f5d46e3d0e034f71ab59571de65f597b"
-    sha256 cellar: :any, big_sur:        "47d7f2f993ef8b1a240f1e8a6d5cfa862a24f01d2f8b86305665f0108dda9697"
-    sha256 cellar: :any, catalina:       "3ea0ab9f080ea931403df706f9c7cbd9a1a95381456063924c8cb8fdfc3b65b5"
-    sha256 cellar: :any, mojave:         "6ea626d87bffeef1b4754e9822459132f1764ff34830642f473bf6f908efcfe5"
-    sha256               x86_64_linux:   "21f148aada8fd8e69e802e5699f863f7bf272eb76f9103f4ba3071d2f7ff4f8e"
+    sha256 cellar: :any, arm64_monterey: "7c37f27fda23ed47609f51669ca54000a011112590ec4f5959264f15f3c87f75"
+    sha256 cellar: :any, arm64_big_sur:  "d24a93c81553513d129b5d7d7f063d745328795f8703ae01c2924d154394db1d"
+    sha256 cellar: :any, monterey:       "d4cb02ca7df349401494f1c41fc1c2b6476e83f4d1e264ac32f7b308a26f7c90"
+    sha256 cellar: :any, big_sur:        "288a171cecb73c33ab2dd502d42b60bc9e1aa68e83b58a46690e9a28679d5fa4"
+    sha256 cellar: :any, catalina:       "eba00ac5c931084bd8d9530c6bf09e0502dbebb7a19f2135425f600960419c03"
+    sha256               x86_64_linux:   "77eeba729835eb55eb304368e8ab50dd525cfdff8d28f3fd213b92fac0187877"
   end
 
   depends_on "boost" => :build
@@ -25,6 +24,7 @@ class Mpd < Formula
   depends_on "ffmpeg"
   depends_on "flac"
   depends_on "fluid-synth"
+  depends_on "fmt"
   depends_on "glib"
   depends_on "icu4c"
   depends_on "lame"
@@ -67,7 +67,7 @@ class Mpd < Formula
       -Dfluidsynth=enabled
       -Dnfs=enabled
       -Dshout=enabled
-      -Dupnp=enabled
+      -Dupnp=pupnp
       -Dvorbisenc=enabled
     ]
 

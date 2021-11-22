@@ -2,18 +2,18 @@ class Datasette < Formula
   include Language::Python::Virtualenv
   desc "Open source multi-tool for exploring and publishing data"
   homepage "https://docs.datasette.io/en/stable/"
-  url "https://files.pythonhosted.org/packages/0c/8c/9746522466216b3196f5a47c73f274b3c150a33d99a3f4855a9350d35d3c/datasette-0.59.2.tar.gz"
-  sha256 "09e6413b67f1d3557d69f0e7cc1e7f77e0ef92e81ba92bd9b58ca44b015c1d24"
+  url "https://files.pythonhosted.org/packages/cb/2c/d9c31db21a2580feec6707af8cec6bd4189507bc210701d5ef1c9840c38f/datasette-0.59.3.tar.gz"
+  sha256 "c16dcfef2572f75453993d2c218b436078b82dace973b659ac929d473c7c2280"
   license "Apache-2.0"
   head "https://github.com/simonw/datasette.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "dd7200e93f3cc29243b1f59554d73d3801b8adf487646d90274e383fe51d7b01"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e44753b7bfb40e45479d1c4cd923eacd4a1be1bdbde042a3f1db79ea4d2b6d27"
-    sha256 cellar: :any_skip_relocation, monterey:       "b326fa64eb19b5c11462377e2584e8595b6396213e2b325d81cd37380e51a87f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fddebe1968de14c27d3e7259aa6f730256b28e84e150241cf2bb6c1c0976e3b3"
-    sha256 cellar: :any_skip_relocation, catalina:       "5bb733cab1446c5affd19fef69e3b44992e2b9523e8aea70c1995b83baf92192"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ccb3245d88858d39738ff3b555307c7c03088d456231a345f90646949f782add"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2064c4c3cd0ce170c992b499ca25ffb593ede7df8931fe707a317c6750b4329f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6394dc07b1c789e62c145480b622af009fdb3c11d8600d7898d1fecd8e9afec3"
+    sha256 cellar: :any_skip_relocation, monterey:       "0f6ab1ee594c564e234e1461d161b76aca4439a269e172ae3a2417e5545e8a1c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6c36a9d8ef0f552101220545b89e7daf904fa439b03b20f153ebb824a5c34e41"
+    sha256 cellar: :any_skip_relocation, catalina:       "a689e38dacb44c4c6768b6ae6565b79ada855f4f76a185da881a60a1ff0348e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b28752fc2ab60f4c64b83bd45065f03e4c8de5be6db9d65d982eb8d0dde96b73"
   end
 
   depends_on "python@3.10"
@@ -65,13 +65,13 @@ class Datasette < Formula
   end
 
   resource "httpcore" do
-    url "https://files.pythonhosted.org/packages/6a/90/334411fe5455d30498add7d77a8bf4833bfc4671289a954fb2fd43795338/httpcore-0.13.7.tar.gz"
-    sha256 "036f960468759e633574d7c121afba48af6419615d36ab8ede979f1ad6276fa3"
+    url "https://files.pythonhosted.org/packages/00/7e/7e2d8511e01069e03c3313203214709756a6e2f36ccfd793b7e238d24bab/httpcore-0.14.3.tar.gz"
+    sha256 "d10162a63265a0228d5807964bd964478cbdb5178f9a2eedfebb2faba27eef5d"
   end
 
   resource "httpx" do
-    url "https://files.pythonhosted.org/packages/62/0d/9804c841eaf5e0f72890e54eff21bb49664289edf8cbe09bd47db513bd68/httpx-0.20.0.tar.gz"
-    sha256 "09606d630f070d07f9ff28104fbcea429ea0014c1e89ac90b4d8de8286c40e7b"
+    url "https://files.pythonhosted.org/packages/5d/d4/739bdfb68a7dee54c795e1977abd0c81f83235499488a10717b699dab061/httpx-0.21.1.tar.gz"
+    sha256 "02af20df486b78892a614a7ccd4e4e86a5409ec4981ab0e422c579a887acad83"
   end
 
   resource "hupper" do
@@ -110,8 +110,8 @@ class Datasette < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/4d/34/523195b783e799fd401ad4bbc40d787926dd4c61838441df08bf42297792/packaging-21.2.tar.gz"
-    sha256 "096d689d78ca690e4cd8a89568ba06d07ca097e3306a4381635073ca91479966"
+    url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
+    sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
   end
 
   resource "Pint" do
@@ -125,8 +125,8 @@ class Datasette < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz"
-    sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
+    url "https://files.pythonhosted.org/packages/ab/61/1a1613e3dcca483a7aa9d446cb4614e6425eb853b90db131c305bd9674cb/pyparsing-3.0.6.tar.gz"
+    sha256 "d9bdec0013ef1eb5a84ab39a3b3868911598afa494f5faa038647101504e2b81"
   end
 
   resource "python-baseconv" do

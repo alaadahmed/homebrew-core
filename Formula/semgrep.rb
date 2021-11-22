@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v0.73.0",
-      revision: "c9e4a1694f91b4d0042645b5b28c566096aac739"
+      tag:      "v0.74.0",
+      revision: "36d4f648f0ea180059c6aba41d3144583ed9bae5"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -15,12 +15,12 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "d0c23bbf8383169def64fe9f7b303d4f03fbd27daa06bded1e4a7be4908d4f08"
-    sha256 cellar: :any, arm64_big_sur:  "b3d1c6b7f0b6750f512b69017f105f63029866c682066c8243b47d904911b7b0"
-    sha256 cellar: :any, monterey:       "6dba77ffcb656ea9e607637b4e216ca6413b04ec896d00cba9b1d9e86c006b0c"
-    sha256 cellar: :any, big_sur:        "681d2fe7969d631aeae0760db197e36c74d1163b7e5a0a8e40bfdf1e33ac5935"
-    sha256 cellar: :any, catalina:       "49fbcaf1ae180f6135837fb128ccd6a63af49b0f04b92ffc9b7f75dc21745364"
-    sha256               x86_64_linux:   "da27b182edaf88c83795046fd81759ab160d2d40607963266a48bde89af77e75"
+    sha256 cellar: :any, arm64_monterey: "5dfbfda51dbd907c5715a792bf630b5b5a1368440536364bf1caabb091ffbc81"
+    sha256 cellar: :any, arm64_big_sur:  "ab9a27e5b4d089e74794647d144d1e812866b7d0ab6371ad3e60787ae275240a"
+    sha256 cellar: :any, monterey:       "00007935b9401b1b03e7356d89a0ac0340151ee06b8dd10d9122328deefe46b1"
+    sha256 cellar: :any, big_sur:        "7f683a73661420bb7ec3175257cb2784fe373436920c39b489cd36cb3ec3cb63"
+    sha256 cellar: :any, catalina:       "2d47ff59ae39f18e77a9b8f113b316ea86e85ed8e6c56fc1f35704717dad3370"
+    sha256               x86_64_linux:   "c3a9dc33a5c32490022fe963a7bad3ddea83b10d1568e5963ca7530d4d1d2ca4"
   end
 
   depends_on "cmake" => :build
@@ -87,8 +87,8 @@ class Semgrep < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/4d/34/523195b783e799fd401ad4bbc40d787926dd4c61838441df08bf42297792/packaging-21.2.tar.gz"
-    sha256 "096d689d78ca690e4cd8a89568ba06d07ca097e3306a4381635073ca91479966"
+    url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
+    sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
   end
 
   resource "peewee" do
@@ -97,8 +97,8 @@ class Semgrep < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz"
-    sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
+    url "https://files.pythonhosted.org/packages/ab/61/1a1613e3dcca483a7aa9d446cb4614e6425eb853b90db131c305bd9674cb/pyparsing-3.0.6.tar.gz"
+    sha256 "d9bdec0013ef1eb5a84ab39a3b3868911598afa494f5faa038647101504e2b81"
   end
 
   resource "pyrsistent" do

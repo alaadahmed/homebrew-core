@@ -3,17 +3,17 @@ class CloudformationCli < Formula
 
   desc "CloudFormation Provider Development Toolkit"
   homepage "https://github.com/aws-cloudformation/cloudformation-cli/"
-  url "https://files.pythonhosted.org/packages/c7/06/e5abae7d9d73bd676aaa3ac27890cf4e76b142266d56e7fe0d782871ac26/cloudformation-cli-0.2.21.tar.gz"
-  sha256 "d0a54ea2a4cfff0ed569a6346d9abd223416d45d26c39f35f89c319f981da706"
+  url "https://files.pythonhosted.org/packages/8e/ed/69242616bcbbc551b37a8e5af1dbcb3fe8837a79fab05007faa4d24c3172/cloudformation-cli-0.2.22.tar.gz"
+  sha256 "065ab4a5622e0d03aa000921eeccc1af88cd9d2a30830c43870a14bb64ef42a8"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7347f23f495db281647a5b7c8677a5c4318c57a7b84055b8693b3ac04bd04173"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e0125adc40022eccc9e63a7891c2d31af80ce35b15fb1e17b53fb4d12fb64e89"
-    sha256 cellar: :any_skip_relocation, monterey:       "3c88b3c5856e902094e31f24637046d5c505c7382bacb13ef400ed1577c5c342"
-    sha256 cellar: :any_skip_relocation, big_sur:        "db0d3395a216a9eb56fd12bbc6065770dfbc81c6ca1f7a78002252e688e75309"
-    sha256 cellar: :any_skip_relocation, catalina:       "bbe795ce3283b00cc6020f23f0d786a61fc8cab01c1a69d258267c3bbc69d1ce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9e7fd9e64731566dab4035997079a52d61284003c1b6a4ee4ebbb49fcfcd8451"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "527f96ab395f3949dbb185d7c73b98c6c6079fa39199a601becc300ac4875500"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "22daa3c9c822e2b9db5c8d4bed7a0e66fc8e2d841cb3232f20910eaf69128d9d"
+    sha256 cellar: :any_skip_relocation, monterey:       "8675b8549c231ea0ec866c3b3e44ca218b08b33686f762a4c47711c51c048168"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f8cc3ada701b2cd10a057bcc1dc01350f31211a90ca5ffe1123453819a75a388"
+    sha256 cellar: :any_skip_relocation, catalina:       "6d79b44023a4b79c9dc9d14184f644977094faca334738e28dea6a55a85a92cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c6265a4926850efec749fe20d9c298e1fdf99cf0cf5c35f5fb50d7cc017bac98"
   end
 
   depends_on "go" => :test
@@ -33,13 +33,13 @@ class CloudformationCli < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/51/36/9911ec3ab9a8812cad56bf8a27c3aae57187c38202775bbfb3b094d20064/boto3-1.20.4.tar.gz"
-    sha256 "2a3d7ddbf68d3ac81c19051d8715207043e09b6731a0e1f699aa2d2ecad3720e"
+    url "https://files.pythonhosted.org/packages/2c/93/b76997acb1f824ef59eefd0932adf18cf57f0ae412cca866615dedb2f73b/boto3-1.20.10.tar.gz"
+    sha256 "20a5109a37414a52c55d2048388f02cb7cf46fc0ca7be08b3bf81f4c5c053feb"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/b1/25/2da6559083f9dc3f9863c1dc0c18ec18098fd06990f71693c3b63777ce57/botocore-1.23.4.tar.gz"
-    sha256 "9222f2478dda5e2dd901dc9a3c9e335fc4c8919406dcae2225944674f2d13c0c"
+    url "https://files.pythonhosted.org/packages/26/79/ba027d96c5a670fb0715f483afa4eff5ecb2456aba302b7367b12b282453/botocore-1.23.10.tar.gz"
+    sha256 "0adda9a4a95221027312eaaee0ec9fe2239fb2f285fced3ddca54b1310b864ee"
   end
 
   resource "certifi" do
@@ -53,8 +53,8 @@ class CloudformationCli < Formula
   end
 
   resource "cfn-lint" do
-    url "https://files.pythonhosted.org/packages/c2/40/86c4ff5139e1b5dde47d4e9bd484b052110014c70d21746de89db1d72c80/cfn-lint-0.56.0.tar.gz"
-    sha256 "3e39895bc844506f774889bfd3b71db2cdd7ee76bb52102f518dd55b854091fe"
+    url "https://files.pythonhosted.org/packages/26/fc/a22590897e9d8612c3659a3f472961152dea78714972f3f0d5a0a08afe43/cfn-lint-0.56.1.tar.gz"
+    sha256 "9cbc67e0380f51f28510628e8c9784a5c74c5e52e9eece06cb8078f1c647280a"
   end
 
   resource "charset-normalizer" do
@@ -93,8 +93,8 @@ class CloudformationCli < Formula
   end
 
   resource "hypothesis" do
-    url "https://files.pythonhosted.org/packages/13/13/1f3909df62388c302fac4bd69b2691fc0a52a2dfece8d234e7e519593b7e/hypothesis-6.24.2.tar.gz"
-    sha256 "4030f88ae0a8d3339a41dd7589c78d3ba0a3a270f729c12aceddaea7c60b224b"
+    url "https://files.pythonhosted.org/packages/da/be/b0ab4290699b2e05aae642e5e851a2c46f8bb44a4e9cf094cc8fddd14709/hypothesis-6.25.0.tar.gz"
+    sha256 "8e126f2f59d81f32a5c6866df2558b119938515ed9cd6c9a044ef6a74e649ee5"
   end
 
   resource "idna" do
@@ -169,13 +169,13 @@ class CloudformationCli < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/4d/34/523195b783e799fd401ad4bbc40d787926dd4c61838441df08bf42297792/packaging-21.2.tar.gz"
-    sha256 "096d689d78ca690e4cd8a89568ba06d07ca097e3306a4381635073ca91479966"
+    url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
+    sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
   end
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/69/7e/e420b9b6b06f9597827571e871f9492512701497971a4cf3f4638c03bc7a/pbr-5.7.0.tar.gz"
-    sha256 "4651ca1445e80f2781827305de3d76b3ce53195f2227762684eb08f17bc473b7"
+    url "https://files.pythonhosted.org/packages/f5/0c/3fa7b1f9006e4d454a49b48eac995167cf8617e19375c6963a6b048af0d0/pbr-5.8.0.tar.gz"
+    sha256 "672d8ebee84921862110f23fcec2acea191ef58543d34dfe9ef3d9f13c31cddf"
   end
 
   resource "pluggy" do
@@ -189,8 +189,8 @@ class CloudformationCli < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz"
-    sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
+    url "https://files.pythonhosted.org/packages/ab/61/1a1613e3dcca483a7aa9d446cb4614e6425eb853b90db131c305bd9674cb/pyparsing-3.0.6.tar.gz"
+    sha256 "d9bdec0013ef1eb5a84ab39a3b3868911598afa494f5faa038647101504e2b81"
   end
 
   resource "pyrsistent" do
@@ -204,8 +204,8 @@ class CloudformationCli < Formula
   end
 
   resource "pytest-localserver" do
-    url "https://files.pythonhosted.org/packages/6c/b3/db8f8700718fbefaa2e8b2ef690fec147e560ce92e2300cdb3ff462d313c/pytest-localserver-0.5.0.tar.gz"
-    sha256 "3a5427909d1dfda10772c1bae4b9803679c0a8f04adb66c338ac607773bfefc2"
+    url "https://files.pythonhosted.org/packages/40/24/f5ed971f1770337c9a6097936ccdeb8361d35cceacf3e8a389b3eeb9652b/pytest-localserver-0.5.1.tar.gz"
+    sha256 "ef6f04193dc0f7e8df5b27b3a8834318fa12eaf025436d2a99afff1b73cde761"
   end
 
   resource "pytest-random-order" do

@@ -1,18 +1,18 @@
 class LeanCli < Formula
   desc "Command-line tool to develop and manage LeanCloud apps"
   homepage "https://github.com/leancloud/lean-cli"
-  url "https://github.com/leancloud/lean-cli/archive/v0.28.2.tar.gz"
-  sha256 "ab6ab44e02ce17767065a865f72c48fc8c9cd8fbe0969c729b96db0bc25854a7"
+  url "https://github.com/leancloud/lean-cli/archive/v0.29.0.tar.gz"
+  sha256 "f9eed6fdf6f0e436b481d9f882461bd9e0aed78bdbf77a61b99a9cf66875e549"
   license "Apache-2.0"
   head "https://github.com/leancloud/lean-cli.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e726aa3c5c41560a396bd237a7a26c9e4b37644a2f82cc5f3e767af45965516b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4266004c6fea9405b7b081d236f0d55ea5cec6954c116ffecdcf897a812fc23a"
-    sha256 cellar: :any_skip_relocation, monterey:       "3e5600a53dbdbdff2072ca0541a9d5e577883c9dfe9d6f1c7663cc9d910255a4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "744fae9309a5a24b76ee7aa3487325d74c09429cca9417a1f3be6e393796306f"
-    sha256 cellar: :any_skip_relocation, catalina:       "611326e242ff864d21c905f1f43461e4e577f19c9e6dd5fe99cd3bfa65b32d81"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cbb73ba97a0173919ca520d9f8c2579d4d8e04ae210853ffdd4d161638b8b17d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "99cae4232fb1996710b8c9d2de984b02f8dbca7ac03774f3d49be1ce952cc265"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7ff6b1f128a8dd57ff8aa905adc26afef272447d6c7d06953e5723db1389adf6"
+    sha256 cellar: :any_skip_relocation, monterey:       "4b0f82ff4b47d6f44a2e709df95ca207529431fb246730d58e286aae8cd7fbd0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7b364f6187f8cd12ba7e0d4b9c91abd54b351764a76ed90300595d712be17859"
+    sha256 cellar: :any_skip_relocation, catalina:       "f0ee85989e412dd794c7b5e5be176dd6c06be239db96c2e1ecb8b01d5dd4431d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f6e4780976395528e0e21c5ac457341621d5f167ed134e6222643823eb5614c7"
   end
 
   depends_on "go" => :build

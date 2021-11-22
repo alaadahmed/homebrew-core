@@ -1,9 +1,9 @@
 class Wireshark < Formula
   desc "Graphical network analyzer and capture tool"
   homepage "https://www.wireshark.org"
-  url "https://www.wireshark.org/download/src/all-versions/wireshark-3.4.9.tar.xz"
-  mirror "https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.4.9.tar.xz"
-  sha256 "c6525e829bd24525ee699aa207ecd27c50646d64263a669671badfb71cd99620"
+  url "https://www.wireshark.org/download/src/all-versions/wireshark-3.4.10.tar.xz"
+  mirror "https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.4.10.tar.xz"
+  sha256 "8aa7ef4a44ae62bb8db463cf761e2cc03b97305e0e77ed5be53fa83729187cef"
   license "GPL-2.0-or-later"
   head "https://gitlab.com/wireshark/wireshark.git", branch: "master"
 
@@ -13,11 +13,10 @@ class Wireshark < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "1ea892a48ea622868e01f59f5c31862e80785d4d1c276fedc17465512dce9dfd"
-    sha256 big_sur:       "6885514683558139b01f9cb8820cf42d1474fb0b72b381996327ae64d7cb694c"
-    sha256 catalina:      "c9e2893065d4b33debbb40453093c72781c6835a3df502713786aa9de69136cd"
-    sha256 mojave:        "b0acdf1efbb775f4e9de3057ed00dcc73c438c532099d3b43e1dba20517fe0e4"
-    sha256 x86_64_linux:  "518874dd9f83f422b433fd8211387db4d1385e6ce890cc4024aa651b4e1e0ee7"
+    sha256 arm64_big_sur: "43027d942d2504cbb780299005dab86fa097783056e131f05324fabd06085ef7"
+    sha256 big_sur:       "a0bd0015afb39bfaf94ed5c4e3b4fcd411bc8d5d8aa1e8ab42c132ac64b41004"
+    sha256 catalina:      "d507aaaaff20e6f67de207f43dae910c0ed01e5a1c16a45dcd9c370232faef41"
+    sha256 x86_64_linux:  "5349a895fa52b7f586e412d793d64bbd8f85bb6d7aa117c83dd31b855a085a46"
   end
 
   depends_on "cmake" => :build

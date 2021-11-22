@@ -3,18 +3,18 @@ class Fonttools < Formula
 
   desc "Library for manipulating fonts"
   homepage "https://github.com/fonttools/fonttools"
-  url "https://files.pythonhosted.org/packages/47/bb/7d54c8764ec928c348a329bf745bc73029742cd57efffc1530f8c5ac6d4c/fonttools-4.28.1.zip"
-  sha256 "8c8f84131bf04f3b1dcf99b9763cec35c347164ab6ad006e18d2f99fcab05529"
+  url "https://files.pythonhosted.org/packages/3c/d5/f722e0d1aed0d547383913c6bc3c4ff35772952057b8e2b8fe3be8df4216/fonttools-4.28.2.zip"
+  sha256 "dca694331af74c8ad47acc5171e57f6b78fac5692bf050f2ab572964577ac0dd"
   license "MIT"
   head "https://github.com/fonttools/fonttools.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "97fce3ec5330c878922b1fa75ea2a59159d6f64cf23970fcc4002fda844922ea"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "97fce3ec5330c878922b1fa75ea2a59159d6f64cf23970fcc4002fda844922ea"
-    sha256 cellar: :any_skip_relocation, monterey:       "57e6ff73ba7945dfde0227413a69e984fcb291d333ff53447e649bd063530d1b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "57e6ff73ba7945dfde0227413a69e984fcb291d333ff53447e649bd063530d1b"
-    sha256 cellar: :any_skip_relocation, catalina:       "57e6ff73ba7945dfde0227413a69e984fcb291d333ff53447e649bd063530d1b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "47edc19b0e0dd59c31c9f5ced3ba45d74185bd7c28473079013539363c94d8d9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d55d39e6054028672dba62978fa5db7f240b2c1ac1b56fdcabb004b488ad6c71"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d55d39e6054028672dba62978fa5db7f240b2c1ac1b56fdcabb004b488ad6c71"
+    sha256 cellar: :any_skip_relocation, monterey:       "a9d97473e62778207fe83d99c6b240138aa07704fd64275ecc8272712e58beb6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a9d97473e62778207fe83d99c6b240138aa07704fd64275ecc8272712e58beb6"
+    sha256 cellar: :any_skip_relocation, catalina:       "a9d97473e62778207fe83d99c6b240138aa07704fd64275ecc8272712e58beb6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "878fc3e5c040348e072ecfd506d0737376f171a37d85c2e0b25c16fc04a3ad7e"
   end
 
   depends_on "python@3.10"

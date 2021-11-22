@@ -1,8 +1,8 @@
 class EasyrpgPlayer < Formula
   desc "RPG Maker 2000/2003 games interpreter"
   homepage "https://easyrpg.org/"
-  url "https://easyrpg.org/downloads/player/0.6.2.3/easyrpg-player-0.6.2.3.tar.xz"
-  sha256 "6702b78949b26aeb6d1e26dbffa33f6352ca14111774bfd433bc140c146087d0"
+  url "https://easyrpg.org/downloads/player/0.7.0/easyrpg-player-0.7.0.tar.xz"
+  sha256 "12149f89cc84f3a7f1b412023296cf42041f314d73f683bc6775e7274a1c9fbc"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -10,17 +10,16 @@ class EasyrpgPlayer < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "750c687ff13d2673ccac55733ac06d6f08025494b0036df2de25eaca4212435f"
-    sha256 cellar: :any,                 arm64_big_sur:  "60df6f5b55d829c737c6f534a85db694ca4469586284cd22cab9d50613bda89f"
-    sha256 cellar: :any,                 monterey:       "1ae3259607bd8f4340d3c3a2914b7e646d28f5f9b65ea98e9b4a5a502c347cd5"
-    sha256 cellar: :any,                 big_sur:        "481bef5afabcabe0f34eea0586fe8134161bab387c87a32fcc3ca77e69063189"
-    sha256 cellar: :any,                 catalina:       "e6b485bfe87e67da97b5bc34c828889286bbac4602db5e04efae54392c60a99b"
-    sha256 cellar: :any,                 mojave:         "454cf0e4e8ad0721c52346d26d29b974e568fb0c3b9c12e60d1bc8f88ddc7bc1"
-    sha256 cellar: :any,                 high_sierra:    "23f7a5cbe93058e968781d35b1a94df1e23ff84942b1afb5ada3e33dfd5b9ca6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c4560e369a92cfd63c7077351e0f802e1f8df989be7cf640091255de475613df"
+    sha256 cellar: :any,                 arm64_monterey: "e4d6d21e250a0d98f8c655b845b648b5c4e512aeb6de9190e25dc11479933074"
+    sha256 cellar: :any,                 arm64_big_sur:  "86ba836aaad3a38cc862c39e0f41658eb1fc899d8e63763caf4e8c376ad8418a"
+    sha256 cellar: :any,                 monterey:       "9151058014064597af9c404f707a5cfad0dbf33662301822aab3541b5dd1d63b"
+    sha256 cellar: :any,                 big_sur:        "b1aa0ec02ee7b1faed7a6357aa67f6418480ae03aceddbf6581ba2d30380942b"
+    sha256 cellar: :any,                 catalina:       "bf296509905e0a781150b999881e792080687bddbca1c1570847d9a83a3656a8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad4a2e6397a8909e5a3964584661dd8ea0b397e14f7bae802d0bcf13f3f10c86"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "cmake" => :build
+  depends_on "fmt"
   depends_on "freetype"
   depends_on "harfbuzz"
   depends_on "liblcf"
@@ -31,14 +30,25 @@ class EasyrpgPlayer < Formula
   depends_on "mpg123"
   depends_on "pixman"
   depends_on "sdl2"
-  depends_on "sdl2_mixer"
   depends_on "speexdsp"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "alsa-lib"
+  end
+
+  fails_with gcc: "5"
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
+    if OS.mac?
+      prefix.install "build/EasyRPG Player.app"
+      bin.write_exec_script "#{prefix}/EasyRPG Player.app/Contents/MacOS/EasyRPG Player"
+      mv "#{bin}/EasyRPG Player", "#{bin}/easyrpg-player"
+    end
   end
 
   test do

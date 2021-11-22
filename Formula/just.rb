@@ -1,18 +1,23 @@
 class Just < Formula
   desc "Handy way to save and run project-specific commands"
   homepage "https://github.com/casey/just"
-  url "https://github.com/casey/just/archive/0.10.3.tar.gz"
-  sha256 "10ee1caaedb2e92257338942fce146e5d3aadd6f9f5e98fbc21e422e2d863169"
+  url "https://github.com/casey/just/archive/0.10.4.tar.gz"
+  sha256 "81d7e7d5496861a37f8668dbeb845381c41ea0ef5fa087c7b8bd41b70134218d"
   license "CC0-1.0"
   head "https://github.com/casey/just.git"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6ff0dd66e2ca94e429c204f990a11ca52bfce3fb5051cc8534fba89d91d65bb4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ac90100a299641baa3ef243ccdcdb970cd2562fe57869202e471ad5b6bed211b"
-    sha256 cellar: :any_skip_relocation, monterey:       "8bbd7be3d3dedc0edb88c07a9bc597d4da220b13ee52d2bce77469a581e1a790"
-    sha256 cellar: :any_skip_relocation, big_sur:        "47991aa412115942ede4dd66a5a6aaef794cf201b0a58998afd1df66b8cbdfcf"
-    sha256 cellar: :any_skip_relocation, catalina:       "f78750b5ebba0d8a28563414f3980b59fe06d5b875896ae4e7359ef0160a6c8a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae345134746c176023d47a58eeb1d32eb59d386c2fa096f9ea0c7ae72a9a7534"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bae9785bdc153e1d591ea8b02ac5c91a46ad88a63cd342322e21fd2f706e733a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "96890ef0a3dd0196021f90fe3f5ed59800c8a001c78bbd1afd00184b58f6d236"
+    sha256 cellar: :any_skip_relocation, monterey:       "8aaf68098fc50c988c97c38ba68dbc548ee9852f973b18bb5e46dd1b14b245f2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6387ce3af5769bc5136c7176b7de5c027edee04abc411b16e53ad40fa50d562e"
+    sha256 cellar: :any_skip_relocation, catalina:       "c29ee1411073506cec9d103b6e7a9b2fc7e48a76431bd99aacbd35fdd21d6a29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "20b3f50da02c3270d2f10c2db22680a89fc432f7c5011f7a71bf4f66ba98443e"
   end
 
   depends_on "rust" => :build
