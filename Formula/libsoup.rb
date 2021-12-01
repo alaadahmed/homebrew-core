@@ -1,15 +1,16 @@
 class Libsoup < Formula
   desc "HTTP client/server library for GNOME"
   homepage "https://wiki.gnome.org/Projects/libsoup"
-  url "https://download.gnome.org/sources/libsoup/2.74/libsoup-2.74.1.tar.xz"
-  sha256 "dc27a3b8fa30bc8ff950b5a75958757d2242e3e51e4e2d9c4e623ef75f793bf8"
+  url "https://download.gnome.org/sources/libsoup/3.0/libsoup-3.0.2.tar.xz"
+  sha256 "98ef53ed9b4815ec05232155371af803a9928f4652acc685ff02086be16a3ff5"
   license "LGPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_big_sur: "9c3deeddccac3804d1e5be29a7b0cf0296b259bbb0be6fdc0443fae3d3f093c6"
-    sha256 big_sur:       "6e4cbcf5acb86f997c8d954c8a98921654efd397f444ea396552c47937bf6e3e"
-    sha256 catalina:      "55204e3bb0b2860855a5cd979484b79e26bb5b88ee4d30336a476ab1d9e90a3f"
-    sha256 x86_64_linux:  "2a40268601402ca904087a607d19498bf15c12aef17ef32f938650e64820e01c"
+    sha256 arm64_big_sur: "e1d69a9438c85ffd4f3a8053a793bd7c0bc1549854a15647323a548af9e89512"
+    sha256 monterey:      "054c4eb1f108323999d2582d2a19ccf4e09eab6612c6f55fb7f983ff3536337f"
+    sha256 big_sur:       "3c9dcd7ceae483d7492f7078d324b7d4c3beb67f7683b71fadf9d50f6c6809c0"
+    sha256 catalina:      "2dbaf27a1f72fd3d4cad39ec405d892d02a1d4e0b4107cf7af5d1eaad81f8f71"
+    sha256 x86_64_linux:  "b673fd74270840cbb437b3b44441eaae3a77284e57cfc7b86cb65f03b489ca31"
   end
 
   depends_on "gobject-introspection" => :build
@@ -38,10 +39,16 @@ class Libsoup < Formula
       #include <libsoup/soup.h>
 
       int main(int argc, char *argv[]) {
-        SoupMessage *msg = soup_message_new("GET", "https://brew.sh");
+        SoupMessage *msg = soup_message_new(SOUP_METHOD_GET, "https://brew.sh");
         SoupSession *session = soup_session_new();
-        soup_session_send_message(session, msg); // blocks
-        g_assert_true(SOUP_STATUS_IS_SUCCESSFUL(msg->status_code));
+        GError *error = NULL;
+        GBytes *bytes = soup_session_send_and_read(session, msg, NULL, &error); // blocks
+
+        if(error) {
+          g_error_free(error);
+          return 1;
+        }
+
         g_object_unref(msg);
         g_object_unref(session);
         return 0;
@@ -54,7 +61,7 @@ class Libsoup < Formula
       -I#{gettext.opt_include}
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
-      -I#{include}/libsoup-2.4
+      -I#{include}/libsoup-3.0
       -D_REENTRANT
       -L#{gettext.opt_lib}
       -L#{glib.opt_lib}
@@ -62,7 +69,7 @@ class Libsoup < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lsoup-2.4
+      -lsoup-3.0
     ]
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"

@@ -14,8 +14,11 @@ class Csound < Formula
   end
 
   bottle do
-    sha256 big_sur:  "09d0bf7e5dcc8475ea662db2b148055aacdd8fd25544203bfdd7ce55b5dae02b"
-    sha256 catalina: "31662f37b880f71f7b050c2abe40f2e14a64523e560947919620ebe334bec32d"
+    sha256 arm64_monterey: "cf2b0001027c56702ec47c6b19f7f08bd1d175b50905ff7307777625664e4dfd"
+    sha256 arm64_big_sur:  "5f72a25d33034fd86e8de8526b50e64aa06e98dbb07f2ad0474de315aa6273ef"
+    sha256 monterey:       "c03ef7b909f6e843cd133f601e0f8d6f23a2a83dd860923c016a28003caf7bdf"
+    sha256 big_sur:        "09d0bf7e5dcc8475ea662db2b148055aacdd8fd25544203bfdd7ce55b5dae02b"
+    sha256 catalina:       "31662f37b880f71f7b050c2abe40f2e14a64523e560947919620ebe334bec32d"
   end
 
   depends_on "asio" => :build
@@ -73,7 +76,7 @@ class Csound < Formula
       -DBUILD_LINEAR_ALGEBRA_OPCODES=ON
       -DBUILD_LUA_INTERFACE=OFF
       -DBUILD_WEBSOCKET_OPCODE=OFF
-      -DCMAKE_INSTALL_RPATH=#{frameworks}
+      -DCMAKE_INSTALL_RPATH=@loader_path/../Frameworks;#{rpath}
       -DCS_FRAMEWORK_DEST=#{frameworks}
       -DGMM_INCLUDE_DIR=#{buildpath}/gmm
       -DJAVA_MODULE_INSTALL_DIR=#{libexec}
@@ -88,8 +91,7 @@ class Csound < Formula
 
     libexec.install buildpath/"interfaces/ctcsound.py"
 
-    python_version = Language::Python.major_minor_version Formula["python@3.9"].bin/"python3"
-    (lib/"python#{python_version}/site-packages/homebrew-csound.pth").write <<~EOS
+    (prefix/Language::Python.site_packages("python3")/"homebrew-csound.pth").write <<~EOS
       import site; site.addsitedir('#{libexec}')
     EOS
 
@@ -113,8 +115,9 @@ class Csound < Formula
 
   def caveats
     <<~EOS
-      To use the Python bindings, you may need to add to #{shell_profile}:
-        export DYLD_FRAMEWORK_PATH="$DYLD_FRAMEWORK_PATH:#{opt_frameworks}"
+      To use the Python bindings, you may need to set:
+        export DYLD_FALLBACK_FRAMEWORK_PATH="$DYLD_FALLBACK_FRAMEWORK_PATH:#{opt_frameworks}"
+      Exercise caution when adding this to your #{shell_profile}.
 
       To use the Java bindings, you may need to add to #{shell_profile}:
         export CLASSPATH="#{opt_libexec}/csnd6.jar:."
@@ -166,7 +169,7 @@ class Csound < Formula
     EOS
     system bin/"csound", "--orc", "--syntax-check-only", "opcode-existence.orc"
 
-    with_env("DYLD_FRAMEWORK_PATH" => frameworks) do
+    with_env(DYLD_FALLBACK_FRAMEWORK_PATH: frameworks) do
       system Formula["python@3.9"].bin/"python3", "-c", "import ctcsound"
     end
 

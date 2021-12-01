@@ -3,18 +3,18 @@ class Flit < Formula
 
   desc "Simplified packaging of Python modules"
   homepage "https://github.com/takluyver/flit"
-  url "https://files.pythonhosted.org/packages/86/e2/6501c2a722e106c0eac94f441074c3c34effc34ce1b5416a28b087030cd9/flit-3.5.0.tar.gz"
-  sha256 "7b55f406ee5c1505f463cd9a186c73d2ccaf7d44618ca59ae643e0dce27cadf7"
+  url "https://files.pythonhosted.org/packages/a8/bc/4bbb98f1ce0ae4e778f3486c39c487a066d69f5ffe4e762c79664dfd5df8/flit-3.5.1.tar.gz"
+  sha256 "2e3b7377714483ecc54b236330d7bf3467b9f5b909b22333b50b6b4324162510"
   license "BSD-3-Clause"
   head "https://github.com/takluyver/flit.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "347100e17a86f9f5e888bcd14ab5d5b8e7352caab26d6ab98315395c4ed16caf"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9db0f31fdcd77fc1a46047fa45b41ebc2b02481020c35dfbb7bc2062e0fa7e71"
-    sha256 cellar: :any_skip_relocation, monterey:       "5483fbc16a721aad5f6b9e5a46ce95c62bab57a9e1fb451fe2071e2f783d54b0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7bc5fbe47a552c8cdd3e81114889e64aeaf294ff98bb70ef0f2721ee92a9990d"
-    sha256 cellar: :any_skip_relocation, catalina:       "12de672a58f15adf2498d6336926bac27ab7aaf11a1ef70bf5fc830c716ed57b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c7efaed84057810c32c5ebe555b204995a601ec10c456cca0f6b4302f05769f3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "25e0c7a5795e1d8430ac245e59fa90b55e86ed87daee1c2550c802e7a794e352"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d13d7d2796004e63053de7e5d3f699280912ca67d39c45a5cb0c7b06c33066c3"
+    sha256 cellar: :any_skip_relocation, monterey:       "08c25cd4777954fc83a6cd174b55cde39723fbf7af9428940a63df5e6f1df098"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0ff391b085bc5e17d8945b71880f38ffe56147897c28fb26f9edaa057b67a562"
+    sha256 cellar: :any_skip_relocation, catalina:       "4ca84d3ab0e3e73fd615137d67c750f657436e743a9a7814e21098d09440fb72"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e4f2e3813962bd1ba9e3a967041bbbc9d99f05573fa3c0e217b4f24cb74f5a34"
   end
 
   depends_on "python@3.10"
@@ -35,8 +35,8 @@ class Flit < Formula
   end
 
   resource "flit-core" do
-    url "https://files.pythonhosted.org/packages/26/12/74c9b72b280006a97fb80268e6b84bf77c73837d93391c8238488c6f2dde/flit_core-3.5.0.tar.gz"
-    sha256 "2db800d33ff41e4c6e7c1b594666cb2a11553024106655272c7245933b1d75bd"
+    url "https://files.pythonhosted.org/packages/7e/1e/15198966abf00e590ec95fb8aa4ba3d274897fe7b182fce2867f672f6a91/flit_core-3.5.1.tar.gz"
+    sha256 "3083720351a6cb00e0634a1ec0e26eae7b273174c3c6c03d5b597a14203b282e"
   end
 
   resource "idna" do

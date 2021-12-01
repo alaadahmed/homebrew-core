@@ -4,9 +4,10 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v0.74.0",
-      revision: "36d4f648f0ea180059c6aba41d3144583ed9bae5"
+      tag:      "v0.75.0",
+      revision: "d786313c7bfdaac0c53e07cffc6fcb91a1b5c0ee"
   license "LGPL-2.1-only"
+  revision 1
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
   livecheck do
@@ -15,12 +16,12 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "5dfbfda51dbd907c5715a792bf630b5b5a1368440536364bf1caabb091ffbc81"
-    sha256 cellar: :any, arm64_big_sur:  "ab9a27e5b4d089e74794647d144d1e812866b7d0ab6371ad3e60787ae275240a"
-    sha256 cellar: :any, monterey:       "00007935b9401b1b03e7356d89a0ac0340151ee06b8dd10d9122328deefe46b1"
-    sha256 cellar: :any, big_sur:        "7f683a73661420bb7ec3175257cb2784fe373436920c39b489cd36cb3ec3cb63"
-    sha256 cellar: :any, catalina:       "2d47ff59ae39f18e77a9b8f113b316ea86e85ed8e6c56fc1f35704717dad3370"
-    sha256               x86_64_linux:   "c3a9dc33a5c32490022fe963a7bad3ddea83b10d1568e5963ca7530d4d1d2ca4"
+    sha256 cellar: :any, arm64_monterey: "5f1eaa8e44be3d73edd4160c34b21269a36daa8fc0aebc21ab73a9d64fcd5d2b"
+    sha256 cellar: :any, arm64_big_sur:  "7c5b6cbdf761cab2bfc285e2874d07fa082ef3e0df98b3848890975096af3d10"
+    sha256 cellar: :any, monterey:       "862546e93481a1f815a874ec0992e9983303e1f7f9ef5aef64334d79309c67cc"
+    sha256 cellar: :any, big_sur:        "22dc5dbdf5c549194ea60b92d03b959cfb14569302286ffda1f321de0d91f508"
+    sha256 cellar: :any, catalina:       "abfb03fa46f8e5d82b0efe16a7a8b91b1c6de95871f461b7a41ffa51cc788a5d"
+    sha256               x86_64_linux:   "e05007ecae77aa863bec312f1a5314a226f0661dfdeb0755ba31c2d1533cc6ab"
   end
 
   depends_on "cmake" => :build
@@ -36,7 +37,7 @@ class Semgrep < Formula
   uses_from_macos "rsync" => :build
 
   on_linux do
-    depends_on "gcc" => [:build, :test]
+    depends_on "gcc"
   end
 
   fails_with gcc: "5"

@@ -1,9 +1,9 @@
 class Varnish < Formula
   desc "High-performance HTTP accelerator"
   homepage "https://www.varnish-cache.org/"
-  url "https://varnish-cache.org/_downloads/varnish-7.0.0.tgz"
-  mirror "https://fossies.org/linux/www/varnish-7.0.0.tgz"
-  sha256 "8c7a5c0b1f36bc70bcbc9a48830835249e895fb8951f0363110952148cbae087"
+  url "https://varnish-cache.org/_downloads/varnish-7.0.1.tgz"
+  mirror "https://fossies.org/linux/www/varnish-7.0.1.tgz"
+  sha256 "c4e75beff0d461611742361fe8039ee1233ddf755b2b8a1e18a5fcacbe2b4660"
   license "BSD-2-Clause"
   revision 1
 
@@ -13,16 +13,16 @@ class Varnish < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "f3430a0d15dcf0f3c49901d836df00802e07e49e50cf843cc60797932105aef6"
-    sha256 big_sur:       "04dab009e3b61c2339cf91324869ac28d48643f24bfb6e7de35fdb714eacc36a"
-    sha256 catalina:      "04a13eafe484743944404dbbe132ba7148bb1a4a44f30a4d6df55e94d709dd89"
+    sha256 arm64_big_sur: "5627a636277bc9d9361b245d521755799c53782b4585d709cff88e3c43fae50a"
+    sha256 monterey:      "7cb4ae49e8618bd05741eeddf5de9f563b1c1c9a541216ad7444cbdd04383810"
+    sha256 big_sur:       "30eabfc78b2a616339e8d931c7ca2d70356b3c9b2bb223ea045195e9d59445bf"
+    sha256 catalina:      "ef8a23c4bd73ffd8431808cad95c0c738fc3a2b5a98a70aa30f9a99dc25918e4"
   end
 
   depends_on "docutils" => :build
   depends_on "graphviz" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "sphinx-doc" => :build
   depends_on "pcre2"
 
@@ -33,7 +33,7 @@ class Varnish < Formula
   end
 
   def install
-    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
+    ENV["PYTHON"] = which("python3")
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

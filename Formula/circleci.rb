@@ -3,18 +3,18 @@ class Circleci < Formula
   homepage "https://circleci.com/docs/2.0/local-cli/"
   # Updates should be pushed no more frequently than once per week.
   url "https://github.com/CircleCI-Public/circleci-cli.git",
-      tag:      "v0.1.16277",
-      revision: "0aee802464471fcd2d06b18b9a501da241afdf72"
+      tag:      "v0.1.16508",
+      revision: "e367219b143da38edbdf1d4f5d7a4f7209658126"
   license "MIT"
   head "https://github.com/CircleCI-Public/circleci-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "24b037063611558291f4419adee723ce4c73342819253ff3296bcb14e804257c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a50b16ee9f2be661f27886b2394bc0bf9d5a297baa1b012229e8cf410792d0a2"
-    sha256 cellar: :any_skip_relocation, monterey:       "9ca0aec5d90ea8c121e29b1a2a97ae2194d58c41a9d596ec56a4b9cd6e66e661"
-    sha256 cellar: :any_skip_relocation, big_sur:        "da1f7b00279b4bdf672097a45d0ac5f7f0341962c8c3f59a3ea1dd47b6f4444a"
-    sha256 cellar: :any_skip_relocation, catalina:       "cf55fa5a04a261f96cc8c78ae6d618ad32e4ed27792436db3826648b6b13aa3b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "de06fea264b40114d8b614e0fe9340349961d04d980699c585925a603a16f734"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5ed8fd2f5dadc5a4400ed93da8ff7dd2662c4a2be60348a319550ab0ab3e18b7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "455c015107905ad43f0a29f07ab5008f8e00de617e99126fafb61283eeb81384"
+    sha256 cellar: :any_skip_relocation, monterey:       "81ebbfdb80001ede714eb552a6fb7a0dd52c1c25ecacb6be9e26bd212bd119b9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e9f79e52380be5b6294c1f1727d94ad344cb127eea9cdb60121c2ddb13857a48"
+    sha256 cellar: :any_skip_relocation, catalina:       "ec6528c5df8f18518c1d0271e9bd0ed97afdf2062ccb9ecc5eb00c7c23cc71f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5837c79f0b9da2df7689cff264fe6c07cef26265564d5a6804c548968bf39718"
   end
 
   depends_on "go" => :build
@@ -29,7 +29,7 @@ class Circleci < Formula
       -X github.com/CircleCI-Public/circleci-cli/version.Version=#{version}
       -X github.com/CircleCI-Public/circleci-cli/version.Commit=#{Utils.git_short_head}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags.join(" "))
+    system "go", "build", *std_go_args(ldflags: ldflags)
 
     output = Utils.safe_popen_read("#{bin}/circleci", "--skip-update-check", "completion", "bash")
     (bash_completion/"circleck").write output

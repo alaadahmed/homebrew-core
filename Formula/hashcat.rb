@@ -1,25 +1,22 @@
 class Hashcat < Formula
   desc "World's fastest and most advanced password recovery utility"
   homepage "https://hashcat.net/hashcat/"
-  url "https://hashcat.net/files/hashcat-6.2.4.tar.gz"
-  mirror "https://github.com/hashcat/hashcat/archive/v6.2.4.tar.gz"
-  sha256 "9020396ff933693e310b479b641e86f1783d9819d60d1d907752ad8d24a60c31"
+  url "https://hashcat.net/files/hashcat-6.2.5.tar.gz"
+  mirror "https://github.com/hashcat/hashcat/archive/v6.2.5.tar.gz"
+  sha256 "6f6899d7ad899659f7b43a4d68098543ab546d2171f8e51d691d08a659378969"
   license "MIT"
   version_scheme 1
   head "https://github.com/hashcat/hashcat.git"
 
   bottle do
-    sha256 arm64_monterey: "548332afa0203273e4d9a1a52409236142e24eb7e747a8fd33b4a9b298c9ef46"
-    sha256 arm64_big_sur:  "7b9727bdfbc0a602aa7ce3b0430b0d12fddb46a78e7f9077d79a1cf6dbbc0313"
-    sha256 monterey:       "0736726f1d60e51e6c42b8cf34dd87fda5dfa4924cd3d892eda6f4f698d4da86"
-    sha256 big_sur:        "21a36b5a036e7f52c7bc47427d0451a33abd3ee08066961c33bc0f04494af847"
-    sha256 catalina:       "84636fb6c2606364c8516346782758641c0c5bb5567936ada4fa2504ea75307e"
+    sha256 arm64_monterey: "fa6cfd37e7dcc83390159e971d314cde0af53ab58e41c8f669919d8db1acd1f6"
+    sha256 arm64_big_sur:  "9407d08fda25cba3b7500bb0d6b99823b325f6b1302b96203b44d46052b43df5"
+    sha256 monterey:       "2943213fd5cf7d331331d734c059efca5031ea913f434b9d3e420c9b89d32870"
+    sha256 big_sur:        "50bbfbedcbbefcc4d0bda34f828eca5061a993631a4bae85d78abfe0b119556f"
+    sha256 catalina:       "455a0e164a50caf10908da5ef73322bf19de286601a44a9e6e75d1ebcb010ef5"
   end
 
   depends_on "gnu-sed" => :build
-
-  # fixed for next version with https://github.com/hashcat/hashcat/pull/3030
-  patch :DATA if Hardware::CPU.arm?
 
   def install
     system "make", "CC=#{ENV.cc}", "PREFIX=#{prefix}"
@@ -34,61 +31,3 @@ class Hashcat < Formula
     system testpath/"hashcat --benchmark -m 0 -D 1,2 -w 2"
   end
 end
-
-__END__
-diff --git a/src/backend.c b/src/backend.c
-index 5de908202..6d0ba4695 100644
---- a/src/backend.c
-+++ b/src/backend.c
-@@ -10531,6 +10531,7 @@ static bool load_kernel (hashcat_ctx_t *hashcat_ctx, hc_device_param_t *device_p
- 
-       int CL_rc;
- 
-+/*
-       cl_program p1 = NULL;
- 
-       if (hc_clCreateProgramWithSource (hashcat_ctx, device_param->opencl_context, 1, (const char **) kernel_sources, NULL, &p1) == -1) return false;
-@@ -10538,6 +10539,15 @@ static bool load_kernel (hashcat_ctx_t *hashcat_ctx, hc_device_param_t *device_p
-       CL_rc = hc_clCompileProgram (hashcat_ctx, p1, 1, &device_param->opencl_device, build_options_buf, 0, NULL, NULL, NULL, NULL);
- 
-       hc_clGetProgramBuildInfo (hashcat_ctx, p1, device_param->opencl_device, CL_PROGRAM_BUILD_LOG, 0, NULL, &build_log_size);
-+*/
-+
-+      if (hc_clCreateProgramWithSource (hashcat_ctx, device_param->opencl_context, 1, (const char **) kernel_sources, NULL, opencl_program) == -1) return false;
-+
-+      CL_rc = hc_clBuildProgram (hashcat_ctx, *opencl_program, 1, &device_param->opencl_device, build_options_buf, NULL, NULL);
-+
-+      if (CL_rc == -1) return -1;
-+
-+      hc_clGetProgramBuildInfo (hashcat_ctx, *opencl_program, device_param->opencl_device, CL_PROGRAM_BUILD_LOG, 0, NULL, &build_log_size);
- 
-       #if defined (DEBUG)
-       if ((build_log_size > 1) || (CL_rc == -1))
-@@ -10547,7 +10557,9 @@ static bool load_kernel (hashcat_ctx_t *hashcat_ctx, hc_device_param_t *device_p
-       {
-         char *build_log = (char *) hcmalloc (build_log_size + 1);
- 
--        const int rc_clGetProgramBuildInfo = hc_clGetProgramBuildInfo (hashcat_ctx, p1, device_param->opencl_device, CL_PROGRAM_BUILD_LOG, build_log_size, build_log, NULL);
-+//        const int rc_clGetProgramBuildInfo = hc_clGetProgramBuildInfo (hashcat_ctx, p1, device_param->opencl_device, CL_PROGRAM_BUILD_LOG, build_log_size, build_log, NULL);
-+
-+        const int rc_clGetProgramBuildInfo = hc_clGetProgramBuildInfo (hashcat_ctx, *opencl_program, device_param->opencl_device, CL_PROGRAM_BUILD_LOG, build_log_size, build_log, NULL);
- 
-         if (rc_clGetProgramBuildInfo == -1)
-         {
-@@ -10565,6 +10577,7 @@ static bool load_kernel (hashcat_ctx_t *hashcat_ctx, hc_device_param_t *device_p
- 
-       if (CL_rc == -1) return false;
- 
-+/*
-       cl_program t2[1];
- 
-       t2[0] = p1;
-@@ -10579,7 +10592,7 @@ static bool load_kernel (hashcat_ctx_t *hashcat_ctx, hc_device_param_t *device_p
-       *opencl_program = fin;
- 
-       hc_clReleaseProgram (hashcat_ctx, p1);
--
-+*/
-       if (cache_disable == false)
-       {
-         size_t binary_size;

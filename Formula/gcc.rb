@@ -5,16 +5,22 @@ class Gcc < Formula
     # Branch from the Darwin maintainer of GCC with Apple Silicon support,
     # located at https://github.com/iains/gcc-darwin-arm64 and
     # backported with his help to gcc-11 branch. Too big for a patch.
-    url "https://github.com/fxcoudert/gcc/archive/refs/tags/gcc-11.1.0-arm-20210504.tar.gz"
-    sha256 "ce862b4a4bdc8f36c9240736d23cd625a48af82c2332d2915df0e16e1609a74c"
+    url "https://github.com/fxcoudert/gcc/archive/refs/tags/gcc-11.2.0-arm-20211124.tar.gz"
+    sha256 "d7f8af7a0d9159db2ee3c59ffb335025a3d42547784bee321d58f2b4712ca5fd"
     version "11.2.0"
   else
     url "https://ftp.gnu.org/gnu/gcc/gcc-11.2.0/gcc-11.2.0.tar.xz"
     mirror "https://ftpmirror.gnu.org/gcc/gcc-11.2.0/gcc-11.2.0.tar.xz"
     sha256 "d08edc536b54c372a1010ff6619dd274c0f1603aa49212ba20f7aa2cda36fa8b"
+
+    # Darwin 21 (Monterey) support
+    patch do
+      url "https://github.com/iains/gcc-darwin-arm64/commit/20f61faaed3b335d792e38892d826054d2ac9f15.patch?full_index=1"
+      sha256 "c0605179a856ca046d093c13cea4d2e024809ec2ad4bf3708543fc3d2e60504b"
+    end
   end
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
-  revision 2
+  revision 3
   head "https://gcc.gnu.org/git/gcc.git", branch: "master"
 
   # We can't use `url :stable` here due to the ARM-specific branch above.
@@ -24,11 +30,12 @@ class Gcc < Formula
   end
 
   bottle do
-    sha256                               arm64_big_sur: "eb3835c0e59c656d3a9eb06cd8eeaa5012900a685a6acc00a117df53eef1a706"
-    sha256                               monterey:      "3dabf9fa3b2bcbfde46223ae4f439d4ecf78dd2c1cf18d2dc83da47aa9e24308"
-    sha256                               big_sur:       "fbafac97c1a9d1e48b4f15aa9410eb9db11d1f2889c62989bb51275848682686"
-    sha256                               catalina:      "f13c1f501612180a12f801dbbde83705c29b5c8c07fd78b1707afbd4713487e9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "beca6d1eddfdfa2d8b7b1eab50f473e838644d7997d915c6a7958db268759ec7"
+    sha256                               arm64_monterey: "b4c97c3386c3b2e25e960b5bbec4986ddea67b971eff9017165dbb125fb9e791"
+    sha256                               arm64_big_sur:  "b5f92266f19555a24c60f85de052b13cc085044288e5b01026911a5037d6c226"
+    sha256                               monterey:       "51f7341566533f60457c90b9a5c659498ff186b0818d0c13beeeb7808c9fed6e"
+    sha256                               big_sur:        "aa1e83291083e8c15d58a75369877e5541db379143a13ef702768590c7a6d5bd"
+    sha256                               catalina:       "229de4c4575d807495c21a3d7d1746229f8aec13a974fe4bbded0e391e6412c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "467b867a3b2d3f43695cd2f161787e9d609360ca4e6da3da97d9eec8d5530752"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -50,10 +57,13 @@ class Gcc < Formula
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
-  # Darwin 21 (Monterey) support
-  patch do
-    url "https://github.com/iains/gcc-darwin-arm64/commit/20f61faaed3b335d792e38892d826054d2ac9f15.patch?full_index=1"
-    sha256 "c0605179a856ca046d093c13cea4d2e024809ec2ad4bf3708543fc3d2e60504b"
+  # Fix for https://gcc.gnu.org/bugzilla/show_bug.cgi?id=102992
+  # Working around a macOS Monterey bug
+  if MacOS.version == :monterey
+    patch do
+      url "https://gcc.gnu.org/git/?p=gcc.git;a=patch;h=fabe8cc41e9b01913e2016861237d1d99d7567bf"
+      sha256 "9d3c2c91917cdc37d11385bdeba005cd7fa89efdbdf7ca38f7de3f6fa8a8e51b"
+    end
   end
 
   def version_suffix

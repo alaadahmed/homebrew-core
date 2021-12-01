@@ -3,18 +3,18 @@ class Ipython < Formula
 
   desc "Interactive computing in Python"
   homepage "https://ipython.org/"
-  url "https://files.pythonhosted.org/packages/36/dc/3ffa7cd738bc12c2be6b759d8d68a19120deea1cb6e764751cf4dc419a2f/ipython-7.29.0.tar.gz"
-  sha256 "4f69d7423a5a1972f6347ff233e38bbf4df6a150ef20fbb00c635442ac3060aa"
+  url "https://files.pythonhosted.org/packages/dc/6a/b390c6788a84f7a5671764a552767733e233b10d9f0ac758275d1f20ff1e/ipython-7.30.0.tar.gz"
+  sha256 "d41f8e80b99690122400f9b2069b12f670246a1b4cc5d332bd6c4e2500e6d6fb"
   license "BSD-3-Clause"
   head "https://github.com/ipython/ipython.git"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "014458b351b8742b5c5b0d858bd1ba4901dbe2fd5bec679a61c4bec5e617c128"
-    sha256 cellar: :any,                 arm64_big_sur:  "06046ff5fb4fff0a6dcdd3196c66705508437005294d882c299585b7850226ae"
-    sha256 cellar: :any,                 monterey:       "dd76222eca8eb7c315ab802e8ff7380c82606d2e3a8395cefb56434b6a9e2451"
-    sha256 cellar: :any,                 big_sur:        "602f07740beda879f42866035b6df353e039d5c3462421b92b8075b74ae10dad"
-    sha256 cellar: :any,                 catalina:       "7396f64a1ebf50a668205a5d85aa9930707e8b37fa266338252cb82038fcf5d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e4cca11ee2e3b2b437873b5e80e16bf2ce9cd2db06a424bfd44bb9ddab36af8e"
+    sha256 cellar: :any,                 arm64_monterey: "91cc57515cded9e4a5aeac0e1474f3625ddf225ebf664f8be1f464e14af048df"
+    sha256 cellar: :any,                 arm64_big_sur:  "c953bc9039d03536103d05ebfe44e958926cb89a19e503b9375e67d05078bea1"
+    sha256 cellar: :any,                 monterey:       "e2278a5167ad998eefeb0e4cb5f8680777c7d50dccc7bc1582786c415b6c1fa0"
+    sha256 cellar: :any,                 big_sur:        "1f356fa4a4dec99746bf90c03f26d0dab27e7f3f82e22b89a667a6dcc9631ebc"
+    sha256 cellar: :any,                 catalina:       "a7049c05b7c432b57d7b3872c49207d31bd95eab7a8ad7279bd1cfbc039b899e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3133296a5e735821510763ced31c0d928606e6bb68be9d0ad9c62449725825e5"
   end
 
   depends_on "python@3.10"
@@ -48,23 +48,18 @@ class Ipython < Formula
   end
 
   resource "ipykernel" do
-    url "https://files.pythonhosted.org/packages/e6/37/73f6d7f09c13eab777248747c7c128843c9b66c6aea20ae04aa404f421e2/ipykernel-6.4.2.tar.gz"
-    sha256 "0140f78bfd60e47e387b6433b4bed0f228986420dc4d5fac0e251c9711e23e29"
-  end
-
-  resource "ipython_genutils" do
-    url "https://files.pythonhosted.org/packages/e8/69/fbeffffc05236398ebfcfb512b6d2511c622871dca1746361006da310399/ipython_genutils-0.2.0.tar.gz"
-    sha256 "eb2e116e75ecef9d4d228fdc66af54269afa26ab4463042e33785b887c628ba8"
+    url "https://files.pythonhosted.org/packages/8d/65/8cfec48b42d52a6929e9d5fba4e2417cbbbae208c1b764abe9c1b6be1f71/ipykernel-6.5.1.tar.gz"
+    sha256 "dd27172bccbbcfef952991e49372e4c6fd1c14eed0df05ebd5b4335cb27a81a2"
   end
 
   resource "jedi" do
-    url "https://files.pythonhosted.org/packages/ac/11/5c542bf206efbae974294a61febc61e09d74cb5d90d8488793909db92537/jedi-0.18.0.tar.gz"
-    sha256 "92550a404bad8afed881a137ec9a461fed49eca661414be45059329614ed0707"
+    url "https://files.pythonhosted.org/packages/c2/25/273288df952e07e3190446efbbb30b0e4871a0d63b4246475f3019d4f55e/jedi-0.18.1.tar.gz"
+    sha256 "74137626a64a99c8eb6ae5832d99b3bdd7d29a3850fe2aa80a4126b2a7d949ab"
   end
 
   resource "jupyter-client" do
-    url "https://files.pythonhosted.org/packages/be/4f/7d2e1764ba352cf764d5e08fa4a1576c3e11e5c233e832b7f03af2e39482/jupyter_client-7.0.6.tar.gz"
-    sha256 "8b6e06000eb9399775e0a55c52df6c1be4766666209c22f90c2691ded0e338dc"
+    url "https://files.pythonhosted.org/packages/47/e3/192086e7b150f1fd549115190c3525a115e86b9227d6853f7ddcb07d7dc1/jupyter_client-7.1.0.tar.gz"
+    sha256 "a5f995a73cffb314ed262713ae6dfce53c6b8216cea9f332071b8ff44a6e1654"
   end
 
   resource "jupyter-core" do
@@ -98,8 +93,8 @@ class Ipython < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/b7/bb/2629a132aab8eb43f9fefa89bd91481fbe2aeca8b32e58bc114a62d4e826/prompt_toolkit-3.0.21.tar.gz"
-    sha256 "27f13ff4e4850fe8f860b77414c7880f67c6158076a7b099062cc8570f1562e5"
+    url "https://files.pythonhosted.org/packages/c0/50/3050bb288d0c981f073b4e83ae67e92fd286a55e81b29c9df288a2afb12f/prompt_toolkit-3.0.23.tar.gz"
+    sha256 "7053aba00895473cb357819358ef33f11aa97e4ac83d38efb123e5649ceeecaf"
   end
 
   resource "ptyprocess" do

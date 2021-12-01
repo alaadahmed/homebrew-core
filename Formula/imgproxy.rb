@@ -1,16 +1,15 @@
 class Imgproxy < Formula
   desc "Fast and secure server for resizing and converting remote images"
   homepage "https://imgproxy.net"
-  url "https://github.com/imgproxy/imgproxy/archive/v2.17.0.tar.gz"
-  sha256 "f04486e02ca40d14e65cf1774c7bad85d5a237de3798b14cc1160e9eafdb8200"
+  url "https://github.com/imgproxy/imgproxy/archive/v3.0.0.tar.gz"
+  sha256 "0bdc7f9dd999d4a7ebf515fd0e7394acf4f79d9a7a81e42e0d0d4891110af690"
   license "MIT"
   head "https://github.com/imgproxy/imgproxy.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "9c667257866c86cba040a084a94872b78d225fb4332e3aa9b6406a93d5d8695c"
-    sha256 cellar: :any, big_sur:       "e61dc10f8f5c3aec8b874dcfbde017a42b770b38ba69c973f5037b575610de42"
-    sha256 cellar: :any, catalina:      "c66c3481a9786623cf31f1126c3e58887096810771be877c89390e4f1f3c2208"
-    sha256 cellar: :any, mojave:        "a4b4147457383318bf31c7b5577d03b5bfc200d3f1827e14b0082be27fbdd614"
+    sha256 cellar: :any, arm64_big_sur: "848a65e1ac5b458b5c2a41d8e5758b4da073438cbaa1cdac8ac6e16e968a1582"
+    sha256 cellar: :any, big_sur:       "7028b3a4fb52a878ab198d29d242a91e510c81c2a2e60ad1eaaa8db87a728656"
+    sha256 cellar: :any, catalina:      "13adb5b1c91bf3b00fa9849c56d08562bce6d37c85b8eecd7fba55df680307c8"
   end
 
   depends_on "go" => :build
@@ -40,13 +39,12 @@ class Imgproxy < Formula
     output = testpath/"test-converted.png"
 
     system "curl", "-s", "-o", output,
-           "http://127.0.0.1:#{port}/insecure/fit/100/100/no/0/plain/local:///test.jpg@png"
-    assert_equal 0, $CHILD_STATUS
+           "http://127.0.0.1:#{port}/insecure/resize:fit:100:100:true/plain/local:///test.jpg@png"
     assert_predicate output, :exist?
 
     file_output = shell_output("file #{output}")
     assert_match "PNG image data", file_output
-    assert_match "1 x 1", file_output
+    assert_match "100 x 100", file_output
   ensure
     Process.kill("TERM", pid)
     Process.wait(pid)

@@ -2,31 +2,31 @@ class Datasette < Formula
   include Language::Python::Virtualenv
   desc "Open source multi-tool for exploring and publishing data"
   homepage "https://docs.datasette.io/en/stable/"
-  url "https://files.pythonhosted.org/packages/cb/2c/d9c31db21a2580feec6707af8cec6bd4189507bc210701d5ef1c9840c38f/datasette-0.59.3.tar.gz"
-  sha256 "c16dcfef2572f75453993d2c218b436078b82dace973b659ac929d473c7c2280"
+  url "https://files.pythonhosted.org/packages/4a/3d/1fff50463be336f6926538401109a4262da423989fb76f725f74b76fd897/datasette-0.59.4.tar.gz"
+  sha256 "6eea9eab7ad65e0bb0c043ab50daf31c2eb4c13f099809e3432dfc71c69b1dce"
   license "Apache-2.0"
   head "https://github.com/simonw/datasette.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2064c4c3cd0ce170c992b499ca25ffb593ede7df8931fe707a317c6750b4329f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6394dc07b1c789e62c145480b622af009fdb3c11d8600d7898d1fecd8e9afec3"
-    sha256 cellar: :any_skip_relocation, monterey:       "0f6ab1ee594c564e234e1461d161b76aca4439a269e172ae3a2417e5545e8a1c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6c36a9d8ef0f552101220545b89e7daf904fa439b03b20f153ebb824a5c34e41"
-    sha256 cellar: :any_skip_relocation, catalina:       "a689e38dacb44c4c6768b6ae6565b79ada855f4f76a185da881a60a1ff0348e0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b28752fc2ab60f4c64b83bd45065f03e4c8de5be6db9d65d982eb8d0dde96b73"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0ef1a79489983076f0823326b09d17b860f4c2657125dd192b19fdba1b37cc98"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e51800a7c31df2aa9c68d2bd9251c076e63558e03a5250399ad37db2cf9c66bc"
+    sha256 cellar: :any_skip_relocation, monterey:       "7a97c2b11997c124f3c9fc1bbac5961a52fc74c683df2d9d165749aca27301ac"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b762f80d3b4697726aca77c223cb1e28f518594b74626de67703ab63b8fab89c"
+    sha256 cellar: :any_skip_relocation, catalina:       "a37e32f97d21bd6f2d73a3c2be617e8c8b17aa94c4a3b942749cbbd85fb31fa3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2a475b1bed3dbfc2a0c3ccc32a10c3e26e4347495c3dc2a6a347c0308e9c61c7"
   end
 
   depends_on "python@3.10"
   depends_on "six"
 
   resource "aiofiles" do
-    url "https://files.pythonhosted.org/packages/06/f0/af90f3fb4066b0707b6a5af3ffd5fd9b3809bbb52f0153a3c7550e594de3/aiofiles-0.7.0.tar.gz"
-    sha256 "a1c4fc9b2ff81568c83e21392a82f344ea9d23da906e4f6a52662764545e19d4"
+    url "https://files.pythonhosted.org/packages/10/ca/c416cfacf6a47e1400dad56eab85aa86c92c6fbe58447d12035e434f0d5c/aiofiles-0.8.0.tar.gz"
+    sha256 "8334f23235248a3b2e83b2c3a78a22674f39969b96397126cc93664d9a901e59"
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/66/02/ca9061e93c487a897859e3a41f6c1a4f494038d2791382169b9a0c528175/anyio-3.3.4.tar.gz"
-    sha256 "67da67b5b21f96b9d3d65daa6ea99f5d5282cb09f50eb4456f8fb51dffefc3ff"
+    url "https://files.pythonhosted.org/packages/dc/e7/7452227e8c091db6838d7f1b50dc4e6323e8463ed8c2d0b651ac9b7f7fce/anyio-3.4.0.tar.gz"
+    sha256 "24adc69309fb5779bc1e06158e143e0b6d2c56b302a3ac3de3083c705a6ed39d"
   end
 
   resource "asgi-csrf" do
@@ -45,8 +45,8 @@ class Datasette < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/9f/c5/334c019f92c26e59637bb42bd14a190428874b2b2de75a355da394cf16c1/charset-normalizer-2.0.7.tar.gz"
-    sha256 "e019de665e2bcf9c2b64e2e5aa025fa991da8720daa3c1138cadd2fd1856aed0"
+    url "https://files.pythonhosted.org/packages/2f/39/5d8ff929409113e9ff402e405a7c7880ab1fa6f118a4ab72443976a01711/charset-normalizer-2.0.8.tar.gz"
+    sha256 "735e240d9a8506778cd7a453d97e817e536bb1fc29f4f6961ce297b9c7a917b0"
   end
 
   resource "click" do
@@ -90,8 +90,8 @@ class Datasette < Formula
   end
 
   resource "janus" do
-    url "https://files.pythonhosted.org/packages/fc/8e/92fcb2ff18797959cde050b7c96a713999f73feefde809bfdf18b5901174/janus-0.6.2.tar.gz"
-    sha256 "127edc891f9e13420dd12f230d5113fa3de7f93662b81acfaf845989edf5eebf"
+    url "https://files.pythonhosted.org/packages/91/dd/6e74ca2668c4a7360e5cea982e0da2d9fedca5b403327ad622aa3509e1a7/janus-0.7.0.tar.gz"
+    sha256 "f10dcf5776e8d49cc30ec86d5eb7268eeec39abaa24fe0332ee8fb8fa3611845"
   end
 
   resource "Jinja2" do
@@ -152,6 +152,11 @@ class Datasette < Formula
   resource "sniffio" do
     url "https://files.pythonhosted.org/packages/a6/ae/44ed7978bcb1f6337a3e2bef19c941de750d73243fc9389140d62853b686/sniffio-1.2.0.tar.gz"
     sha256 "c4666eecec1d3f50960c6bdf61ab7bc350648da6c126e3cf6898d8cd4ddcd3de"
+  end
+
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/0d/4a/60ba3706797b878016f16edc5fbaf1e222109e38d0fa4d7d9312cb53f8dd/typing_extensions-4.0.1.tar.gz"
+    sha256 "4ca091dea149f945ec56afb48dae714f21e8692ef22a395223bcd328961b6a0e"
   end
 
   resource "uvicorn" do

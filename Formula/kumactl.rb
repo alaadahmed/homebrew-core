@@ -1,8 +1,8 @@
 class Kumactl < Formula
   desc "Kuma control plane command-line utility"
   homepage "https://kuma.io/"
-  url "https://github.com/kumahq/kuma/archive/1.3.1.tar.gz"
-  sha256 "bfd8c6c0d0b8b463f1ad93aa346297f3ed2455bbaa8e89a8b8a72ce653a7e287"
+  url "https://github.com/kumahq/kuma/archive/1.4.0.tar.gz"
+  sha256 "c066dda527fd0717ec3188bb1576b4013ab1b23141df15fd58d4650b6c575089"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,12 @@ class Kumactl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9f1cf9fb8603e62e07b924bf247be2e28d5a5d3e1c5fa509fe666847bd96a6b1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3a1c6c1573c3235889e76e3f3b1ab8305da6ecac6d620d9059a73da40a047fc6"
-    sha256 cellar: :any_skip_relocation, monterey:       "e0f9c5b2c41fdd873cd11ecf1fe3fc5a0ec0727978f24ff5bd6f357b0b59d0ac"
-    sha256 cellar: :any_skip_relocation, big_sur:        "38b2fc7ef7e2e6e6f499dfa3be1c71477b19a61337a3cb2e46dc57da962ae28f"
-    sha256 cellar: :any_skip_relocation, catalina:       "389495b046a52b50adf6f9ff8a6c5d5e869d159e68ce59c692d8323f9585dd8c"
-    sha256 cellar: :any_skip_relocation, mojave:         "5ae1534a6dce03cd5b136b0897e67d99b4900c9048a64f80fbe5f6fdb35578b7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc55032e0454eac8726f383efa394624937cf9a00fa44f586ba57c8831069b8d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1b91dbd3a57d62686022e9ddb34c6b7e2ec91168e69ac700bbcaa1c11d0b1bc3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "79c91bbd57ea5bda1db8f6eb7d110fe2f1c68c04743220428c511700f35c5768"
+    sha256 cellar: :any_skip_relocation, monterey:       "3c52f0a133217dc8b3d791801419f3199ab8a20e531e19331ada93c79f8540fb"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d57a7e7b90d3d1cb883a5b10e8d58fa46ee575b4ea1e73803e2afc37ebbcc33c"
+    sha256 cellar: :any_skip_relocation, catalina:       "ada6229907c23b5c61ab321701104e65e03f0a212bea27efdeced64d8f9d7381"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "39905e3d9ff86a5dd5d580558fbd90cff08b0168471b5395460fed739e899854"
   end
 
   depends_on "go" => :build

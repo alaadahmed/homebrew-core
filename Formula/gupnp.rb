@@ -9,10 +9,12 @@ class Gupnp < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "74d32f0c86134b6ae8680e88eca4cdf16c0b3c7ad39003f36801e9328832e577"
-    sha256 cellar: :any, big_sur:       "cc65c455a851a56d7724da20529e17b9f6a891d7611b1ace26c91522f2261632"
-    sha256 cellar: :any, catalina:      "dc95e5115ede011c9b59a5f1cc0a669321a11297fdb7e0a2d0fb05267480a7f2"
-    sha256               x86_64_linux:  "7d3212cbd0a5c39317ea485330ed228a0f8a9a02080daf08688ecad592cfd77f"
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "7ea38b22cda285c7d2faae5ab7aad90115cc3e1a230f5a56b804b5f4e58f5393"
+    sha256 cellar: :any, monterey:      "e928003c57d8a36534c56b9ed3a96c9e0f98f4a4a4570adbccb759d4714ec93c"
+    sha256 cellar: :any, big_sur:       "fd8883416f1de59ab46c792571554847f1285d3a5c27c893084c56b18170fba6"
+    sha256 cellar: :any, catalina:      "e499f57ec7abb5f9e0b88db49d381edf5ade005b71e730aee4d32efc29eb18d9"
+    sha256               x86_64_linux:  "b34977852d61556b06fa2a2d8067df3ffa6fe11fbb1fb90e1745208f0b98a3bc"
   end
 
   depends_on "docbook-xsl" => :build
@@ -24,10 +26,15 @@ class Gupnp < Formula
   depends_on "gettext"
   depends_on "glib"
   depends_on "gssdp"
-  depends_on "libsoup"
+  depends_on "libsoup@2"
+  depends_on "libxml2"
   depends_on "python@3.9"
 
   def install
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libsoup@2"].opt_lib/"pkgconfig"
+    ENV.prepend_path "XDG_DATA_DIRS", Formula["libsoup@2"].opt_share
+    ENV.prepend_path "XDG_DATA_DIRS", HOMEBREW_PREFIX/"share"
+
     mkdir "build" do
       ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
@@ -75,7 +82,7 @@ class Gupnp < Formula
            "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
            "-L#{Formula["glib"].opt_lib}",
            "-lglib-2.0", "-lgobject-2.0",
-           "-I#{Formula["libsoup"].opt_include}/libsoup-2.4",
+           "-I#{Formula["libsoup@2"].opt_include}/libsoup-2.4",
            libxml2, "-o", testpath/"test"
     system "./test"
   end

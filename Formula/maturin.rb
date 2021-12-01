@@ -1,21 +1,21 @@
 class Maturin < Formula
   desc "Build and publish Rust crates as Python packages"
   homepage "https://github.com/PyO3/maturin"
-  url "https://github.com/PyO3/maturin/archive/refs/tags/v0.12.1.tar.gz"
-  sha256 "4ce5735356ab00ae34fbea214f1eaf1971171773c0647d93671bf985d5d16e37"
+  url "https://github.com/PyO3/maturin/archive/refs/tags/v0.12.3.tar.gz"
+  sha256 "9a6ee17bdee33aa319941ca5000016397a2d5343a17341406150c4015aa81b75"
   license "MIT"
   head "https://github.com/PyO3/maturin.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5067311e5cf4ad2e9a55d5d0bd5df4296e608e04503b1d93ff372dfd597f88b2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6d328bd8916d51ee9514cf2478334234d62b3cb64da77925b209222579c81225"
-    sha256 cellar: :any_skip_relocation, monterey:       "24fbb1e026116726ce1528862e804202d7231a54d8e66b7153b0030eeb0ae40b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "521543575884e1099f6923d60ffb242d37e3f6542b00e69ea124fe0577c7f51a"
-    sha256 cellar: :any_skip_relocation, catalina:       "25927a7a3ee7dcbc279c2063f869ab6e9c5f6af93fb4aa9afe7e9723b082897a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "614d1bcb4a3916fce27aad2dafb8dfbe6cac7cca621342d085a8066fb075d8ef"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "23c7e03d848eaa3282bd0612a7f9e465becb887ee37ab4c66356e2bf40cab721"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7574e19b6a22d71d769e9c7b1abe7d19a8bef614b140ff07d9e0ef90fea7e534"
+    sha256 cellar: :any_skip_relocation, monterey:       "a774b5136c7f25f966cc0f856fbbf0b0672c8cdbdddf9b854c589685ad11d7a2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4a0ecf04d4f16af4d1681f6a0ec1ac9ef5e0cce52ca9c28fe72151c46fb64371"
+    sha256 cellar: :any_skip_relocation, catalina:       "aca5de958931e122c6dbb29bafcdcc3b52b232f378947ad3394428a34be14bac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "713f497877cb80d25581cc4507211a9b190ff26f8927bbd11b386c2bbf016a66"
   end
 
-  depends_on "python@3.9" => :test
+  depends_on "python@3.10" => :test
   depends_on "rust"
 
   def install
@@ -30,6 +30,7 @@ class Maturin < Formula
   end
 
   test do
+    ENV.prepend_path "PATH", Formula["python@3.10"].opt_bin
     system "cargo", "new", "hello_world", "--bin"
     system bin/"maturin", "build", "-m", "hello_world/Cargo.toml", "-b", "bin", "-o", "dist", "--compatibility", "off"
     system "python3", "-m", "pip", "install", "hello_world", "--no-index", "--find-links", testpath/"dist"

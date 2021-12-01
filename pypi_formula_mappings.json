@@ -89,6 +89,9 @@
     "exclude_packages": ["six"]
   },
   "diffoscope": "diffoscope[cmdline]",
+  "docker-squash": {
+    "exclude_packages": ["six"]
+  },
   "duplicity": {
     "extra_packages": [
       "azure-storage-blob", "b2sdk", "boto", "boto3", "boxsdk[jwt]",
@@ -261,6 +264,9 @@
     "extra_packages": ["click"]
   },
   "remarshal": {
+    "exclude_packages": ["six"]
+  },
+  "restview": {
     "exclude_packages": ["six"]
   },
   "robot-framework": {

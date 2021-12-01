@@ -3,18 +3,18 @@ class AwsSdkCpp < Formula
   homepage "https://github.com/aws/aws-sdk-cpp"
   # aws-sdk-cpp should only be updated every 10 releases on multiples of 10
   url "https://github.com/aws/aws-sdk-cpp.git",
-      tag:      "1.9.140",
-      revision: "e0e4ce21a6d6229b3193a4216720ead5f085a4a3"
+      tag:      "1.9.150",
+      revision: "301a4f3f57eea2d80274b6656e36c79fad6fff1a"
   license "Apache-2.0"
   head "https://github.com/aws/aws-sdk-cpp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "f36f84cb51ae5f30392c7ab6962704d292d538b502f27b876e2be5da1f2fa6ec"
-    sha256 cellar: :any,                 arm64_big_sur:  "df473409961189a04284638b91a09f824b7a03b58891fdb077a281f76f0a12e2"
-    sha256 cellar: :any,                 monterey:       "bb3af5916035179439df096d3b2eb7789b0ded644d84f73bb4cfd7e088b16839"
-    sha256 cellar: :any,                 big_sur:        "d03e876036ced4237e175cf6003f5fe818c8f1c9a456d8d14c082bb72cc5782d"
-    sha256 cellar: :any,                 catalina:       "02c47f85cfc437ec3278efdc327aa92c76ca0ce44e82d860d13487109f06eada"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "49948759f3c6901e3e7867977ac53f885c78a6995703ac9f4c1d85094e51457f"
+    sha256 cellar: :any,                 arm64_monterey: "278a99f5def5e7a210f375637c0b9442accec3a3c1fb8318c7c6bae702f637bd"
+    sha256 cellar: :any,                 arm64_big_sur:  "8a4efbc0b986cea80dcbe0c5d57191ce6f7cb7a9d99dc89ebdf3554eef4d0e18"
+    sha256 cellar: :any,                 monterey:       "7e97a6348d524f2a4a1d0c5e76389fd723daacdd2fb1a72525767f0be6eb3294"
+    sha256 cellar: :any,                 big_sur:        "9922eaefea2fc94d11a215476211885ab98c7a60b0827ac3bb29cdf0fdf4db32"
+    sha256 cellar: :any,                 catalina:       "b32fa656275c8af177af5137a00d666eba3b315bb457fcad374e5edc5bc84954"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "55c771614c6e887a03b9568fc939a8c360b2472ff27386e6497203c7e8b826d1"
   end
 
   depends_on "cmake" => :build
@@ -26,6 +26,12 @@ class AwsSdkCpp < Formula
   end
 
   fails_with gcc: "5"
+
+  # Patch for cmake 3.22 (pr-1810)
+  patch do
+    url "https://github.com/aws/aws-sdk-cpp/commit/2dfc61333.patch?full_index=1"
+    sha256 "9646624895be14a4e253a0ac71535dc12eb2b93bdfda9d98aab9736fd9370546"
+  end
 
   def install
     ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath}"

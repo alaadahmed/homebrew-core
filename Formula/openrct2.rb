@@ -2,32 +2,31 @@ class Openrct2 < Formula
   desc "Open source re-implementation of RollerCoaster Tycoon 2"
   homepage "https://openrct2.io/"
   url "https://github.com/OpenRCT2/OpenRCT2.git",
-      tag:      "v0.3.5",
-      revision: "b9bc8d0606845e4e73fda8b459a55650f23164de"
+      tag:      "v0.3.5.1",
+      revision: "61c67afc667bfee8a6c3b180e98e84e87f442550"
   license "GPL-3.0-only"
   head "https://github.com/OpenRCT2/OpenRCT2.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "2a33b05f9b7ff6cf1d2981a6e952c76e0a4556631826d8438ba52648c4a76082"
-    sha256 cellar: :any,                 arm64_big_sur:  "83710494471e0b55b7fcb34ca3f08543e030636b53e5abbe4ee09612d778a780"
-    sha256 cellar: :any,                 monterey:       "c68fda61f393be48046836f030955e39282d51e8d80a7f705fd2b5f6e9ad614b"
-    sha256 cellar: :any,                 big_sur:        "2e537256b7eff79490790df7929cae4dbb3f2808a64f1e1c906ae7915aadbc8c"
-    sha256 cellar: :any,                 catalina:       "776380b5d7a49bb24b941a8ed44958e28cfcef6f4cb82a88b0bcd5174451f8f6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "77175013706a40ecddd0409dfc09fd6c4f11651b87024431baeec1151a56d41a"
+    sha256 cellar: :any,                 arm64_monterey: "99b8f59ade1d666eb18777b1a51af0b7ccf36e9a6664a5bda685faa9fd6976da"
+    sha256 cellar: :any,                 arm64_big_sur:  "e37538f06c13b93c156fbca46442e2c60fe4feff69b79e5c6f20c05ede878a74"
+    sha256 cellar: :any,                 monterey:       "933b222bc429f24ed5a8f6a8f0682fdc3218b68a192be612be54493caec55b22"
+    sha256 cellar: :any,                 big_sur:        "2d2b86bab2dc4d14c4813588cc8ea45aa85ba24e17eef7a02961cef809c7bd13"
+    sha256 cellar: :any,                 catalina:       "0b027b8b473e74a0f70c4576d08c0a24377e334dd0ee18e5813135989f52dfc4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3470fa8440c040938e8e4dbb46f05ab20110a18b4c3b8a8276ffb1f69f3464c6"
   end
 
   depends_on "cmake" => :build
+  depends_on "nlohmann-json" => :build
   depends_on "pkg-config" => :build
   depends_on "duktape"
-  depends_on "freetype" # for sdl2_ttf
+  depends_on "freetype"
   depends_on "icu4c"
   depends_on "libpng"
   depends_on "libzip"
   depends_on macos: :mojave # `error: call to unavailable member function 'value': introduced in macOS 10.14`
-  depends_on "nlohmann-json"
   depends_on "openssl@1.1"
   depends_on "sdl2"
-  depends_on "sdl2_ttf"
   depends_on "speexdsp"
 
   on_linux do

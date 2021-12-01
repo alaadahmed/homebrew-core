@@ -2,9 +2,9 @@ class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-8.0.13.tar.xz"
-  mirror "https://fossies.org/linux/www/php-8.0.13.tar.xz"
-  sha256 "cd976805ec2e9198417651027dfe16854ba2c2c388151ab9d4d268513d52ed52"
+  url "https://www.php.net/distributions/php-8.1.0.tar.xz"
+  mirror "https://fossies.org/linux/www/php-8.1.0.tar.xz"
+  sha256 "a1317eff0723a2b3d3122bbfe107a1158570ea2822dc35a5fb360086db0f6bbc"
   license "PHP-3.01"
 
   livecheck do
@@ -13,12 +13,12 @@ class Php < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "3f426c1aa5bcdb65db827c90773c94a4757521b8a5583f350b2fc3af962f43f5"
-    sha256 arm64_big_sur:  "a86d86537e63ee0dc94c2ef7b3007eeaeaa281b4f626dabb3603669bbd11f34b"
-    sha256 monterey:       "1edc0527e217c55b3cf9ad7e9b9571a8f16f04802a7e3b50256dbf9c0b5d08f3"
-    sha256 big_sur:        "ee1cce76b4173af540febd9a5859a750496ca9e6c98090ed5fa0eeca0c49c150"
-    sha256 catalina:       "688e6ae9a5ecb28ea3aa6a9d351fd09c054c4ba16190b8b0275edbab2ad9bc8e"
-    sha256 x86_64_linux:   "baba4019bb5305ea83bfe3e087a04f4f7e366328d4eccf7df633f1ef831e6961"
+    sha256 arm64_monterey: "2d627a06d5a7dbae1c216449e9896c939570264029017e8242e77162bfd3f877"
+    sha256 arm64_big_sur:  "abe0441e184aabb2a7b580a4bfe2cc42aa40ef188d5648f9ef21e0a5a1d25c01"
+    sha256 monterey:       "dbbf3f0e595af9a72f6dcf7fef1890c6152bf9fb1be83f166b467393176c4aa5"
+    sha256 big_sur:        "fb4818dcf9ae1decd01351726e183a484441801f57238073b78e4a9016b9e528"
+    sha256 catalina:       "65e67a892c86fb49a5532b932617f10fa7dfa0b3e23d66c24f415a0d4ac8a9cb"
+    sha256 x86_64_linux:   "9df665d7ec2259fe639ae52aec1bf3100afdc721c38dc84c37bd4583bc2251c2"
   end
 
   head do
@@ -39,11 +39,9 @@ class Php < Formula
   depends_on "freetds"
   depends_on "gd"
   depends_on "gettext"
-  depends_on "glib"
   depends_on "gmp"
   depends_on "icu4c"
   depends_on "krb5"
-  depends_on "libffi"
   depends_on "libpq"
   depends_on "libsodium"
   depends_on "libzip"
@@ -58,6 +56,7 @@ class Php < Formula
   uses_from_macos "xz" => :build
   uses_from_macos "bzip2"
   uses_from_macos "libedit"
+  uses_from_macos "libffi", since: :catalina
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
   uses_from_macos "zlib"

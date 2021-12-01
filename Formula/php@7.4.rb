@@ -6,6 +6,7 @@ class PhpAT74 < Formula
   mirror "https://fossies.org/linux/www/php-7.4.26.tar.xz"
   sha256 "e305b3aafdc85fa73a81c53d3ce30578bc94d1633ec376add193a1e85e0f0ef8"
   license "PHP-3.01"
+  revision 1
 
   livecheck do
     url "https://www.php.net/downloads"
@@ -13,17 +14,18 @@ class PhpAT74 < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "12b50490d4d7178ef3f45747ebaea87bff6d0bc2ddd0c5ee72193a15e208beb3"
-    sha256 arm64_big_sur:  "beb4ee439929b2a2b0346e882b4ff3c1c2b88f7335279eec2e427f203916c286"
-    sha256 monterey:       "7fe8491f31083f09c2e28cec6d99c2d357a8901f22aff436d0e5f6e88800f77a"
-    sha256 big_sur:        "b879c5c2d5ce8d27536289fb17568d821dd4cbb7fdd369cab6465af10d2341e2"
-    sha256 catalina:       "8d8f392a34720743d4f6325ae7548105b10afe7d0c01ac1769208c7271b5de11"
-    sha256 x86_64_linux:   "600617b6582d0ee401c537d760993bd7b04c3c7146e1ce39fe6dcdb21bba05e2"
+    rebuild 1
+    sha256 arm64_monterey: "81a8032238791f23f887349d6943f90ceb3da52e3f417d78b189775d38e85357"
+    sha256 arm64_big_sur:  "5a1944f50b0518a2eed2de990b6a5308521fd01f1ab775c212b5a60fa1419521"
+    sha256 monterey:       "4765467db60ec6b29d2bed89d4e66bc8dd0894940d6af3abc3ad725153a4525b"
+    sha256 big_sur:        "66b6be0e17e1d0f53ff422957528961949b123bb2d2b5e9cd6bf2d0213ae6a6d"
+    sha256 catalina:       "45a68b2e359fe3372935101ee7adcf62931e9f73705fdac11e1777c80be1fdce"
+    sha256 x86_64_linux:   "8492d5186d18cb547ce9d21e87aa9961a5c0aa340c9401c8bbde2d5ff8184c32"
   end
 
   keg_only :versioned_formula
 
-  deprecate! date: "2022-11-28", because: :versioned_formula
+  disable! date: "2022-11-28", because: :versioned_formula
 
   depends_on "httpd" => [:build, :test]
   depends_on "pkg-config" => :build
@@ -36,11 +38,9 @@ class PhpAT74 < Formula
   depends_on "freetds"
   depends_on "gd"
   depends_on "gettext"
-  depends_on "glib"
   depends_on "gmp"
   depends_on "icu4c"
   depends_on "krb5"
-  depends_on "libffi"
   depends_on "libpq"
   depends_on "libsodium"
   depends_on "libzip"
@@ -55,6 +55,7 @@ class PhpAT74 < Formula
   uses_from_macos "xz" => :build
   uses_from_macos "bzip2"
   uses_from_macos "libedit"
+  uses_from_macos "libffi", since: :catalina
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
   uses_from_macos "zlib"

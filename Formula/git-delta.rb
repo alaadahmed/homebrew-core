@@ -1,18 +1,18 @@
 class GitDelta < Formula
   desc "Syntax-highlighting pager for git and diff output"
   homepage "https://github.com/dandavison/delta"
-  url "https://github.com/dandavison/delta/archive/0.9.2.tar.gz"
-  sha256 "f002a94119cd5b6fd9deede7f344667358baf5015d0051e055fec6334ee0653f"
+  url "https://github.com/dandavison/delta/archive/0.10.2.tar.gz"
+  sha256 "e0f71d72eca543478941401bd96fefc5fa3f70e7860a9f858f63bfecf8fd77a5"
   license "MIT"
   head "https://github.com/dandavison/delta.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cb49545db2890d1c9c5ab9f87d95c783ffbfb97ff94ff90f79b77f686a0b5ffb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3c968613ffc57497c2dcc0fb1ee5eadfe55138f3a133e4f83d46fae53056ecc9"
-    sha256 cellar: :any_skip_relocation, monterey:       "e111b20cd3de86b8f3fefdc38fb550742184a796591fe2f03f92a3b6902d1640"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b516a28075ebf70b48277b1d25350d60d70b2a86e5b4163b7ab9c11138e0751c"
-    sha256 cellar: :any_skip_relocation, catalina:       "ebb60f2f9e5069a35521381e3fee4951fb5d6cf5ffec915788ed526c2489d213"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2e8148a98b8fd8f383788d7e63918a99bc2c76a9773edd2a7881d2e30e886d7a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "958ecd0b59319ca35ce70dc736f7ecbe34476ee5f1ec8673969c72eeb2f4f05e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "86b28450d70b4b2c3adb3a00b21ae15fa8f99518438ffbeff34e615473c4dd5f"
+    sha256 cellar: :any_skip_relocation, monterey:       "1c55af69105d26b266836ad212c4c679535a3c805a2f9186f2055cd9056e0572"
+    sha256 cellar: :any_skip_relocation, big_sur:        "28971e92bde7325b51b03de2c3cef88d1e6fc344f6661715d89e4fcf76fe641c"
+    sha256 cellar: :any_skip_relocation, catalina:       "750028fba1d4e8492273625b4d852eb83c70a63d2d397ee666e96f2b84ec43e4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "75173f6772025d54685234cfff062a3e552c1bd613a472f48d7287c62dbb9e73"
   end
 
   depends_on "rust" => :build

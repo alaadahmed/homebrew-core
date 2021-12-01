@@ -1,8 +1,8 @@
 class PythonAT39 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.9.8/Python-3.9.8.tar.xz"
-  sha256 "675ce09bf23c09836bf1969b744b1ea4c1a18c32788626632525f08444ebad5c"
+  url "https://www.python.org/ftp/python/3.9.9/Python-3.9.9.tar.xz"
+  sha256 "06828c04a573c073a4e51c4292a27c1be4ae26621c3edc7cf9318418ce3b6d27"
   license "Python-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class PythonAT39 < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "11a064080cbb4660a640aabf9cd60574d5796ab17c7a5901e7175eb013403de6"
-    sha256 arm64_big_sur:  "0f533b08f2f3ae29ef61927318d5917a7f060ba253ec32e8bc93c77e503db9d0"
-    sha256 monterey:       "13f9d49d32b768ba479ad5158ec0566cabe071cc4b68a4931abcdb470ed45947"
-    sha256 big_sur:        "4d3f29d8c69de6b35f20a3fd6fa805d1276d4f5e295854a65a7aea5379bbdff2"
-    sha256 catalina:       "2403bd9f6c0dcb28a126531a8f143299155bbd303a1551e1c6bbc0c01e17fd7f"
-    sha256 x86_64_linux:   "f95ca9a80814127c8de83e0720f17e7faffe6d6b0c5f200bf0813add48b3ecd0"
+    sha256 arm64_monterey: "7c8b15e7d98b67084291ac605649e936343ada7a41da51cea4461c583e998d20"
+    sha256 arm64_big_sur:  "c49cf018e26ee063fb375db7a95325db3c1c98949ee75cff0ba443fd7fa1cfd8"
+    sha256 monterey:       "3413bf6134724b24290bf53bb854cd8476fcc966fd8766eebe750006025bc561"
+    sha256 big_sur:        "4b56d0931cac013168ef78ae32fcce94ac36b1439c6c8501850cea1ebe80d758"
+    sha256 catalina:       "caf2da2ca0e6a30c004aa0cddef2d9b077e5c5c8982dcc223caed2a11704aa26"
+    sha256 x86_64_linux:   "0056d8c3b4a757e170cfaf30fd43cd18ee279d63d6c3d058644688f361da680a"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -59,8 +59,8 @@ class PythonAT39 < Formula
 
   # Always update to latest release
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/1e/00/05f51ceab8d3b9be4295000d8be4c830c53e5477755888994e9825606cd9/setuptools-58.5.3.tar.gz"
-    sha256 "dae6b934a965c8a59d6d230d3867ec408bb95e73bd538ff77e71fedf1eaca729"
+    url "https://files.pythonhosted.org/packages/cd/9a/6fff2cee92de1d34c0e8d48bb2ccedb0899eebb2cfe7955584b53bdaded7/setuptools-59.0.1.tar.gz"
+    sha256 "899d27ec8104a68d4ba813b1afd66708a1a10e9391e79be92c8c60f9c77d05e5"
   end
 
   resource "pip" do

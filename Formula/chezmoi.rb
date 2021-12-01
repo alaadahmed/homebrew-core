@@ -2,18 +2,18 @@ class Chezmoi < Formula
   desc "Manage your dotfiles across multiple diverse machines, securely"
   homepage "https://chezmoi.io/"
   url "https://github.com/twpayne/chezmoi.git",
-      tag:      "v2.8.0",
-      revision: "10dbbcd2be5049cc4a5bfe97820188d17455c057"
+      tag:      "v2.9.1",
+      revision: "ecb6c1d98bbe3e3f9de7951680bb975b1266b536"
   license "MIT"
   head "https://github.com/twpayne/chezmoi.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f409917e2d11e9fb9ea5683853d21e2efbc0251100db6650ae5ac17b5639670a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bd344df880a1af55d077413d36e65112a2c7e658602270106be93732ecdd9305"
-    sha256 cellar: :any_skip_relocation, monterey:       "9659f4875d6f65e1a3b07aa4c9b50684f8681ec8a0049f37750ce1bd6c11c67d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b315dd078ea3ae406b75eef5373e86f7d770aa0245f6c0deb344eb2cc6aab328"
-    sha256 cellar: :any_skip_relocation, catalina:       "9bb551aef35d8fb9959a2e7c22dd17f85d32b4a5a60b00beb0d360c8f7ee00f2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b37b5e8026b3b05331fc5f16444afb486f456032ce27472f1bef0645eada036"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5493c40f486ede6207b6da0fce5f44a422cbfce84d5e22c87f2f10f1c2faea2a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e40bf8b3c5ec318d4bce737ab8ebd4f43cf88c5907336ef3cfe15b0e64ab8e20"
+    sha256 cellar: :any_skip_relocation, monterey:       "782eb889741251191d0eed55064762ec411907985e5797f0e4877b32288e2c3d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "91b1fd796e14d8d072d09acf95dd128d21f1820af10d008fa13d574bf4030f46"
+    sha256 cellar: :any_skip_relocation, catalina:       "7203a1f568dfc4b1babd5fa68c74a1f0210b568382e615f68d8c874039c530e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d13ced2e70ee03ae45f9ac9f0d8ce92b6e1ca04ae5ab0a55849156a7a9f81fae"
   end
 
   depends_on "go" => :build
@@ -25,7 +25,7 @@ class Chezmoi < Formula
       -X main.commit=#{Utils.git_head}
       -X main.date=#{time.rfc3339}
       -X main.builtBy=#{tap.user}
-    ].join(" ")
+    ]
     system "go", "build", *std_go_args(ldflags: ldflags)
 
     bash_completion.install "completions/chezmoi-completion.bash"

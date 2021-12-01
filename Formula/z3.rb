@@ -1,10 +1,9 @@
 class Z3 < Formula
   desc "High-performance theorem prover"
   homepage "https://github.com/Z3Prover/z3"
-  url "https://github.com/Z3Prover/z3/archive/z3-4.8.12.tar.gz"
-  sha256 "e3aaefde68b839299cbc988178529535e66048398f7d083b40c69fe0da55f8b7"
+  url "https://github.com/Z3Prover/z3/archive/z3-4.8.13.tar.gz"
+  sha256 "59a0b35711fa7ae48dd535116d2067a6a16955fcbf2623c516a3f630cd2832d8"
   license "MIT"
-  revision 1
   head "https://github.com/Z3Prover/z3.git", branch: "develop"
 
   livecheck do
@@ -14,12 +13,12 @@ class Z3 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "62a6cb735ea7e7744489aeb1d486c6786284c886978cc9a61dafb5aa3b17a413"
-    sha256 cellar: :any,                 arm64_big_sur:  "04f6d69eb686b83e9f3caf7f99a9fdaa5a1239c30167c7c69fa8148a14fecb62"
-    sha256 cellar: :any,                 monterey:       "0d32a039fb63abd2c1b71a2e74e239e32c3d2d94d3b742af6636b0f4753625a5"
-    sha256 cellar: :any,                 big_sur:        "661c6b788fb0e3f285e510cc5a6fb6b07c1955f82e8d23115c634b617d495b3e"
-    sha256 cellar: :any,                 catalina:       "8ad4662447d7452272499dff0405a75e6d45cef841d1e4345e17747d1555a864"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "26cffb39e9388f3ee2521301019fe567b6a6b45bd65af3a6bed10256a588f672"
+    sha256 cellar: :any,                 arm64_monterey: "564b46fb88f41f2e440bb554d36d984ee615cd1cf92d5aba6aa6f49f73e30e94"
+    sha256 cellar: :any,                 arm64_big_sur:  "76d0c80cbd9977f713ac7765db062360e2601fec1d4a0b9207524c6f3470b4e2"
+    sha256 cellar: :any,                 monterey:       "a87f32a7afb7a9b08e6afcf07990cd1a1665e702676b41fea9ce7b43aaa57916"
+    sha256 cellar: :any,                 big_sur:        "1841839337cccb96e3c8dfac3ab975d8957ccc877fe2276520955d52a4523e36"
+    sha256 cellar: :any,                 catalina:       "7839421e5c7539dbab69e3610d542adf70d7346b0eadbec9dbd36b539962c837"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7b1d096669fdb622d1fa03c5654a2a10966a98732d76a092d4bb9040bb8503d9"
   end
 
   # Has Python bindings but are supplementary to the main library

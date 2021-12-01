@@ -6,6 +6,7 @@ class PhpAT73 < Formula
   mirror "https://fossies.org/linux/www/php-7.3.33.tar.xz"
   sha256 "166eaccde933381da9516a2b70ad0f447d7cec4b603d07b9a916032b215b90cc"
   license "PHP-3.01"
+  revision 1
 
   livecheck do
     url "https://www.php.net/downloads"
@@ -13,15 +14,15 @@ class PhpAT73 < Formula
   end
 
   bottle do
-    sha256 monterey:     "35d927d8c1b68a601a9a4cf7d0821c8f126247048bcb8b375bd795141e3a9fc3"
-    sha256 big_sur:      "e32ef185959f9e2eb89fd5e46b26fe67137fdb00cadff5b3cd252927dcae8b63"
-    sha256 catalina:     "b25a25600025d87f96451d554198048b6ecb679a1b427a1c000bc2cbcb41e905"
-    sha256 x86_64_linux: "a2d4aae22bbd212490fbd13ce01be83433ac87bb2bd257c9346517ed25529ddb"
+    sha256 monterey:     "93126a75527f2ebb61854eca3d828a2c85be368810d958891e82d01079186fcc"
+    sha256 big_sur:      "e1e2f43e53f5324dd918cb3c53ced792eb39d1a328fdc995df2cc11377c24f4f"
+    sha256 catalina:     "7a1587d14a448ec6c748c93dddde0bded32778dda5c9ee0321f3b9f610a7ffb9"
+    sha256 x86_64_linux: "98174faad5ea86e2bb3c29772d50cd9b62aeb684817bb8aa07fb06f59d66973a"
   end
 
   keg_only :versioned_formula
 
-  deprecate! date: "2021-12-06", because: :versioned_formula
+  disable! date: "2021-12-06", because: :versioned_formula
 
   depends_on "httpd" => [:build, :test]
   depends_on "pkg-config" => :build
@@ -35,7 +36,6 @@ class PhpAT73 < Formula
   depends_on "freetds"
   depends_on "freetype"
   depends_on "gettext"
-  depends_on "glib"
   depends_on "gmp"
   depends_on "icu4c"
   depends_on "jpeg"
