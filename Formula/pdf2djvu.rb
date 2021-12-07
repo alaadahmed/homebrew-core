@@ -1,18 +1,18 @@
 class Pdf2djvu < Formula
   desc "Create DjVu files from PDF files"
   homepage "https://jwilk.net/software/pdf2djvu"
-  url "https://github.com/jwilk/pdf2djvu/releases/download/0.9.18.1/pdf2djvu-0.9.18.1.tar.xz"
-  sha256 "ab45d7c70ba837f01e6b5b5c18acf8af6200dad4bae8e47e4c2ca01fbf2fa930"
+  url "https://github.com/jwilk/pdf2djvu/releases/download/0.9.18.2/pdf2djvu-0.9.18.2.tar.xz"
+  sha256 "9ea03f21d841a336808d89d65015713c0785e7295a6559d77771dc795333a9fa"
   license "GPL-2.0-only"
   head "https://github.com/jwilk/pdf2djvu.git", branch: "master"
 
   bottle do
-    sha256 arm64_monterey: "70f04cdd0ec4d96021281a2038d7b0681d0383db7c8746ec28a5cd57973c8c97"
-    sha256 arm64_big_sur:  "ae36c7cbed57854173c39b024efa8d1f6aadc3d5089ad5bdea63205eefbf615f"
-    sha256 monterey:       "117247d39fb8bd2c94326e5a2bd250eda403d3d35257ad183f5387a2132e3ee3"
-    sha256 big_sur:        "dccec33cd3662985d4d6605632a78a24c6e73c6c80371e17d47471193e67e1ee"
-    sha256 catalina:       "1e3d479f337cb61df898fe06bce62497cb0408b7fc924a7f463c506991aaaf0e"
-    sha256 x86_64_linux:   "d45308c4972e6175119653dded5770009b152404ed3dd407ae5c47a1ae9b4714"
+    sha256 arm64_monterey: "6c708493497551cc3ed6e0e58020c63610b0482cc5b5d84479ab36d0ce732cf0"
+    sha256 arm64_big_sur:  "dce762ddeee20ff985f0e763c7e2617eb888bbe7d862ca91ace70e7002311739"
+    sha256 monterey:       "9386ffc73cc1e3b5135a911c895a54c27c6e5649a50e73b90f952c5424c3b7b3"
+    sha256 big_sur:        "e8ac9f7423372d5e34d8062bc4cfa6ac9bb60494ad09350953a160ad9734be39"
+    sha256 catalina:       "218dfd7975fca8dbc68ca1b30be5baf2ef0eeacf672fe859769495b103e698eb"
+    sha256 x86_64_linux:   "db4d722712ed255aa7c9d1f5d01d2196dd763ba037add533a735c635cede4d6b"
   end
 
   depends_on "pkg-config" => :build

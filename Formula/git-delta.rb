@@ -1,18 +1,18 @@
 class GitDelta < Formula
   desc "Syntax-highlighting pager for git and diff output"
   homepage "https://github.com/dandavison/delta"
-  url "https://github.com/dandavison/delta/archive/0.10.2.tar.gz"
-  sha256 "e0f71d72eca543478941401bd96fefc5fa3f70e7860a9f858f63bfecf8fd77a5"
+  url "https://github.com/dandavison/delta/archive/0.11.1.tar.gz"
+  sha256 "e3617e02a06cfe5b414da5f14c28f15293bd736ec14ddd0a25ce477666fe9a75"
   license "MIT"
   head "https://github.com/dandavison/delta.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "958ecd0b59319ca35ce70dc736f7ecbe34476ee5f1ec8673969c72eeb2f4f05e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "86b28450d70b4b2c3adb3a00b21ae15fa8f99518438ffbeff34e615473c4dd5f"
-    sha256 cellar: :any_skip_relocation, monterey:       "1c55af69105d26b266836ad212c4c679535a3c805a2f9186f2055cd9056e0572"
-    sha256 cellar: :any_skip_relocation, big_sur:        "28971e92bde7325b51b03de2c3cef88d1e6fc344f6661715d89e4fcf76fe641c"
-    sha256 cellar: :any_skip_relocation, catalina:       "750028fba1d4e8492273625b4d852eb83c70a63d2d397ee666e96f2b84ec43e4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "75173f6772025d54685234cfff062a3e552c1bd613a472f48d7287c62dbb9e73"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1f8ae3a71fc314b8c2f1330c7b32f9e1beaba85fa9f428e204a4693eeb4c3802"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "aebb2dece6ed693f2eae460ea7f393f262da3f952230461547fdd63e5e76447e"
+    sha256 cellar: :any_skip_relocation, monterey:       "f70fbfc6789a9f3458d5ab705bb0624da39d9447483b64d5d365923e1a49bd33"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e254533ee1bdfbd5b8f25372fab55d8f7f5a675e4bdd011ca599aa5c3c55d71e"
+    sha256 cellar: :any_skip_relocation, catalina:       "da82340a9a74a0398243f3a17e3dd140a14c520b449df7e1924519faeafb0446"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "22693902dc765777cc2f1f58832e5653ae0614576a2bd56b9870282f23160829"
   end
 
   depends_on "rust" => :build

@@ -3,17 +3,17 @@ class Twarc < Formula
 
   desc "Command-line tool and Python library for archiving Twitter JSON"
   homepage "https://github.com/DocNow/twarc"
-  url "https://files.pythonhosted.org/packages/fb/d7/0a32fae3c3c90165b51ee501f0976d0a1381075e344b2596cf7d942a3a0a/twarc-2.8.1.tar.gz"
-  sha256 "459bc8fedfbe7ae56b670c75ae52cbbd594974849d9b62432f00b21e1244e13c"
+  url "https://files.pythonhosted.org/packages/69/e4/933ec88df095d98c5cec0faedf474675b4b6ff570a4a11066911c1b7c146/twarc-2.8.2.tar.gz"
+  sha256 "213d6e30f05c0ffde2cb361a1f5ff42f0c4d0d471ae6669cdc0a1a8c9c3fe0c7"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "744cf063dba028ac7e3cb46e0652448c66700bac943300f988fa158611579765"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "55051545ad6f6d082f20eb340a6e4d21ecaa37ee8daff95490f825ebd27a7514"
-    sha256 cellar: :any_skip_relocation, monterey:       "289bc7ae484465aed847c1da504c27cddb0b50f6bc464f4a76efd881cabb6e04"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fbb032764a67a0757edad43af3b9ae3f56744bdc2a7972f9f219d8315a78ef89"
-    sha256 cellar: :any_skip_relocation, catalina:       "7e76925c1be4891e7163c1f136137023a9e6b46047aea1d3a93b7e5c5250f76c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a4e4b9f917285e8666048eb5fcf68ede7f34c150f447df936c1f19b51a71780"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "836805114498f8dec3ec1425bba2486adc3259f63059508f56559e52cb978786"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c73ad347139bdf247e426cbcc8982f8b7c3ed76b90f93db6b677a03e0962ee27"
+    sha256 cellar: :any_skip_relocation, monterey:       "17a89a3158446b311ca06fd67cbbb3c6507371b39b1c25aeff05381c07c0350f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6f7a17ff2501e4b8a454bc075bf578ab71ac0e9afdf829527f32af8cb4b2c8e6"
+    sha256 cellar: :any_skip_relocation, catalina:       "43a834e5ee58b8243daefb3094a03d457def7a40d35bfc89ff76cc56ef31e112"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ae8cb8482ea74bfea14d5884b3bcca91990621bf284c8cc5b832a0b627b9f99"
   end
 
   depends_on "python@3.10"
@@ -25,8 +25,8 @@ class Twarc < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/9f/c5/334c019f92c26e59637bb42bd14a190428874b2b2de75a355da394cf16c1/charset-normalizer-2.0.7.tar.gz"
-    sha256 "e019de665e2bcf9c2b64e2e5aa025fa991da8720daa3c1138cadd2fd1856aed0"
+    url "https://files.pythonhosted.org/packages/68/e4/e014e7360fc6d1ccc507fe0b563b4646d00e0d4f9beec4975026dd15850b/charset-normalizer-2.0.9.tar.gz"
+    sha256 "b0b883e8e874edfdece9c28f314e3dd5badf067342e42fb162203335ae61aa2c"
   end
 
   resource "click" do
@@ -50,8 +50,8 @@ class Twarc < Formula
   end
 
   resource "humanize" do
-    url "https://files.pythonhosted.org/packages/4f/95/e097e65913e9b5ce68a576cf3ea364eb240973cc15c6a8184047a3571290/humanize-3.12.0.tar.gz"
-    sha256 "5ec1a66e230a3e31fb3f184aab9436ea13d4e37c168e0ffc345ae5bb57e58be6"
+    url "https://files.pythonhosted.org/packages/8a/b6/e7d99d1cc225a069f3f7a906a213cb1a0148dac27119290c41dc257ffe53/humanize-3.13.1.tar.gz"
+    sha256 "12f113f2e369dac7f35d3823f49262934f4a22a53a6d3d4c86b736f50db88c7b"
   end
 
   resource "idna" do

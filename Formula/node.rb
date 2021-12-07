@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v17.0.1/node-v17.0.1.tar.xz"
-  sha256 "6ec480f872cb7c34877044985e3d7bd89329ace5b8e2ad90b57980601786341c"
+  url "https://nodejs.org/dist/v17.2.0/node-v17.2.0.tar.xz"
+  sha256 "2b47cc7b5ec189d7b637454732f36f8d3c2c0ef81bec3c278b566f67159e659a"
   license "MIT"
   head "https://github.com/nodejs/node.git", branch: "master"
 
@@ -12,24 +12,24 @@ class Node < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_monterey: "9244d5b18bb785b79f050f7ecf5181b8dfb5578fe6fe092e4b529a26fd9455f9"
-    sha256 cellar: :any,                 arm64_big_sur:  "91bc40f51269f2d3b4b4783655c4bd451f8d7ff29e073ffccc555ced69c1274f"
-    sha256 cellar: :any,                 monterey:       "418bbd8bae6edab2a2681df3d61249dcab19fa6703b68810ad132582c3a2e0e1"
-    sha256 cellar: :any,                 big_sur:        "5dd16b4fb13f717e03753a42302b96140c609d5f5e8c77ff7d5465b006eb7551"
-    sha256 cellar: :any,                 catalina:       "60b63ee8d5df47723b5e0d2bddf6c242e65519d73f7b1636a75321dda1a8f6b7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f1601c8205e9cddc66e8a409fd51cad74596aa029999666e6c71ef9dfd8714a"
+    sha256 cellar: :any,                 arm64_monterey: "f3efe9900c885d5bcc3a3992b8e4806664febcdf7c84226fce212f83cc451970"
+    sha256 cellar: :any,                 arm64_big_sur:  "1c87ead04222fd774d031e782c20c1c2b8ca747795c4558fcc07a132da062b97"
+    sha256 cellar: :any,                 monterey:       "74827302aea2c8479851b0f93ccebabb10bfc531454d5d1fc10a4b72998bb167"
+    sha256 cellar: :any,                 big_sur:        "c3bb3798aa08850da5bd8ea4a914cd46e0b6bbab93e0e4e24c2111135f773b30"
+    sha256 cellar: :any,                 catalina:       "7753ed975b8ea68e1ba4b64998607ea443c2ffaa17eaed38d37c8d2e4186920b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eb5758a31ad206a41dc7e9003a0d5beccd4c0d7bcf69cf0aeff51a9279545ef8"
   end
 
   depends_on "pkg-config" => :build
+  depends_on "python@3.9" => :build
   depends_on "brotli"
   depends_on "c-ares"
   depends_on "icu4c"
   depends_on "libnghttp2"
   depends_on "libuv"
   depends_on "openssl@1.1"
-  depends_on "python@3.9"
 
+  uses_from_macos "python", since: :catalina
   uses_from_macos "zlib"
 
   on_macos do
@@ -52,8 +52,15 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-8.1.0.tgz"
-    sha256 "301ddf6bdbd6f6abb36de144902914c6bb4d6f7463758774fdd0a9ee7c597d34"
+    url "https://registry.npmjs.org/npm/-/npm-8.1.4.tgz"
+    sha256 "3959175ecd0a8ad86a6e8a63819fb200fb10a795f077ae22b241bac639bb6a17"
+  end
+
+  # Fixes node incorrectly building vendored OpenSSL when we want system OpenSSL.
+  # https://github.com/nodejs/node/pull/40965
+  patch do
+    url "https://github.com/nodejs/node/commit/65119a89586b94b0dd46b45f6d315c9d9f4c9261.patch?full_index=1"
+    sha256 "7d05debcfaf7bcbce75e28e3e5b2a329fe9bbb80f25b7b721e1b23f20db4dc40"
   end
 
   def install

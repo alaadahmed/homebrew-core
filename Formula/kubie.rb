@@ -1,8 +1,8 @@
 class Kubie < Formula
   desc "Much more powerful alternative to kubectx and kubens"
   homepage "https://blog.sbstp.ca/introducing-kubie/"
-  url "https://github.com/sbstp/kubie/archive/v0.15.1.tar.gz"
-  sha256 "456334ae771492e9118bc4d0051978990dad4a75442b12df72574e35c325ca8d"
+  url "https://github.com/sbstp/kubie/archive/v0.15.3.tar.gz"
+  sha256 "6cf49fdd3ebfe33d654d72f6e0d0697b516208eac4dd42865258798b4f3e83ae"
   license "Zlib"
 
   livecheck do
@@ -11,13 +11,12 @@ class Kubie < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e0653281145ce1f45d3939fe08e145feb444bd7eaf21ffcca71d0d0c51fa7197"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "812352f3e583089b7fcb6c4e32c499ae4868544776857e4940eb59becc3770c9"
-    sha256 cellar: :any_skip_relocation, monterey:       "1559296b5d8dc338b7c7c07209df54934a935164fdd5b475737e951c4b216ae7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c1c2c68855cfaaec0212b95deaa6256699aa93269ef91bac57b648ae85043d7c"
-    sha256 cellar: :any_skip_relocation, catalina:       "d235ea9e13512783747226a9a9dda88e7b7a26596f2bf65c346e523187cb3abe"
-    sha256 cellar: :any_skip_relocation, mojave:         "63f0adc8c970b289c673096efbfbe15764a48228bb9a60a9ed2d2a2e28c43fd9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6b59881b62b79595df7ac2b3a4a6f3b2de8c215f7909516bc86cfc0bfeed1524"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6a6f6e13201dc9ee630f54d52b8d772b12705885767d089045a72d6e8e92b54e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1259b162a2c4930cf2cb0258d3c02e1fe90129fb3182aee0d4426c1454bb911b"
+    sha256 cellar: :any_skip_relocation, monterey:       "e0c738567c18ccdfc3e8eda828b009d6963d527f26eea989b59af0b967403fde"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b0c6503d6d2d4d0eb121b3a403cf319dcd30055bb5f6115363a66aedb3be3f45"
+    sha256 cellar: :any_skip_relocation, catalina:       "0be56bbdb904d8fc269a90cc78b47eade6db07a39e2bbb59eec379258a6a9f4d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d58082f93c6d6a680cf537086165e0d2b9a5512c8d8511fb9021b457dda7cb7f"
   end
 
   depends_on "rust" => :build

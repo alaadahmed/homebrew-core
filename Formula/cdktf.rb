@@ -3,18 +3,17 @@ require "language/node"
 class Cdktf < Formula
   desc "Cloud Development Kit for Terraform"
   homepage "https://github.com/hashicorp/terraform-cdk"
-  url "https://registry.npmjs.org/cdktf-cli/-/cdktf-cli-0.7.0.tgz"
-  sha256 "50d92c7504514dc3a75c6b842e6d83408d5da0fbdec862765ed98b69c08278ea"
+  url "https://registry.npmjs.org/cdktf-cli/-/cdktf-cli-0.8.1.tgz"
+  sha256 "8860f7983d393d1d55f3c521418deda4339462b60b7446d45a9048bfe294d4e6"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8d5e67036f10190251af98c5b09d9eb4ed8c4b228e69c79819b56a2de8f8fa75"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3ad512ddb3d37f0e449631bc2da2a9d3adf73ef909342f1e14e47f6dd244c3ba"
-    sha256 cellar: :any_skip_relocation, monterey:       "0fb9080785870bb31d094446f841bc538676546fba27366ffc98e3acfc03ef01"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6dd12d395edd05a0fe78fd6b90c017bdf2a7a71b85e8c6cb30af1352f94e0b9d"
-    sha256 cellar: :any_skip_relocation, catalina:       "6dd12d395edd05a0fe78fd6b90c017bdf2a7a71b85e8c6cb30af1352f94e0b9d"
-    sha256 cellar: :any_skip_relocation, mojave:         "6dd12d395edd05a0fe78fd6b90c017bdf2a7a71b85e8c6cb30af1352f94e0b9d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b718800f9a2fc7faebb81dbffe50c2d536e20750d90505aa24092b336cb6bda5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b70a04a68243f98df05446ede324b44d5724ad2e49bb014df8893e1ecda9bc3d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b70a04a68243f98df05446ede324b44d5724ad2e49bb014df8893e1ecda9bc3d"
+    sha256 cellar: :any_skip_relocation, monterey:       "360830951ed54d1d209b36d8716197963ab7d2ecc059cbe0dee2de28aa02d321"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6d57440281f6447ffa5473d082b48e966fb68f78ae8ae6e62582e582d7aeb9e5"
+    sha256 cellar: :any_skip_relocation, catalina:       "6d57440281f6447ffa5473d082b48e966fb68f78ae8ae6e62582e582d7aeb9e5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b70a04a68243f98df05446ede324b44d5724ad2e49bb014df8893e1ecda9bc3d"
   end
 
   depends_on "node"

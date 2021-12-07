@@ -4,15 +4,16 @@ class Envoy < Formula
   # Switch to a tarball when the following issue is resolved:
   # https://github.com/envoyproxy/envoy/issues/2181
   url "https://github.com/envoyproxy/envoy.git",
-      tag:      "v1.20.0",
-      revision: "96701cb24611b0f3aac1cc0dd8bf8589fbdf8e9e"
+      tag:      "v1.20.1",
+      revision: "ea23f47b27464794980c05ab290a3b73d801405e"
   license "Apache-2.0"
 
   # Apple M1/arm64 is pending envoyproxy/envoy#16482
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "5d3c90329a1c5b7db6189ac8303616b0e6bc80840ecaa9d3f493a333f4f70f58"
-    sha256 cellar: :any_skip_relocation, catalina:     "f1f2d674693b2ddc193287090801689231f2e0f1197eb941c45fe711e1632e60"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "3ad1a49852a40f5ab5365f71a43be9c9554b3ae8b47c1df5475a5324decdbfdc"
+    sha256 cellar: :any_skip_relocation, monterey:     "ea4ba641eacee0a0772b1defb5d405470acb21835957007962d6ee170b63e33e"
+    sha256 cellar: :any_skip_relocation, big_sur:      "092ddc72b6b2c2bf7ec681b15fe5667ab19a0a24c52c5f49be736c11e66822fd"
+    sha256 cellar: :any_skip_relocation, catalina:     "c4775dde9f78b2196cad23e09194658cdb7481567a17b2788c9becef8a7d7ce2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "70f79f2525f22050cbd7fb97f23fcd8521df0dc0d16148b78379f5993cba92a8"
   end
 
   depends_on "automake" => :build

@@ -3,17 +3,17 @@ require "language/node"
 class Mongosh < Formula
   desc "MongoDB Shell to connect, configure, query, and work with your MongoDB database"
   homepage "https://github.com/mongodb-js/mongosh#readme"
-  url "https://registry.npmjs.org/@mongosh/cli-repl/-/cli-repl-1.1.4.tgz"
-  sha256 "cf9e982617f4f78216d8901f6458a3288e909d4f05ff983237b6197c7e94a5d1"
+  url "https://registry.npmjs.org/@mongosh/cli-repl/-/cli-repl-1.1.6.tgz"
+  sha256 "11edac1680c6ce144257a456e9242f44a1e2b38f0d2aa55e66ce826e6fa52eef"
   license "Apache-2.0"
 
   bottle do
-    sha256                               arm64_monterey: "b3ccc9884841a620dc251fe7e64fea6f821e3143ccc1f50d65144e32001489b5"
-    sha256                               arm64_big_sur:  "2617fba684cd558ffe7131d9cfc7a3fb46b8eb6e27b979c26286123587ab5880"
-    sha256                               monterey:       "fa3cc4b075c2bcf713a8f5d4f8e11edeb274b09306a33e39ef1ce4995413c27b"
-    sha256                               big_sur:        "df7907d3688daa471076e9f6750718cf3988cafe769fb9b6178536faa4b8efa2"
-    sha256                               catalina:       "65dfe79fee20cc149e0302d6bf2b6ec415f10262c14dd7e3ca71a1ab989088e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a76cb36ad1213e5466c70fedd4fc3429e26b73bdac74518759517a778207bdf"
+    sha256                               arm64_monterey: "37868e201ee0f99185af085956dd96ace9c67ef2a77251312cc8b4529245b7b8"
+    sha256                               arm64_big_sur:  "8f25b494c93fc45dfcfd2e0d366d3f74d2a6209eeb15870bb5278e908bf1668b"
+    sha256                               monterey:       "ab9347d2a7eb6132f8d9171e65d3e0e2cf14cf6ad7939d0bbc66f6f5b166c0d6"
+    sha256                               big_sur:        "9319b9358f0e8b32e67f82412e33c62517f4daf5e734570b340b45833a08c0af"
+    sha256                               catalina:       "f30ea6434bad8e32461131d6e84801bf1a2f11ea1b3d81c9b5625b74e5efbebd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c364abfd156d8e9796058abf1beadcad97356d6bd6d64aaba3b343e38ba1e903"
   end
 
   depends_on "node@14"

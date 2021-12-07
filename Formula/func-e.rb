@@ -1,14 +1,15 @@
 class FuncE < Formula
   desc "Easily run Envoy"
   homepage "https://func-e.io"
-  url "https://github.com/tetratelabs/func-e/archive/v1.1.0.tar.gz"
-  sha256 "0e5d76b5907142800e67417684996f57b0851b55cdb464e3c79e89d54c802fc2"
+  url "https://github.com/tetratelabs/func-e/archive/v1.1.1.tar.gz"
+  sha256 "487eccb74c93a388cd90a99a93af0266d9b4290ae41a6b030dcf5e268802433f"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "20d2ff6b6c91e7776e13bfdf912abbc7a1986e67c93aceb3f892bc8e8337ee0a"
-    sha256 cellar: :any_skip_relocation, catalina:     "3c558204d6d49bc30c37880179416b52c5b10d150ca3b4e4378d0823e013c75b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "f3de432998e3ddc1b559e8438798e64f4645f4d6ad23addf28a5f15dcc7d16bc"
+    sha256 cellar: :any_skip_relocation, monterey:     "6e698206bb39d8c8abb131ec73961ed41a461e5477cdfed7c871583a24ee94b9"
+    sha256 cellar: :any_skip_relocation, big_sur:      "63999b444ad0ade614290b57b8962db7f111e1c26ba943092efff5b1eb738841"
+    sha256 cellar: :any_skip_relocation, catalina:     "2f8655a3e650159fef5868347ae1248a6e7f115504fe4dcdfbb14c9a06f59dc4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "58a765e6c1de9df1f95b73c8e604d4f1bb611a42d5f6575c10ee3326d82c69aa"
   end
 
   depends_on "go" => :build
@@ -18,7 +19,7 @@ class FuncE < Formula
       -s -w
       -X main.version=#{version}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags.join(" "))
+    system "go", "build", *std_go_args(ldflags: ldflags)
   end
 
   test do

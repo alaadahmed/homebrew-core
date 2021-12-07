@@ -1,18 +1,18 @@
 class Flow < Formula
   desc "Static type checker for JavaScript"
   homepage "https://flowtype.org/"
-  url "https://github.com/facebook/flow/archive/v0.165.1.tar.gz"
-  sha256 "8750e7f6c8b9c05d317a4c9bc3d9bf33a575c27aa0e1c1eb99f7e5378cd55108"
+  url "https://github.com/facebook/flow/archive/v0.166.1.tar.gz"
+  sha256 "45ed148e2862023b79259c11a75b5d7339115ae29c97b6f4e5a3411f1d2ecfaf"
   license "MIT"
   head "https://github.com/facebook/flow.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "dd5d396c4694642fa520e5032bee729c1793db141f60fc945f94f5ce079e2dbc"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "31b43a9e8b6c7ceb6cdec0b079e7b96d2a9dfc560338f55ed85a5823b5b7b9c9"
-    sha256 cellar: :any_skip_relocation, monterey:       "945401fb24b130b96c0be37947dffe38c39529a1b64f755a5ed377588974056b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cd7e639c4392bf88361a0bb6b624bdf0b4699ec20f9314a08c1517847024c4b4"
-    sha256 cellar: :any_skip_relocation, catalina:       "c383654ef072ae080682ee9701fde88dcd6a1bf55568c9c35817d63ac3c924f3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "50685b8811f23fcf9ff0590a65267b25487abda08d469bad5bfd9ec69c13f8c4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5a0e553dbb82d8538ad14948c169d01365f9706435f68a817f0af796e64ca5b1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ac6ea8b78b75b0cae21f4c85be0a03f8b7fdf71c900b6f9d3a5d60c4c3b3472d"
+    sha256 cellar: :any_skip_relocation, monterey:       "16999a25c097ca51902f4b3dae1d8794614dd467bff651587a236d1ae57467c7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b4b322618569984360ebf5608929663893de1a3fcf13b0c1ac10840bf3b6fd19"
+    sha256 cellar: :any_skip_relocation, catalina:       "5fe9f7a34845a6c40cd34c4c35410c43eeb2fc5116cf911d3e7b2870c01b7942"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d48449a79662023ceb656bbf9496568760c18ef1b6bfe75aa3c537f2ed8d0b7f"
   end
 
   depends_on "ocaml" => :build
