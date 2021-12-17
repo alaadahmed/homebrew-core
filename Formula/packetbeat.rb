@@ -2,23 +2,23 @@ class Packetbeat < Formula
   desc "Lightweight Shipper for Network Data"
   homepage "https://www.elastic.co/products/beats/packetbeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v7.15.2",
-      revision: "fd322dad6ceafec40c84df4d2a0694ea357d16cc"
+      tag:      "v7.16.1",
+      revision: "7e56c4a053a2fe26c0cac168dd974780428a2aa6"
   license "Apache-2.0"
   head "https://github.com/elastic/beats.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b0900bc34a3c7886465b15ec00bb81ec31bf92a8c4bbcabcc2970920767fd23c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e9c6eb51fd1ca2e7d68f411567e86e65bcdd5327f46f48405acaab98918e2d31"
-    sha256 cellar: :any_skip_relocation, monterey:       "87e26508668f2890e451224fbba78af6e523b496c86a2c8f9de76aa6e428c21b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "690f9a297e1ffdc7021c8c809769d6797ae54a49d139fcad897bfb5a5b9e65bc"
-    sha256 cellar: :any_skip_relocation, catalina:       "b2de2360bbd45b90d188b686d25b61fe509235b43af4396760e6e2f6d0673e70"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b311f335db38e55cd513814ad7b2ab44f1ce139d2abcdee0b0fb4a62406f031e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5b12dbccf7975a58bc1d9cd3851e4eab335f211932c7a980cccf18eeacf80434"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "86203d818413057263e4b42d8adf0568ab5a98b3fbc429fbd4dcebbc98af73fe"
+    sha256 cellar: :any_skip_relocation, monterey:       "bb52262bab08e804cd35b5e87ad68a67aa6552475766500552c289b1737b538c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "467342c142f8def7ebb85fa98bf2028abc3424c54b156a23153ecb58c9d729cb"
+    sha256 cellar: :any_skip_relocation, catalina:       "4eb39734746cb0516b801acd02160e74654c5f3d795acf441c6be4b011e20048"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "31b590e1c198dc5daa5615cf05b2c755320c7bf8c4eff1d5c6a64fb6c5c9dba7"
   end
 
   depends_on "go" => :build
   depends_on "mage" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
 
   uses_from_macos "libpcap"
 

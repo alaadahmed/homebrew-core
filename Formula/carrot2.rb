@@ -1,27 +1,37 @@
 class Carrot2 < Formula
   desc "Search results clustering engine"
-  homepage "https://project.carrot2.org"
+  homepage "https://search.carrot2.org/"
   url "https://github.com/carrot2/carrot2.git",
-      tag:      "release/4.3.1",
-      revision: "5ee1bc852738bce97fe8be355720f5809fb4cdec"
+      tag:      "release/4.4.0",
+      revision: "ed3048193f9b5ad75a5d886b28716a06d3253082"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "46ec4d892dbe4c93519d0ab6c0dcb567398982bfd8e211985a9a4938351cb40d"
-    sha256 cellar: :any_skip_relocation, catalina:     "86d5724dded84fadd2e522cf97350500cbd9f2af46fd59735cb001a69187041d"
-    sha256 cellar: :any_skip_relocation, mojave:       "52a22394905c670f35257fd4c428fc1c5919957d8ab5642d8ee068286ca6703c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "66b3d79a8e8e5ef99f385a2b22c392a240cc3be1475d136eca377c4bf802c499"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8eb4ee1ba4f46c28106ee881f36be985ae7bb6ecdb4b1a5d21a3053fb4debbb5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a753c87b1309d5f5a03ecece09a24e0ed4b12ac3730fc99c0703a71f21fec477"
+    sha256 cellar: :any_skip_relocation, monterey:       "62972606f6f239d40bdc50328e0d6ae132ec61de859b7981c9294ddb68294919"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9e143aad0e6003e00d63395e118ba5e7764a1ee60e68e4de87b4eee3bb743309"
+    sha256 cellar: :any_skip_relocation, catalina:       "02d2504101fa927e231b67337e8a6eaefe423a2c9ef3cfdad83bcccb786b0215"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "31c25f3b208e2b63ebf44cfbab55e01901a73646bfc707c7dedbb8020133b749"
   end
 
-  # Switch to `gradle` when carrot2 supports Gradle 7+
-  depends_on "gradle@6" => :build
-  depends_on "openjdk@11"
+  depends_on "gradle" => :build
+  depends_on "node@16" => :build
+  depends_on "yarn" => :build
+  depends_on "openjdk"
 
   def install
     # Make possible to build the formula with the latest available in Homebrew gradle
     inreplace "gradle/validation/check-environment.gradle",
       /expectedGradleVersion = '[^']+'/,
-      "expectedGradleVersion = '#{Formula["gradle@6"].version}'"
+      "expectedGradleVersion = '#{Formula["gradle"].version}'"
+
+    # Use yarn and node from Homebrew
+    inreplace "gradle/node/yarn-projects.gradle", "download = true", "download = false"
+    inreplace "build.gradle" do |s|
+      s.gsub! "node: '16.13.0'", "node: '#{Formula["node@16"].version}'"
+      s.gsub! "yarn: '1.22.15'", "yarn: '#{Formula["yarn"].version}'"
+    end
 
     system "gradle", "assemble", "--no-daemon"
 
@@ -31,7 +41,7 @@ class Carrot2 < Formula
     end
 
     (bin/"carrot2").write_env_script "#{libexec}/dcs/dcs",
-      JAVA_CMD:    "exec '#{Formula["openjdk@11"].opt_bin}/java'",
+      JAVA_CMD:    "exec '#{Formula["openjdk"].opt_bin}/java'",
       SCRIPT_HOME: libexec/"dcs"
   end
 

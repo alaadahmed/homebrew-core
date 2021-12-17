@@ -4,17 +4,17 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/10/9e/bbac490d6de6f2b8e924ed938657e402c0ae75bac49f8245e32387142eee/checkov-2.0.630.tar.gz"
-  sha256 "3b08b20d656103dbb893e2abfc730f73914fa31e3c8eacd63eb8cd7971e67bde"
+  url "https://files.pythonhosted.org/packages/f4/bd/ed92d09f9bd2c0fcf244a5eef11208959eefa9df26a267c4e5a30480d3ce/checkov-2.0.660.tar.gz"
+  sha256 "f743cb17b60af87101fa5600265e7acb8f964328a1a90191634253e1f4ac36a3"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e387ab3a06e09d506e34f3e8284de725820097b74756b6ec2e8c83e07c3ba6e8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b22d919f7552a0d4b268e29e7e532d0a545b2a5a960134c018c8e4b7c26d1442"
-    sha256 cellar: :any_skip_relocation, monterey:       "4a7204f1d4372382d1c600a5c6b35ba158cba7c1e07bcd61a8fb5b45c3ed2b59"
-    sha256 cellar: :any_skip_relocation, big_sur:        "42dc9c08b59873613de6d9ad00450e064936bba132404ec70254506bd9e07838"
-    sha256 cellar: :any_skip_relocation, catalina:       "ae9f30c8c84a9e54a16781d6ec0359ac70346a89a15ceaf87328e7b921b5f2f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a96722bc01733ff546d622a3e139e7e7a3380318d5ebb303ac0b075e5d60dcb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "83d069595c49d8fa90340422f67c5c751e2e722e77f3ecd35be21ca629acbc48"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f9b7311b1ee8aea6c21bd96a4378633f736e75f5e445f11c23e6769f338f4c4f"
+    sha256 cellar: :any_skip_relocation, monterey:       "34b5262239dff0194eb8dedb6c810439647a8037abbc61ed14cef446540d3203"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a297657e621fc9ec4843237bab837188c79b674418393210eae5d41046a9fa7e"
+    sha256 cellar: :any_skip_relocation, catalina:       "2b25fb2d77ce1c0bf5b235ad36402c999de7609a95f81cc36668f9730c403734"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9c1308a5d0673ad0aa9b4036a950e7580131b00c7d5289d9edd50ec9daf2272a"
   end
 
   depends_on "python-tabulate"
@@ -52,8 +52,8 @@ class Checkov < Formula
   end
 
   resource "bc-python-hcl2" do
-    url "https://files.pythonhosted.org/packages/c7/6f/622978d9d98ea2ad9272afb76cb3f0075dcd628b1855ce0a07446c42e9d0/bc-python-hcl2-0.3.24.tar.gz"
-    sha256 "62c88c9133d148a478e75d5cb093aff7f25fd5bdd355433b3769489de8dd36b4"
+    url "https://files.pythonhosted.org/packages/3d/9e/160b5898ed2949cb4d4e69c75ccb93b941e3d433f9da731a29bb2c6da600/bc-python-hcl2-0.3.28.tar.gz"
+    sha256 "74e4b21d329b6bd9396617d075b835e5c0cb2ecdbd951fee631886de81f69c80"
   end
 
   resource "beautifulsoup4" do
@@ -62,13 +62,13 @@ class Checkov < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/95/a7/413caa923eff54277fa48f312c2202441ed8ce57c5bf135af9b700e0994d/boto3-1.20.21.tar.gz"
-    sha256 "2fb05cbe81b9ce11d9394fc6c4ffa5fd1cceb114dc1d2887dc61081707e44522"
+    url "https://files.pythonhosted.org/packages/7c/16/f1311747c6eb9a4f69b9a07e82e7836f4e8c925f9006f24f715a8f3ec0c6/boto3-1.20.24.tar.gz"
+    sha256 "739705b28e6b2329ea3b481ba801d439c296aaf176f7850729147ba99bbf8a9a"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/7b/e6/b3aaa252218b0d4c6699de08d1daf94f90f320e3389e46b1286e18410c37/botocore-1.23.21.tar.gz"
-    sha256 "d7f8e82cba38aa1e66015cab0a5ca3204503e90afc4695e97228e28329a14c04"
+    url "https://files.pythonhosted.org/packages/2e/32/9103b5c8a8e2596f39e6db658f1e2f4193ecdacec7539854c09ed4612699/botocore-1.23.24.tar.gz"
+    sha256 "43006b4f52d7bb655319d3da0f615cdbee7762853acc1ebcb1d49f962e6b4806"
   end
 
   resource "cached-property" do
@@ -107,8 +107,8 @@ class Checkov < Formula
   end
 
   resource "cloudsplaining" do
-    url "https://files.pythonhosted.org/packages/5a/4d/1339d77c26be908e241cfea5ad72683805747bc83ef29ce9d334df1706e0/cloudsplaining-0.4.8.tar.gz"
-    sha256 "db4dd6da5da5c1a6a9ebfb4ded638941def7d05c90ff3f2836f2b78e4114ade7"
+    url "https://files.pythonhosted.org/packages/a9/51/93e2e0dd768bcf2df760942e4154b859c1512ed92dc5a6904c3b87a86a64/cloudsplaining-0.4.9.tar.gz"
+    sha256 "42bbbf939490c17eb8fb2a98d199bd8ae3e07f10723affcdfcf557f57a9c64eb"
   end
 
   resource "colorama" do
@@ -127,8 +127,8 @@ class Checkov < Formula
   end
 
   resource "cyclonedx-python-lib" do
-    url "https://files.pythonhosted.org/packages/13/ea/5720270a0e984e5dd238ec8e75a8acccb042ac97bcb215be9e2cb339dc1f/cyclonedx-python-lib-0.11.1.tar.gz"
-    sha256 "cb0f1730ebe23c37820a9a2d4b42fc1d19fb3e8e6e92dfd3489673c76152e43c"
+    url "https://files.pythonhosted.org/packages/29/f7/71382e7f03c1ce32ba6e1192497d8c8d6cae715d950527c75a86b2fa3cf0/cyclonedx-python-lib-0.12.2.tar.gz"
+    sha256 "7730651c5a27618b0417898a5f4edad8e4b4f342fa2b870504cfe7099312478b"
   end
 
   resource "deep_merge" do
@@ -337,8 +337,8 @@ class Checkov < Formula
   end
 
   resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/4e/8f/b5c45af5a1def38b07c09a616be932ad49c35ebdc5e3cbf93966d7ed9750/websocket-client-1.2.1.tar.gz"
-    sha256 "8dfb715d8a992f5712fff8c843adae94e22b22a99b2c5e6b0ec4a1a981cc4e0d"
+    url "https://files.pythonhosted.org/packages/b6/fa/72e77d094563208174abbbaa73c32f28c43a31193b843bddf233c7c87644/websocket-client-1.2.3.tar.gz"
+    sha256 "1315816c0acc508997eb3ae03b9d3ff619c9d12d544c9a9b553704b1cc4f6af5"
   end
 
   resource "yarl" do

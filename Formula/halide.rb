@@ -1,8 +1,8 @@
 class Halide < Formula
   desc "Language for fast, portable data-parallel computation"
   homepage "https://halide-lang.org"
-  url "https://github.com/halide/Halide/archive/v13.0.1.tar.gz"
-  sha256 "8d4b0ad622ef0ff9e28770cd950baf45a055d1229131be44f8e6333a548183f9"
+  url "https://github.com/halide/Halide/archive/v13.0.2.tar.gz"
+  sha256 "eee68f88cce153cde6aa1d73c844677681dfc6c57ae7f4cb6a0354da0f3b3b80"
   license "MIT"
 
   livecheck do
@@ -11,18 +11,18 @@ class Halide < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "e23c255e366cfe5f8b2799e8f445e850fe8353b16fd04e8d666867e9b78b76b6"
-    sha256 cellar: :any, arm64_big_sur:  "e1cccd883d7210fbc6142bf2a7d3bbee38a6f1674df4b793caf7eb144a873db2"
-    sha256 cellar: :any, monterey:       "cd6c353ad562c8e9180ac1d6f79db39906aca67756fb58d1a92fd59e9487120c"
-    sha256 cellar: :any, big_sur:        "5a1cb256d2c812126a07bb8c20d0df5c97ddcf0ef2195808731dd595c64e898e"
-    sha256 cellar: :any, catalina:       "1d81ccfc6c7c410c0e307abd6a9de17ecb20234983621731491befe65e19b5e1"
+    sha256 cellar: :any, arm64_monterey: "ea3a63da5483882027b23374cf1baa7e052491b12a9cabeef8032b0f54060349"
+    sha256 cellar: :any, arm64_big_sur:  "b05a77c5550d6d7aad127cf1ba8d5d2d3e7cea7f3eedade51928fa5ecc140b51"
+    sha256 cellar: :any, monterey:       "dd301f63d9055dbd9f66b145de35de4c1f748452e7f619db5752b9a9a44c338c"
+    sha256 cellar: :any, big_sur:        "63f98a4ff2d1ed7c857c035471e8a81dac356b6276c158e3618b68e30b16b1c6"
+    sha256 cellar: :any, catalina:       "774a638ce8052a05907926a176992435d44eb0eaf251893b3bd2ee049a230a0a"
   end
 
   depends_on "cmake" => :build
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "llvm"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     mkdir "build" do

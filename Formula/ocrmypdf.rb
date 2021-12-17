@@ -3,24 +3,24 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/ec/28/6f224f486e3a0941162b9740d502bc0a7af752f3e6556bde88f9d35d357b/ocrmypdf-12.7.2.tar.gz"
-  sha256 "e8ccf43d28c8d328409ac0a2d1ad0c9f0c7af3074f55e5d150080e15d77858e2"
+  url "https://files.pythonhosted.org/packages/c3/e1/bab4844da8f43aec32d89d9813c245dc4d6887612d1b7f9c4d17f8204a8c/ocrmypdf-13.1.1.tar.gz"
+  sha256 "562bd3c7c2e9d4f3c8b7ef5c4e04b2de8a4c2941e05aea31ad091a3f3d1be7ac"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "f0d4260f7f57de0c01a96dc23255d396536041f106b3f1d33dd040c77c2c4d24"
-    sha256 cellar: :any,                 arm64_big_sur:  "c0fa115f60442e73908b1c0ff19c4645aeee6e0877b577ec718cc0f5a94398c2"
-    sha256 cellar: :any,                 monterey:       "ff6e8eda15f6b3c6fd315acda97be0a980e25e76dc28194f23d5ee7f8b669db5"
-    sha256 cellar: :any,                 big_sur:        "de93289e68a1c3e9ef0786722f6dd5a781d0756187ff3cd92b0f52e2df733830"
-    sha256 cellar: :any,                 catalina:       "805a7df1e3600375a181d781ff227f450236c8a984671fb05d7fd2e1e131b9be"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f53d73cd50706614279ed460aaf89a44f133983cab29ccb3b15bdb874d815c88"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "6a6a77b2ae29d98839ecfbc38d3ac168d6e3be2fa7b86cbc93d92e0e5455328f"
+    sha256 cellar: :any,                 arm64_big_sur:  "19cba6b7fc8669e5c918b94099a0021c50bc9ff31ba900a3145258c301458386"
+    sha256 cellar: :any,                 monterey:       "76d10fcd1cce025ca57809ca91811700bd5df38d2d23caf3698eb557f73ff53d"
+    sha256 cellar: :any,                 big_sur:        "08bddc7eb7e97aa723798533ce6645f8cd200a8a32b865ac9b591829bae1704e"
+    sha256 cellar: :any,                 catalina:       "bf729fe5bb7b1a585c5e8ad2acd41438208889db437887ab084c36baa02d1e6a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9c284f7ce3331f808d16503b33c2757b022451c7eb0a63ddecd8ee6d0ba441db"
   end
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "ghostscript"
   depends_on "jbig2enc"
-  depends_on "leptonica"
   depends_on "libffi"
   depends_on "libpng"
   depends_on "pillow"
@@ -56,8 +56,8 @@ class Ocrmypdf < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/10/91/90b8d4cd611ac2aa526290ae4b4285aa5ea57ee191c63c2f3d04170d7683/cryptography-35.0.0.tar.gz"
-    sha256 "9933f28f70d0517686bd7de36166dda42094eac49415459d9bdf5e7df3e0086d"
+    url "https://files.pythonhosted.org/packages/60/06/d9109aba62c0b42466195e5b9b30dded26621a675b73998218070d8cc637/cryptography-36.0.0.tar.gz"
+    sha256 "52f769ecb4ef39865719aedc67b4b7eae167bafa48dbc2a26dd36fa56460507f"
   end
 
   resource "humanfriendly" do
@@ -81,8 +81,8 @@ class Ocrmypdf < Formula
   end
 
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/d2/c1/c13710de53190182fbb851f918580337f925e6d2ea8edd68bf34ab4da9fe/pikepdf-4.0.0.tar.gz"
-    sha256 "487be40a2ec463a272b4490396787c9fba2b0bbe6c44e7254e1867b1d3c02df9"
+    url "https://files.pythonhosted.org/packages/49/07/b6a6c8c5c45e27ddff1b559693a535411bf5e871212a8e4ccdd36d517634/pikepdf-4.2.0.tar.gz"
+    sha256 "9a91564193f2c01a55aef4c3b97764b2cb59443034b62a95620b12eb265c647e"
   end
 
   resource "pluggy" do
@@ -91,13 +91,13 @@ class Ocrmypdf < Formula
   end
 
   resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/0f/86/e19659527668d70be91d0369aeaa055b4eb396b0f387a4f92293a20035bd/pycparser-2.20.tar.gz"
-    sha256 "2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"
+    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
+    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
   end
 
   resource "reportlab" do
-    url "https://files.pythonhosted.org/packages/ae/4e/5777c95f93d85854cc9da0627636d2c3982be55a7b9cfc34d1a53e9a9c99/reportlab-3.6.2.tar.gz"
-    sha256 "f0c4b47b012d893b0b9f5703cf6f01b5593714a3fc1e7dc73efbbfe26bb7e16a"
+    url "https://files.pythonhosted.org/packages/f9/67/3b6363e2b1eda86b1c32296a45dd089b5198c14606830029968c18e39080/reportlab-3.6.3.tar.gz"
+    sha256 "be4f05230eb17b9c9c61a180ab0c89c30112da2823c77807a2a5ddba19365865"
   end
 
   resource "tqdm" do

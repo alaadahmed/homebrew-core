@@ -3,31 +3,26 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/16/d8/5e0e61d6a97e3bb9d7d5b24bb9c2e502c687d9c5f7ed712b55ba05f2faae/pdm-1.11.0.tar.gz"
-  sha256 "94ceeeb9b9d1c26a7227832ab9665786b34305cb7dcc206e55682a600ebff53b"
+  url "https://files.pythonhosted.org/packages/52/d7/a9da4ba600ecb9a26ff505d57213222a0b6154b30998fe132d792f268daf/pdm-1.11.3.tar.gz"
+  sha256 "0b2d0275b0319400101e742d67e753917689359c9b1167744122209544de0fb1"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a3ace93af73a5c15ea4565caab62d38b667ee17712844b31825bc73ed72b4f51"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1440d0406a3ce573d520a96bb4e24a359c3f080aedf29b721bdaf6366b47980a"
-    sha256 cellar: :any_skip_relocation, monterey:       "24887ca63052bd3e4aa15420b13cdc9618482edfcad9228d8ebf811ff44b23cd"
-    sha256 cellar: :any_skip_relocation, big_sur:        "51993e6b382b4d786118e02190ead70cb4e10ff67cd4be71e991592ffed40981"
-    sha256 cellar: :any_skip_relocation, catalina:       "5150856fdaafa483c6ed6cd2d30efee03cdcbdef5a9252a8cfee09a07e942b51"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8cd4280ed0585db8880b6c0f1d7d06fff4d2b5d6169bbf677375704831b12806"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d05530f6adbb82c2559e29fd8a3fcc3d559f49df66eb34cd47904f67fc5fefe5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9deea923bd913cf63aea57aa49edb67b95d3670972df925eb8ef641fd4bd6605"
+    sha256 cellar: :any_skip_relocation, monterey:       "3b4aaddac22224bc80dc3336878b9ebb8935f2baecc99a086eb706c3b22e52de"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7787e253c53351a407bc34b6f42a7e518f00f3f52807d5ab4e7f1b3ab9f30a48"
+    sha256 cellar: :any_skip_relocation, catalina:       "5101d08f9cd1ef6a414ecc679b0ce83543e959ac446a2f2ea52f57a89c0f8907"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb87aa4bae9ab5ae28e976679b6c59a7ae591d15e52fdde6d0cb4e568bf6b567"
   end
 
   depends_on "python@3.10"
   depends_on "six"
 
-  resource "appdirs" do
-    url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
-    sha256 "7d5d0167b2b1ba821647616af46a749d1c653740dd0d2415100fe26e27afdf41"
-  end
-
   resource "atoml" do
-    url "https://files.pythonhosted.org/packages/9d/aa/8d4cf5524bc78caf154f2649bebbf1826caa493a680acab9a84bfc38030a/atoml-1.1.0.tar.gz"
-    sha256 "061ae4cade56de5100f67678097167a3d4285a448f9e0be53e86513730eb72bb"
+    url "https://files.pythonhosted.org/packages/df/bb/d9733f8070c6bb66817a27ec53a0847c63b53395d797d091a477ece5f4c7/atoml-1.1.1.tar.gz"
+    sha256 "cda7b3cee4383e37d88e040d9339e75cd257bb1995054046b61d6746f110146c"
   end
 
   resource "attrs" do
@@ -56,13 +51,18 @@ class Pdm < Formula
   end
 
   resource "pdm-pep517" do
-    url "https://files.pythonhosted.org/packages/07/b1/2e3a45645fa01776e5cdc31a4cf2e55538f4dd61ea60e552b01e8e4813c1/pdm-pep517-0.9.2.tar.gz"
-    sha256 "0190934efbc072fef4d93c547c602fb5a4bd6bb9e65a77138beaa2ea8d975408"
+    url "https://files.pythonhosted.org/packages/dd/7c/ac07ce6293258f1d186bc85d686984565c0c8ffbd249faa0855cb5d50a52/pdm-pep517-0.9.4.tar.gz"
+    sha256 "da8d85baebd2e4f5bbba1c65dc41813fbe4267775cca33e8ba0d64d22ae5e757"
   end
 
   resource "pep517" do
     url "https://files.pythonhosted.org/packages/0a/65/6e656d49c679136edfba25f25791f45ffe1ea4ae2ec1c59fe9c35e061cd1/pep517-0.12.0.tar.gz"
     sha256 "931378d93d11b298cf511dd634cf5ea4cb249a28ef84160b3247ee9afb4e8ab0"
+  end
+
+  resource "platformdirs" do
+    url "https://files.pythonhosted.org/packages/4b/96/d70b9462671fbeaacba4639ff866fb4e9e558580853fc5d6e698d0371ad4/platformdirs-2.4.0.tar.gz"
+    sha256 "367a5e80b3d04d2428ffa76d33f124cf11e8fff2acdaa9b43d545f5c7d661ef2"
   end
 
   resource "pyparsing" do
@@ -91,8 +91,8 @@ class Pdm < Formula
   end
 
   resource "tomli" do
-    url "https://files.pythonhosted.org/packages/aa/5b/62165da80cbc6e1779f342234c7ddc6c6bc9e64cef149046a9c0456f912b/tomli-1.2.2.tar.gz"
-    sha256 "c6ce0015eb38820eaf32b5db832dbc26deb3dd427bd5f6556cf0acac2c214fee"
+    url "https://files.pythonhosted.org/packages/3d/6e/d290c9bf16159f02b70c432386aa5bfe22c2857ff460591912fd907b61f6/tomli-2.0.0.tar.gz"
+    sha256 "c292c34f58502a1eb2bbb9f5bbc9a5ebc37bee10ffb8c2d6bbdfa8eb13cc14e1"
   end
 
   resource "wheel" do

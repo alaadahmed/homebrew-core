@@ -1,8 +1,8 @@
 class NotmuchMutt < Formula
   desc "Notmuch integration for Mutt"
   homepage "https://notmuchmail.org/"
-  url "https://notmuchmail.org/releases/notmuch-0.34.tar.xz"
-  sha256 "83e9581542b6e387f61f30cf0f5e2d9038912ee1bb73ad64b84d1d9c543761b6"
+  url "https://notmuchmail.org/releases/notmuch-0.34.2.tar.xz"
+  sha256 "c1f2ceee47f689711222d7205af2a3fe7a4a9d8c32e4e0b24ad66f88df6a47d3"
   license "GPL-3.0-or-later"
   head "https://git.notmuchmail.org/git/notmuch", using: :git, branch: "master"
 
@@ -11,10 +11,12 @@ class NotmuchMutt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "272ce1075327f731db46c5df0e09055004c14b80730219c38c999f7ee4d0c88d"
-    sha256 cellar: :any,                 big_sur:       "fa06269bb2ed487dd6ce7a4872cdcbcaa0a8e9f3e5ea88b5b37d7a456c06a69d"
-    sha256 cellar: :any,                 catalina:      "d531c27fa688ffb273c6c8bed558f94dccbd3455420730d7201f5e97f4e71e8c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e2ad96e9933053eb28f3969f193106f56a61fd8c5bca54787ad7b28d54de333d"
+    sha256 cellar: :any,                 arm64_monterey: "17eecaef324fe3316ec1316ef9f1540e0f90f5ad2db3cb891b43eeb74c7149bc"
+    sha256 cellar: :any,                 arm64_big_sur:  "c2b383fcd288ae172f6d6458e068e4e20e83c3ca7bb7ef34b066c8353cb3b03c"
+    sha256 cellar: :any,                 monterey:       "817d71b741f344910f7c124bcbbd8c755620741a960fa3c06c12d91fa979000d"
+    sha256 cellar: :any,                 big_sur:        "d8fc8803e5fb85dabd3f33a17132c5882f1d210a5c4f5999d673a48bc74ec452"
+    sha256 cellar: :any,                 catalina:       "5e9b7b939a3248f6ad8583cc72d6624388490d628efd092809b4a82910fce02c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "71d4eba6ebefbcadaff28818081613a40fc8be2432e3e2863f2dfcfa99b66617"
   end
 
   depends_on "notmuch"

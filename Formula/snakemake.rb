@@ -3,17 +3,17 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/c2/e4/53e1770291ecdb763bd61241c99c4774921cfb85a893be00cd1f4f2dad23/snakemake-6.12.1.tar.gz"
-  sha256 "6bc45e98c0cd90d8e696ff09ad87cddf815baf50bd75964ea01639c9699ca50d"
+  url "https://files.pythonhosted.org/packages/dc/44/a08cde4ad3d552892791ca9ea59a5bc9ac0ad6c12fff6d3b1d9bd590d4cf/snakemake-6.12.3.tar.gz"
+  sha256 "af86af9a540da3dceb05dad1040f1d3d733e6a695f8b3f8c30f8cf3bc6570a88"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fd4647e1976254e1d4aee1ecb8bdfbe1c436f50ddbef93aca6f6ddb00d83b8d2"
-    sha256 cellar: :any_skip_relocation, monterey:      "df48fce81450e8f2a15f5a2c4f627bd560f9f39aa81456a296ff05518b4d5f03"
-    sha256 cellar: :any_skip_relocation, big_sur:       "2095d82d10f66e1a4b3615ee6de12356a6ab2bdd8ec542b118896725bf164006"
-    sha256 cellar: :any_skip_relocation, catalina:      "0dc983d04e10aa4a44ee01ec9f864fef748d5fcbad0e2a3e7c80edb94232ffb2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c30e0dc4c6b3ea0b223ad9e070cb6d2cf2abf817dd62585c307a3076fbeb724"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1b9fbb0beb8d760964b15dc35158b0d9f88c203f31e5212d5ffd5349f4fc1642"
+    sha256 cellar: :any_skip_relocation, monterey:      "62965a4aadef3b22e6279356beee8586bb555cef9279590ecb882697006034d3"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4c8905b2a7037c75fe88faccfa8d914e8f73f32ca86c8e96aa70d188fe831c32"
+    sha256 cellar: :any_skip_relocation, catalina:      "b65888ad9937f2c95eef454a5f260746dbe246b30e2b609cd2e633d286e2385c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e1b44b46d22a0083065ccc479bf43c58c22c62b598c5828b43eaf72e161c1f3"
   end
 
   depends_on "cbc"
@@ -35,8 +35,8 @@ class Snakemake < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2f/39/5d8ff929409113e9ff402e405a7c7880ab1fa6f118a4ab72443976a01711/charset-normalizer-2.0.8.tar.gz"
-    sha256 "735e240d9a8506778cd7a453d97e817e536bb1fc29f4f6961ce297b9c7a917b0"
+    url "https://files.pythonhosted.org/packages/68/e4/e014e7360fc6d1ccc507fe0b563b4646d00e0d4f9beec4975026dd15850b/charset-normalizer-2.0.9.tar.gz"
+    sha256 "b0b883e8e874edfdece9c28f314e3dd5badf067342e42fb162203335ae61aa2c"
   end
 
   resource "ConfigArgParse" do
@@ -105,8 +105,8 @@ class Snakemake < Formula
   end
 
   resource "PuLP" do
-    url "https://files.pythonhosted.org/packages/14/7b/8b6d9ab49067ef2f19d383a31d3d373fba7faf106e759743fb58699114f1/PuLP-2.5.1.tar.gz"
-    sha256 "27c2a87a98ea0e9a08c7c46e6df47d6d4e753ad9991fea2901892425d89c99a6"
+    url "https://files.pythonhosted.org/packages/3a/74/0d6744ac87cbe9773be70917381d1834ac44015af7b6fa5cbc07b61abf03/PuLP-2.6.0.tar.gz"
+    sha256 "4b4f7e1e954453e1b233720be23aea2f10ff068a835ac10c090a93d8e2eb2e8d"
   end
 
   resource "pyrsistent" do

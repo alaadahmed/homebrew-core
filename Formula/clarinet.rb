@@ -3,8 +3,8 @@ class Clarinet < Formula
   homepage "https://github.com/hirosystems/clarinet"
   # pull from git tag to get submodules
   url "https://github.com/hirosystems/clarinet.git",
-      tag:      "v0.18.0",
-      revision: "4e04586adaa38009000545420f411754219419a2"
+      tag:      "v0.20.0",
+      revision: "6ff00f8df2d49122c95c2ba0d93a303a663b59c1"
   license "GPL-3.0-only"
   head "https://github.com/hirosystems/clarinet.git", branch: "main"
 
@@ -14,13 +14,12 @@ class Clarinet < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cd61e2dd46ce40a1a3bbfcdb78a97ba3a318504f59fd25fefc35d5fdf6f0f9dd"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "236468814681e65cff4cd9e2cec11c4d6ddecc4cabcb650b58e75cfad2e2e53c"
-    sha256 cellar: :any_skip_relocation, monterey:       "d294c2faf38663de00e5fb1f507cc9c2274bbc8feef5a19be5b3184f1bb56cc4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ace0468127de4b80fb1bee09add0acd7cc0a99b4a2a7e3ead635a1e900ee58a6"
-    sha256 cellar: :any_skip_relocation, catalina:       "33311a84eca9be606e3b64f587eb91a0c19f12f895b2f0c7126da68f6cd5a569"
-    sha256 cellar: :any_skip_relocation, mojave:         "65f32d61dca55b4bfc209d868e744378d16d2396e90c37db168ab23c6c8abe02"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e1d441ee1e20513639a89fad636e0c96883d0447a7b360f7933db8d2b03c9717"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5fd2278765d0a5304c406a915205f72dcc196655ba17d8759139f9a26bd7c6bb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "915e65364c68d2f47d0d3b40aa29ea6a064a28861c94a16bd252bc71975cf69f"
+    sha256 cellar: :any_skip_relocation, monterey:       "495b8213885e263e2e46660a1d9448a310f48a0fa9ba139bb2a0fc528a6825ea"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f8d8bbc4023304fc2e8e82944e588e958099ff6cf03e49f26edc7b3cf92ce061"
+    sha256 cellar: :any_skip_relocation, catalina:       "99931dc45748adc0c29ca30a183cd877e5fa49ed1074146999bc525721ba87b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "45d16c5ce4f74e7a58ca06d424d0d2e887ea4470685b94cf6180352fa34eba95"
   end
 
   depends_on "rust" => :build

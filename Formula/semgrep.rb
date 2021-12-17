@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v0.75.0",
-      revision: "d786313c7bfdaac0c53e07cffc6fcb91a1b5c0ee"
+      tag:      "v0.76.2",
+      revision: "bddf674c52fbc294b11f298704b975dba98f8aa7"
   license "LGPL-2.1-only"
   revision 1
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
@@ -16,12 +16,12 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "5f1eaa8e44be3d73edd4160c34b21269a36daa8fc0aebc21ab73a9d64fcd5d2b"
-    sha256 cellar: :any, arm64_big_sur:  "7c5b6cbdf761cab2bfc285e2874d07fa082ef3e0df98b3848890975096af3d10"
-    sha256 cellar: :any, monterey:       "862546e93481a1f815a874ec0992e9983303e1f7f9ef5aef64334d79309c67cc"
-    sha256 cellar: :any, big_sur:        "22dc5dbdf5c549194ea60b92d03b959cfb14569302286ffda1f321de0d91f508"
-    sha256 cellar: :any, catalina:       "abfb03fa46f8e5d82b0efe16a7a8b91b1c6de95871f461b7a41ffa51cc788a5d"
-    sha256               x86_64_linux:   "e05007ecae77aa863bec312f1a5314a226f0661dfdeb0755ba31c2d1533cc6ab"
+    sha256 cellar: :any, arm64_monterey: "d35d232fa9998e6644990a46a5d4e019213bd4a716746eacb7326e7eb0cf9697"
+    sha256 cellar: :any, arm64_big_sur:  "b5a2e084a896ae2d75a3d2d6538d7613c26096b3e76a4bc9fbd710d1cf1ae25f"
+    sha256 cellar: :any, monterey:       "739d22dbc111304e8b20b53a8500b62cc849217531835d239b4696e4ded26676"
+    sha256 cellar: :any, big_sur:        "6f0473408cfeefc70d02edd40d044853c116f9d619c2ef8a997eeae3737361b5"
+    sha256 cellar: :any, catalina:       "693690a2e0b500d0e20ee7f4ec96b1e0e9fe3ca53d3a42bbc33ab2317747c8d4"
+    sha256               x86_64_linux:   "bc3c4ad9e5e721fd687c3a64cc00d799ec161e26d949d19a3d81a46d1bbc6975"
   end
 
   depends_on "cmake" => :build
@@ -29,9 +29,10 @@ class Semgrep < Formula
   depends_on "dune" => :build
   depends_on "ocaml" => :build
   depends_on "opam" => :build
+  depends_on "pipenv" => :build
   depends_on "pkg-config" => :build
   depends_on "pcre"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "tree-sitter"
 
   uses_from_macos "rsync" => :build
@@ -58,8 +59,8 @@ class Semgrep < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/9f/c5/334c019f92c26e59637bb42bd14a190428874b2b2de75a355da394cf16c1/charset-normalizer-2.0.7.tar.gz"
-    sha256 "e019de665e2bcf9c2b64e2e5aa025fa991da8720daa3c1138cadd2fd1856aed0"
+    url "https://files.pythonhosted.org/packages/68/e4/e014e7360fc6d1ccc507fe0b563b4646d00e0d4f9beec4975026dd15850b/charset-normalizer-2.0.9.tar.gz"
+    sha256 "b0b883e8e874edfdece9c28f314e3dd5badf067342e42fb162203335ae61aa2c"
   end
 
   resource "click" do
@@ -179,7 +180,7 @@ class Semgrep < Formula
     ENV["SEMGREP_SKIP_BIN"] = "1"
     python_path = "semgrep"
     cd python_path do
-      venv = virtualenv_create(libexec, Formula["python@3.9"].bin/"python3.9")
+      venv = virtualenv_create(libexec, Formula["python@3.10"].bin/"python3.10")
       venv.pip_install resources.reject { |r| r.name == "ocaml-tree-sitter" }
       venv.pip_install_and_link buildpath/python_path
     end

@@ -2,25 +2,25 @@ class Filebeat < Formula
   desc "File harvester to ship log files to Elasticsearch or Logstash"
   homepage "https://www.elastic.co/products/beats/filebeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v7.15.2",
-      revision: "fd322dad6ceafec40c84df4d2a0694ea357d16cc"
+      tag:      "v7.16.1",
+      revision: "7e56c4a053a2fe26c0cac168dd974780428a2aa6"
   # Outside of the "x-pack" folder, source code in a given file is licensed
   # under the Apache License Version 2.0
   license "Apache-2.0"
   head "https://github.com/elastic/beats.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0aa6f279304ecb74be1bdc33302a379b60414cb5257709c51702d93160b0e257"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8d92aeeafe53a13de4e159993f2ceba0f53c7976249de1f76682c7e30dceb4df"
-    sha256 cellar: :any_skip_relocation, monterey:       "152ec16068f6b10baec04e9a1521f11cc42e2f6ae73b0412f0e12cdf33be8d00"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a9a10df324b1b5d55405eec33415652f9a42dbd97da6cc34e3ce3d87033fe557"
-    sha256 cellar: :any_skip_relocation, catalina:       "0074477599bf0db3b46a0ce35ab36437b930cd5358bf96a3b44a66ee97cc96a6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2b82277185c3b51632fb4defedcd63bfe47f3a8b1fed2126438086476d6357f7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "32abad7c09bae4620b07f0b415dc149bd4f17d42b5369767f38a452af9727eab"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "de7501dda3569502c34dd929433dbdac82bfa7d8367ad5325846317064fb3c73"
+    sha256 cellar: :any_skip_relocation, monterey:       "6e9e0ef30633fe9c017efb598a4a2aa0c60c433241b6c58fd46ab812ac5a1cfa"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a291a2ae20d0d06fd0ccd2e9db91fdef521ad4edb0eabef7f2a6382b4be3104e"
+    sha256 cellar: :any_skip_relocation, catalina:       "76caa22976be332938de4461cf3c23c03075c430e171cf06544a8673669bf29c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b22ded0242605695db5728b6322f4bf04c62cfb76e4a706d7819f6971131bf59"
   end
 
   depends_on "go" => :build
   depends_on "mage" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
 
   uses_from_macos "rsync" => :build
 

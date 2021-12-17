@@ -9,7 +9,7 @@ class PhpAT80 < Formula
 
   livecheck do
     url "https://www.php.net/downloads"
-    regex(/href=.*?php[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    regex(/href=.*?php[._-]v?(#{Regexp.escape(version.major_minor)}(?:\.\d+)*)\.t/i)
   end
 
   bottle do
@@ -183,7 +183,6 @@ class PhpAT80 < Formula
       --with-sqlite3
       --with-tidy=#{Formula["tidy-html5"].opt_prefix}
       --with-unixODBC
-      --with-xmlrpc
       --with-xsl
       --with-zip
       --with-zlib

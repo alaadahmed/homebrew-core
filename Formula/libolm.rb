@@ -1,18 +1,17 @@
 class Libolm < Formula
   desc "Implementation of the Double Ratchet cryptographic ratchet"
   homepage "https://gitlab.matrix.org/matrix-org/olm"
-  url "https://gitlab.matrix.org/matrix-org/olm/-/archive/3.2.6/olm-3.2.6.tar.gz"
-  sha256 "9b61bd9182bb0ae0c5a800a8b0496b69600a0a22e3a21fce0aad119d2b1c99ae"
+  url "https://gitlab.matrix.org/matrix-org/olm/-/archive/3.2.8/olm-3.2.8.tar.gz"
+  sha256 "f566a52e69e1e5ffe0be14bc48062f80bea791fa7bb6c8b2129fa44b67de6ec3"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "245688a835df1a73a40e477c19cc8874f52b36e56731af9381f3513f7e71ea97"
-    sha256 cellar: :any,                 arm64_big_sur:  "a0d40c19dde560b6c429ede66a7c549f46c36f58872a055e6fcacb24b565d72f"
-    sha256 cellar: :any,                 monterey:       "5dc746624fa4f5cc0613bca33f65ded6dfae709e0c987278cd326104a31947d1"
-    sha256 cellar: :any,                 big_sur:        "9b0fa6f2b8bcf26a480b43cf8fd38bdd474f2296d1a13a378228468811ba3876"
-    sha256 cellar: :any,                 catalina:       "dbc06704bf32fedbfd2c8aad88ba9d504e44d055c553d22677298ec877f40c8a"
-    sha256 cellar: :any,                 mojave:         "be9653954751491a58c54ea5f9c0e6284af4975a8d09f0c4248d14ec735e0d5b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3fcdb358514800ef0cf2248b20b36e57ee1faf258936514a05b2d821e5322bfd"
+    sha256 cellar: :any,                 arm64_monterey: "35e5fbd3bc69497ccc8e7de8aee6d006abdeaf4c7716d1b0aea9069a3bb74afd"
+    sha256 cellar: :any,                 arm64_big_sur:  "8c7e1f4e371ecc08c4292767862c465443314a7abac6676113610edf580b60b6"
+    sha256 cellar: :any,                 monterey:       "426914a30a06be78449ef8d52d532201afc71177b7127ef7255378facf9db59f"
+    sha256 cellar: :any,                 big_sur:        "3ead0e0ee40b270618d0f850c99d6d889df95408cb9c05838d29bca81339423e"
+    sha256 cellar: :any,                 catalina:       "5428c4b62541f9239d6948492e7990080154d66883d3add129b5c390f7335be5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a9a2b620769063ca9823c1eb1ef3f8cc384add4c7c31299f67f92d53e1897eb4"
   end
 
   depends_on "cmake" => :build

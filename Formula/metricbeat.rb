@@ -2,23 +2,23 @@ class Metricbeat < Formula
   desc "Collect metrics from your systems and services"
   homepage "https://www.elastic.co/beats/metricbeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v7.15.2",
-      revision: "fd322dad6ceafec40c84df4d2a0694ea357d16cc"
+      tag:      "v7.16.1",
+      revision: "7e56c4a053a2fe26c0cac168dd974780428a2aa6"
   license "Apache-2.0"
   head "https://github.com/elastic/beats.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f0afe68820ec5233979bc019d3376d59441ff76cc04b90dc9c82020854fe8301"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0abec415cc3a756583e2ecb831d6264869d18a5ac02faae0097b5d3b141335c8"
-    sha256 cellar: :any_skip_relocation, monterey:       "3228c5a4d0963f3c56bdb128f930eb04cf5ecbce0a062ae7baa49c99d0ad9658"
-    sha256 cellar: :any_skip_relocation, big_sur:        "af1e9a8ea6438c0cb0d5eb742e5afc8b95d94f0c30ac9424ead1dc942c55e1bb"
-    sha256 cellar: :any_skip_relocation, catalina:       "e5c99b0b0a2188403979317b4911e5b5bb8521d17c84e0c449be65009f25dfbf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f4fadd93b78a4de8ca92ea6d463613f8c144fff093dc1341b20fdf85f4ebadc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "28c38d8b425cfeeff84bf73c4107725a76184d6495cff6bea75a53275213efee"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b5c22f16161653c337248418feb7d8969229c0cc042d3cbbd15f8b93ce38b66f"
+    sha256 cellar: :any_skip_relocation, monterey:       "c81a7105379ae7a9369022d441dcb0a7d3bebc8825c71d40fa9b2f681828e5bf"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3f1158be7255aa647914c382cbd64bc675813aabc71728270b2cc857917d9094"
+    sha256 cellar: :any_skip_relocation, catalina:       "21fd52ffc9691a978061e05c95d99a3d9319f55912961729806edd2ed3f56225"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "be8b1326f7deab2c6d0e188afcc16b274560fe24a8678dbd46eeb3b3a427b934"
   end
 
   depends_on "go" => :build
   depends_on "mage" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
 
   def install
     # remove non open source files

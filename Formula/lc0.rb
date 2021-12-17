@@ -2,25 +2,24 @@ class Lc0 < Formula
   desc "Open source neural network based chess engine"
   homepage "https://lczero.org/"
   url "https://github.com/LeelaChessZero/lc0.git",
-      tag:      "v0.28.0",
-      revision: "3982cc0e74b576476c875da6fa0ff81164287425"
+      tag:      "v0.28.2",
+      revision: "fa5864bb5838e131d832ad63300517f4684913e7"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "392f9168c6f244ddff5ae49eeaa336fa96c4c76e29f6cfa8932c40defca12889"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "36aa6aad76aee88ce231dc5a0aac948f097055351813351876acd08dfc450a03"
-    sha256 cellar: :any_skip_relocation, monterey:       "d109979fed723569ff979e1cc24db86f1df7c5c8bf8b8bfcf9be6eb971441e28"
-    sha256 cellar: :any_skip_relocation, big_sur:        "994f3b0045579eccda6c5eb1241a4484c202bb9c8528184ba2e4eee770a7e2c5"
-    sha256 cellar: :any_skip_relocation, catalina:       "e37cf24d564b5649d873692e5162a90e7e1840e2346326be86ef0ba25c8b7737"
-    sha256 cellar: :any_skip_relocation, mojave:         "650ff1cdf5e4aad508572322e89010722c92bf30b89ed07f95cdec6dd1fd0140"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d89547675b9eb3c62073100047d9f9d91e51f9d3063655cf38e7f836dd28063"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1a83e9b10fbf460f31a0df65c3b650a178138008d01ac9dd446e50f5e164f80c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "09ecbab2c6d063f3faaf28ab7883d3986e76df47bc9a47f540503a7782dae42a"
+    sha256 cellar: :any_skip_relocation, monterey:       "cbb8e63d14255f4f2f5b032f1a9c466289580c1faabdf5b7f5a66add4dfa0700"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4b88db3933ab2b18877650e80ce1bce7daf540169299d09d9880926a6e8e71a8"
+    sha256 cellar: :any_skip_relocation, catalina:       "29d1b566cea4427f9c80f3ba73bc004793ba0ac7baa1c947accac694124b1372"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e5c6976da22a52679ab67a261bc74aecfe92b29d0903871c63a2b2177e61011"
   end
 
   depends_on "cmake" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build # required to compile .pb files
+  depends_on "python@3.10" => :build # required to compile .pb files
   depends_on "eigen"
 
   uses_from_macos "zlib"

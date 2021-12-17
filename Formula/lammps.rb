@@ -8,6 +8,7 @@ class Lammps < Formula
   version "20210929-update1"
   sha256 "5000b422c9c245b92df63507de5aa2ea4af345ea1f00180167aaa084b711c27c"
   license "GPL-2.0-only"
+  revision 1
 
   # The `strategy` block below is used to massage upstream tags into the
   # YYYY-MM-DD format we use in the `version`. This is necessary for livecheck
@@ -27,12 +28,12 @@ class Lammps < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "6c3b306434ba69ef17805862d59bc6ebcbdfc7ce85884379874cd5811c8140db"
-    sha256 cellar: :any,                 arm64_big_sur:  "d70926aca441eb764f2bb06fc24ea6668e192d977d938f80d03e36d0ca7edcd0"
-    sha256 cellar: :any,                 monterey:       "5ca9669e6ed7ecacf6071abd43f8864a3255e0bc20b413135e5ca3138513bb3d"
-    sha256 cellar: :any,                 big_sur:        "f76682e33b45cf0a0ce399e15ec84f13c26a43e51ab7ccecc823ac3edc1265b4"
-    sha256 cellar: :any,                 catalina:       "4b875ec8c8e097e9827c81a828f2c6d2c0a0f498060d0238dcff7ed136911170"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "218af2d8d0296d555f87dd1cd28ca62a07b8b3f8733c476844b2e1adaf808248"
+    sha256 cellar: :any,                 arm64_monterey: "0eeaf147a1204224ddcbcaa6094320eef74d3e49cd480520e237cc4da5e5ee69"
+    sha256 cellar: :any,                 arm64_big_sur:  "3f083fed3f6249263ac355c054fa262221fabacb831739791829dbea868e7395"
+    sha256 cellar: :any,                 monterey:       "3df6d8229a56981a99010601a2d986d7ecb0ba364cff264f648825e0b66b080f"
+    sha256 cellar: :any,                 big_sur:        "5f882dc8e1c49b712fc8681eea36b71377eb08578f6edbc060d99ec0332ac758"
+    sha256 cellar: :any,                 catalina:       "a42c97e67f9ec97332d08a1653fc5a5dca5b4cc62550325127ebf6e3290f6629"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "34185ff8ffe912949b70cd4f98af583283c83bc2dd48ec4d708bf500f0672dba"
   end
 
   depends_on "pkg-config" => :build
@@ -40,23 +41,19 @@ class Lammps < Formula
   depends_on "gcc" # for gfortran
   depends_on "jpeg"
   depends_on "kim-api"
+  depends_on "libomp"
   depends_on "libpng"
   depends_on "open-mpi"
 
   def install
     ENV.cxx11
 
-    # Disable some packages for which we do not have dependencies, that are
-    # deprecated or require too much configuration.
-    disabled_packages = %w[gpu kokkos latte mscg message mpiio poems python voronoi]
-
     %w[serial mpi].each do |variant|
       cd "src" do
-        disabled_packages.each do |package|
-          system "make", "no-#{package}"
-        end
-
-        system "make", "yes-basic"
+        system "make", "yes-all"
+        system "make", "no-lib"
+        system "make", "no-intel"
+        system "make", "yes-kim"
 
         system "make", variant,
                        "LMP_INC=-DLAMMPS_GZIP",

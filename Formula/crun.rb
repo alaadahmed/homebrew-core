@@ -6,7 +6,8 @@ class Crun < Formula
   license any_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "7459526cd9d01d13c4867fa5eefe42c8dfd63d6a13ba64589ba407f86e320ba2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "97bee9bcd63807320f098f03d4a86f774a16a18bb10ab3f5ae067c0f3a764e86"
   end
 
   depends_on "autoconf" => :build
@@ -14,7 +15,7 @@ class Crun < Formula
   depends_on "go-md2man" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
 
   depends_on "libcap"
   depends_on "libseccomp"

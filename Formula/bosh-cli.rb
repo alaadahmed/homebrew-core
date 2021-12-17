@@ -1,18 +1,18 @@
 class BoshCli < Formula
   desc "Cloud Foundry BOSH CLI v2"
   homepage "https://bosh.io/docs/cli-v2/"
-  url "https://github.com/cloudfoundry/bosh-cli/archive/v6.4.8.tar.gz"
-  sha256 "fd45680cff13b2f6a9955d10125ec56fc2a0419c2f224842c528286ff253dd81"
+  url "https://github.com/cloudfoundry/bosh-cli/archive/v6.4.9.tar.gz"
+  sha256 "eb7a82f390d1a5238e0ea9d8a2d545ffc323ca91a23481185879963cc40be2bc"
   license "Apache-2.0"
   head "https://github.com/cloudfoundry/bosh-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "660e222f9b5f49313d636461f7209c803c944feb46ce253fb040e30bb521aaf7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fa30f58eb0828e81a70e0fef0a5e2790831df51eb498efb996ac87a99ac5d6e6"
-    sha256 cellar: :any_skip_relocation, monterey:       "93aea4476b8b31ea46adfd49d3c514f66664288f4adc269caf508a812c5b8e27"
-    sha256 cellar: :any_skip_relocation, big_sur:        "439143a165d6a27059f3a8c00f202ffbcc3571c402165ead3175d5ace6d9ff74"
-    sha256 cellar: :any_skip_relocation, catalina:       "63595dc60f22449d0c30080414cde7949343a9f9198b7cbc165e0d5d422cea2f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "689d92f9fcb1cce3de2262e17d425c3c37c363292c712203c6d4cbf4d7a64776"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ac3ea504654761fa876cb56c352af1dcfa933a69afab531b7170c9d1008b2d2c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bd870da444df50bd5eb206783c4de8c7c3be9f66052b1f338d33db4ba4bde653"
+    sha256 cellar: :any_skip_relocation, monterey:       "ab6a15058abccd6b09efc2626c3d7db74965c0d3166b494ec44bed1f634b51a9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "eaef653872ae5b40c8ed810a3ee78c28b442ccb0a392ccc80d79a6be005f1b0c"
+    sha256 cellar: :any_skip_relocation, catalina:       "cf1d738769f4bad5f330705eaf272981ca435ab159eaec327c37e95e450fb0fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b00ec7ad0511811c543014c93bc42ecbf445b22f77efa0fc6d5659d5cdef063f"
   end
 
   depends_on "go" => :build

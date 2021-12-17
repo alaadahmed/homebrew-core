@@ -7,16 +7,17 @@ class Cppcheck < Formula
   head "https://github.com/danmar/cppcheck.git", branch: "main"
 
   bottle do
-    sha256 arm64_monterey: "418c14f59b8d49cd92a2de7b5c4b0e893e76a2597bd8789a50c6a7a5e4ff5d69"
-    sha256 arm64_big_sur:  "1a3052dacdf2a1df70b1114d938a31fda279e1d612d6b6b5d086551d4d4a26e7"
-    sha256 monterey:       "accad7769ff41bdeeb72cac7b9ba1f569c8aa41739865b10ae0a0996a81218ef"
-    sha256 big_sur:        "34cb3e3f3ffa98d28f44f1e9d45d5b11318d4e0cabf9edc3e2a0b0b29ca4a62e"
-    sha256 catalina:       "185448ec2623f7025ed897171b861ac7404c2fe645f63c3898512de457a7493c"
-    sha256 x86_64_linux:   "a1eb6e452a5b90850394c773e53ebe8974644d9dfa9e978a95f90154e38bf6dd"
+    rebuild 1
+    sha256 arm64_monterey: "f4da87edb5b0f7ac39f4353878ba67a7fa19d7abbe1a85e86d0d081a354a8072"
+    sha256 arm64_big_sur:  "df6a2b656eddb174825ed82c5080256008a172bdb30c29134ad7609b5b53e44f"
+    sha256 monterey:       "95762a9e964a134b830fe548f8bd0a6e0f5b56aa7b14bd55c850afb63a41e865"
+    sha256 big_sur:        "dabffb39a50ebdabdb4984e00cf6c4f3304c187eb8b92f37a7edadad66eac3a8"
+    sha256 catalina:       "0109ebdaab7873b91665ad77d2e657da84f0de7c3660140b32bbe4493ecd185e"
+    sha256 x86_64_linux:   "128a0b5b622565b18848403e77ac9432ae79cb5d926f8408019f16c47f53c776"
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.9" => [:build, :test]
+  depends_on "python@3.10" => [:build, :test]
   depends_on "pcre"
   depends_on "tinyxml2"
 
@@ -28,7 +29,7 @@ class Cppcheck < Formula
       -DUSE_MATCHCOMPILER=ON
       -DUSE_BUNDLED_TINYXML2=OFF
       -DENABLE_OSS_FUZZ=OFF
-      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.10"].opt_bin}/python3
     ]
     system "cmake", "-S", ".", "-B", "build", *args
     system "cmake", "--build", "build"
@@ -91,7 +92,7 @@ class Cppcheck < Formula
 
     sample_addon_file = testpath/"sampleaddon.py"
     sample_addon_file.write <<~EOS
-      #!/usr/bin/env #{Formula["python@3.9"].opt_bin}/python3
+      #!/usr/bin/env #{Formula["python@3.10"].opt_bin}/python3
       """A simple test addon for #{name}, prints function names and token count"""
       import sys
       from importlib import machinery, util
@@ -116,7 +117,7 @@ class Cppcheck < Formula
     system "#{bin}/cppcheck", "--dump", test_cpp_file
     test_cpp_file_dump = "#{test_cpp_file}.dump"
     assert_predicate testpath/test_cpp_file_dump, :exist?
-    output = shell_output(Formula["python@3.9"].opt_bin/"python3 #{sample_addon_file} #{test_cpp_file_dump}")
+    output = shell_output(Formula["python@3.10"].opt_bin/"python3 #{sample_addon_file} #{test_cpp_file_dump}")
     assert_match "#{expect_function_names}\n#{expect_token_count}", output
   end
 end
