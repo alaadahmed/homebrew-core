@@ -3,18 +3,18 @@ class LuaLanguageServer < Formula
   homepage "https://github.com/sumneko/lua-language-server"
   # pull from git tag to get submodules
   url "https://github.com/sumneko/lua-language-server.git",
-      tag:      "2.5.3",
-      revision: "dc5ee0b01a9610389e275ed8ff0746ba78cdd367"
+      tag:      "2.5.5",
+      revision: "4f74c75c6a777f17752178dea8e5a92179db86e0"
   license "MIT"
   head "https://github.com/sumneko/lua-language-server.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "addccad1068a5f4a4adf0b41b0d76a32cf2c196d34678d318de4ba4255d303ba"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c2f79f79fdb294705822e661acc671968067718a1c18a1aedb416b174fabc821"
-    sha256 cellar: :any_skip_relocation, monterey:       "ffc9d155f33ee7578e2b5f1ae80e21e2c6e07aaff62d1e0694bd1064482d6351"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d1112c927fc5974e17a8fb82e6175d3ca5b44febb59520a5f6f5f1627901cf2c"
-    sha256 cellar: :any_skip_relocation, catalina:       "23674f079721d0fe15755396e9b82d15840469a5f8b4bda312445dfa222e5ae5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e03bda04e74f708dddab1ae2b01a0560f8948e5ef06ec77dd26c344924dd1876"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c932ce3994cbf0ca2d1eb919e7d6ba5986d4da0420b120fad0df2b50a917360c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f8c23afd7b1411e86693a9f40b8a91735f03efbbaa002b6450e81dc9815c4062"
+    sha256 cellar: :any_skip_relocation, monterey:       "c4ff428c4458b08128947165259399452d23624e11484ee84e0962dfd0f70a2b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "193318afed467e7588842d6c6566701e0d9ea477d40759568d1b9ccb9904cd99"
+    sha256 cellar: :any_skip_relocation, catalina:       "8c4260e2e4ad3cd0f6ea88a5c14ef7009fd3aed29a9c35826d8564525149d861"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2637bc6f5708012436c82ab8f084a83b1aade2ef37dc2dbdad029bfc601e68ef"
   end
 
   depends_on "ninja" => :build
@@ -28,27 +28,19 @@ class LuaLanguageServer < Formula
   def install
     ENV.cxx11
 
-    # Disable `filesystem.test_appdata_path`.
-    # This test expects to find user cache directories under ${HOME},
-    # which is not compatible with homebrew's build environment.
-    # See https://github.com/actboy168/bee.lua/issues/21
-    inreplace buildpath.glob("**/3rd/bee.lua/test/test_filesystem.lua"),
-              "test_fs:test_appdata_path()",
-              "\\0 do return end"
+    # disable all tests by build script (fail in build environment)
+    inreplace buildpath.glob("**/3rd/bee.lua/test/test.lua"),
+      "local success = lt.run()",
+      "local success = true"
 
     chdir "3rd/luamake" do
       system "compile/install.sh"
     end
     system "3rd/luamake/luamake", "rebuild"
 
-    bindir = if OS.mac?
-      "bin/macOS"
-    else
-      "bin/Linux"
-    end
-    (libexec/bindir).install "#{bindir}/lua-language-server", "#{bindir}/main.lua"
+    (libexec/"bin").install "bin/lua-language-server", "bin/main.lua"
     libexec.install "main.lua", "debugger.lua", "locale", "meta", "script"
-    bin.write_exec_script libexec/bindir/"lua-language-server"
+    bin.write_exec_script libexec/"bin/lua-language-server"
     (libexec/"log").mkpath
   end
 

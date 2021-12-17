@@ -1,17 +1,17 @@
 class Driftctl < Formula
   desc "Detect, track and alert on infrastructure drift"
   homepage "https://driftctl.com"
-  url "https://github.com/cloudskiff/driftctl/archive/v0.17.0.tar.gz"
-  sha256 "e50c84cf26b29cf0738fc960fc3afd34a0f784714c2abbc26259a34ed6ed854e"
+  url "https://github.com/snyk/driftctl/archive/v0.18.1.tar.gz"
+  sha256 "6a75838f31ec24d9b53e075d2edc21c5944f45a534588b809f5121a4c8bfb21f"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "93f7811326d5f6bd1569c068c4510b8549fb2edabb0b3ea881a2a7ea6e0e8ed5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "93f7811326d5f6bd1569c068c4510b8549fb2edabb0b3ea881a2a7ea6e0e8ed5"
-    sha256 cellar: :any_skip_relocation, monterey:       "f69711dca11c51f7fa9b21c6459ca1f120eb881232b68e61874bc23cc88d0937"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f69711dca11c51f7fa9b21c6459ca1f120eb881232b68e61874bc23cc88d0937"
-    sha256 cellar: :any_skip_relocation, catalina:       "f69711dca11c51f7fa9b21c6459ca1f120eb881232b68e61874bc23cc88d0937"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "32d6babab2f20af53df693e03746605247f444b9cea9eede8aa81604cdc14fa7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "454ebd1e34ffd71df3b5d6fc42f1bf34da4a1164e8db90af33d3024f0ca04775"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "454ebd1e34ffd71df3b5d6fc42f1bf34da4a1164e8db90af33d3024f0ca04775"
+    sha256 cellar: :any_skip_relocation, monterey:       "8b073bfbf77b5eafc9ca57fb706e9d07c11cd2873e55b9971ebb1457bfff2c9a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8b073bfbf77b5eafc9ca57fb706e9d07c11cd2873e55b9971ebb1457bfff2c9a"
+    sha256 cellar: :any_skip_relocation, catalina:       "8b073bfbf77b5eafc9ca57fb706e9d07c11cd2873e55b9971ebb1457bfff2c9a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "afb61bbf054384b0381ac9f5f80f8fd16a63f8b11d129ce5a7b0d61c75828297"
   end
 
   depends_on "go" => :build
@@ -21,8 +21,8 @@ class Driftctl < Formula
 
     ldflags = %W[
       -s -w
-      -X github.com/cloudskiff/driftctl/build.env=release
-      -X github.com/cloudskiff/driftctl/pkg/version.version=v#{version}
+      -X github.com/snyk/driftctl/build.env=release
+      -X github.com/snyk/driftctl/pkg/version.version=v#{version}
     ]
 
     system "go", "build", *std_go_args(ldflags: ldflags)

@@ -3,18 +3,18 @@ class Jsonschema < Formula
 
   desc "Implementation of JSON Schema for Python"
   homepage "https://github.com/Julian/jsonschema"
-  url "https://files.pythonhosted.org/packages/ff/09/fa40d16ddcce69fc79e264c9458ac5ae693586d5f4c552e1e11889bdf971/jsonschema-4.2.1.tar.gz"
-  sha256 "390713469ae64b8a58698bb3cbc3859abe6925b565a973f87323ef21b09a27a8"
+  url "https://files.pythonhosted.org/packages/5e/5c/3ca913d9cf27475ea231f79ee398af9b1082cbbb4f7e46c243446e7fe169/jsonschema-4.3.1.tar.gz"
+  sha256 "0070ca8dd5bf47941d1e9d8bc115a3654b1138cfb8aff44f3e3527276107314f"
   license "MIT"
   head "https://github.com/Julian/jsonschema.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "62336cdb621bcc2646e1be02bad6ee78b8004c12d633cafd44f340d5f77eebd8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2250940d8c389902740a0a73e84e3018912083ecad3dfdea2967950ee079099a"
-    sha256 cellar: :any_skip_relocation, monterey:       "1833ea0f497fed3106b3e22135c5cc83bc42b712ef7c1f3ea42faf0346924bde"
-    sha256 cellar: :any_skip_relocation, big_sur:        "22898510cec4fb04aa619bfe7174c3faf8769b6960b19b96d1cbe09f491bd52b"
-    sha256 cellar: :any_skip_relocation, catalina:       "30b3ac2062681ac49593397b3fcccf485cdbec05cce26f6156471eefdd23f585"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e866ab057b96ad911eb27854dd64437c40973f2a1ffa2f873d48ffe81636571"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cc5d59a5bfeedba56de728de648dfd41fdd55c91076bee749175ebfb25fcb79a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7c601caf8a837dffee6f6f30ead31d8351513bfda9386f420e48fc74d0771168"
+    sha256 cellar: :any_skip_relocation, monterey:       "427f232a47584cad18a0979c93a04fbadce9b97581755430118b6c4d046b80fa"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a61ace309e5c74697a91d99826a1c880fbbcd89429707a1dab569d47546b8985"
+    sha256 cellar: :any_skip_relocation, catalina:       "8afc884cdf6ab20ce980a9a6370cbf8c64e24363920aa1ce122d848ac5e838f1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6ba9def9b4317a326d45e42904aa0b5923f73450ff1981558cf6c1c50ee53ebd"
   end
 
   depends_on "python@3.10"

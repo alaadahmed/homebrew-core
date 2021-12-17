@@ -1,29 +1,34 @@
-class KubernetesCli < Formula
+class KubernetesCliAT122 < Formula
   desc "Kubernetes command-line interface"
   homepage "https://kubernetes.io/"
   url "https://github.com/kubernetes/kubernetes.git",
-      tag:      "v1.23.1",
-      revision: "86ec240af8cbd1b60bcc4c03c20da9b98005b92e"
+      tag:      "v1.22.4",
+      revision: "b695d79d4f967c403a96986f1750a35eb75e75f1"
   license "Apache-2.0"
-  head "https://github.com/kubernetes/kubernetes.git", branch: "master"
 
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    regex(/^v?(1\.22(?:\.\d+)+)$/i)
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d83112c71a4eaf166e272bfe6c5a83f353f6cc960c8b839d7ddd9b7f5055eb47"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f608cd4a81ca802ab9a37392e7b0538d66cc23da93dbe6c78c3773ef11f19873"
-    sha256 cellar: :any_skip_relocation, monterey:       "1c5602dc806ab7b21a958fd75a047ecd763cdc2bdb715fd8b076c405d1efa74e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1ab41ec398db8cf62816210c5136b7bb88e0b0750fc9abb8b68240eab65f8e36"
-    sha256 cellar: :any_skip_relocation, catalina:       "bc8f58fca32bd5fd0028c6b39aab3c857e1351f1f1f8c07762f99bb7d5b4a110"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "05c6f903231e25f89d11ae55812056ea564348f49fa2818e0103c9776215d8ae"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dedb8727efaa3d87daf55d0d7ca8346e6c2c6093d30361d65ebc1ab28795e616"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "de31d093ae8f343523c16f45c176945795a2c20072078df290d5f503b7ec27fe"
+    sha256 cellar: :any_skip_relocation, monterey:       "53acdd1ccc07ff486cb43a1b9408b9a9a7e3c897e1608e0bf736d18d2563d9ff"
+    sha256 cellar: :any_skip_relocation, big_sur:        "797ecd05edb1cb70b9057cbf45000eb0effc5a6e342d123f6be19711ab2dcf5e"
+    sha256 cellar: :any_skip_relocation, catalina:       "a4d4c9e9c116068f22cdc630033b596eded6e952c0fd8b3512cec7e6322ab903"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a2ea4de0e36753e7a580fe3afbeba3c1158d2503f1d5501b8288429fcadfed15"
   end
+
+  keg_only :versioned_formula
+
+  # https://kubernetes.io/releases/patch-releases/#1-22
+  deprecate! date: "2022-08-28", because: :deprecated_upstream
+  # disable! date: "2022-10-28", because: :deprecated_upstream
 
   depends_on "bash" => :build
   depends_on "coreutils" => :build
-  depends_on "go" => :build
+  depends_on "go@1.16" => :build
 
   uses_from_macos "rsync" => :build
 
@@ -47,10 +52,6 @@ class KubernetesCli < Formula
     # Install zsh completion
     output = Utils.safe_popen_read(bin/"kubectl", "completion", "zsh")
     (zsh_completion/"_kubectl").write output
-
-    # Install fish completion
-    output = Utils.safe_popen_read(bin/"kubectl", "completion", "fish")
-    (fish_completion/"kubectl.fish").write output
 
     # Install man pages
     # Leave this step for the end as this dirties the git tree
