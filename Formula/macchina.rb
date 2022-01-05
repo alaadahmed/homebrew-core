@@ -1,17 +1,17 @@
 class Macchina < Formula
   desc "System information fetcher, with an emphasis on performance and minimalism"
   homepage "https://github.com/Macchina-CLI/macchina"
-  url "https://github.com/Macchina-CLI/macchina/archive/v6.0.1.tar.gz"
-  sha256 "9752386497b83ff9aed90ab7d762495a78fcef276d8ddca28d9781ce391d4cf2"
+  url "https://github.com/Macchina-CLI/macchina/archive/v6.0.4.tar.gz"
+  sha256 "dd6e1933ea89dcc46659723d750df59454423b0589472dd31bc8c775c843f64a"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "02e348e0c8afcd6ba5a1b41853915928fc20541e9e5220cb0cd4d4739e510476"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0da77269184752c41ede9b165eaf4a43f1f5a53d2f5e6c6d5cce29e201005361"
-    sha256 cellar: :any_skip_relocation, monterey:       "558a5a305c64ec2557ae2585f0b8c22a524b1daded14df74e87bab7375d269e5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9148903a5b7e477efbc8f6efe26da0977e8336dad59f4343c2ea86cc0063262a"
-    sha256 cellar: :any_skip_relocation, catalina:       "8afc5042718e5d6c33aad6d751411e9e16998eff4de5b0404e43823226c8ce13"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1d875e84502adad94e5e8ff23a5070be06385c9fc3cef96b3f713c0f0fd75bbb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3c218527daa7c8850acf2abc45ceffe5c4f6c0a876f73367ee398c184377c9c9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7cd7e1b1120ff85d4a97d44bbddaf22c1aef4414494568a9546c29c62d92e73c"
+    sha256 cellar: :any_skip_relocation, monterey:       "e2d019f407e9511cde221718713197fa1f6593b5a53735e54a86d86c68bfabde"
+    sha256 cellar: :any_skip_relocation, big_sur:        "26088edb1828246fbcc500cb716a5bb8d08d60d9615c6f7e58fb53fec617ec48"
+    sha256 cellar: :any_skip_relocation, catalina:       "8a3e25d1211adbe00e379e503fe4c241342ea6f9e161323ae58c318302549594"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a3d69a8346ab012f93c59cb303496ed9325c8deb71d2d01cdb60cbb5b4dd629"
   end
 
   depends_on "rust" => :build

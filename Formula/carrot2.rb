@@ -2,17 +2,17 @@ class Carrot2 < Formula
   desc "Search results clustering engine"
   homepage "https://search.carrot2.org/"
   url "https://github.com/carrot2/carrot2.git",
-      tag:      "release/4.4.0",
-      revision: "ed3048193f9b5ad75a5d886b28716a06d3253082"
+      tag:      "release/4.4.1",
+      revision: "541cac3ad50294281b5ca8fc93fb73b92a117b56"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8eb4ee1ba4f46c28106ee881f36be985ae7bb6ecdb4b1a5d21a3053fb4debbb5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a753c87b1309d5f5a03ecece09a24e0ed4b12ac3730fc99c0703a71f21fec477"
-    sha256 cellar: :any_skip_relocation, monterey:       "62972606f6f239d40bdc50328e0d6ae132ec61de859b7981c9294ddb68294919"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9e143aad0e6003e00d63395e118ba5e7764a1ee60e68e4de87b4eee3bb743309"
-    sha256 cellar: :any_skip_relocation, catalina:       "02d2504101fa927e231b67337e8a6eaefe423a2c9ef3cfdad83bcccb786b0215"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "31c25f3b208e2b63ebf44cfbab55e01901a73646bfc707c7dedbb8020133b749"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fd9af8fb197f3899ca86a997be76f214d71ec7653002442f6e6c85e5087064f6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4b20d930f9810dcbbd60534b84d7ed928a7fe39419c92eb6601798dcbcf86b98"
+    sha256 cellar: :any_skip_relocation, monterey:       "77cff0fab82a213b316fda870e9d7c3e9307a7357ba81bbf08519a7f42969d88"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1d21bcc5fade38c8d8618002e1fdf9e9c3d06e23c7202553ecfc5fe81f966072"
+    sha256 cellar: :any_skip_relocation, catalina:       "fa27ece482d74ebbb9db210877252124e61997facdc4087a5f8a33dd8c6471f6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "53bc7e87ee4131bab1e39ad4f3020fd5d0f8d6f419039196fceb2000f1d8a554"
   end
 
   depends_on "gradle" => :build
@@ -45,30 +45,9 @@ class Carrot2 < Formula
       SCRIPT_HOME: libexec/"dcs"
   end
 
-  plist_options manual: "carrot2"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
-      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>AbandonProcessGroup</key>
-          <true/>
-          <key>WorkingDirectory</key>
-          <string>#{opt_libexec}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/carrot2</string>
-          </array>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run opt_bin/"carrot2"
+    working_dir opt_libexec
   end
 
   test do

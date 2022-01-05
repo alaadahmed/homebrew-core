@@ -1,16 +1,17 @@
 class Lmod < Formula
   desc "Lua-based environment modules system to modify PATH variable"
   homepage "https://lmod.readthedocs.io"
-  url "https://github.com/TACC/Lmod/archive/8.6.1.tar.gz"
-  sha256 "80d2de4886fd2ff4926222543958629ef5caa4fddb2cb7ecea3ed27f6e686e89"
+  url "https://github.com/TACC/Lmod/archive/8.6.4.tar.gz"
+  sha256 "222e08e429dbac77b0e1a6a752f6ace29863495185459c827c3fd5fc699e14cd"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b8040976eda3f99ace56472ff1faeb04c00b5b1af119329d25876bbfd1a67ae4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "94fe91f84b42e3fb2a24117abdce6e60023347403c4c777fe7628f75a291b0bd"
-    sha256 cellar: :any_skip_relocation, monterey:       "db20c9eaa3dba38721bb3e262b32d4a3e0a6a9fa319e76f119211fd92a6c4308"
-    sha256 cellar: :any_skip_relocation, big_sur:        "deed724093e26a7dee18910be9018f8e3f28f277cc61846fec1eb2ce65676821"
-    sha256 cellar: :any_skip_relocation, catalina:       "c6307be8f8b4b7204ad718bb60f8ee1ea1c3367e6b7c544a3b470498bc0c045a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3bbb110ec7dd941c47d6acd7a1809474485e2d8634cc19380fc1dc478895f89e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b9ca0d8424bb2a50d9366252e03755997417329ed8efa3e8e31516f4ffbe62cf"
+    sha256 cellar: :any_skip_relocation, monterey:       "2fcd2481493066a1da134e4066fa9c3c7f7cce3d4169f51cdba780102924270b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9053d7422b59cf85e22a36a57a7d3250b8b87e4cbf1e627d168c1feebc4b8da4"
+    sha256 cellar: :any_skip_relocation, catalina:       "07af94e2ffcf3586e5e0918990117c2ab6e275b7ebbd864212e0367aad156676"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a6f123596076c32c8b8b5d9893458f88dad1331283b3e4e1f2569f94cac695f3"
   end
 
   depends_on "luarocks" => :build
@@ -64,7 +65,7 @@ class Lmod < Formula
 
     (testpath/"lmodtest.sh").write <<~EOS
       #!/bin/sh
-      source #{sh_init}
+      . #{sh_init}
       module list
     EOS
 

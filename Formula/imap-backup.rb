@@ -1,18 +1,18 @@
 class ImapBackup < Formula
   desc "Backup GMail (or other IMAP) accounts to disk"
   homepage "https://github.com/joeyates/imap-backup"
-  url "https://github.com/joeyates/imap-backup/archive/refs/tags/v4.0.2.tar.gz"
-  sha256 "32db12a89a2162868e2a4191e2c86911fccae715971846f135ac41ec0cd420a3"
+  url "https://github.com/joeyates/imap-backup/archive/refs/tags/v4.0.7.tar.gz"
+  sha256 "785dd28a6d2a33b2774ce09db30c41add5925d737f7840562a2e9b4fb7f9836d"
 
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e1e8b91a3c8688a2fe313160c4d9c892f6b92e37753bf1e0a0607c2f1e64af24"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3eebc9979f79e2c8f6eec6067b60896ec1ff76bb83a488f252688420d9650c7a"
-    sha256 cellar: :any_skip_relocation, monterey:       "e1e8b91a3c8688a2fe313160c4d9c892f6b92e37753bf1e0a0607c2f1e64af24"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3eebc9979f79e2c8f6eec6067b60896ec1ff76bb83a488f252688420d9650c7a"
-    sha256 cellar: :any_skip_relocation, catalina:       "3eebc9979f79e2c8f6eec6067b60896ec1ff76bb83a488f252688420d9650c7a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "995d0850aee450f3f7cd208c6d048aacb264ef7f28fafd19d90a6f48a91f346a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7ac7f1a3c41b30dba92269af4f9baf89b4886e75be0896f75ee923d40e3b9628"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f72a3fe44b22389265183f5975115274276f8c534e4ead6d928f6cf073c5e3a7"
+    sha256 cellar: :any_skip_relocation, monterey:       "7ac7f1a3c41b30dba92269af4f9baf89b4886e75be0896f75ee923d40e3b9628"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f72a3fe44b22389265183f5975115274276f8c534e4ead6d928f6cf073c5e3a7"
+    sha256 cellar: :any_skip_relocation, catalina:       "f72a3fe44b22389265183f5975115274276f8c534e4ead6d928f6cf073c5e3a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "356b64f9b6611dacf9ad9323b075f04687dcfee8f71277ad3cb6894e67926027"
   end
 
   uses_from_macos "ruby"

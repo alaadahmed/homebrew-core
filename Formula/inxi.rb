@@ -1,17 +1,17 @@
 class Inxi < Formula
   desc "Full featured CLI system information tool"
   homepage "https://smxi.org/docs/inxi.htm"
-  url "https://github.com/smxi/inxi/archive/3.3.10-1.tar.gz"
-  sha256 "0d4faa8a1b3f048d6f4ce49c64eb0e4628c63d16ffafad124cbebaca6922a302"
+  url "https://github.com/smxi/inxi/archive/3.3.11-1.tar.gz"
+  sha256 "424db24db457d3b87661f12fdc94e68a63e57ab4eb9982ccba2078451be79c59"
   license "GPL-3.0-or-later"
-  head "https://github.com/smxi/inxi.git"
+  head "https://github.com/smxi/inxi.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ee4bd1d7d855a68b214f54b2329867c86dc9438305f487c7659614e2169a6c4f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ee4bd1d7d855a68b214f54b2329867c86dc9438305f487c7659614e2169a6c4f"
-    sha256 cellar: :any_skip_relocation, monterey:       "b81284918e2e159b895e0111e6f0593e61f7e4bbf2ed51fc37445227e6c5bbd8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b81284918e2e159b895e0111e6f0593e61f7e4bbf2ed51fc37445227e6c5bbd8"
-    sha256 cellar: :any_skip_relocation, catalina:       "b81284918e2e159b895e0111e6f0593e61f7e4bbf2ed51fc37445227e6c5bbd8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "76637671804c3208eb8c6f6a91b18c176f081c87dccc56ac5d3a186415b4ba04"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "76637671804c3208eb8c6f6a91b18c176f081c87dccc56ac5d3a186415b4ba04"
+    sha256 cellar: :any_skip_relocation, monterey:       "0fe08ec2fcb25809b963a79194731992b26283d06ff30c2730bf6121f0343489"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0fe08ec2fcb25809b963a79194731992b26283d06ff30c2730bf6121f0343489"
+    sha256 cellar: :any_skip_relocation, catalina:       "0fe08ec2fcb25809b963a79194731992b26283d06ff30c2730bf6121f0343489"
   end
 
   def install

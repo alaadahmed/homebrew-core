@@ -1,11 +1,10 @@
 class KitchenSync < Formula
   desc "Fast efficiently sync database without dumping & reloading"
   homepage "https://github.com/willbryant/kitchen_sync"
-  url "https://github.com/willbryant/kitchen_sync/archive/v2.11.tar.gz"
-  sha256 "8755c79d18054ae842b8744575fdfb55b76a8667cea8186fa22cb68bd5fa60ba"
+  url "https://github.com/willbryant/kitchen_sync/archive/v2.13.tar.gz"
+  sha256 "32e2a81cfa802d14e874fcb3264ccb9c7355519bc90ea5bcfd9edd8d91935533"
   license "MIT"
-  revision 1
-  head "https://github.com/willbryant/kitchen_sync.git"
+  head "https://github.com/willbryant/kitchen_sync.git", branch: "master"
 
   livecheck do
     url :stable
@@ -13,11 +12,12 @@ class KitchenSync < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "7cb0c51fd57fa314a05bbd4ea90690ddbc9c9c550898a97d7ab5915a495b1634"
-    sha256 cellar: :any,                 big_sur:       "fadb1e90edb4391bbf7514c5f2cc6f6d4373b10962b4806f991879fddad8ac69"
-    sha256 cellar: :any,                 catalina:      "5e929e6f0cfb76aa6bd98a160c649136f7770090085253add3c8105013ac8000"
-    sha256 cellar: :any,                 mojave:        "deb520f2995563451f9695efc970af7b8b8eafad7ca1c55efb0b75320b057876"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d26fd4ba6991e01a5a5178228e936e1e89868d2d1a70ab9bb5bed7e16c2b6da"
+    sha256 cellar: :any,                 arm64_monterey: "fbe3db4c61e451e5dbe24d5bc139e44ce2ab5e25cec3b0f39c0058e16506be4c"
+    sha256 cellar: :any,                 arm64_big_sur:  "90f88952a6375ce660f96ae550f43c61ed744f4bf006188973829836b9825625"
+    sha256 cellar: :any,                 monterey:       "80768411efc51a726d4583857937a4d8b01bfb21b9c3d49294fd7976dd64135f"
+    sha256 cellar: :any,                 big_sur:        "40ecd4839e8893ab3b9d16c1cd6bca6fc785d5de357f41f029139b8d8bb02550"
+    sha256 cellar: :any,                 catalina:       "1d7b02016595ac0f0169e19c45c3935d1231ab6142a70faa3ea504a01b36f22a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "105436e926b0cf71258194ee57934c1c081611f1be75e8276fe0f9fa3e31cae3"
   end
 
   depends_on "cmake" => :build
@@ -29,6 +29,12 @@ class KitchenSync < Formula
   end
 
   fails_with gcc: "5"
+
+  # remove in next version
+  patch do
+    url "https://github.com/willbryant/kitchen_sync/commit/8a160b46ff8e35832e9a4c891dbc50706ccba95b.patch?full_index=1"
+    sha256 "eae7c668242a8505fe9648d5a2b25ec974ff166f518548df3ff53851a4426473"
+  end
 
   def install
     system "cmake", ".",

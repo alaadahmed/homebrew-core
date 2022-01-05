@@ -3,18 +3,18 @@ class VpnSlice < Formula
 
   desc "Vpnc-script replacement for easy and secure split-tunnel VPN setup"
   homepage "https://github.com/dlenski/vpn-slice"
-  url "https://files.pythonhosted.org/packages/bc/79/49fc8347a51f70f4c5501f93809f4dc757729def77749cf16af6643074de/vpn-slice-0.16.tar.gz"
-  sha256 "6d5c8d972126775181397dcc65332ec60c5b35fe1647b1022ace863589c59a12"
+  url "https://files.pythonhosted.org/packages/74/fd/6c9472e8ed83695abace098d83ba0df4ea48e29e7b2f6c77ced73b9f7dce/vpn-slice-0.16.1.tar.gz"
+  sha256 "28d02dd1b41210b270470350f28967320b3a34321d57cc9736f53d6121e9ceaa"
   license "GPL-3.0-or-later"
   head "https://github.com/dlenski/vpn-slice.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bbfa2a3a8b8e9152ca48632a00516150c7394df15c4c4d63d92d3237a65b73ac"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "226754aebd7b8bc50e97530258eb5323e6582cafd7c30c6d49d47df3cd516ea1"
-    sha256 cellar: :any_skip_relocation, monterey:       "d7d0824434ded8b59f8d94826750a76982149b717514c45c45c937f7c84e3bf0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d16cdb0c574a5b2908eca30715ad395d130d5abaa63d36dc1e81f1c0fc8c3e93"
-    sha256 cellar: :any_skip_relocation, catalina:       "3ab5f17a948e66f4f387798ad7a92db39901264f183c621e5b316c73a182420a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef189ff3f708aa43e8574c9b1d6781e099f73acb880a53fdbfb6ead0d1d322d6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "aae94aed3962341c977427f891a4ccddd31c0b1407eff0c1c12a6606d14e2f19"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7de4b4741ae6d747906f85e981e0162e2cc5f46592460d9ecd3c79175a22f04c"
+    sha256 cellar: :any_skip_relocation, monterey:       "163bb051600b95199aa4678a820c76e8d1051f2095417a0bba81514b771cb99f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "936ca7b20b1f2bcd20459851659634af28afabfcaf5cfa372f90b72f18306db7"
+    sha256 cellar: :any_skip_relocation, catalina:       "69eb21d92d73b5f03a9f01daefb72875a4ed73d96bce2f571b6a515bb46771f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fd3cc586853e2afcfc1618dd333520882f9c9248c7d7ae8c7cd7ce99068ab0ca"
   end
 
   depends_on "rust" => :build # for cryptography, can remove if dnspython has new release

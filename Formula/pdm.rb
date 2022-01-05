@@ -3,31 +3,31 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/52/d7/a9da4ba600ecb9a26ff505d57213222a0b6154b30998fe132d792f268daf/pdm-1.11.3.tar.gz"
-  sha256 "0b2d0275b0319400101e742d67e753917689359c9b1167744122209544de0fb1"
+  url "https://files.pythonhosted.org/packages/27/58/5067bb6527c1a1c29198d5f164ea11072c85fc0daf497d8584d1bfde97cc/pdm-1.12.2.tar.gz"
+  sha256 "3e870eb8500e6dc76ec3d905e8d644c17c58c79e03bf54072405cd0b8289eebd"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d05530f6adbb82c2559e29fd8a3fcc3d559f49df66eb34cd47904f67fc5fefe5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9deea923bd913cf63aea57aa49edb67b95d3670972df925eb8ef641fd4bd6605"
-    sha256 cellar: :any_skip_relocation, monterey:       "3b4aaddac22224bc80dc3336878b9ebb8935f2baecc99a086eb706c3b22e52de"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7787e253c53351a407bc34b6f42a7e518f00f3f52807d5ab4e7f1b3ab9f30a48"
-    sha256 cellar: :any_skip_relocation, catalina:       "5101d08f9cd1ef6a414ecc679b0ce83543e959ac446a2f2ea52f57a89c0f8907"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb87aa4bae9ab5ae28e976679b6c59a7ae591d15e52fdde6d0cb4e568bf6b567"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6fd6e95cd6724bcdd96f84b916438b83b5b916d4caa473d617d81b4c60bd1b8b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "444f8a95af30b72070d7c8a72ca615259510f5311b394447c5a302fe287df850"
+    sha256 cellar: :any_skip_relocation, monterey:       "15422ee612a8ccc70fc15ad65353ad0c672815b20f2fb8a371d799eaa3fa4a48"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5fffed6936ea9e8febf8d0a1350b84e556bc70eaac45c895d10e241a4658ba24"
+    sha256 cellar: :any_skip_relocation, catalina:       "ae185a26da7c8a3860b91ba4d6fac615d442e2b3e1ae924e875abbe3eaa60ddb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "36801a9475296c83ba519bd6341fdc9161ab3417a3630475a34da2b1efd735bc"
   end
 
   depends_on "python@3.10"
   depends_on "six"
 
-  resource "atoml" do
-    url "https://files.pythonhosted.org/packages/df/bb/d9733f8070c6bb66817a27ec53a0847c63b53395d797d091a477ece5f4c7/atoml-1.1.1.tar.gz"
-    sha256 "cda7b3cee4383e37d88e040d9339e75cd257bb1995054046b61d6746f110146c"
+  resource "attrs" do
+    url "https://files.pythonhosted.org/packages/d7/77/ebb15fc26d0f815839ecd897b919ed6d85c050feeb83e100e020df9153d2/attrs-21.4.0.tar.gz"
+    sha256 "626ba8234211db98e869df76230a137c4c40a12d72445c45d5f5b716f076e2fd"
   end
 
-  resource "attrs" do
-    url "https://files.pythonhosted.org/packages/ed/d6/3ebca4ca65157c12bd08a63e20ac0bdc21ac7f3694040711f9fd073c0ffb/attrs-21.2.0.tar.gz"
-    sha256 "ef6aaac3ca6cd92904cdd0d83f629a15f18053ec84e6432106f7a4d04ae4f5fb"
+  resource "blinker" do
+    url "https://files.pythonhosted.org/packages/1b/51/e2a9f3b757eb802f61dc1f2b09c8c99f6eb01cf06416c0671253536517b6/blinker-1.4.tar.gz"
+    sha256 "471aee25f3992bd325afa3772f1063dbdbbca947a041b8b89466dc00d606f8b6"
   end
 
   resource "cached-property" do
@@ -61,8 +61,8 @@ class Pdm < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/4b/96/d70b9462671fbeaacba4639ff866fb4e9e558580853fc5d6e698d0371ad4/platformdirs-2.4.0.tar.gz"
-    sha256 "367a5e80b3d04d2428ffa76d33f124cf11e8fff2acdaa9b43d545f5c7d661ef2"
+    url "https://files.pythonhosted.org/packages/be/00/bd080024010e1652de653bd61181e2dfdbef5fa73bfd32fec4c808991c31/platformdirs-2.4.1.tar.gz"
+    sha256 "440633ddfebcc36264232365d7840a970e75e1018d15b4327d11f91909045fda"
   end
 
   resource "pyparsing" do
@@ -95,9 +95,14 @@ class Pdm < Formula
     sha256 "c292c34f58502a1eb2bbb9f5bbc9a5ebc37bee10ffb8c2d6bbdfa8eb13cc14e1"
   end
 
+  resource "tomlkit" do
+    url "https://files.pythonhosted.org/packages/0f/96/ee6ba35c61186fbf084cb3077374d50eef36ab59cb8c6513317caa190935/tomlkit-0.8.0.tar.gz"
+    sha256 "29e84a855712dfe0e88a48f6d05c21118dbafb283bb2eed614d46f80deb8e9a1"
+  end
+
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/4e/be/8139f127b4db2f79c8b117c80af56a3078cc4824b5b94250c7f81a70e03b/wheel-0.37.0.tar.gz"
-    sha256 "e2ef7239991699e3355d54f8e968a21bb940a1dbf34a4d226741e64462516fad"
+    url "https://files.pythonhosted.org/packages/c0/6c/9f840c2e55b67b90745af06a540964b73589256cb10cc10057c87ac78fc2/wheel-0.37.1.tar.gz"
+    sha256 "e9a504e793efbca1b8e0e9cb979a249cf4a0a7b5b8c9e8b65a5e39d49529c1c4"
   end
 
   def install

@@ -1,8 +1,8 @@
 class Igv < Formula
   desc "Interactive Genomics Viewer"
   homepage "https://www.broadinstitute.org/software/igv"
-  url "https://data.broadinstitute.org/igv/projects/downloads/2.11/IGV_2.11.7.zip"
-  sha256 "62a61723e7fda41e69cdff7e403e9cf150c8b9669c93d92973aa2179db9ae74e"
+  url "https://data.broadinstitute.org/igv/projects/downloads/2.11/IGV_2.11.9.zip"
+  sha256 "9a5b5861be38c653cf7402817a1b068e8f65a1090de2d9dffb28872f05a8ac99"
   license "MIT"
 
   livecheck do
@@ -11,7 +11,7 @@ class Igv < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "bcf7aceaffdb6a6c6c9d8d4e791616783362b3ad50a9382dd3d3bf5a220a9330"
+    sha256 cellar: :any_skip_relocation, all: "67ee38b905241a67b155fb81424a51a4466a8f088d05f7ca9731a748f64b9bfe"
   end
 
   depends_on "openjdk"
@@ -30,6 +30,6 @@ class Igv < Formula
 
     ENV.append "_JAVA_OPTIONS", "-Duser.home=#{testpath}"
     (testpath/"script").write "exit"
-    assert_match "Version", shell_output("#{bin}/igv -b script")
+    assert_match "Using system JDK.", shell_output("#{bin}/igv -b script")
   end
 end
