@@ -1,9 +1,9 @@
 class Mpich < Formula
   desc "Implementation of the MPI Message Passing Interface standard"
   homepage "https://www.mpich.org/"
-  url "https://www.mpich.org/static/downloads/3.4.3/mpich-3.4.3.tar.gz"
-  mirror "https://fossies.org/linux/misc/mpich-3.4.3.tar.gz"
-  sha256 "8154d89f3051903181018166678018155f4c2b6f04a9bb6fe9515656452c4fd7"
+  url "https://www.mpich.org/static/downloads/4.0/mpich-4.0.tar.gz"
+  mirror "https://fossies.org/linux/misc/mpich-4.0.tar.gz"
+  sha256 "df7419c96e2a943959f7ff4dc87e606844e736e30135716971aba58524fbff64"
   license "mpich2"
 
   livecheck do
@@ -12,12 +12,12 @@ class Mpich < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "b8e36812531f093480cab70a1d722a0351c8ce571d7f7eae90627e5e7eb2ddbb"
-    sha256 cellar: :any,                 arm64_big_sur:  "db50e22aa08c8b587bd1e0e6fbdf9aedcee2031e852471c32158aa1ea46f02d6"
-    sha256 cellar: :any,                 monterey:       "53936207bee47ca9a1b249355ed92510aaa63ded9974430a9736b8bc03f8933a"
-    sha256 cellar: :any,                 big_sur:        "5159812a8598b997a39cba7bae9c24762b49612721c9854bc47d531d77f7a5a2"
-    sha256 cellar: :any,                 catalina:       "4468abf843336fe1f54252d7c45c366763baaa3abdf58f28062ebcaf6ec8ab29"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "757d5a5b771cfc4ff2f4841b6ef1c6872fa029437880de30ebb12c914bbb7957"
+    sha256 cellar: :any,                 arm64_monterey: "0a0f17ff72d5f29366b1cce89d78281ea47e6f075cacfedcaccfefae5ef7cba3"
+    sha256 cellar: :any,                 arm64_big_sur:  "32fc7f54a324693041e979d33110df18f66abab1abcff6b2a20792dda6485611"
+    sha256 cellar: :any,                 monterey:       "ae10aee401572334d43d9422a755937098c076ac150b07164c90c43ca289c349"
+    sha256 cellar: :any,                 big_sur:        "44cd8592d35988bb7fef0b2aff12acd29168a9042499490cb2bf009c2c9fa42b"
+    sha256 cellar: :any,                 catalina:       "2313e0a798e92a22320ad24d272568889bb83c8b244d8d6d70f742eec884b082"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1d615b3a038aa75b4033d72377b9d4e204f1766670dc1c0f566d91da6b4f1708"
   end
 
   head do
@@ -43,15 +43,6 @@ class Mpich < Formula
 
   conflicts_with "open-mpi", because: "both install MPI compiler wrappers"
 
-  if Hardware::CPU.arm?
-    # gfortran from 10.2.0 on arm64 does not seem to know about real128 and complex128
-    # the recommended solution by upstream is to comment out the declaration of
-    # real128 and complex128 in the source code as they do not have the resources
-    # to update the f08 binding generation script at the moment
-    # https://lists.mpich.org/pipermail/discuss/2021-March/006167.html
-    patch :DATA
-  end
-
   def install
     if build.head?
       # ensure that the consistent set of autotools built by homebrew is used to
@@ -68,6 +59,7 @@ class Mpich < Formula
       --enable-shared
       --with-pm=hydra
       FC=gfortran-#{Formula["gcc"].any_installed_version.major}
+      FCFLAGS=-fallow-argument-mismatch
       F77=gfortran-#{Formula["gcc"].any_installed_version.major}
       --disable-silent-rules
       --prefix=#{prefix}
@@ -130,63 +122,3 @@ class Mpich < Formula
     system "#{bin}/mpirun", "-np", "4", "./hellof"
   end
 end
-
-__END__
---- a/src/binding/fortran/use_mpi_f08/mpi_f08_types.f90
-+++ b/src/binding/fortran/use_mpi_f08/mpi_f08_types.f90
-@@ -248,10 +248,8 @@
-     module procedure MPI_Sizeof_xint64
-     module procedure MPI_Sizeof_xreal32
-     module procedure MPI_Sizeof_xreal64
--    module procedure MPI_Sizeof_xreal128
-     module procedure MPI_Sizeof_xcomplex32
-     module procedure MPI_Sizeof_xcomplex64
--    module procedure MPI_Sizeof_xcomplex128
- end interface
- 
- private :: MPI_Sizeof_character
-@@ -263,10 +261,8 @@
- private :: MPI_Sizeof_xint64
- private :: MPI_Sizeof_xreal32
- private :: MPI_Sizeof_xreal64
--private :: MPI_Sizeof_xreal128
- private :: MPI_Sizeof_xcomplex32
- private :: MPI_Sizeof_xcomplex64
--private :: MPI_Sizeof_xcomplex128
- 
- contains
- 
-@@ -350,16 +346,6 @@
-     ierror = 0
- end subroutine MPI_Sizeof_xreal64
- 
--subroutine MPI_Sizeof_xreal128 (x, size, ierror)
--    use,intrinsic :: iso_fortran_env, only: real128
--    real(real128),dimension(..) :: x
--    integer, intent(out) :: size
--    integer, optional,  intent(out) :: ierror
--
--    size = storage_size(x)/8
--    ierror = 0
--end subroutine MPI_Sizeof_xreal128
--
- subroutine MPI_Sizeof_xcomplex32 (x, size, ierror)
-     use,intrinsic :: iso_fortran_env, only: real32
-     complex(real32),dimension(..) :: x
-@@ -380,16 +366,6 @@
-     ierror = 0
- end subroutine MPI_Sizeof_xcomplex64
- 
--subroutine MPI_Sizeof_xcomplex128 (x, size, ierror)
--    use,intrinsic :: iso_fortran_env, only: real128
--    complex(real128),dimension(..) :: x
--    integer, intent(out) :: size
--    integer, optional,  intent(out) :: ierror
--
--    size = storage_size(x)/8
--    ierror = 0
--end subroutine MPI_Sizeof_xcomplex128
--
- subroutine MPI_Status_f2f08(f_status, f08_status, ierror)
-     integer, intent(in) :: f_status(MPI_STATUS_SIZE)
-     type(MPI_Status), intent(out) :: f08_status

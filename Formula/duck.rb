@@ -1,8 +1,8 @@
 class Duck < Formula
   desc "Command-line interface for Cyberduck (a multi-protocol file transfer tool)"
   homepage "https://duck.sh/"
-  url "https://dist.duck.sh/duck-src-8.2.0.36680.tar.gz"
-  sha256 "a7bb33975af2f83694736e267494cfc1cf1f8e6c60e52f1750ef37dd4ee73f27"
+  url "https://dist.duck.sh/duck-src-8.2.1.36773.tar.gz"
+  sha256 "65140fb6b0b2d1642a777f320d6fbe19c37ba8111ce403c88b798445dcb165cf"
   license "GPL-3.0-only"
   head "https://github.com/iterate-ch/cyberduck.git", branch: "master"
 
@@ -12,10 +12,13 @@ class Duck < Formula
   end
 
   bottle do
-    sha256 cellar: :any, monterey:     "4144d2bdc2d724595ea107b8e994bc30380e180c63cb32b2489e5ed77b63df5b"
-    sha256 cellar: :any, big_sur:      "04444c390fc0536327187e4ecbc1cd075e19e73c840b54f4bfd575be8c0fef74"
-    sha256 cellar: :any, catalina:     "75ce28f002d3f3878d4465df52cbc57bea4fdb10245a5ca0012f37bd674299b2"
-    sha256               x86_64_linux: "f86198c30049dacb10db5d959125eb9e215220f6b4c554536a0453862d71ff00"
+    rebuild 1
+    sha256 cellar: :any, arm64_monterey: "aafd5580f0af5da538527031999477ef15e2677ba2322503aad2ff2d8a3b26e2"
+    sha256 cellar: :any, arm64_big_sur:  "e472e578d7999b867754f7793d3aca9277a7985f5105d3a2dcb2b7437b3cf9fe"
+    sha256 cellar: :any, monterey:       "954ae82da86306914a461ad246207fed4a3451148800761f308bea1ad19b55f2"
+    sha256 cellar: :any, big_sur:        "f926ddade5c295292502275e4a3dd4b6cf467bbce3fff40864289633e570a64a"
+    sha256 cellar: :any, catalina:       "0c9913926730fdb60bc9dcd02d32213b1675f9e24ca65a7321591f366a8b49e4"
+    sha256               x86_64_linux:   "2968e941bc6442317a9789b2b5c8ca8f648af73d6d9f382b4e6f5a023d8b7a7e"
   end
 
   depends_on "ant" => :build
@@ -141,13 +144,18 @@ class Duck < Formula
 
     if OS.mac?
       libexec.install Dir["cli/osx/target/duck.bundle/*"]
+
+      # Remove the `*.tbd` files. They're not needed, and they cause codesigning issues.
+      buildpath.glob("JavaNativeFoundation.framework/**/JavaNativeFoundation.tbd").map(&:unlink)
       rm_rf libdir/"JavaNativeFoundation.framework"
       libdir.install buildpath/"JavaNativeFoundation.framework"
-      # Replace runtime with already installed dependency
-      rm_r "#{libexec}/Contents/PlugIns/Runtime.jre"
-      ln_s Formula["openjdk"].libexec/"openjdk.jdk", "#{libexec}/Contents/PlugIns/Runtime.jre"
+
       rm libdir/shared_library("librococoa")
       libdir.install buildpath/shared_library("librococoa")
+
+      # Replace runtime with already installed dependency
+      rm_r libexec/"Contents/PlugIns/Runtime.jre"
+      ln_s Formula["openjdk"].libexec/"openjdk.jdk", libexec/"Contents/PlugIns/Runtime.jre"
     else
       libexec.install Dir["cli/linux/target/release/duck/*"]
     end

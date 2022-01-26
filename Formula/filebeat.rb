@@ -2,20 +2,20 @@ class Filebeat < Formula
   desc "File harvester to ship log files to Elasticsearch or Logstash"
   homepage "https://www.elastic.co/products/beats/filebeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v7.16.2",
-      revision: "3c518f4d17a15dc85bdd68a5a03d5af51d9edd8e"
+      tag:      "v7.16.3",
+      revision: "d420ccdaf201e32a524632b5da729522e50257ae"
   # Outside of the "x-pack" folder, source code in a given file is licensed
   # under the Apache License Version 2.0
   license "Apache-2.0"
   head "https://github.com/elastic/beats.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c9ecfbb9c7837cc1ce5f65b8adb41031fb90891f5be7eedcf802f4a189ab86de"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0a0df9c5275eb5683fe33dbabf2161b91c416910e56de6a889813150ea1930c6"
-    sha256 cellar: :any_skip_relocation, monterey:       "e498103bba38650fbe8fb0ff8d9f22ba18445a5548734c92c023fe9ecd362318"
-    sha256 cellar: :any_skip_relocation, big_sur:        "10187ae885ffcaa080740873686d8c9eac01cc2d44ead0da0b43194d006d0dff"
-    sha256 cellar: :any_skip_relocation, catalina:       "460859fd866a199593d680daf874223d4666d998967035eec8eeddd5b82e8479"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "09a3a48d7fe41353d2db46c8829d338d25150f41d4f5013b680a79038d5970b8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "44740e94c639a000a7b0dfd8a0ff7cd3ac1aa6360223447e67dec7bbc99fba5a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a6d01054cb11dfebbc093e916c2fa9a4cb13419a5bec0fbefab2d62f608ff582"
+    sha256 cellar: :any_skip_relocation, monterey:       "8c88ff8e175c674402f6c6ed5314d320800c46ab3fe609b0243caded3d41f6fd"
+    sha256 cellar: :any_skip_relocation, big_sur:        "53313e34a2c27dad9667a2fe2b3a55138f46dfb473feeac4ee7314c54a4424a8"
+    sha256 cellar: :any_skip_relocation, catalina:       "9d14e975d586d638adbe8b1277267cd69872de54faafe0e3d25c758f84add1bf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "890d3e7ef61b74442560b84c77d7fc0d1dfc006779d5be2a0bc2c88916a44875"
   end
 
   depends_on "go" => :build

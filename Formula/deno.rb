@@ -1,17 +1,17 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.land/"
-  url "https://github.com/denoland/deno/releases/download/v1.17.1/deno_src.tar.gz"
-  sha256 "64f65e3c2dcf8eb7db59893771fdd4b928a5a94d987bd1322ad04daf341e2241"
+  url "https://github.com/denoland/deno/releases/download/v1.18.0/deno_src.tar.gz"
+  sha256 "4bd4508f0ae4ca4b3a31230d9bdf0ea3687aa4fb8bb499c830609cff2cb9d9d0"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d1269bff77eb53bbc3cc0fb36aed7d1a305e804bdfbc83e86401638eae09446a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0fc70ed4671facc42becee040bfcd2774e67e7271739bf79380cfe3c4703d5de"
-    sha256 cellar: :any_skip_relocation, monterey:       "3d644ee9e03383f1cde95afb9cbbcd8819f3a806818605d6e028f9e400987514"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e9dbb6d120bde5322069911d651186c0983cd158eb2af37db2662493fb95abed"
-    sha256 cellar: :any_skip_relocation, catalina:       "677a199424aba5fb4dc79d93185a32dbf6574ceea281d6079d457ac3555852b5"
-    sha256                               x86_64_linux:   "47085f59a697a900ba797d71a96368c6396e23c489418a224dd698118a63ee1e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9a39165aa7ef2b6b8a5110288bd17a618b1ace19cdb1a42e51aaef813b0d1917"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "55e018cf84265a50e8127471b8e6df43a4a54c66fe892b5256aa7fb332125a9e"
+    sha256 cellar: :any_skip_relocation, monterey:       "f908f60e2d6730e7356e9b750ad992d325b80d9140ed6a0b02de174cbbfeb5d4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1c7513696d7c62824fa4ccb5207fe9b5b0b6300f5322e6a26027953dd88fd437"
+    sha256 cellar: :any_skip_relocation, catalina:       "bf35246be5f4f63a5d3ed32282b73a9c5c13002c6e0ea2d8beb9aaa90dab24df"
+    sha256                               x86_64_linux:   "fbb6fe128e80b0087aeebe358209ce6c82a6cc801d47ac76df0b7178d28f8385"
   end
 
   depends_on "llvm" => :build
@@ -34,8 +34,8 @@ class Deno < Formula
   fails_with gcc: "5"
 
   # To find the version of gn used:
-  # 1. Find rusty_v8 version: https://github.com/denoland/deno/blob/v#{version}/core/Cargo.toml
-  # 2. Find ninja_gn_binaries tag: https://github.com/denoland/rusty_v8/tree/v#{rusty_v8_version}/tools/ninja_gn_binaries.py
+  # 1. Find v8 version: https://github.com/denoland/deno/blob/v#{version}/core/Cargo.toml
+  # 2. Find ninja_gn_binaries tag: https://github.com/denoland/rusty_v8/tree/v#{v8_version}/tools/ninja_gn_binaries.py
   # 3. Find short gn commit hash from commit message: https://github.com/denoland/ninja_gn_binaries/tree/#{ninja_gn_binaries_tag}
   # 4. Find full gn commit hash: https://gn.googlesource.com/gn.git/+/#{gn_commit}
   resource "gn" do

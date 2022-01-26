@@ -1,18 +1,18 @@
 class Nuclei < Formula
   desc "HTTP/DNS scanner configurable via YAML templates"
   homepage "https://nuclei.projectdiscovery.io/"
-  url "https://github.com/projectdiscovery/nuclei/archive/v2.5.7.tar.gz"
-  sha256 "4b55e3c9a80d006ef64e38c939caae3e1b962d2e7ebf5e4de9691bfe4504308b"
+  url "https://github.com/projectdiscovery/nuclei/archive/v2.5.9.tar.gz"
+  sha256 "b224703e6a5d1f04bdcfccc3ecd488cc847cdab9045dd76c4d4e1d2ab397dd7f"
   license "MIT"
   head "https://github.com/projectdiscovery/nuclei.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f4f7ec8955dd64e27e1b2a1b9cf9bdf5e5e01cb0c9716834fabf93cf87802890"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "730efdedf8f6728dbb57270f6aae1cbd53bcfc2af552e763cf67e61374209abe"
-    sha256 cellar: :any_skip_relocation, monterey:       "46d47b78e3137595b4cc24572ba5ea4e504e4eb9ccf75311262ccb55227f827d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "17c340f3f4d4bf8e92a88764ba732cf5a8897c1ff9866ce5cb9ee3c7ff5771fa"
-    sha256 cellar: :any_skip_relocation, catalina:       "68f2814530d6fdd1c363a2a9eff9e774c9d28abf2cdbf99e386facc5246e5693"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a4f2288be9c0d82f9b58919ac255bf3714b15efb8f1964c298a9b093cb25c5f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6e1fba6a84ec376e1912a92ea06a4646e1864551a53c39dbd912a32d08216939"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "47db66b377a63dd43513209693eafa55dc49d09033c1604ba6e10d66ffd89e4c"
+    sha256 cellar: :any_skip_relocation, monterey:       "2c837c569b5d6e18e6ff83855eea8d725e0c1d2dcb962b6f663e83b00714109b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1f21088a495fe018ec1ca1170ecf6cb2cb86babbee7c3df2e2a124d36562b731"
+    sha256 cellar: :any_skip_relocation, catalina:       "c687cf2f21027acd8b556b97d34e285a68e9fecabc55d3cb1dd07d312a665f4e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ed0dda94cd0d9050085e173bc453e1892216086acbce67d65aedcd1587270b02"
   end
 
   depends_on "go" => :build

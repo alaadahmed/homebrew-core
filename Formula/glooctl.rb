@@ -4,8 +4,8 @@ class Glooctl < Formula
   # NOTE: Please wait until the newest stable release is finished building and
   # no longer marked as "Pre-release" before creating a PR for a new version.
   url "https://github.com/solo-io/gloo.git",
-      tag:      "v1.9.7",
-      revision: "fdc18846c50326e0f672292336123653536f6d00"
+      tag:      "v1.10.3",
+      revision: "a6045572ff84d8c2fea9c1d456a3d5731181ac9c"
   license "Apache-2.0"
   head "https://github.com/solo-io/gloo.git", branch: "master"
 
@@ -15,12 +15,12 @@ class Glooctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b57d82bd35cf459696c8918c07a37ae85fdabff352ad129712d3f122a0084fc6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "29033d5a1566f3a44d435f93c76d4ab111566f81b1b35aa36672445337d9c5d2"
-    sha256 cellar: :any_skip_relocation, monterey:       "fbbea114352aaf5cdd6e78ad0eb0074d3f13d732a72b7ee4bb35645d39728db2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "891105e96fd6a4d0d3bbf036c613df5de521e4cf2a16f67e4da5f7a6dbfcc844"
-    sha256 cellar: :any_skip_relocation, catalina:       "b82ea3e2e4ccdbfdbeadbe205082bc20941f83d12866a54096e36cc42659db81"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b6db1a61ff6ff98ba9e23bd598e299297166656a7a899a10c8eb2c10aa0fb5c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "665f15c79341ec7bf9257c21edf02d1afb98d50fdac81ce156ec7dd563a7128d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "85eda9fc09c40a0c33f253491c88a2db8f27489e965e6c9fab9bf5f367da4548"
+    sha256 cellar: :any_skip_relocation, monterey:       "f6a8f2667a6b1b1a5d21dfc7c217a09d4b595f68acc8abed75a625aa7c566d22"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9cb515a7b8d54d6e676bad60af7ab2b156091f6022e293d2258ec1f2cd96e93d"
+    sha256 cellar: :any_skip_relocation, catalina:       "62048d581fddeaea1a0f3c11ddc2e460d2ac1a48b904425b08763d381b25190d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "456ba5a8180ad3f72828615966f01564883d781553ee98ff5bbfdfe6386beff4"
   end
 
   depends_on "go" => :build

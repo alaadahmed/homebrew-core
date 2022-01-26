@@ -2,18 +2,18 @@ class Eksctl < Formula
   desc "Simple command-line tool for creating clusters on Amazon EKS"
   homepage "https://eksctl.io"
   url "https://github.com/weaveworks/eksctl.git",
-      tag:      "0.77.0",
-      revision: "d7e5bc8cb027b6b44aaf7c238988e29a354bf913"
+      tag:      "0.80.0",
+      revision: "fa2ec8f75fadee4022a05ad02f8e0609d188af80"
   license "Apache-2.0"
   head "https://github.com/weaveworks/eksctl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "aa035c0089bd53a26d3e0cb6d5eb40e95972d0f36569d72a7deb53f934e7bd08"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "233e6661a13265a47a1fed3a072254b94838b1ec0830fe5f6f64610fd04f5256"
-    sha256 cellar: :any_skip_relocation, monterey:       "8faa50f94ad697b731dda98c1145626ae35d68198b1ea5c8c3fb3a86890e2144"
-    sha256 cellar: :any_skip_relocation, big_sur:        "52734555da5660b55c229d5d9fc37d2188fd6f0c75d9f27c5fe8e0262af0574d"
-    sha256 cellar: :any_skip_relocation, catalina:       "b448655a21a126fb81ed5dc6ec69ed4d9c7e950772e0a816aec16c426e1dfdbf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a16d7509b63a979392c7d0e55daaf78fa220fef294115182caa608a5e7b16b11"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2ad0724dfea4ef062b85059b6a593b35bdd0c477dfe5160ebe53eb8c21193b2e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cb4f3c1b0b1430a3d6a2dba65031b2c1adfbf95b3a934e14762aa69d67ff45da"
+    sha256 cellar: :any_skip_relocation, monterey:       "86ba6cef159abb242ff00100bf7b8fb56d9f1f8666a94243937f8fe62f37958d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b1ccde6a7d6f927122a18bde9fa57c21ca3606b76451c1a9bcc7022f6c4940f1"
+    sha256 cellar: :any_skip_relocation, catalina:       "e3262f5d324ce2c5b245cf23f64d0eff8c7cc28bf81337be60f62292f209d15e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7d520402b635057288f4fa2b9453f37e29ff37f07767cf6921ab22569919a587"
   end
 
   depends_on "counterfeiter" => :build
@@ -27,12 +27,12 @@ class Eksctl < Formula
     system "make", "build"
     bin.install "eksctl"
 
-    bash_output = Utils.safe_popen_read("#{bin}/eksctl", "completion", "bash")
+    bash_output = Utils.safe_popen_read(bin/"eksctl", "completion", "bash")
     (bash_completion/"eksctl").write bash_output
-    zsh_output = Utils.safe_popen_read("#{bin}/eksctl", "completion", "zsh")
+    zsh_output = Utils.safe_popen_read(bin/"eksctl", "completion", "zsh")
     (zsh_completion/"_eksctl").write zsh_output
-    fish_output = Utils.safe_popen_read("#{bin}/eksctl", "completion", "fish")
-    (zsh_completion/"eksctl.fish").write fish_output
+    fish_output = Utils.safe_popen_read(bin/"eksctl", "completion", "fish")
+    (fish_completion/"eksctl.fish").write fish_output
   end
 
   test do

@@ -1,18 +1,18 @@
 class NewrelicCli < Formula
   desc "Command-line interface for New Relic"
   homepage "https://github.com/newrelic/newrelic-cli"
-  url "https://github.com/newrelic/newrelic-cli/archive/v0.41.2.tar.gz"
-  sha256 "0dd198c27b156c65a55c175ecbf3749de237aa9ffc32752128cb00e54dbe2b95"
+  url "https://github.com/newrelic/newrelic-cli/archive/v0.41.14.tar.gz"
+  sha256 "834e5edab659c306427f8072da3e43af1937d01c4e27291c5d2cd88f2dee6cd3"
   license "Apache-2.0"
   head "https://github.com/newrelic/newrelic-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "28f1af4ddba962febffa121f8255928a6e5ead8824e1c9eeac68fb62b7fc7b8e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6352798c874af8c0034514af7f9bb243abebce7d6c2ef13d2e476a806ff23431"
-    sha256 cellar: :any_skip_relocation, monterey:       "2a970d94aa9c2b69310c4b81720250dfb3c0c7ca6018efcff9b822f437285192"
-    sha256 cellar: :any_skip_relocation, big_sur:        "599245c9dd4adacfd55ffb7852ba9b9e03b6b4c272ba22a286fe06473a927131"
-    sha256 cellar: :any_skip_relocation, catalina:       "b887b96ab52839540fbb387a98d0b12671e97ce01f69382c18fe9b8414dbc7a4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3fd85488c44a14837b931f1c4a1c515f2ed952825ee349ed4fac7e3d163f7470"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f0a667dc004b342d018ced9636337c9ba3263ca2d256a33d34de12a802ffdfe2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "532c2b101f0768d98a88c4c51f070db12b33822e6fd678dddeb2dd17402f65e6"
+    sha256 cellar: :any_skip_relocation, monterey:       "4342d2152c70dd51399cf25ec6b6d3d228fd2a096ebe16dc2e31be8928d7cba4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ac127ac6e490e5a7c3a58a43e868b01bc4336b65f153c037b4124aecc72eeadb"
+    sha256 cellar: :any_skip_relocation, catalina:       "c234bc175fdf4953d789669f2d704711cf5656d4e7db4ba397a12730994c0e70"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2400a976924b13265b6f5b44a68790892d3533b1d7f113d05c2d3d25933a97af"
   end
 
   depends_on "go" => :build
@@ -22,10 +22,12 @@ class NewrelicCli < Formula
     system "make", "compile-only"
     bin.install "bin/#{OS.kernel_name.downcase}/newrelic"
 
-    output = Utils.safe_popen_read("#{bin}/newrelic", "completion", "--shell", "bash")
+    output = Utils.safe_popen_read(bin/"newrelic", "completion", "--shell", "bash")
     (bash_completion/"newrelic").write output
-    output = Utils.safe_popen_read("#{bin}/newrelic", "completion", "--shell", "zsh")
+    output = Utils.safe_popen_read(bin/"newrelic", "completion", "--shell", "zsh")
     (zsh_completion/"_newrelic").write output
+    output = Utils.safe_popen_read(bin/"newrelic", "completion", "--shell", "fish")
+    (fish_completion/"newrelic.fish").write output
   end
 
   test do

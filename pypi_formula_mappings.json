@@ -25,6 +25,9 @@
   "aws-google-auth": {
     "exclude_packages": ["pillow", "six", "tabulate"]
   },
+  "aws-sso-util": {
+    "exclude_packages": ["six"]
+  },
   "awscli@1": {
     "exclude_packages": ["six"]
   },
@@ -56,6 +59,10 @@
   },
   "cfn-lint": {
     "exclude_packages": ["junit-xml", "six"]
+  },
+  "charmcraft": {
+    "extra_packages": ["appdirs", "pydantic", "pyyaml"],
+    "exclude_packages": ["six", "tabulate"]
   },
   "ciphey": {
     "exclude_packages": ["six"]
@@ -144,6 +151,9 @@
     "exclude_packages": ["tabulate"]
   },
   "howdoi": {
+    "exclude_packages": ["six"]
+  },
+  "http-prompt": {
     "exclude_packages": ["six"]
   },
   "internetarchive": {

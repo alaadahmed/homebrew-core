@@ -3,18 +3,18 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/2.4.7.tar.gz"
-  sha256 "c23545a9edcd215d068526f3d2cfb1f58355af2e6fcdd1c95c6bb19bafe79b37"
+  url "https://github.com/aws/aws-cli/archive/2.4.13.tar.gz"
+  sha256 "0fb4ed9483769e2ee0e86123d4dc7b12e083fb5d443ad6a66966995e6e96a635"
   license "Apache-2.0"
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "a9733ad2bee61d3b1e8193f637a59cc5e6c7b39a92c72931e5400ce52e2b66f4"
-    sha256 cellar: :any,                 arm64_big_sur:  "ab4a8585d4a0008f004d0d3cddb80e0ebed3d83c04a0cda16ecb1860a4e71c3c"
-    sha256 cellar: :any,                 monterey:       "2e19ae3a3d9eed617417728ffd4c7405c067cb224e144ba7fa9eccdbecd063dc"
-    sha256 cellar: :any,                 big_sur:        "fe12c5b11b7e7c18993dea4ff5ea371e3143ab4578cd4fd8020e8d5fcdc8af25"
-    sha256 cellar: :any,                 catalina:       "a5ed54c288b29c20de5006b54a8f11899d3a25d98fe47a5aec4a0090322896ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "13b01a63f5d7820af642a2a1753c3c2ac615f78574fdb94ee67ed50ce0a0fc16"
+    sha256 cellar: :any,                 arm64_monterey: "9a1f79cc113d69a97a727225023e0014e2000d117ac00c4b97eb30c2aeba79d9"
+    sha256 cellar: :any,                 arm64_big_sur:  "03317cd7ee1d8a323dea9ab06646adc84776912cbcb907fbf4aff57d885c3bde"
+    sha256 cellar: :any,                 monterey:       "68bed3ab6afb141ac7a69135926dadc48ca2d6886f59fd2c8f38b385cfbba6e8"
+    sha256 cellar: :any,                 big_sur:        "1b1311d8495008b0674928d466a7f550a83340a42c56e0d77e40b5a5eeeb27e8"
+    sha256 cellar: :any,                 catalina:       "da61a5adf75c656598e45d3cec90b15340b69067bb20e16433c4e1c43c3d72c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ce8be444c2735a494562e1514ee155ce253894e60ee447bceca06f5994aea94e"
   end
 
   depends_on "cmake" => :build
@@ -84,8 +84,8 @@ class Awscli < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/80/be/3ee43b6c5757cabea19e75b8f46eaf05a2f5144107d7db48c7cf3a864f73/urllib3-1.26.7.tar.gz"
-    sha256 "4987c65554f7a2dbf30c18fd48778ef124af6fab771a377103da0585e2336ece"
+    url "https://files.pythonhosted.org/packages/b0/b1/7bbf5181f8e3258efae31702f5eab87d8a74a72a0aa78bc8c08c1466e243/urllib3-1.26.8.tar.gz"
+    sha256 "0e7c33d9a63e7ddfcb86780aac87befc2fbddf46c58dbb487e0855f7ceec283c"
   end
 
   resource "wcwidth" do
@@ -104,7 +104,12 @@ class Awscli < Formula
       ENV.prepend "LDFLAGS", "-L./build/deps/install/lib"
     end
 
-    virtualenv_install_with_resources
+    # setuptools>=60 prefers its own bundled distutils, which is incompatabile with docutils~=0.15
+    # Force the previous behavior of using distutils from the stdlib
+    # Remove when fixed upstream: https://github.com/aws/aws-cli/pull/6011
+    with_env(SETUPTOOLS_USE_DISTUTILS: "stdlib") do
+      virtualenv_install_with_resources
+    end
     pkgshare.install "awscli/examples"
 
     rm Dir[bin/"{aws.cmd,aws_bash_completer,aws_zsh_completer.sh}"]

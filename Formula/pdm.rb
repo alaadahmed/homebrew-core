@@ -3,18 +3,18 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/27/58/5067bb6527c1a1c29198d5f164ea11072c85fc0daf497d8584d1bfde97cc/pdm-1.12.2.tar.gz"
-  sha256 "3e870eb8500e6dc76ec3d905e8d644c17c58c79e03bf54072405cd0b8289eebd"
+  url "https://files.pythonhosted.org/packages/34/0b/c58cc3ecd971a809dd39513c7f5fbd915bbb1e3eaffead26d15c66beddf6/pdm-1.12.6.tar.gz"
+  sha256 "3172844768a353edb23e7b01147d1cbbf8631c8e2e36dfbe02a8201f9ae19da5"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6fd6e95cd6724bcdd96f84b916438b83b5b916d4caa473d617d81b4c60bd1b8b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "444f8a95af30b72070d7c8a72ca615259510f5311b394447c5a302fe287df850"
-    sha256 cellar: :any_skip_relocation, monterey:       "15422ee612a8ccc70fc15ad65353ad0c672815b20f2fb8a371d799eaa3fa4a48"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5fffed6936ea9e8febf8d0a1350b84e556bc70eaac45c895d10e241a4658ba24"
-    sha256 cellar: :any_skip_relocation, catalina:       "ae185a26da7c8a3860b91ba4d6fac615d442e2b3e1ae924e875abbe3eaa60ddb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "36801a9475296c83ba519bd6341fdc9161ab3417a3630475a34da2b1efd735bc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1fdbddd045f1d6448f721c20fd0a593e0ff864d5e21e27625156cb148bc5843f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "14651f19983354e0a75896b5b8c84a4411ea9679ed425a7cd6da5a981638fb48"
+    sha256 cellar: :any_skip_relocation, monterey:       "e1f80836b78ffae8a67449a0108e37e4bf2a46949227ad8229fc4938860080d3"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cb5b221b944ecaa6aba42f4309f8bda79c6d4ab05d6ae56186c3e28b121aec4e"
+    sha256 cellar: :any_skip_relocation, catalina:       "e610488fe6690322a7d0f822d117b1ad2af62e2abc5b160e605e9ca101be2861"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "375c9fac286f7fedcd373dc850255acc5207f7690bad1b88fb784e1ee06df4d8"
   end
 
   depends_on "python@3.10"
