@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v0.79.0",
-      revision: "b47c1712f45f0613a6eba0c4500b31953b7d81ed"
+      tag:      "v0.81.0",
+      revision: "c7fdcccd3150112fa94f52127a01b0a9b3222a90"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -15,12 +15,12 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "1a207f4f57e3cb97af86aeb2d86b8980b10426a1040212f8dd512c1c1a515b17"
-    sha256 cellar: :any, arm64_big_sur:  "90a3fe327134db34f7892321299625736720d2bbba40aa3c9a08ac92fee177c1"
-    sha256 cellar: :any, monterey:       "40768e46b8761ac564fce9051418cd41c5502e0a6742bc51cdf0a1adb5a00f5a"
-    sha256 cellar: :any, big_sur:        "94704d8c6c7676e08802a7ea0b44a30054b29ded94d0ea162108592b1d5f15fd"
-    sha256 cellar: :any, catalina:       "bc88f986652bbdfd848f3f92530db16574620aa51cb132754ce3a9d8463a8656"
-    sha256               x86_64_linux:   "50ee91bc64dfd72fbac97c27b9ba75b751d01887a5a3b9bcbe9176a5df8c3cbb"
+    sha256 cellar: :any, arm64_monterey: "df7ffb9bfeb1639457e5b809dcd6017bea54c3f7bf4c2d261e8e2a1dbe06c9e0"
+    sha256 cellar: :any, arm64_big_sur:  "124d409e4be98004d9e2bbac46ba52d65dd36433bd8dbe2c28391905835de4c6"
+    sha256 cellar: :any, monterey:       "3387043ef688729e59d2caaa0ed0252d584f794564761e829589e24b5428a086"
+    sha256 cellar: :any, big_sur:        "d2c2a9c449eb4830e43ac74c9e13e16d83ca058d07ade2ffc64620e6d6ca7c14"
+    sha256 cellar: :any, catalina:       "b89f5de9c60a100447dc70e7413318ad1425e81ab54cfd6c0c250fd56e9ededd"
+    sha256               x86_64_linux:   "cd0363ffb95c8b84166e59f3549b36ed8051ea8de59c263bb30d43318c63f10b"
   end
 
   depends_on "cmake" => :build
@@ -58,8 +58,8 @@ class Semgrep < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/48/44/76b179e0d1afe6e6a91fd5661c284f60238987f3b42b676d141d01cd5b97/charset-normalizer-2.0.10.tar.gz"
-    sha256 "876d180e9d7432c5d1dfd4c5d26b72f099d503e8fcc0feb7532c9289be60fcbd"
+    url "https://files.pythonhosted.org/packages/e8/e8/b6cfd28fb430b2ec9923ad0147025bf8bbdf304b1eb3039b69f1ce44ed6e/charset-normalizer-2.0.11.tar.gz"
+    sha256 "98398a9d69ee80548c762ba991a4728bfc3836768ed226b3945908d1a688371c"
   end
 
   resource "click" do
@@ -98,8 +98,8 @@ class Semgrep < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/ab/61/1a1613e3dcca483a7aa9d446cb4614e6425eb853b90db131c305bd9674cb/pyparsing-3.0.6.tar.gz"
-    sha256 "d9bdec0013ef1eb5a84ab39a3b3868911598afa494f5faa038647101504e2b81"
+    url "https://files.pythonhosted.org/packages/d6/60/9bed18f43275b34198eb9720d4c1238c68b3755620d20df0afd89424d32b/pyparsing-3.0.7.tar.gz"
+    sha256 "18ee9022775d270c55187733956460083db60b37d0d0fb357445f3094eed3eea"
   end
 
   resource "pyrsistent" do

@@ -1,18 +1,18 @@
 class Okteto < Formula
   desc "Build better apps by developing and testing code directly in Kubernetes"
   homepage "https://okteto.com"
-  url "https://github.com/okteto/okteto/archive/1.15.0.tar.gz"
-  sha256 "0f1922f6620ee5e4ad1dd41d85d08b66926d5a8963eeb2df4f90b8dd137f65d9"
+  url "https://github.com/okteto/okteto/archive/1.15.3.tar.gz"
+  sha256 "e7165498e79749d07744f0f7c2774b2f165a5f2a0332aa192a44b1deaaefff47"
   license "Apache-2.0"
   head "https://github.com/okteto/okteto.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5d07e84aa8b988fdf1a842ed92fc46051de50e4ca0984355b0b8a39372d7c164"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "67e7187c1575ed07b07e7a6d0b7b28022c5373317eea6667a299c423023dcafd"
-    sha256 cellar: :any_skip_relocation, monterey:       "c26f2c0630b81b93dbaeedae7f1d7d6c9bbc258282ad5b1eb006b1d0026e453c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "be8ed38e542a744e5e4b759e77de5910c348ed6a7cac9dc435d8ac8d5caa5e3a"
-    sha256 cellar: :any_skip_relocation, catalina:       "5399ecd475d38dbae42a511845c9764ce5dfead3938f04a677f8a49082a526c9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "272447cfcd2e57d3472ba93dbd06e17b872ba287f270d958b51613e2546e348b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "04275616f2aacc3ab06c366f4b41d2a057323aacab85f64dd0e4c95116f7dd2d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "aae9573795d568252559cb2eec42d53325c32fb12fe600f0e79cb193225419a2"
+    sha256 cellar: :any_skip_relocation, monterey:       "d11010b3f97a5ecdb04d4b43aa737f68e5f6ff57243ef4885841a9b2c70fd4fc"
+    sha256 cellar: :any_skip_relocation, big_sur:        "21768e7562d93cc274495e67f5b80fe776df3e77a17760fe0846b1cad868e63d"
+    sha256 cellar: :any_skip_relocation, catalina:       "92d1baf269c52ae2df06d8458a41e1b92b656d75457648606d2bb8990c4ec1e4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "812cbadf3ced98e9b1a825129a388836f87db67180f89dac218877b085f56a60"
   end
 
   depends_on "go" => :build

@@ -1,19 +1,19 @@
 class Snort < Formula
   desc "Flexible Network Intrusion Detection System"
   homepage "https://www.snort.org"
-  url "https://github.com/snort3/snort3/archive/3.1.20.0.tar.gz"
-  mirror "https://fossies.org/linux/misc/snort3-3.1.20.0.tar.gz"
-  sha256 "aac67bfe4800c10444aa8fdd3bbe1362d5100dbd85d5d12f03255eafe2ca9399"
+  url "https://github.com/snort3/snort3/archive/3.1.22.0.tar.gz"
+  mirror "https://fossies.org/linux/misc/snort3-3.1.22.0.tar.gz"
+  sha256 "6b14382c31a24fabb68faa207224f8adfd2358f844706e55ad08c3abe6c5aa10"
   license "GPL-2.0-only"
   head "https://github.com/snort3/snort3.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "ca2bc44bf3251e87b16110bd7d9e9494f49e926ecc96ec327c0a94768f45c492"
-    sha256 cellar: :any,                 arm64_big_sur:  "c0906dfeabd9e71032e86382400e9a60c974d13e8f7a273c86849b3ef63371b6"
-    sha256 cellar: :any,                 monterey:       "9c79adac6c1dc96c0d84014cf2eeef0476c3a8a59444083594ebfde4fe499e24"
-    sha256 cellar: :any,                 big_sur:        "10e4be9604659f5146c5a236ce8968d882f36b760f67abf66888bff14fe73fb2"
-    sha256 cellar: :any,                 catalina:       "612f567f7a66d85559992d106249b3cecd45d324ee68dc3bef95d66e09d52baa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2714dedcd2274f408d4cac63c461eb131906893cedb100132e2f7fd9c72ecd71"
+    sha256 cellar: :any,                 arm64_monterey: "e36eb77f7df48562aaf6f5f2bc8967467d51979b294ca12baab580f035ff9367"
+    sha256 cellar: :any,                 arm64_big_sur:  "11086f62db8b7d102d0b436d7aaf1ca3c7a9a7de5820ccd49edd9a5d2e321e3e"
+    sha256 cellar: :any,                 monterey:       "9f8bf890a4702fb5ce5b797ad783201d932dfdf47a06ba1d89012738a773ce60"
+    sha256 cellar: :any,                 big_sur:        "e1289c7cc7b4c3250dc6d7befb31172d18bd94926c8065f88a15e0b72db90a0f"
+    sha256 cellar: :any,                 catalina:       "fb86dd78a608320031bc342bcb6600f86432b2e749a6d342725e75498be53d5c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16fac975b6fed56a07b6f466a52f584b5655917ac55d6d6cd38c3b25e739fb8d"
   end
 
   depends_on "cmake" => :build

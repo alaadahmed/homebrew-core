@@ -3,18 +3,18 @@ class Streamlink < Formula
 
   desc "CLI for extracting streams from various websites to a video player"
   homepage "https://streamlink.github.io/"
-  url "https://files.pythonhosted.org/packages/ec/4b/125fc0d84de9eafe9be299f4b1aba0af78c72f555a159037ebe6c7a3efc5/streamlink-3.1.0.tar.gz"
-  sha256 "4f6334be0f8160876bdb509c76bac17fb6d5565654fad289586db17c13283258"
+  url "https://files.pythonhosted.org/packages/f1/79/8fef2dc65c220eb9e6bd45d6e3faeffe2d6f79c46a8471a5d38a18639b95/streamlink-3.1.1.tar.gz"
+  sha256 "855cd31e900e3ae1d5328a37123bfffe2aec501a1d74bcdd12f0d2a2758060e4"
   license "BSD-2-Clause"
   head "https://github.com/streamlink/streamlink.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d6b1a031ae482c1e948eee8f234ed5629cf604dc963e542f1da619f339abc7af"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7048678c5f9a27954dea31625aabc48ba928f9f2925d7070e8985e337daa1129"
-    sha256 cellar: :any_skip_relocation, monterey:       "e1750c53b1401bc4fb63aa6e12cc1482cb8e431e57104e55a0a1f4d2c15f7763"
-    sha256 cellar: :any_skip_relocation, big_sur:        "71607ad7ea2531c318926115942ba289759da5e5bd5f41bbf0173bc40e5e2da7"
-    sha256 cellar: :any_skip_relocation, catalina:       "b7c679cbaaa72eb95f02239f7989b0de717d8e0f77a57b90e4aecb71d6ec0ccc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "106fc1e83fe5bf94f9fa3f17a3c618a17fefae5b1c260a781bdb6adeaa26eb9d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1e5db5946a4402df16f636c02d79a872c67426fb0af3a975a6e5401b55310ae5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e4b8e21f7964987d91c45a3a4107108d4e0a47a898e271cb4588c4079c967634"
+    sha256 cellar: :any_skip_relocation, monterey:       "d08943cc086b04f73839057b728a4f550be35cd46cd0fb2d069b9d65aacdc7e7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fab65959c3a142daaf8674495a3f6d2c1b73dce0a3b14640f686263414865a9d"
+    sha256 cellar: :any_skip_relocation, catalina:       "d825504e1009d8d5d25797665afcc4002907076cf43cae031ec69dd6ec189be2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d620b916ac561d3510b6ac364edb323410c7e94684917a636e1c6ae1bc9651d"
   end
 
   depends_on "python@3.10"
@@ -58,8 +58,8 @@ class Streamlink < Formula
   end
 
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/dd/3b/38d83c2725fec5b837fc05d5c6e0178a420ff839a6ad5872f10c89244899/pycryptodome-3.12.0.zip"
-    sha256 "12c7343aec5a3b3df5c47265281b12b611f26ec9367b6129199d67da54b768c1"
+    url "https://files.pythonhosted.org/packages/72/8e/9249abf44e184905b2f610ddb5dc8eccec7ab5e91109fc6df2be8647ae46/pycryptodome-3.13.0.tar.gz"
+    sha256 "95bacf9ff7d1b90bba537d3f5f6c834efe6bfbb1a0195cb3573f29e6716ef08d"
   end
 
   resource "PySocks" do

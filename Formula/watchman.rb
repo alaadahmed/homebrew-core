@@ -1,24 +1,25 @@
 class Watchman < Formula
   desc "Watch files and take action when they change"
   homepage "https://github.com/facebook/watchman"
-  url "https://github.com/facebook/watchman/archive/v2022.01.17.00.tar.gz"
-  sha256 "fad5ef050e1006d24ccb707d91de0d850f31694768796d156720ee8eb1b036c0"
+  url "https://github.com/facebook/watchman/archive/v2022.02.07.00.tar.gz"
+  sha256 "58170288a9c0929de3b44b773a6150f4c6607bb964a5002627505f1e37718f57"
   license "MIT"
   head "https://github.com/facebook/watchman.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "59b1b04b08f3bed07f73c35bcdf40da70b2ecb31d31652144b19fc4547b9716a"
-    sha256 cellar: :any, arm64_big_sur:  "b94520541990f7c26c611416d7e059bff421547d1f68efda96fd68538280dfa4"
-    sha256 cellar: :any, monterey:       "3caca0db1ffe6ca2354976be03bb9c76f4512b5a5e1923d9610f8559fa6f86e1"
-    sha256 cellar: :any, big_sur:        "146c5006c33b266101858632275e4996cccf99ba5c5a02c98b0a5cb4c72d0860"
-    sha256 cellar: :any, catalina:       "da7d2aea136a9c80606232cebd2f120c0336bba57601166cd71f5fdb7a07a369"
-    sha256               x86_64_linux:   "f2fd1a6cde41f21cf627dc92ca6762136195540c26dd3999b2f9278165f4ac37"
+    sha256 cellar: :any, arm64_monterey: "bb7081f2ccb441b42aa1cc31bced737a8bf555e56a8b90102151404a1ce552f6"
+    sha256 cellar: :any, arm64_big_sur:  "ef9423d33451e74b81458d1ef9464c19abc19fd3e34186e9106fb6e792933eef"
+    sha256 cellar: :any, monterey:       "41e6ebc80cd1ed61a39895752141783caf76f16dd0dbb93f926323e48ca16541"
+    sha256 cellar: :any, big_sur:        "38834b842fd0aad105dd5dd357148fa2a7c8fbaae2e9897f97457a0a2a9517f6"
+    sha256 cellar: :any, catalina:       "2fd793d4262cd6cb6b8c83e317307e3f92e9d29095f2f4bbf14e4aa8db5390d1"
+    sha256               x86_64_linux:   "8dafb01f5ec502f779325d5f1809e6c066e1c979731fda02869a9b95e7e95746"
   end
 
   # https://github.com/facebook/watchman/issues/963
   pour_bottle? only_if: :default_prefix
 
   depends_on "cmake" => :build
+  depends_on "googletest" => :build
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "boost"
@@ -37,22 +38,10 @@ class Watchman < Formula
 
   fails_with gcc: "5"
 
-  # The `googletest` formula (v1.11+) currently causes build failures.
-  # On macOS: watchman_string.h:114:16: error: no member named 'data' in 'watchman_pending_fs'
-  # On Linux: gtest-printers.h:211:33: error: no match for 'operator<<'
-  # Use https://github.com/facebook/watchman/blob/#{version}/build/fbcode_builder/manifests/googletest
-  resource "googletest" do
-    url "https://github.com/google/googletest/archive/release-1.10.0.tar.gz"
-    sha256 "9dc9157a9a1551ec7a7e43daea9a694a0bb5fb8bec81235d8a1e6ef64c716dcb"
-  end
-
   def install
-    resource("googletest").stage do
-      cmake_args = std_cmake_args.reject { |s| s["CMAKE_INSTALL_PREFIX"] }
-      system "cmake", ".", *cmake_args, "-DCMAKE_INSTALL_PREFIX=#{buildpath}/googletest"
-      system "make", "install"
-    end
-    ENV["GTest_DIR"] = ENV["GMock_DIR"] = buildpath/"googletest"
+    # Fix build failure on Linux. Borrowed from Fedora:
+    # https://src.fedoraproject.org/rpms/watchman/blob/rawhide/f/watchman.spec#_70
+    inreplace "CMakeLists.txt", /^t_test/, "# t_test" if OS.linux?
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DBUILD_SHARED_LIBS=ON",

@@ -2,16 +2,16 @@ class NewrelicInfraAgent < Formula
   desc "New Relic infrastructure agent"
   homepage "https://github.com/newrelic/infrastructure-agent"
   url "https://github.com/newrelic/infrastructure-agent.git",
-      tag:      "1.23.0",
-      revision: "c19c3bad1913255fa1438775eb10b77ecb5f09c8"
+      tag:      "1.23.1",
+      revision: "c380b5c1c3681117f6ccc295d797678b04f992c2"
   license "Apache-2.0"
   head "https://github.com/newrelic/infrastructure-agent.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, monterey:     "53cf8ab0eba1250d5582c68949fcded1b2943330df14bc4d8f8d9ca46109a6e1"
-    sha256 cellar: :any_skip_relocation, big_sur:      "0a76d6227380881103f759d8c40e0bb68cf8b8b877e8f19057e4ad8865720dcb"
-    sha256 cellar: :any_skip_relocation, catalina:     "6c7f29e1ba44c05af49b92a8a74804f550ab3af954637f7832d536d40f108532"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "7e4788719c1eed1b5462b33b41b520c3402a32519895e11187aae90a0a9db0af"
+    sha256 cellar: :any_skip_relocation, monterey:     "29cf1119894ca729a4834318b686586ce1fa6dc9f78ad424eccedb929ce50647"
+    sha256 cellar: :any_skip_relocation, big_sur:      "353d3159d2da010fc595fe35ee2f72d3cb00ae83b714a6a228d07805b9bd149c"
+    sha256 cellar: :any_skip_relocation, catalina:     "2a93c7161f7469f320d4cce66c7b37f282d4c8a6e0ea7ed5fa3f3a5b3bfdf9a1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "e0b8541ce3aed384673af55b4afb0ab23870605e165e5020c062457780be34f4"
   end
 
   # https://github.com/newrelic/infrastructure-agent/issues/723
