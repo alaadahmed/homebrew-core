@@ -4,15 +4,15 @@ class Vtk < Formula
   url "https://www.vtk.org/files/release/9.1/VTK-9.1.0.tar.gz"
   sha256 "8fed42f4f8f1eb8083107b68eaa9ad71da07110161a3116ad807f43e5ca5ce96"
   license "BSD-3-Clause"
-  revision 1
+  revision 3
   head "https://github.com/Kitware/VTK.git", branch: "master"
 
   bottle do
-    sha256                               arm64_monterey: "a2ad11a39d276494e011de69cc26910fe87d86bff9fe0151fdb88dc9609a1e22"
-    sha256                               arm64_big_sur:  "20b0335af2031a2f80f75d3cefbc8356e5100a4d62c7ff9996566571dffbaec1"
-    sha256                               big_sur:        "3fb6007395e9e0ce09b03bb14b81e2f8511eff74e71b8d660b9e78acf6d1f368"
-    sha256                               catalina:       "2aa0c85c665572b92fecc642d6cf00d7392547f42cd021ec5712a0400e298eaf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5806db1b35587147c06e87764c1c58b8af36d2c305929a24cc2b02635757ae7a"
+    sha256                               arm64_monterey: "fd942fa79a16d30b24a7dca30f487aa2e40a014b21cb4d8ff24dcb705239f65f"
+    sha256                               arm64_big_sur:  "49cf0ecbf29106a9398bab4d4b566cc3bda944187defb23999d29e607030c12c"
+    sha256                               big_sur:        "307e6f5031d38dff4db56df15fb50e7435068adf551380069fe6ccc87a17fe0e"
+    sha256                               catalina:       "cdabd1d1acf294759d7cea8ae26360a6cc91ad8379817d6a76dd5ee7b6e00401"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ba4b4ca08d1bf04dec3d9eceececd44fd3cc10bc7ea8d0406373ff60214feed9"
   end
 
   depends_on "cmake" => [:build, :test]
