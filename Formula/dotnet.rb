@@ -2,17 +2,17 @@ class Dotnet < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   url "https://github.com/dotnet/installer.git",
-      tag:      "v6.0.100",
-      revision: "9e8b04bbff820c93c142f99a507a46b976f5c14c"
+      tag:      "v6.0.102-source-build",
+      revision: "49861cb924cdd74be8de19206b48de4f04c0ecbe"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "5da394797cc4591cab024e9e0fe2f3fba24ec4905fecd4fbddefcc0050469d70"
-    sha256 cellar: :any,                 arm64_big_sur:  "ca1798917487fd700ca0058e3a311b4dee678e8207ae36505697c05f96723a57"
-    sha256 cellar: :any,                 monterey:       "fde61d787ee05b2796ecf63f25d04d5a5567b9a24759ef5b17d345a7ad5bb09e"
-    sha256 cellar: :any,                 big_sur:        "da8e83fc8191baeebef6875ff70894ffc7366244f373a1255968fc6b6a268e5f"
-    sha256 cellar: :any,                 catalina:       "5dae07f638d20f0e53149c83dd440d67b278d2c31fd7d55e313b4105870f4ad8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cabfbed0228d338416f7057fd7123986b0c483ab86e8280e160ff81510eef6c1"
+    sha256 cellar: :any,                 arm64_monterey: "4fb2d125ae14d5a30b6de59dccf7f9ba0aa560536c77b839fa1f6233f7c756a4"
+    sha256 cellar: :any,                 arm64_big_sur:  "ef54a26bb77b51a3dac4d3f8a55ca9addd3ce42d2207a5c3ddcfc9f901077a6d"
+    sha256 cellar: :any,                 monterey:       "18941eb424c19698e399105c12009bca2ece25c3861c60f0106f228422df835f"
+    sha256 cellar: :any,                 big_sur:        "2cfdfdc4cb9f131f2a00c710a35e7471221fe4dfe37016626669104283393ad0"
+    sha256 cellar: :any,                 catalina:       "05cc9b814b3df48a10068a7a35f3ebcb1bba01a8aeb9ff85b51636d443b37564"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c5985d6cdf384c4b8730d79c7a8fea2aa680fa0dc2fa9904750e2a61857d222d"
   end
 
   depends_on "cmake" => :build
@@ -41,22 +41,6 @@ class Dotnet < Formula
   # GCC builds have limited support via community.
   fails_with :gcc
 
-  # Fix build with Clang 13.
-  # PR ref: https://github.com/dotnet/runtime/pull/63314
-  # TODO: Remove this in future release with .NET runtime v6.0.2+
-  resource "runtime-clang13-patch" do
-    url "https://github.com/dotnet/runtime/commit/f86caa54678535ead8e1977da37025a96e2afe8a.patch?full_index=1"
-    sha256 "bc264ce2a1f9f7f3d27db10276bb2d1b979f66da06727aaa04be15c36086a9a3"
-  end
-
-  # Fix previously-source-built bootstrap.
-  # PR ref: https://github.com/dotnet/installer/pull/12642
-  # TODO: Remove this in the next release
-  patch do
-    url "https://github.com/dotnet/installer/commit/7f02ccd30f55e7ac3436bd32af4b207869541ebf.patch?full_index=1"
-    sha256 "ff51630f9bfc4bbb502f57c6b1348d2e530a006234150606f9327fedcbb6591c"
-  end
-
   # Fix build failure on macOS due to missing ILAsm/ILDAsm
   # Fix build failure on macOS ARM due to `osx-x64` override
   patch :DATA
@@ -68,19 +52,16 @@ class Dotnet < Formula
       ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"
     end
 
-    # TODO: Remove this in future release with .NET runtime v6.0.2+
-    (buildpath/"src/SourceBuild/tarball/patches/runtime").install resource("runtime-clang13-patch")
-
     Dir.mktmpdir do |sourcedir|
       system "./build.sh", "/p:ArcadeBuildTarball=true", "/p:TarballDir=#{sourcedir}"
 
       cd sourcedir
-      # Disable package validation in source-build for reliability
-      # PR ref: https://github.com/dotnet/runtime/pull/60881
-      # TODO: Remove this in the next release
-      inreplace Dir["src/runtime.*/eng/packaging.targets"].first,
-                "<EnablePackageValidation>true</EnablePackageValidation>",
-                "<EnablePackageValidation>false</EnablePackageValidation>"
+      # Workaround for error MSB4018 while building 'installer in tarball' due
+      # to trying to find aspnetcore-runtime-internal v6.0.0 rather than current.
+      # TODO: Remove when packaging is fixed
+      inreplace Dir["src/installer.*/src/redist/targets/GenerateLayout.targets"].first,
+                "$(MicrosoftAspNetCoreAppRuntimePackageVersion)",
+                "$(MicrosoftAspNetCoreAppRuntimewinx64PackageVersion)"
 
       # Rename patch fails on case-insensitive systems like macOS
       # TODO: Remove whenever patch is no longer used
@@ -199,4 +180,3 @@ index 0a2fcff17..9033ff11a 100644
    </ItemGroup>
 
    <Target Name="BuildBoostrapPreviouslySourceBuilt" AfterTargets="Restore">
-

@@ -3,18 +3,18 @@ require "language/node"
 class Serverless < Formula
   desc "Build applications with serverless architectures"
   homepage "https://www.serverless.com/"
-  url "https://github.com/serverless/serverless/archive/v3.4.0.tar.gz"
-  sha256 "76f7318479b5bba280ae524b729ad4d173d7ed74da28beda79ee2dc12fd57212"
+  url "https://github.com/serverless/serverless/archive/v3.7.3.tar.gz"
+  sha256 "58ecf3a5a71caa565f5bc3143c672c46a607947468a13a1ce2516cd0a16bc3c8"
   license "MIT"
-  head "https://github.com/serverless/serverless.git", branch: "master"
+  head "https://github.com/serverless/serverless.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "97b190b882d93187f9d202b8d9fbc7ca23137c0173f699c03f2ecbd0ae120935"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "97b190b882d93187f9d202b8d9fbc7ca23137c0173f699c03f2ecbd0ae120935"
-    sha256 cellar: :any_skip_relocation, monterey:       "94eee21c5e0d8db566732b704398447fc6fd341b9965f20d0eaf75d83ac61462"
-    sha256 cellar: :any_skip_relocation, big_sur:        "94eee21c5e0d8db566732b704398447fc6fd341b9965f20d0eaf75d83ac61462"
-    sha256 cellar: :any_skip_relocation, catalina:       "94eee21c5e0d8db566732b704398447fc6fd341b9965f20d0eaf75d83ac61462"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a82b97f2c074b482afd76c8a70eb267619b3e079be599aef2ce788b3094b28e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "399aa89519b87e5bb4c5cade56e294ebdc9c16536498667a3aeeb71b66079fcb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "399aa89519b87e5bb4c5cade56e294ebdc9c16536498667a3aeeb71b66079fcb"
+    sha256 cellar: :any_skip_relocation, monterey:       "113c66174bf05f75255662a330e5d3a9931e5eb61dbdc68908c3d99baff400b4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "113c66174bf05f75255662a330e5d3a9931e5eb61dbdc68908c3d99baff400b4"
+    sha256 cellar: :any_skip_relocation, catalina:       "113c66174bf05f75255662a330e5d3a9931e5eb61dbdc68908c3d99baff400b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "965cda6e8d3b98fe93097d2b16341c3667543653ac6f5705e17fb87dbafb2a92"
   end
 
   depends_on "node"

@@ -2,18 +2,18 @@ class Vim < Formula
   desc "Vi 'workalike' with many additional features"
   homepage "https://www.vim.org/"
   # vim should only be updated every 50 releases on multiples of 50
-  url "https://github.com/vim/vim/archive/v8.2.4450.tar.gz"
-  sha256 "b0a5acbe83bbdd4b1412abd9dc2ae2e3593c6cff8ff11c551fda3e6e2a87ec81"
+  url "https://github.com/vim/vim/archive/v8.2.4500.tar.gz"
+  sha256 "9fd0341a5c93c439a06f0eb9b036f9ac5b1eb6495ee54491d7367a5c17be5841"
   license "Vim"
   head "https://github.com/vim/vim.git", branch: "master"
 
   bottle do
-    sha256 arm64_monterey: "c199caaf0e78761d253e302e5e3f9ada277ba9e86d23643150a616d5d6a61531"
-    sha256 arm64_big_sur:  "ce8708db48088edffdc0bb7a42dc21fa646e52526ece410420a06c763de448ef"
-    sha256 monterey:       "7c1f0faff756addf04a45f05b300f49020a718a8fb42650f3f9d25f363816f8b"
-    sha256 big_sur:        "22b72d4448ea730111145579e4c2e238e10b1fc3259980dd9dd004735700c52f"
-    sha256 catalina:       "b131b4a0494220de668e3cbc7fc2d5ea3f9a095346d19c8f82fcec6b958a9dc8"
-    sha256 x86_64_linux:   "17ed0aad4f85334fc3bac0792449bf8dacb9e8c6b808713602477f0c694eb57e"
+    sha256 arm64_monterey: "dfdc7d74ec69a0755aa23ebbe826e176873b596938c1f5199f785a577eca1eb1"
+    sha256 arm64_big_sur:  "b4f6a7d4e540c4e500fc43ca378ae661e024788bb9096d8e87043ab3c473ac44"
+    sha256 monterey:       "d8af745c98046a402132fa0e9b32d8a7029eefe6b2c2fe2283c7a3234b0d5af6"
+    sha256 big_sur:        "4c0f834648fded2de99ab453a29d6086fe65d5db17f3c8c7e8506fedcccb29c4"
+    sha256 catalina:       "7f7d1d3091fedfa17909cc97e686d89dff060e21b803b1465c791bf951d5a256"
+    sha256 x86_64_linux:   "a45646854029f51551ac44db48db07840fbc13c0bc7469d6f8d9d4edb7f9c90a"
   end
 
   depends_on "gettext"

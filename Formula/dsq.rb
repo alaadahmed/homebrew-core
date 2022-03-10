@@ -1,18 +1,18 @@
 class Dsq < Formula
   desc "CLI tool for running SQL queries against JSON, CSV, Excel, Parquet, and more"
   homepage "https://github.com/multiprocessio/dsq"
-  url "https://github.com/multiprocessio/dsq/archive/refs/tags/0.4.0.tar.gz"
-  sha256 "2875f659816e824f4b064f3097f6a0ac3d2b72f44a331b9ace5118f4b16cbbd5"
+  url "https://github.com/multiprocessio/dsq/archive/refs/tags/0.6.0.tar.gz"
+  sha256 "7064e271c3dcd5913f26ed45c365731c4a2b903378e2731032252f52a662ddc0"
   license "Apache-2.0"
   head "https://github.com/multiprocessio/dsq.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4d2cad78261156a231f8c26cb7814874b7553fb4834ff567bcf5eab4aef47c19"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "63f5370867b5434bb4999178d91d9dde5c511af648d3c0e7e86099768d871ae6"
-    sha256 cellar: :any_skip_relocation, monterey:       "8d8da11a22f687fe433838c37e793d63666142fb032b18536706b1422b5fffe2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3fd9604f9b7b92fa81921333bcf2b812953b605342d4baeb0167de25dde7893b"
-    sha256 cellar: :any_skip_relocation, catalina:       "0af7e7ad3ccac1f3eccd5a6cde2a1a3eb1c33b8faa2088e9354b6f002bdc6cc4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "91cbb897fa8b97fec977b75082e438c2b0ee87d8be706a8912c4ae378f1d6439"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1296d0f96bf7c7b795c572e339b2c625e1733f17b4d54d350e1f41b55322a800"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "62c0ff64941bfb83698fd634ba61d15f6c3178c7a59413e92dd2a8c75db29611"
+    sha256 cellar: :any_skip_relocation, monterey:       "2700c40f4ebf8d320cf763bb956950411c08e2c106a6105798e313e5b2b7170e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c92f0f80472e6a35c052af88c16847294914774a43fc1fc3df3293c55880a921"
+    sha256 cellar: :any_skip_relocation, catalina:       "d2826e749ca560111d957328020e41241fc04ee93d302cf032df6e1f8fe261b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "512f090a037575410fde7514a7bce531db7534cd218dfc22ff214d49d36e449c"
   end
 
   depends_on "go" => :build

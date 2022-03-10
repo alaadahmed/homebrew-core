@@ -3,18 +3,18 @@ class Bandit < Formula
 
   desc "Security-oriented static analyser for Python code"
   homepage "https://github.com/PyCQA/bandit"
-  url "https://files.pythonhosted.org/packages/e6/0a/1fe31d6b386e46483ba66d1fc95b2b8f20ceb10ade3a76a36e0b4b128b49/bandit-1.7.3.tar.gz"
-  sha256 "58772ca951bf1129dda8a280d351547de832720bf7b5c29fac3103927980b8a6"
+  url "https://files.pythonhosted.org/packages/39/36/a37a2f6f8d0ed8c3bc616616ed5019e1df2680bd8b7df49ceae80fd457de/bandit-1.7.4.tar.gz"
+  sha256 "2d63a8c573417bae338962d4b9b06fbc6080f74ecd955a092849e1e65c717bd2"
   license "Apache-2.0"
   head "https://github.com/PyCQA/bandit.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9d8532abd517b674d528c333373969ccd6118e6bef6dd0c5210d6260a8991d76"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "373a43062554a5284caf88e1f3c7fce6d6a2b4cf5169bb8a5d5c44726a006ff8"
-    sha256 cellar: :any_skip_relocation, monterey:       "5be00bd3ff4b6c283d16721a80709b33489d7ede9656c3f5e384735af969f2b0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "92b10a4724517a8501c2836d0f2955d5ab1519dd6e9ebe9c07fca96a68d0c9da"
-    sha256 cellar: :any_skip_relocation, catalina:       "1565a340b4344367b8a72c3e89fcc481274dcf3e619aa6da00d41f61db3358be"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a36672811a00babc1517f58144a22a618d178dd425c46803a10f5f0f95c1c6a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e0091642260daeca5125bf05626f6f12e1a08c34dcb34b438292fc3dec6f43e3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "437e9a8b75bdb52fc8055d4cb4572d38b6b181098b830dbef842fe645d804f3a"
+    sha256 cellar: :any_skip_relocation, monterey:       "efa468bed53d8dda0bf3ec53197255efc489d5c9642e1ad1a0907e73320ba1f9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4f7744b613f90fb4214a7afaa429ab13f352f0470b18bb8515e38c337b662160"
+    sha256 cellar: :any_skip_relocation, catalina:       "6478334ce46c9b0ee01ec83598ea89fe2e043bc418def4068ba7df76015d30ee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "809c32197ec9e1632c990f0f29b4b70d0c5f656f1a5395524a205a58cfee9dca"
   end
 
   depends_on "python@3.10"

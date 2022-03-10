@@ -3,17 +3,17 @@ class Localstack < Formula
 
   desc "Fully functional local AWS cloud stack"
   homepage "https://github.com/localstack/localstack"
-  url "https://files.pythonhosted.org/packages/e9/9f/96cbf35d7b61488555b5279a03d04fe9c578f9cf961b63fe37afe49abc03/localstack-0.14.0.4.tar.gz"
-  sha256 "0f0e950af5eae65f7a232ae52bac27a3776b725f55b5718c7880acc9162ab703"
+  url "https://files.pythonhosted.org/packages/a5/ff/e464db5f55027147e1ab34cf1dc37b7395d6553b815d69fca634c53bec85/localstack-0.14.0.10.tar.gz"
+  sha256 "f3e22a7b279659ddb9fd0230a1e8bdf3caa9fb1f01034628e526358711c4f803"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f6dff58aacf6ae19dec933beb9780de945bdab626885ad9f99c1fabc0836201c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f1b101457d7b2f4e248868be0239b841fc5af2f81c542b5935a59253d68fb21a"
-    sha256 cellar: :any_skip_relocation, monterey:       "95b8440d209f6e7c4e99ca3685d0a43f49c5062ca80204a30ed872ed46146ae6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0182925dafd14b192f268b38419cd4289be1cf8a78fded2e762b0b82c45b3cc9"
-    sha256 cellar: :any_skip_relocation, catalina:       "7bb645118dd698a35ac1d2b6b7abd12f30fc84f8d27911ae8fcba7be485d6b53"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ea862712a4b5a1e859239cba70185dfabf83899ec88f5c30d91493973f60b17"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "282a7f024b6e06ec9a14abff96aefc567dd0ecd28e2855adc487bbcd1c6af60d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bbd57d45dcec2107586262a18798ca1a54cbb406a077df422b46a6708ee26a9c"
+    sha256 cellar: :any_skip_relocation, monterey:       "e64d6d4745a176fd3c0ffeeaf07d11a139d16daf1482271d79a3a9829303ab21"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a3a8d0a0f3cebdf50601160d44ef133b9947f43ff9d719bb0aed7e3e8799f46c"
+    sha256 cellar: :any_skip_relocation, catalina:       "19f8d1b61b5415f8186211a104ab7af17b681a7c3c19a90e76e57dcaa86d2629"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1d7793e52757fe66d80187ee72b16f9286efdc3ef3d370447c717b3e2c491393"
   end
 
   depends_on "docker" => :test
@@ -26,13 +26,13 @@ class Localstack < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/ff/fd/c25bdb2515c92c0e4e9d66d157e5275aee35f055f92b540e5e557ae56f9a/boto3-1.21.7.tar.gz"
-    sha256 "8f59383fe578ac9107466a464d7198933e5332d85a4790f2e01cf24a4a7f635b"
+    url "https://files.pythonhosted.org/packages/57/49/06070a3f4e354751975c8c95e0b400366a2b8d2821deb435ff9bae4b8fb1/boto3-1.21.15.tar.gz"
+    sha256 "895489900eb882777124c3b64a13df49785cf77f7bd1504e783464fb3b4c8163"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/b6/27/82dcaa46588c3071b195f75ec1c3ce5d6ce8aad26701dcc661cbca4961be/botocore-1.24.7.tar.gz"
-    sha256 "5d1a2a2ac72461bbaa79317b3e4cb72c7ebb315aef184d90f72ec1f6dba0ca6c"
+    url "https://files.pythonhosted.org/packages/19/96/05b7bbe828410b4bdf93e5d2ad4c4a1dc60e8db11ceb80b27b23ecfd8f77/botocore-1.24.15.tar.gz"
+    sha256 "fa4816e94e72111a9341204061e760bcbde74ca5d900d3f2206c2c2e8e4b56e4"
   end
 
   resource "cachetools" do
@@ -81,13 +81,13 @@ class Localstack < Formula
   end
 
   resource "dnspython" do
-    url "https://files.pythonhosted.org/packages/84/f4/84eca79c279640671b8b7086ef1b97268c2b7ba17f7cfe0a19b466a6f95c/dnspython-2.2.0.tar.gz"
-    sha256 "e79351e032d0b606b98d38a4b0e6e2275b31a5b85c873e587cc11b73aca026d6"
+    url "https://files.pythonhosted.org/packages/99/fb/e7cd35bba24295ad41abfdff30f6b4c271fd6ac70d20132fa503c3e768e0/dnspython-2.2.1.tar.gz"
+    sha256 "0f7569a4a6ff151958b64304071d370daa3243d15941a7beedf0c9fe5105603e"
   end
 
   resource "dulwich" do
-    url "https://files.pythonhosted.org/packages/77/42/8a7669dbea5086ed2ee759d75414764a8256070d3c9adcf0e2067ebd9891/dulwich-0.20.32.tar.gz"
-    sha256 "dc5498b072bdc12c1effef4b6202cd2a4542bb1c6dbb4ddcfc8c6d53e08b488c"
+    url "https://files.pythonhosted.org/packages/de/42/c4218857c39ebc9b13c4a5c8d684e4d873ea0c680927ad1cc20e79db258a/dulwich-0.20.33.tar.gz"
+    sha256 "9537abef8cabee96b0c09af950661b883057879a788d98f1187b79e32fee9650"
   end
 
   resource "idna" do
@@ -101,18 +101,13 @@ class Localstack < Formula
   end
 
   resource "localstack-client" do
-    url "https://files.pythonhosted.org/packages/4f/b4/92dbff5938fd135909bb1cf0b4c27c5a1b3221784dc6087c1773942fcbcd/localstack-client-1.31.tar.gz"
-    sha256 "7030dae0d778feef0a790800ba3d50af81d49e410e97df7ddd6ff442e05825a7"
+    url "https://files.pythonhosted.org/packages/0d/9c/c73998f2b10809c6284e5fba3032172adbdd87fcc3cfabc12a273a061999/localstack-client-1.32.tar.gz"
+    sha256 "b20de5bceb7d9970f379c6ff688cb88dabb1a6ff2505e0d95eaf6ff58c57818e"
   end
 
   resource "localstack-ext" do
-    url "https://files.pythonhosted.org/packages/62/01/c3b34dfc3ffcc5f01a0d9dd77aa44a914ae219769f472305461192ba984b/localstack-ext-0.14.0.11.tar.gz"
-    sha256 "cf1794cee75409012404ee5680ba0ccfec69e0cad54274f577d4613817e19851"
-  end
-
-  resource "localstack-plugin-loader" do
-    url "https://files.pythonhosted.org/packages/2e/82/7e78c8056df07bf05196ee40b4244399f7a66ee5c1fe7ac1c837bf30755b/localstack-plugin-loader-1.1.1.tar.gz"
-    sha256 "eb829c47332caf2ff1062a2038077e0a5e93c30bb2c61cf2651b07ccadd77448"
+    url "https://files.pythonhosted.org/packages/05/26/ef210ffb299c32e4250fe3c563182d4c34cac14657d1ee8db6af484959ab/localstack-ext-0.14.0.24.tar.gz"
+    sha256 "da1a0cb6a98ec4ff081cef4aa5cbfe0c22a9d0ef4e3406d619f68d511e389f05"
   end
 
   resource "ordered-set" do
@@ -123,6 +118,11 @@ class Localstack < Formula
   resource "pbr" do
     url "https://files.pythonhosted.org/packages/51/da/eb358ed53257a864bf9deafba25bc3d6b8d41b0db46da4e7317500b1c9a5/pbr-5.8.1.tar.gz"
     sha256 "66bc5a34912f408bb3925bf21231cb6f59206267b7f63f3503ef865c1a292e25"
+  end
+
+  resource "plux" do
+    url "https://files.pythonhosted.org/packages/9a/29/682e1a73813b58ec60d520503d983e57e224d5370c35fd9b53b6b6595fb4/plux-1.3.1.tar.gz"
+    sha256 "49f8d0f372c80f315f1d36e897bfcd914b867ba7aaf701ed5931a6d873ae28d3"
   end
 
   resource "psutil" do
