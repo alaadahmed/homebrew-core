@@ -2,17 +2,17 @@ class Dotnet < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   url "https://github.com/dotnet/installer.git",
-      tag:      "v6.0.102-source-build",
-      revision: "49861cb924cdd74be8de19206b48de4f04c0ecbe"
+      tag:      "v6.0.103-source-build",
+      revision: "2c677ffc1e93aea3b6c92d6121d04fdaeba32d32"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "4fb2d125ae14d5a30b6de59dccf7f9ba0aa560536c77b839fa1f6233f7c756a4"
-    sha256 cellar: :any,                 arm64_big_sur:  "ef54a26bb77b51a3dac4d3f8a55ca9addd3ce42d2207a5c3ddcfc9f901077a6d"
-    sha256 cellar: :any,                 monterey:       "18941eb424c19698e399105c12009bca2ece25c3861c60f0106f228422df835f"
-    sha256 cellar: :any,                 big_sur:        "2cfdfdc4cb9f131f2a00c710a35e7471221fe4dfe37016626669104283393ad0"
-    sha256 cellar: :any,                 catalina:       "05cc9b814b3df48a10068a7a35f3ebcb1bba01a8aeb9ff85b51636d443b37564"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c5985d6cdf384c4b8730d79c7a8fea2aa680fa0dc2fa9904750e2a61857d222d"
+    sha256 cellar: :any,                 arm64_monterey: "2ff313f22047d96e30f1f8731ce1134ba7768c5dd74aab97f16dbcf68ea2fd10"
+    sha256 cellar: :any,                 arm64_big_sur:  "05595a903157061df43342bd994691101112929d12caabef85ffc7be19458326"
+    sha256 cellar: :any,                 monterey:       "9654a2ff03d8dec596aa334f3aacdd98dc220ac625f8cc64a9e0d61460267030"
+    sha256 cellar: :any,                 big_sur:        "52ad3129736d0ffa2a5845f4a7b156e032ac7f9f216f077728c7c7bd97699cdc"
+    sha256 cellar: :any,                 catalina:       "f8135105c6e3f9a40d423b4c2b23959718b83ad8e9cbac4fa1a03e0a8a16e4af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb07a23433b58bd146f0573e050bf1c9dec13f64e220ea7a1981fd7e4adc1808"
   end
 
   depends_on "cmake" => :build
@@ -162,17 +162,17 @@ index f3ed143f8..2c62d6854 100644
      <OverrideTargetRid Condition="'$(TargetOS)' == 'Windows_NT'">win-x64</OverrideTargetRid>
 
 diff --git a/src/SourceBuild/tarball/content/scripts/bootstrap/buildBootstrapPreviouslySB.csproj b/src/SourceBuild/tarball/content/scripts/bootstrap/buildBootstrapPreviouslySB.csproj
-index 0a2fcff17..9033ff11a 100644
+index 14921a48f..3a34e8749 100644
 --- a/src/SourceBuild/tarball/content/scripts/bootstrap/buildBootstrapPreviouslySB.csproj
 +++ b/src/SourceBuild/tarball/content/scripts/bootstrap/buildBootstrapPreviouslySB.csproj
-@@ -23,6 +23,14 @@
-     <PackageReference Include="runtime.linux-x64.Microsoft.NETCore.ILDAsm" Version="$(RuntimeLinuxX64MicrosoftNETCoreILDAsmVersion)" />
-     <PackageReference Include="runtime.linux-x64.Microsoft.NETCore.TestHost" Version="$(RuntimeLinuxX64MicrosoftNETCoreTestHostVersion)" />
-     <PackageReference Include="runtime.linux-x64.runtime.native.System.IO.Ports" Version="$(RuntimeLinuxX64RuntimeNativeSystemIOPortsVersion)" />
-+    <PackageReference Include="runtime.osx-arm64.Microsoft.NETCore.ILAsm" Version="$(RuntimeOsxArm64MicrosoftNETCoreILAsmVersion)" />
-+    <PackageReference Include="runtime.osx-arm64.Microsoft.NETCore.ILDAsm" Version="$(RuntimeOsxArm64MicrosoftNETCoreILDAsmVersion)" />
-+    <PackageReference Include="runtime.osx-arm64.Microsoft.NETCore.TestHost" Version="$(RuntimeOsxArm64MicrosoftNETCoreTestHostVersion)" />
-+    <PackageReference Include="runtime.osx-arm64.runtime.native.System.IO.Ports" Version="$(RuntimeOsxArm64RuntimeNativeSystemIOPortsVersion)" />
+@@ -33,6 +33,14 @@
+     <!-- There's no nuget package for runtime.linux-musl-x64.runtime.native.System.IO.Ports
+     <PackageReference Include="runtime.linux-musl-x64.runtime.native.System.IO.Ports" Version="$(RuntimeLinuxX64RuntimeNativeSystemIOPortsVersion)" />
+     -->
++    <PackageReference Include="runtime.osx-arm64.Microsoft.NETCore.ILAsm" Version="$(RuntimeLinuxX64MicrosoftNETCoreILAsmVersion)" />
++    <PackageReference Include="runtime.osx-arm64.Microsoft.NETCore.ILDAsm" Version="$(RuntimeLinuxX64MicrosoftNETCoreILDAsmVersion)" />
++    <PackageReference Include="runtime.osx-arm64.Microsoft.NETCore.TestHost" Version="$(RuntimeLinuxX64MicrosoftNETCoreTestHostVersion)" />
++    <PackageReference Include="runtime.osx-arm64.runtime.native.System.IO.Ports" Version="$(RuntimeLinuxX64RuntimeNativeSystemIOPortsVersion)" />
 +    <PackageReference Include="runtime.osx-x64.Microsoft.NETCore.ILAsm" Version="$(RuntimeLinuxX64MicrosoftNETCoreILAsmVersion)" />
 +    <PackageReference Include="runtime.osx-x64.Microsoft.NETCore.ILDAsm" Version="$(RuntimeLinuxX64MicrosoftNETCoreILDAsmVersion)" />
 +    <PackageReference Include="runtime.osx-x64.Microsoft.NETCore.TestHost" Version="$(RuntimeLinuxX64MicrosoftNETCoreTestHostVersion)" />

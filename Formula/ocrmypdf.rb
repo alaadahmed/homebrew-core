@@ -3,17 +3,17 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/b8/d6/da130fa5982df1e0141c0f9362ac743ec6cc724da2fa9a199661df73b998/ocrmypdf-13.4.0.tar.gz"
-  sha256 "e5a882afe9e1eb5382c916f13649dcab03035546f34d4bf1487d561081cb662c"
+  url "https://files.pythonhosted.org/packages/94/6f/a9c8beed3aca6ade311016461bf2789d976d64f2890374d485f06f53f959/ocrmypdf-13.4.1.tar.gz"
+  sha256 "201ed2f589f851be73908fce35fbb6fb05e4739289d3cd8765f9519f49ea1cd9"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "d09337bd2e19019031dfab9034836192eccfcdd4998703450f02027cf8592a9b"
-    sha256 cellar: :any,                 arm64_big_sur:  "42508104400020c7e2d4445cc42a240105b02bd3900d1442a11956f488ffea78"
-    sha256 cellar: :any,                 monterey:       "0540b307e9057eceec9cc009dfca673cd40d55a51f8a4e6ccb96f4e061897abe"
-    sha256 cellar: :any,                 big_sur:        "eb8cac2bdbd4994cedbfadc93520a4f42d97cda02346bb2b481a062a67f00c73"
-    sha256 cellar: :any,                 catalina:       "f17508fe3814383318888334e77a6a2182972e64cef28a44f1929d45731dbae9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "227f51cf20b5784a099eb8a79a4f0c2f7b37a8ffab5b251ae60cff6afc7fa179"
+    sha256 cellar: :any,                 arm64_monterey: "c68e4716d211d184268641beabc5065563571b91e059900fd64f13b5a7da9a6d"
+    sha256 cellar: :any,                 arm64_big_sur:  "b3958722704177ae6c71d04a04b53ee436bd48f8b671fc10d3284886a0386576"
+    sha256 cellar: :any,                 monterey:       "3123a96a34d83bdf6063f9b022c4b69f6aa22481c5d86cfad6f0905e6c3f8458"
+    sha256 cellar: :any,                 big_sur:        "c2e53f15920cd7c9968d77c0cebc9812957caa3596ba58931ed73d423319327e"
+    sha256 cellar: :any,                 catalina:       "2e96ef0449df0d4844a044c6d0a117fb14df4ebc51e94210906cd0735c728705"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "412a536333cdf991be06c58ca14f3cc77fa1fba5aafac18c648db7b446090dd5"
   end
 
   depends_on "pkg-config" => :build
@@ -105,13 +105,13 @@ class Ocrmypdf < Formula
   end
 
   resource "reportlab" do
-    url "https://files.pythonhosted.org/packages/53/2f/a445108d4386ea996da5d808231a72f7e8ef353a4df7f486aa3d39883130/reportlab-3.6.7.tar.gz"
-    sha256 "d035054724278129aba2a55c3edd6111b07e625ad1ff845e3ba2a5e4e203bbc8"
+    url "https://files.pythonhosted.org/packages/50/c7/f80ab0ff9c7f7dc0b537fad0ee929ea5e56091b3f72de8e04ab3e02086b6/reportlab-3.6.8.tar.gz"
+    sha256 "dc7657fcb0bc3e485c3c869a44dddb52d711356a01a456664b7bef827222c982"
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/e3/c1/b3e42d5b659ca598508e2a9ef315d5eef0a970f874ef9d3b38d4578765bd/tqdm-4.62.3.tar.gz"
-    sha256 "d359de7217506c9851b7869f3708d8ee53ed70a1b8edbba4dbcb47442592920d"
+    url "https://files.pythonhosted.org/packages/cb/a5/803a55cae355bc2402492c6a1c23dc08117844e4a1c3a293b0ea19bca6fa/tqdm-4.63.0.tar.gz"
+    sha256 "1d9835ede8e394bb8c9dcbffbca02d717217113adc679236873eeaac5bc0b3cd"
   end
 
   def install

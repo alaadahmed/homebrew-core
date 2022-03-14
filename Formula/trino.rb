@@ -3,8 +3,8 @@ class Trino < Formula
 
   desc "Distributed SQL query engine for big data"
   homepage "https://trino.io"
-  url "https://search.maven.org/remotecontent?filepath=io/trino/trino-server/372/trino-server-372.tar.gz"
-  sha256 "ca2dfc24f86050b3454ec018d273b9f5d58e0f71a9b4aea86b94059dabe827a3"
+  url "https://search.maven.org/remotecontent?filepath=io/trino/trino-server/373/trino-server-373.tar.gz"
+  sha256 "3545c1ba5ab1cd5cb4f13c21a9c0ab29a4b59a164b8accbf8c8625fec36a0b8f"
   license "Apache-2.0"
 
   livecheck do
@@ -13,25 +13,26 @@ class Trino < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, monterey:     "f50a3b205d48e88e3aa32689556d8e99b86c7dc18780ccca2aeca95696581baf"
-    sha256 cellar: :any_skip_relocation, big_sur:      "f50a3b205d48e88e3aa32689556d8e99b86c7dc18780ccca2aeca95696581baf"
-    sha256 cellar: :any_skip_relocation, catalina:     "f50a3b205d48e88e3aa32689556d8e99b86c7dc18780ccca2aeca95696581baf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "b77abb5c5d25b39390dc1b4ae7ab0a5d0b4e77c54c2a9e29d8e4c99dee84bae3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7486dd7daa173ab967369426f5da4b08db8c60011a90b3c8cd483c44718687da"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7486dd7daa173ab967369426f5da4b08db8c60011a90b3c8cd483c44718687da"
+    sha256 cellar: :any_skip_relocation, monterey:       "7486dd7daa173ab967369426f5da4b08db8c60011a90b3c8cd483c44718687da"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7486dd7daa173ab967369426f5da4b08db8c60011a90b3c8cd483c44718687da"
+    sha256 cellar: :any_skip_relocation, catalina:       "7486dd7daa173ab967369426f5da4b08db8c60011a90b3c8cd483c44718687da"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af6b45b7032ad147782851d21a51552553e2a06e45dcbc4578e588758c18db9e"
   end
 
   depends_on "gnu-tar" => :build
-  depends_on arch: :x86_64
   depends_on "openjdk"
   depends_on "python@3.10"
 
   resource "trino-src" do
-    url "https://github.com/trinodb/trino/archive/372.tar.gz", using: :nounzip
-    sha256 "d81b88f823e22b0a09ee749adfc15a9c589cf3fbf0c68219297d84ef59ed08e5"
+    url "https://github.com/trinodb/trino/archive/373.tar.gz", using: :nounzip
+    sha256 "bb31510a9a69a1adcf612c007b4f8b6055eaa75494bdb29fa81d805a5a42045c"
   end
 
   resource "trino-cli" do
-    url "https://search.maven.org/remotecontent?filepath=io/trino/trino-cli/372/trino-cli-372-executable.jar"
-    sha256 "61121f9dda87586ddaddc1d969102a2587f6408b7285e6a2a8218be9ecc4c9b9"
+    url "https://search.maven.org/remotecontent?filepath=io/trino/trino-cli/373/trino-cli-373-executable.jar"
+    sha256 "4a2ec84185253b7238bb92515aba28869fe0a71190168734f41bb5e5b0c4c6ee"
   end
 
   def install

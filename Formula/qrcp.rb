@@ -1,17 +1,17 @@
 class Qrcp < Formula
   desc "Transfer files to and from your computer by scanning a QR code"
   homepage "https://claudiodangelis.com/qrcp"
-  url "https://github.com/claudiodangelis/qrcp/archive/0.8.5.tar.gz"
-  sha256 "f432347c3892c97ef31345e93435ca4ec3b5bacf09874635f6f50a610d804b26"
+  url "https://github.com/claudiodangelis/qrcp/archive/0.9.0.tar.gz"
+  sha256 "b50492368909fd6522b6578a4b6a37f173c6897576c5e8e241c2dc7d1201e40d"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7c6ea1800b725f5753fc15c0ed5b476f1fc0e25d273f4962774d1e0502b3f5a9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bffb8cf3fa70e631d2bb06c1252240a9ca917ff5afa3240316856e780f20ad33"
-    sha256 cellar: :any_skip_relocation, monterey:       "f0f9d9be295b4275742d70f874dd162e76e7dada8985e27fae37ac7244ee091c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e85f7e17a9f2a5d54e273e940eb1977713332396e39edd145b783db6c4de95cf"
-    sha256 cellar: :any_skip_relocation, catalina:       "3a58dc12ed69cc6c49f29e8d650ae4616dfe95ca3e0b2632aef8d8fcad05b99c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0649b9ed447a8a8d36d9d8cae7d64b285ff36fbb0107bec89f50acaa5a6c956c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c19f9008288353d1cb4743bcefa8951d41be65f92da8c6a4f671a5c86452619c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "829d7783c8408d0d9a5fe2b94c597e9c0eb1f758091276f1979b9795e907b5ae"
+    sha256 cellar: :any_skip_relocation, monterey:       "a0eda1c30c33d2e262274efc21ad54b4810362dbcf4fa4d4dc1b2d36fa6e7fa0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "948cafc258366f59ce6bd0d8f0b8260dc7a7b383d15f977cff982a0e63bbef0a"
+    sha256 cellar: :any_skip_relocation, catalina:       "a8055db63e1de15a6b0301fbff02d01d2fe66d367baa35c8af412f80623b13e3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e9524a686c76ac45971b8a8fc80e2782d8b9312805e8fa2ff8d98d9513b98110"
   end
 
   depends_on "go" => :build
