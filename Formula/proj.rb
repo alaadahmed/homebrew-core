@@ -4,15 +4,16 @@ class Proj < Formula
   url "https://github.com/OSGeo/PROJ/releases/download/9.0.0/proj-9.0.0.tar.gz"
   sha256 "0620aa01b812de00b54d6c23e7c5cc843ae2cd129b24fabe411800302172b989"
   license "MIT"
+  revision 1
   head "https://github.com/OSGeo/proj.git", branch: "master"
 
   bottle do
-    sha256 arm64_monterey: "41cda6ba8300463d30e7779df5733439c6bfbec75ea7444860e2077932a021f8"
-    sha256 arm64_big_sur:  "8866b82dd9abc74cd4b641384701ef0667a11980a5b9fc8e74387bed8bd61b9d"
-    sha256 monterey:       "8a3e638910eedcf4048f0dad2a7b2162436a3fc4a69ce7cc97976030cdfbc124"
-    sha256 big_sur:        "69b22cef6b1b22c15243b43f63cc40b53902c192a6f2fc9edfe105b61f7e8b39"
-    sha256 catalina:       "e3ff7034a575136fb142157af00dd1fcc0972ca76be08a9a09dadda173744564"
-    sha256 x86_64_linux:   "1e9845b299ed00a4fc564372a7a8a7586897ea6aa8cce0a0d182ee0dbe775d38"
+    sha256 arm64_monterey: "58ce84c1dc63d800c94e58067d9f2d7301f452bd8134fe791db78fc00c2615c0"
+    sha256 arm64_big_sur:  "98c31d3b575a377f35d5885929f4cb61f7d21095779b5625f20c7f55adf0e124"
+    sha256 monterey:       "315d797132bb902a916fd1e9eb57ca7850139146ab9ae4a758f97ef7bfabe508"
+    sha256 big_sur:        "0e064f7d05a6ca33a0dd143962d50e2d16b637683a60e55e632a4e3bfc011937"
+    sha256 catalina:       "9d75b4764248ff7603addf35ae66c93c36231b3915def05e2851d6b296d698f0"
+    sha256 x86_64_linux:   "8adc516f2ac3b02e6f8f78a4776b698606276111f0fec2568dd0f125071d6b15"
   end
 
   depends_on "cmake" => :build
@@ -38,6 +39,9 @@ class Proj < Formula
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+    system "cmake", "-S", ".", "-B", "static", *std_cmake_args, "-DBUILD_SHARED_LIBS=OFF"
+    system "cmake", "--build", "static"
+    lib.install Dir["static/lib/*.a"]
   end
 
   test do

@@ -3,18 +3,18 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/fd/72/a0d8f55f70198aefb3bb29c73505112def26976bdbb76d4fdb7100cbb16f/snakemake-7.2.1.tar.gz"
-  sha256 "63036918e4dbdf764cb53e26e136963512219bc9ab08c62f5545835e63376bdf"
+  url "https://files.pythonhosted.org/packages/1d/6d/2930f4ade1bed4cd35a2cd4a2c4d35f163c151b3be64843c1d8dbae59a57/snakemake-7.3.0.tar.gz"
+  sha256 "866d15ed6fd7acf1eae39724ebaf36fe71841894fe178a569034b719b2549493"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ba4ca6b0eb3784d70896b5fba2188621bc150a49e292086e2d3f4bbc85381a98"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8e02998fbf00815f2f55fea452083fbebae4f4fd3273f6b46f0ac0722910bc95"
-    sha256 cellar: :any_skip_relocation, monterey:       "cff39c804bde18fb0cdc75d3ff6ba90749c9ed5206daf06f6909c1bd950c3aad"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8cd031c06e9b994243d9c64650cce252e4560b3d9eb4c4f4a8eba78a32d19dab"
-    sha256 cellar: :any_skip_relocation, catalina:       "ce922eb9138789b9d1cd6304fca82bac5c881246359b2083ccf7dcd273e908b9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "59144761da85b9ab03043c89b78fdabb0536d12759dc50b5e850131ee5f32ae4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "842b3a912b55c37c0b9c115cc55dbdce3e79d9f4425e695fad3d5042b95e801a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7f5e12b9d07171f11439e8448f789053fb0a92f12cbf09a9b1125fc934ae4597"
+    sha256 cellar: :any_skip_relocation, monterey:       "37555d78b8043dd93b0c8f53c29d14731d46935ccdf35b1410af0b2dac6c785b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "aeb62e889119395eee2e6311aa21c0e7691f91816d05a25b4f323f19c20d78c3"
+    sha256 cellar: :any_skip_relocation, catalina:       "e874f329a06e9e488bb5766470e590bae49c18c65ebb5d2dc8bb95a62a72317a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0cd0a2397e69b31c85d677895495cc568d59812cee20a3028ec7f00f99f83b00"
   end
 
   depends_on "cbc"
@@ -96,8 +96,8 @@ class Snakemake < Formula
   end
 
   resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/62/0f/52c009332fdadd484e898dc8f2acca0663c1031b3517070fd34ad9c1b64e/MarkupSafe-2.1.0.tar.gz"
-    sha256 "80beaf63ddfbc64a0452b841d8036ca0611e049650e20afcb882f5d3c266d65f"
+    url "https://files.pythonhosted.org/packages/1d/97/2288fe498044284f39ab8950703e88abbac2abbdf65524d576157af70556/MarkupSafe-2.1.1.tar.gz"
+    sha256 "7f91197cc9e48f989d12e4e6fbc46495c446636dfc81b9ccf50bb0ec74b91d4b"
   end
 
   resource "nbformat" do
@@ -181,8 +181,8 @@ class Snakemake < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b0/b1/7bbf5181f8e3258efae31702f5eab87d8a74a72a0aa78bc8c08c1466e243/urllib3-1.26.8.tar.gz"
-    sha256 "0e7c33d9a63e7ddfcb86780aac87befc2fbddf46c58dbb487e0855f7ceec283c"
+    url "https://files.pythonhosted.org/packages/1b/a5/4eab74853625505725cefdf168f48661b2cd04e7843ab836f3f63abf81da/urllib3-1.26.9.tar.gz"
+    sha256 "aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"
   end
 
   resource "wrapt" do

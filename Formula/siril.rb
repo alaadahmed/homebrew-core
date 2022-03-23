@@ -12,6 +12,7 @@ class Siril < Formula
     sha256 monterey:       "128fe97ac7e24b8ff62f5bcc9aaa70dc6f2aa46ab66b2e7074d85f79b8c652bf"
     sha256 big_sur:        "fe9ff9717c8d47434bfd4d8f13c21f88c20f3fdb9e4f20c6ec6672d85dfe77b8"
     sha256 catalina:       "3bc0fcf0a02ebd5cf11afd7bdb1171398b7e8334275c48dade16b5281d31d85d"
+    sha256 x86_64_linux:   "05c6643e3dcbee57cbac0ce83c0c234a23d3f6730b4b103256f03ed22083368c"
   end
 
   depends_on "autoconf" => :build
@@ -27,7 +28,6 @@ class Siril < Formula
   depends_on "fftw"
   depends_on "gnuplot"
   depends_on "gsl"
-  depends_on "gtk-mac-integration"
   depends_on "jpeg"
   depends_on "json-glib"
   depends_on "libconfig"
@@ -38,9 +38,22 @@ class Siril < Formula
   depends_on "opencv"
   depends_on "openjpeg"
 
+  uses_from_macos "perl" => :build
+
+  on_macos do
+    depends_on "gtk-mac-integration"
+  end
+
+  on_linux do
+    depends_on "gcc"
+    depends_on "gtk+3"
+  end
+
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   def install
+    ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5" unless OS.mac?
+
     # siril uses pkg-config but it has wrong include paths for several
     # headers. Work around that by letting it find all includes.
     ENV.append_to_cflags "-I#{HOMEBREW_PREFIX}/include -Xpreprocessor -fopenmp -lomp"

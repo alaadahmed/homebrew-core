@@ -3,17 +3,17 @@ class RichCli < Formula
 
   desc "Command-line toolbox for fancy output in the terminal"
   homepage "https://github.com/Textualize/rich-cli"
-  url "https://files.pythonhosted.org/packages/be/f3/052a62f2d0d2c27067bef88d26ad8eecba182c7490bc8d48dbc806f402b1/rich-cli-1.5.1.tar.gz"
-  sha256 "53c8087e432b0c9ecda83fac6c0173b0cb9995e2cfced8c3c17ce646b86a17a3"
+  url "https://files.pythonhosted.org/packages/e2/73/d8e955678d670fa1983f61eabb7c83b4d55f568d4eb6f00d3bc4ca34289a/rich-cli-1.6.1.tar.gz"
+  sha256 "18db9408e5e670f54bfe93a2b533a0f10261232c70fa92a4343440777ed50359"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "17959a9b46bf2bfce223145a24cf15edf28005535224e147f4b3df112481db4f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c05577358a7b38f5b349d66a46275c753163619ab641fbe0b80a8a07e2773938"
-    sha256 cellar: :any_skip_relocation, monterey:       "ba6524cb997383dcd562a2ee60b9f6d2edad411809547ec5470ea5cfe75fa5cc"
-    sha256 cellar: :any_skip_relocation, big_sur:        "61fcc74dba1e4652579728928f9c6f24abbe747c4165f0d12034d8dd6ed28f58"
-    sha256 cellar: :any_skip_relocation, catalina:       "406c6780c155aecb2d99fac80431c43a6e4789ae297e4215299bec00c46e75d8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "05c185131a0ff6f30265def1a4d30238833f227ac852c93e1c417388d2354031"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cf30d7bc6ef19752b2c445957844732565c1c237625958b89fc0bb4e63125c69"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "eb53537c924cad2c597de273a82c1b992231f7b4928554214117a97f28f089c6"
+    sha256 cellar: :any_skip_relocation, monterey:       "a508a03685e3e32cc17169cf71d0ac10d12c9a13f6898e61d5d054ebf1b1ab68"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cf8a0fe57aefeea9c70504c5bbf59b132f1211073f98929606d45a282545b4c4"
+    sha256 cellar: :any_skip_relocation, catalina:       "762e444e082923f7b5420b08b7fcc25a13dbd48bdc2a18f3b336e77deb00f5ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f71b1f94cc92cdac340521af9851983464284573a44aabaf41ffd6b857285e1"
   end
 
   depends_on "python@3.10"
@@ -31,11 +31,6 @@ class RichCli < Formula
   resource "click" do
     url "https://files.pythonhosted.org/packages/dd/cf/706c1ad49ab26abed0b77a2f867984c1341ed7387b8030a6aa914e2942a0/click-8.0.4.tar.gz"
     sha256 "8458d7b1287c5fb128c90e23381cf99dcde74beaf6c7ff6384ce84d6fe090adb"
-  end
-
-  resource "colorama" do
-    url "https://files.pythonhosted.org/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz"
-    sha256 "5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"
   end
 
   resource "commonmark" do
@@ -64,23 +59,23 @@ class RichCli < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/72/de/b3a53cf1dfdbdc124e8110a60d6c6da8e39d4610c82491fc862383960552/rich-11.2.0.tar.gz"
-    sha256 "1a6266a5738115017bb64a66c59c717e7aa047b3ae49a011ede4abdeffc6536e"
+    url "https://files.pythonhosted.org/packages/8e/81/d59e9198a32206a156649a24a813a36a50461d9f6e669378c68aed974910/rich-12.0.1.tar.gz"
+    sha256 "3fba9dd15ebe048e2795a02ac19baee79dc12cc50b074ef70f2958cd651b59a9"
   end
 
   resource "rich-rst" do
-    url "https://files.pythonhosted.org/packages/29/0a/600b7f20120bcb27fcbf74298777240201733c92e806d53ce210844321eb/rich-rst-1.1.5.tar.gz"
-    sha256 "b0a9c0a0ae98a278b4e52ae07b4af56c0da3c3bbfa97be3c9a4b9fe28b3b7a89"
+    url "https://files.pythonhosted.org/packages/7c/40/9e9dded097de3100713a0258793b2ddf8dd33cdb51c71b7ce8577cc2db4b/rich-rst-1.1.7.tar.gz"
+    sha256 "898bd5defd6bde9fba819614575dc5bff18047af38ae1981de0c1e78f17bbfd5"
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/fb/98/397820b98ed820e9b5a6da552cf9d68f73b04d4c141508b15c5081bf98f6/textual-0.1.15.tar.gz"
-    sha256 "61367cb7cf0dc0e68d3e41c54916d8170f57f50a4705bd407a9feb479873146e"
+    url "https://files.pythonhosted.org/packages/6a/05/0bfd14fde0d5473add167dea0a66665fff0cebaad5bb07d04198d30dfd46/textual-0.1.17.tar.gz"
+    sha256 "af6aa1fa34fe6d40689ce55a7bf519a07e48523a75b95cbed572990e0d6b6f84"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b0/b1/7bbf5181f8e3258efae31702f5eab87d8a74a72a0aa78bc8c08c1466e243/urllib3-1.26.8.tar.gz"
-    sha256 "0e7c33d9a63e7ddfcb86780aac87befc2fbddf46c58dbb487e0855f7ceec283c"
+    url "https://files.pythonhosted.org/packages/1b/a5/4eab74853625505725cefdf168f48661b2cd04e7843ab836f3f63abf81da/urllib3-1.26.9.tar.gz"
+    sha256 "aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"
   end
 
   def install

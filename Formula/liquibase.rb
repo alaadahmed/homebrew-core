@@ -1,13 +1,17 @@
 class Liquibase < Formula
   desc "Library for database change tracking"
   homepage "https://www.liquibase.org/"
-  url "https://github.com/liquibase/liquibase/releases/download/v4.8.0/liquibase-4.8.0.tar.gz"
-  sha256 "7462b6e92f7077e1858865c403d52f0dce1bd66d03b1fae907815c10825feb33"
+  url "https://github.com/liquibase/liquibase/releases/download/v4.9.0/liquibase-4.9.0.tar.gz"
+  sha256 "d489d12731ea8a49ba25def3e784d6e89167dc53b42ed4ad7a158d682fab770f"
   license "Apache-2.0"
-  revision 1
+
+  livecheck do
+    url "https://liquibase.org/download"
+    regex(/href=.*?liquibase[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "40742fcfbaed353ffa82fe4d69ea39ca7cba8cec316e6e30e9ab7e451b2f2ddf"
+    sha256 cellar: :any_skip_relocation, all: "e0fe489113535087e7fbcdb436784d3c0d95dceaa52d2d975f0f985d62f363be"
   end
 
   depends_on "openjdk"

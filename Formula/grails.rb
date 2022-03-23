@@ -1,8 +1,8 @@
 class Grails < Formula
   desc "Web application framework for the Groovy language"
   homepage "https://grails.org"
-  url "https://github.com/grails/grails-core/releases/download/v5.1.3/grails-5.1.3.zip"
-  sha256 "05a7005409d2dea766cc719551d648da19f802ba7d41ea7a7005d169ba41d743"
+  url "https://github.com/grails/grails-core/releases/download/v5.1.4/grails-5.1.4.zip"
+  sha256 "1283129d3d4c99819e17cd970bb11df70a1ef2dfb1cd825aca52c1569745be82"
   license "Apache-2.0"
 
   livecheck do
@@ -11,7 +11,7 @@ class Grails < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c079f11de5a04134d4b493923e8821ecb58a709ade2ab13becfd4a6baede863f"
+    sha256 cellar: :any_skip_relocation, all: "4b0c85b8797303ef4960c7a7cbbf81bc825704489a8c16265877e1d3efd00eee"
   end
 
   depends_on "openjdk@11"

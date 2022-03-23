@@ -3,18 +3,18 @@ class GalleryDl < Formula
 
   desc "Command-line downloader for image-hosting site galleries and collections"
   homepage "https://github.com/mikf/gallery-dl"
-  url "https://files.pythonhosted.org/packages/96/34/7c139693cb347376d272da4ca86a614743bc507cfbfe56512b7328bd858b/gallery_dl-1.20.5.tar.gz"
-  sha256 "509028c51c9b118c5063eee5feccd28fd7f2d49e79db26b117731d6849838904"
+  url "https://files.pythonhosted.org/packages/6c/67/5f4f26f3ee78cd8bcee48dc8172dafe49f54bbf813681d059fad7e3cd7b8/gallery_dl-1.21.0.tar.gz"
+  sha256 "0ff2be0bb217e151aff85158b8f404ab05584a3883712784955ba754c885588f"
   license "GPL-2.0-only"
   head "https://github.com/mikf/gallery-dl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "59a003564165184a9c7e6a8211f49a8b622427a23d228cacfb03fbf6df791cb4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "59a003564165184a9c7e6a8211f49a8b622427a23d228cacfb03fbf6df791cb4"
-    sha256 cellar: :any_skip_relocation, monterey:       "c7e764fb6406b47ba1667b91827cdfe0e075308ed4f15835e09d2f7679be7935"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c7e764fb6406b47ba1667b91827cdfe0e075308ed4f15835e09d2f7679be7935"
-    sha256 cellar: :any_skip_relocation, catalina:       "c7e764fb6406b47ba1667b91827cdfe0e075308ed4f15835e09d2f7679be7935"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "969357b17f75168a3cc7b6dc2e434505cbe74f97bad0dead2ace9bed9ef0a122"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "06a9c93b8aed74aadf6889503d59a77d5e27e3be5add529c2773049c4af850b5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "06a9c93b8aed74aadf6889503d59a77d5e27e3be5add529c2773049c4af850b5"
+    sha256 cellar: :any_skip_relocation, monterey:       "da0edff9d5fbcf7c165cf944c862c9fc090414d6e033fb611aa883a31d7f16ec"
+    sha256 cellar: :any_skip_relocation, big_sur:        "da0edff9d5fbcf7c165cf944c862c9fc090414d6e033fb611aa883a31d7f16ec"
+    sha256 cellar: :any_skip_relocation, catalina:       "da0edff9d5fbcf7c165cf944c862c9fc090414d6e033fb611aa883a31d7f16ec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "23d1c84ef1cbaea9a2e4869fc6e32d590cbf5109801114bc371f47c1f26eb259"
   end
 
   depends_on "python@3.10"

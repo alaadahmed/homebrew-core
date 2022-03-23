@@ -12,11 +12,13 @@ class Swiftlint < Formula
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ffa98c60976449b926a6f62c954a6def1f83d0f44bb027729876e51a24308876"
     sha256 cellar: :any_skip_relocation, monterey:       "9104eafbbce0f710f063f2016a991971067f94f0428c606895ecd38dff0b622b"
     sha256 cellar: :any_skip_relocation, big_sur:        "6ef668df8a55c1c130782677d4aaf4ddf217c9143416daa2a71943ec6acdff19"
+    sha256                               x86_64_linux:   "c036d6153580d5a6b35ec4e52bdb6619ab3c889a6d7d09a463a497365ad711c7"
   end
 
   depends_on xcode: ["12.5", :build]
-  depends_on :macos # Depends on Swift.  May work on Linux once a Swift bottle is available for that OS.
   depends_on xcode: "8.0"
+
+  uses_from_macos "swift"
 
   def install
     system "swift", "build", "--disable-sandbox", "--configuration", "release"

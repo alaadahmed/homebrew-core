@@ -1,10 +1,9 @@
 class NodeAT16 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v16.14.0/node-v16.14.0.tar.xz"
-  sha256 "05eb64193e391fa8a2c159c0f60c171824715165f80c67fcab9dbc944e30c623"
+  url "https://nodejs.org/dist/v16.14.2/node-v16.14.2.tar.xz"
+  sha256 "e922e215cc68eb5f94d33e8a0b61e2c863b7731cc8600ab955d3822da90ff8d1"
   license "MIT"
-  revision 1
 
   livecheck do
     url "https://nodejs.org/dist/"
@@ -12,12 +11,12 @@ class NodeAT16 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "0cbc749e01bdf76cccc5835d1942aab5748a59e6c79d868fa9def93643365d6d"
-    sha256 cellar: :any,                 arm64_big_sur:  "017a06e81ced7839d63a89997987aea03de4063ca1f8cce8f9793c19a5e86a23"
-    sha256 cellar: :any,                 monterey:       "bcf1eae453f6502072864296c4d0ba2fbde44c7b19c93ba8ee9078a314b691be"
-    sha256 cellar: :any,                 big_sur:        "5fe5e42d425e9841f1ebc9821bd6f17ef2169000a50a5cac934ab2d22250775b"
-    sha256 cellar: :any,                 catalina:       "8b26350b05212117ba5ff95eb080e611272ebbdac016b7207d40120197df6faa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "48a56290deff277bc903adc626f8985492edd2e9281ac2b3c9bb7e6b486f277a"
+    sha256 cellar: :any,                 arm64_monterey: "148943a35c2a340ec83de7639480c6a8f4987589548a1a12e3fa29196684e820"
+    sha256 cellar: :any,                 arm64_big_sur:  "4db17e518c75c09fd7fcff0ece25028af3cbfbb7cef308a50a825f251410d53f"
+    sha256 cellar: :any,                 monterey:       "e9611e9b8762facc5ba4c5c7c9906d9430479122c5eba98af1121917867c6a94"
+    sha256 cellar: :any,                 big_sur:        "4eb9f91589c6e9c4446e74218bee91cd08d76ca196e23fa4a26c0dfd7bc169ee"
+    sha256 cellar: :any,                 catalina:       "bae288be6caa5763fe9bde1f16f5700ab0a4fdfec5ee5bb698a9681204cdaaa3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e0b88f8ec73a5007853697e0b4b1a122141454c600fc0924e940b545ea729861"
   end
 
   keg_only :versioned_formula

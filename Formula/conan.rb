@@ -3,18 +3,18 @@ class Conan < Formula
 
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://conan.io"
-  url "https://files.pythonhosted.org/packages/88/00/322c5619acc1927cf19a9ceafc3d786804cb9f573fbcd09ba045cbecf025/conan-1.46.0.tar.gz"
-  sha256 "4d8cabce5e2011c09f9350308a81ddd33f63d44c4187a59995a09e7bf9f79ca3"
+  url "https://files.pythonhosted.org/packages/77/c9/0df4985bb7457629d1d65daea70beb8453c4ddeedad5f42ff7dde14d6d34/conan-1.46.2.tar.gz"
+  sha256 "01f9dc2e6fc180db934a05e2bc20892d55d2af396173139663a4f15d54aa7f61"
   license "MIT"
   head "https://github.com/conan-io/conan.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "76078a374557e30867c4755aa303a47bdf397f118d7dadefeae8d61efb0b2400"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0deff311a890590c362f0faf131adfa3372ee5f7612b2b37bb834d078e2994ea"
-    sha256 cellar: :any_skip_relocation, monterey:       "808a3de230f7e81e70d2663c64bf2137e237887a006b69b0d522b1b5ebff73a4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2a11f5472452eb0817aa5874d12ec56672748f5ddf9d025b977ca5cf488d1618"
-    sha256 cellar: :any_skip_relocation, catalina:       "5d8f893385a28e7c05225a4963a53f557eff0f4525ac0337ddf2f1b841dcdc08"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c62c3e0f31702865135cf96235f8eb350199ec5a6dcc69954fe362b96b32f15e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "43b527db462b6d4816be028294b3e87a3dd3a7ad931530192c0da5650fc23f89"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b6367c3449174873322bd61d624830d54002fa7ec7aad186d566dd41bc5e6929"
+    sha256 cellar: :any_skip_relocation, monterey:       "3d77288bd59bff26ce936a5dc311305a7feae951e070dc3563c6d2f92733c259"
+    sha256 cellar: :any_skip_relocation, big_sur:        "71c9c4d1e2aaef84a63768af64fb2b3d75f3fb054aaf887a4c93e75c5b1b3d2e"
+    sha256 cellar: :any_skip_relocation, catalina:       "c7108875125f15f6b72cb781f8614ec28e9eee5a872db866b66e83f74a745240"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ce55a3c37e05e5141dd3e5961cb1875263560185a9b3d83552197dd4f82901de"
   end
 
   depends_on "pkg-config" => :build
@@ -65,8 +65,8 @@ class Conan < Formula
   end
 
   resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/62/0f/52c009332fdadd484e898dc8f2acca0663c1031b3517070fd34ad9c1b64e/MarkupSafe-2.1.0.tar.gz"
-    sha256 "80beaf63ddfbc64a0452b841d8036ca0611e049650e20afcb882f5d3c266d65f"
+    url "https://files.pythonhosted.org/packages/1d/97/2288fe498044284f39ab8950703e88abbac2abbdf65524d576157af70556/MarkupSafe-2.1.1.tar.gz"
+    sha256 "7f91197cc9e48f989d12e4e6fbc46495c446636dfc81b9ccf50bb0ec74b91d4b"
   end
 
   resource "node-semver" do
@@ -115,8 +115,8 @@ class Conan < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b0/b1/7bbf5181f8e3258efae31702f5eab87d8a74a72a0aa78bc8c08c1466e243/urllib3-1.26.8.tar.gz"
-    sha256 "0e7c33d9a63e7ddfcb86780aac87befc2fbddf46c58dbb487e0855f7ceec283c"
+    url "https://files.pythonhosted.org/packages/1b/a5/4eab74853625505725cefdf168f48661b2cd04e7843ab836f3f63abf81da/urllib3-1.26.9.tar.gz"
+    sha256 "aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"
   end
 
   def install

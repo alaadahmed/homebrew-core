@@ -3,18 +3,18 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/5c/69/b4ad8fd1cba77524e3eb7deb416430edf17b08defd2cc3e303995814a16e/pdm-1.13.4.tar.gz"
-  sha256 "5644fec425d1c0af04f135ad05b15b5a87be5a42e07f64e1706e3aac5dc89fcb"
+  url "https://files.pythonhosted.org/packages/0e/9e/a97cebd283e0f0e767b62c6e87ec5d87353a5cf4cd45f937f2bb68ab4d1d/pdm-1.13.5.tar.gz"
+  sha256 "754bff35794b34f006b1c9c9077d95eeb36a68f06c0899a1aa74eded2c561894"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d60c61b96687385c37d1b69e7aeea29d5f44156feac94bda9e605af804efa98a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b5ab09b7c2924a35d2ea5c7085a8238202c3b121f5388e5d66f5ea5f8e4f835b"
-    sha256 cellar: :any_skip_relocation, monterey:       "4127807faccac682280e26c0b57179e7b50198884e5774d6590b5a118c47a111"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b00050efd8e8f4e695d6a18fa0cd355d82f4bf77c4efa6ba34768b9175aa8891"
-    sha256 cellar: :any_skip_relocation, catalina:       "b3803dc2af7e9eae5fa12203c8b437c4d1bbabb69f1c537f60140e539e465117"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "931d6722b6e39ae99cdb4bfbaafbf67aff5a2aaf920b301d58b6be833f5d48fd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d0674efa05c5e58554ebfe7903134f97c84af89a23d0aaddf11bb292fa3b68eb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "baf006b320304763db20701a893cded948ffad0f43c1616d2b9198ff42306b26"
+    sha256 cellar: :any_skip_relocation, monterey:       "d00f80a15b083684e10022319bda9bff68ba94789e96203574308098ace22a7d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fd250626dba26e835892614efdb6dbbf4fa411645136b74cf638ef2c83c10002"
+    sha256 cellar: :any_skip_relocation, catalina:       "e8d239fbfd0c92f3bbda666fcb8711184c2d0294034618a24c345c5795faac16"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bdf470296d074ccaae18d4d111aab9cec339f16144846300a900915d60f2f76f"
   end
 
   depends_on "python@3.10"
@@ -31,8 +31,8 @@ class Pdm < Formula
   end
 
   resource "findpython" do
-    url "https://files.pythonhosted.org/packages/ec/8f/30913986b7a2f880cf4e3cc276aedbfb5560b28840d5b85e591651b2d6c6/findpython-0.1.3.tar.gz"
-    sha256 "b55a416b9fcf2d28721bfbea1ceb2a6cb67a00f99ec4b94a76da22c7a2002870"
+    url "https://files.pythonhosted.org/packages/ae/2c/648fda96049222b48ef21fad19ef137e45362dc1a4c670e7a9005b5b55e8/findpython-0.1.4.tar.gz"
+    sha256 "4ce198454696ee539ca7990d4eadcd0471ca5ef03b5c4ef2f925891ac64f8289"
   end
 
   resource "installer" do
@@ -46,8 +46,8 @@ class Pdm < Formula
   end
 
   resource "pdm-pep517" do
-    url "https://files.pythonhosted.org/packages/9d/81/1f4e15e6a59a66952c18a73b86a3959ddacf305d6c97f71640a7d9865d94/pdm-pep517-0.12.0.tar.gz"
-    sha256 "fdc8b6564fbba5fd1d01e37d2cef21bca11e698f70ab0b95740b9f6f0854a789"
+    url "https://files.pythonhosted.org/packages/8c/c6/62224b8d6417b8bb95a6a92c1974eb06cd0d555f90908a5595b164290d37/pdm-pep517-0.12.1.tar.gz"
+    sha256 "c3f9acfdc7832635628e94235320e0f6c19cbcd926eb041c454fb12463bc7504"
   end
 
   resource "pep517" do
