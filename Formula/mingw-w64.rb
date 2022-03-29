@@ -4,7 +4,7 @@ class MingwW64 < Formula
   url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v9.0.0.tar.bz2"
   sha256 "1929b94b402f5ff4d7d37a9fe88daa9cc55515a6134805c104d1794ae22a4181"
   license "ZPL-2.1"
-  revision 3
+  revision 4
 
   livecheck do
     url :stable
@@ -12,12 +12,12 @@ class MingwW64 < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "819c4afbf34151f4b4e6b84a6d51249e563f09f5b5bee310205a39f66813b7bf"
-    sha256 arm64_big_sur:  "ac147e3362e7f4973f8e58bf5175ee158867e9b25721995887e93428af1e966f"
-    sha256 monterey:       "2ce47e1c55f0a91d3c0982259b654f6bfce18b956a0a8db39bc93a6b32392725"
-    sha256 big_sur:        "9c4da71b7c7bc478a6e380351cc67601f982b0a95408feca7e44b1a70b0ab350"
-    sha256 catalina:       "c158801255c8cb8e8919dacd90189e13e1e68f293ef8bba0ff121ea6eb266ca6"
-    sha256 x86_64_linux:   "f56356483b58b5759392b4f221b06a6314d8d164ecb45a574f89b75eac9c6f99"
+    sha256 arm64_monterey: "f1eea4202b1b0b7748969bed806238ac841d5d1570ff00ce3fe2245409ed16f5"
+    sha256 arm64_big_sur:  "a6214c5df524c79544ba307e087a428f320784b021f9007cee1621e27c0a280f"
+    sha256 monterey:       "545e84678c3aafdf6642c9dfa5b6973ab37a87a2d124949c4ae51661247d0246"
+    sha256 big_sur:        "3725ddb79548732bca44d523dde7a5e269f6fc5a38b0f9ff88c9dfb53f2403e3"
+    sha256 catalina:       "43e8cc062d4231b937004bf12348c4ce22f838529a4c1063637fac3976d6ff31"
+    sha256 x86_64_linux:   "a7869066596921d50d72f07de524c21c8837c9c5acf690f2846ac7e1c667f3c0"
   end
 
   # Apple's makeinfo is old and has bugs
@@ -32,6 +32,13 @@ class MingwW64 < Formula
     url "https://ftp.gnu.org/gnu/binutils/binutils-2.38.tar.xz"
     mirror "https://ftpmirror.gnu.org/binutils/binutils-2.38.tar.xz"
     sha256 "e316477a914f567eccc34d5d29785b8b0f5a10208d36bbacedcc39048ecfe024"
+
+    # Fix dlltool failures during parallel builds until the release after 2.38, upstream patch
+    # https://sourceware.org/bugzilla/show_bug.cgi?id=28885
+    #
+    # patch is from https://sourceware.org/git/?p=binutils-gdb.git;a=patch;h=d65c0ddddd85645cab6f11fd711d21638a74489f
+    # with ChangeLog patch removed
+    patch :DATA
   end
 
   resource "gcc" do
@@ -216,9 +223,7 @@ class MingwW64 < Formula
     EOS
 
     ENV["LC_ALL"] = "C"
-    on_macos do
-      ENV.remove_macosxsdk
-    end
+    ENV.remove_macosxsdk if OS.mac?
     target_archs.each do |arch|
       target = "#{arch}-w64-mingw32"
       outarch = (arch == "i686") ? "i386" : "x86-64"
@@ -237,3 +242,24 @@ class MingwW64 < Formula
     end
   end
 end
+
+__END__
+diff --git a/binutils/dlltool.c b/binutils/dlltool.c
+index d95bf3f5470..89871510b45 100644
+--- a/binutils/dlltool.c
++++ b/binutils/dlltool.c
+@@ -3992,10 +3992,11 @@ main (int ac, char **av)
+   if (tmp_prefix == NULL)
+     {
+       /* If possible use a deterministic prefix.  */
+-      if (dll_name)
++      if (imp_name || delayimp_name)
+         {
+-          tmp_prefix = xmalloc (strlen (dll_name) + 2);
+-          sprintf (tmp_prefix, "%s_", dll_name);
++          const char *input = imp_name ? imp_name : delayimp_name;
++          tmp_prefix = xmalloc (strlen (input) + 2);
++          sprintf (tmp_prefix, "%s_", input);
+           for (i = 0; tmp_prefix[i]; i++)
+             if (!ISALNUM (tmp_prefix[i]))
+               tmp_prefix[i] = '_';

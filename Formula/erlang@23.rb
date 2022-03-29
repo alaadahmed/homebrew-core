@@ -2,8 +2,8 @@ class ErlangAT23 < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/releases/download/OTP-23.3.4.11/otp_src_23.3.4.11.tar.gz"
-  sha256 "194bcc256c187a56a2891c9bdc36f2112bd6035e40a35f877b2f52524a0888ce"
+  url "https://github.com/erlang/otp/releases/download/OTP-23.3.4.12/otp_src_23.3.4.12.tar.gz"
+  sha256 "8de55482748b48236afe231d1796273d8d0e5d10f31cb5ec2a72553eb6c03966"
   license "Apache-2.0"
 
   livecheck do
@@ -12,12 +12,12 @@ class ErlangAT23 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "502710b53b44cd8170b01805e2c983dfafc60e8f5c67e9188eb88c9f4f0d4acd"
-    sha256 cellar: :any,                 arm64_big_sur:  "3fdfb4ab769b0c22cab103c638d277cbf7606625f87b235f192ed6e64e2236c2"
-    sha256 cellar: :any,                 monterey:       "b8ed1ec63d54280c3ceed7a03559188949dd6444598eb3274c7062973b6034df"
-    sha256 cellar: :any,                 big_sur:        "1c5f6b8613f325a83e01d2800066e2d69634245572b62043850fda13f5f3a9c4"
-    sha256 cellar: :any,                 catalina:       "38a680ea8cf0f355f76d67a1331f6f412ae073a58face2f2798893bacf283f76"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "79b768f32ddee4eb3bd4d12331aecb1625eb35100e4d7f0e0ef741ea8d05b30f"
+    sha256 cellar: :any,                 arm64_monterey: "29e2f79e657df38765a2d1dc10591ba851f0dc289d3fa8ca47f69ea9f282339f"
+    sha256 cellar: :any,                 arm64_big_sur:  "d789898e4205dc53d99991fc5e65250a203d7aa0d85343e52fde11835be8fe93"
+    sha256 cellar: :any,                 monterey:       "b77ca24355677a7dd52df7b24fedc2a4d2a4500103915ba6ee8e49ee8a20dfce"
+    sha256 cellar: :any,                 big_sur:        "55ffdeacff4bf77c4c7e633147b7468c51a719c560136c672f414a7bc85b5af8"
+    sha256 cellar: :any,                 catalina:       "763f08d09998b307685a68dd12700fe274f0864cbaa7ddea01df84b1a9d13c69"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c6e34b1af3a8130b2dfa0365d0c2942080a385bec59874b0671a33c0791d1921"
   end
 
   keg_only :versioned_formula

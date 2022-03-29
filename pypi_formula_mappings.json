@@ -139,6 +139,9 @@
   "esptool": {
     "exclude_packages": ["six"]
   },
+  "fabric": {
+    "exclude_packages": ["six"]
+  },
   "fava": {
     "exclude_packages": ["six"]
   },
@@ -295,6 +298,9 @@
     "exclude_packages": ["numpy", "six"]
   },
   "pywhat": {
+    "exclude_packages": ["six"]
+  },
+  "rbtools": {
     "exclude_packages": ["six"]
   },
   "regipy": {
@@ -486,6 +492,10 @@
   },
   "tox": {
     "exclude_packages": ["six"]
+  },
+  "trzsz": {
+    "extra_packages": ["trzsz-iterm2"],
+    "exclude_packages": ["protobuf"]
   },
   "twarc": {
     "exclude_packages": ["six"]

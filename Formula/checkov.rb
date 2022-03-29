@@ -4,17 +4,17 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/98/15/fefd852c6183f5909b3c9e28c4909c02f7676d381a7f7dbe410ee2e9e306/checkov-2.0.975.tar.gz"
-  sha256 "68229ff9d4541146ba1f2fc39e1b69957511527260fa45632d06d81114771795"
+  url "https://files.pythonhosted.org/packages/79/97/12218b36c5eae0d7dfd06855b2ffeba6aad1e96fb597f6197babcc03302a/checkov-2.0.990.tar.gz"
+  sha256 "6d25a31a268b8d21e0c19a359a333b9baba99658da26ebfd46918e5122f8689c"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "472432c4a94396bbf51ea112512eac2f8e18c95fa306823617155e24a03a7202"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6983892527e4086f7eaead2f9808d4f63deb8ac8c60543ae5b7cd513daf288c5"
-    sha256 cellar: :any_skip_relocation, monterey:       "dda111f690f4e1b13ca3f4726c5e36987a5cb67b808d91035a82866dfe050789"
-    sha256 cellar: :any_skip_relocation, big_sur:        "97cfbe8dd558de43ad8cdc010c509a2e15ef322b7389c3d68916012df45ef9fb"
-    sha256 cellar: :any_skip_relocation, catalina:       "f08da215b8877d55ba70e4d6130ecb71bc97bc62956c17f973472a749cc0960c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d8064029579964d4d83ce22e392d70ad856b62eceafcb87d7a294f142998ba0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5f838b9c5a881c6eead61bb60f8d35b6b3ecba7ac76a6a225cd71ac1197c4fc2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "63e15e0d9fd664324f8b0f0f434f824a20a36ad28f12234a31bcef0482767abd"
+    sha256 cellar: :any_skip_relocation, monterey:       "ade6c104ad358112d71ce1546d12500976759e7de21afc4eee1fa82d09c69512"
+    sha256 cellar: :any_skip_relocation, big_sur:        "63dcd604c822baedeb40d021091f51dbfc3e22db0afb31195e989c40772944ab"
+    sha256 cellar: :any_skip_relocation, catalina:       "4c7777a0aa62003812c35aebb927fb8660f80809af94609f2a64b0dfafd15790"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2b13618a1a14caed35d0b3136c20712da696e77c2d520aabcbcbb35fff70066a"
   end
 
   depends_on "python-tabulate"
@@ -67,13 +67,13 @@ class Checkov < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/de/2b/46a35b4e3160a3b894dee63a463c53fd5ab1177893b7effb4882ff65a6ae/boto3-1.21.22.tar.gz"
-    sha256 "334f14ffbd89ddd15090e90b32e4fcea73d83b60b19ca2737a9264fd44096f35"
+    url "https://files.pythonhosted.org/packages/fb/31/97b628ed56a63164bced939fc353a70f83075d225038228b610c141c39a3/boto3-1.21.27.tar.gz"
+    sha256 "ef41b9c7b6311d5152bdc78f7de56912c1ed265debf7da14133e1ad00246ad50"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/5c/39/25942906a8bc11f98ef948345d7988382082bbe5e01d7efd52febab4b8a6/botocore-1.24.22.tar.gz"
-    sha256 "92ba8afeda48f5d2467811d87df401d703a25191f82882994d8d09a7d8b5b965"
+    url "https://files.pythonhosted.org/packages/78/14/7ed89fcf90f4e52343106051ec587a903467461c12d8f9921dac99562c12/botocore-1.24.27.tar.gz"
+    sha256 "2c11db4b94b4b9504d2782acb758d29a7e5cbdfaa826601f222ac9ddcf004dde"
   end
 
   resource "cached-property" do
@@ -187,8 +187,8 @@ class Checkov < Formula
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/91/a5/429efc6246119e1e3fbf562c00187d04e83e54619249eb732bb423efa6c6/Jinja2-3.0.3.tar.gz"
-    sha256 "611bb273cd68f3b993fabdc4064fc858c5b47a973cb5aa7999ec1ba405c87cd7"
+    url "https://files.pythonhosted.org/packages/89/e3/b36266381ae7a1310a653bb85f4f3658c462a69634fa9b2fef76252a50ed/Jinja2-3.1.1.tar.gz"
+    sha256 "640bed4bb501cbd17194b3cace1dc2126f5b619cf068a726b98192a0fde74ae9"
   end
 
   resource "jmespath" do
@@ -347,8 +347,8 @@ class Checkov < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/cb/a5/803a55cae355bc2402492c6a1c23dc08117844e4a1c3a293b0ea19bca6fa/tqdm-4.63.0.tar.gz"
-    sha256 "1d9835ede8e394bb8c9dcbffbca02d717217113adc679236873eeaac5bc0b3cd"
+    url "https://files.pythonhosted.org/packages/3c/77/e75fb048907ccc065030bf7d9d2d1441247e4e234dbfceb5466207190962/tqdm-4.63.1.tar.gz"
+    sha256 "4230a49119a416c88cc47d0d2d32d5d90f1a282d5e497d49801950704e49863d"
   end
 
   resource "types-setuptools" do

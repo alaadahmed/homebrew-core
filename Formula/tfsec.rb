@@ -1,8 +1,8 @@
 class Tfsec < Formula
   desc "Static analysis security scanner for your terraform code"
   homepage "https://tfsec.dev/"
-  url "https://github.com/aquasecurity/tfsec/archive/v1.13.0.tar.gz"
-  sha256 "61c4683bb2e1acccdbae23c91fac70acdfd15d2ea6172e62cbded7a3c4643d96"
+  url "https://github.com/aquasecurity/tfsec/archive/v1.15.1.tar.gz"
+  sha256 "2b09b64fdf33ca1aab63f51a5b24d492c0937f574bdefe5f4f4a93e898bdecc8"
   license "MIT"
   head "https://github.com/aquasecurity/tfsec.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Tfsec < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1afa5487a95332400b828387f7130f0226d04cca7ce427e3f0cde0e207ffeb0c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5385008c84707134e9c679eb233bf3f2d10bce83addef13c30998e7219139f75"
-    sha256 cellar: :any_skip_relocation, monterey:       "fc96e446edfd50a30bbfa63a39e398b98a2562ae3bdd55903360f588a2d7891e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e6d71b62d0bae82b4b4635fc70ddce993132966fd1c7dc72783b7fc9239e3d94"
-    sha256 cellar: :any_skip_relocation, catalina:       "44327020a57462949db793df94c5edd63e936bc66dfe3fa5e70c4202d9c3d793"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "88a64f758c562308596fa3cc8c9a1a2115cd22d0c9def7cc7a60423656fd8cc7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9cc9e8148aa920e775646c5f91b96f0faa7453e8f5104d0f74f02def749e6132"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b223d0e19f89146f20153bb3118f3ac2445ca4d49b5599fac74322f8e9fe6791"
+    sha256 cellar: :any_skip_relocation, monterey:       "740ac7c7e127ac59f62e8b19e91ef9836bbe95446d22ffc2c7204eb8c11a76e0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d25ffcd5b08f47125cbf7791525bb38c1840cf8550bf843ddb8bd1577d93ebe1"
+    sha256 cellar: :any_skip_relocation, catalina:       "522888877dd9287147aa7f84c44281990f283c6345e488f6214d23e2a3044b13"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6e8b5c74557a0fc2bd307a8639e3a190d9adb4af5e273beb9386be8164ed6564"
   end
 
   depends_on "go" => :build

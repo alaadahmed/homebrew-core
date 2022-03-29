@@ -6,11 +6,12 @@ class Ispc < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "95e78ba62fbcd1d290db0d04e1738b339a40c0d600f67bd6cc7ac3158e2ec58d"
-    sha256 cellar: :any, arm64_big_sur:  "7847016c49b86fde9b9807d33090a81997b9736a5a564b4ca696324815a4d2d2"
-    sha256 cellar: :any, monterey:       "18c71e795071937755b19b4ad1d38352305e5135fa376cdf822760f818ff2384"
-    sha256 cellar: :any, big_sur:        "87c6ea89cf9c56e909ec1467fa738e554e0e72c2692401bd6d487bb1de0cb6ee"
-    sha256 cellar: :any, catalina:       "9db07b42653f019b89aa885e92c15b471444116dc7e899857ecfe77ef3c3d5c3"
+    sha256 cellar: :any,                 arm64_monterey: "95e78ba62fbcd1d290db0d04e1738b339a40c0d600f67bd6cc7ac3158e2ec58d"
+    sha256 cellar: :any,                 arm64_big_sur:  "7847016c49b86fde9b9807d33090a81997b9736a5a564b4ca696324815a4d2d2"
+    sha256 cellar: :any,                 monterey:       "18c71e795071937755b19b4ad1d38352305e5135fa376cdf822760f818ff2384"
+    sha256 cellar: :any,                 big_sur:        "87c6ea89cf9c56e909ec1467fa738e554e0e72c2692401bd6d487bb1de0cb6ee"
+    sha256 cellar: :any,                 catalina:       "9db07b42653f019b89aa885e92c15b471444116dc7e899857ecfe77ef3c3d5c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "11562bc7936e0b25c2a496738ed9766b7b31b96284fbf0640eaecb7b2bc56b8b"
   end
 
   depends_on "bison" => :build
@@ -19,11 +20,24 @@ class Ispc < Formula
   depends_on "python@3.9" => :build
   depends_on "llvm@12"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def llvm
     deps.map(&:to_formula).find { |f| f.name.match? "^llvm" }
   end
 
   def install
+    # Force cmake to use our compiler shims instead of bypassing them.
+    inreplace "CMakeLists.txt", "set(CMAKE_C_COMPILER \"clang\")", "set(CMAKE_C_COMPILER \"#{ENV.cc}\")"
+    inreplace "CMakeLists.txt", "set(CMAKE_CXX_COMPILER \"clang++\")", "set(CMAKE_CXX_COMPILER \"#{ENV.cxx}\")"
+
+    # Disable building of i686 target on Linux, which we do not support.
+    inreplace "cmake/GenerateBuiltins.cmake", "set(target_arch \"i686\")", "return()" unless OS.mac?
+
     args = std_cmake_args + %W[
       -DISPC_INCLUDE_EXAMPLES=OFF
       -DISPC_INCLUDE_TESTS=OFF
