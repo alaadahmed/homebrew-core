@@ -3,17 +3,17 @@ class Pylint < Formula
 
   desc "It's not just a linter that annoys you!"
   homepage "https://github.com/PyCQA/pylint"
-  url "https://files.pythonhosted.org/packages/17/20/4261712608bce9aba2e502631162920fb60b0da5fbfb1b2f0560314c05ab/pylint-2.13.3.tar.gz"
-  sha256 "12ed2520510c40db647e4ec7f747b07e0d669b33ab41479c2a07bb89b92877db"
+  url "https://files.pythonhosted.org/packages/aa/b2/e19502f2419ef2da4ac2785da42e77c5bf598a7f2ab59261917f2419b028/pylint-2.13.5.tar.gz"
+  sha256 "dab221658368c7a05242e673c275c488670144123f4bd262b2777249c1c0de9b"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ff1f54c61653b550e09834cbf3e1239b089a452fa5521fd4f2af832086973c8d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c0a950e25ad9326eb203ce0314699dc735ff424c2908632f1ad81bdd108d88b1"
-    sha256 cellar: :any_skip_relocation, monterey:       "ea50c35f6b61ae22384f82f4f32dfc21311385a6efd0827039913e26cf8e9a7b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "af56021f4c5907f210faf5465dc8a7e16a2a35dc9e5a7d2f1979e2c3c4aa56b9"
-    sha256 cellar: :any_skip_relocation, catalina:       "c3dca34c09380303c91a59ab03bb9e99acf230c4989c4f62ae07c8c559b9e32c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8bcccad34ad1fb29311172242108b991d83826098090af132203542b4ea1a50"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c189dfce5381f43ac400b070fc3d9a3045d16ad6980dee3d0100bbe000f6fa84"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1434ccdbc07199081e37e09e96be8f6097212241e188157af4138ffc52c33397"
+    sha256 cellar: :any_skip_relocation, monterey:       "c5b082f04669fdf05d3584b977b5140daf72b154b25375a658df8291b552fd7f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "693c5eec9f528d329b5c8ef0a2731aad3d9c9a6ca3870ae693c4b5db66b78540"
+    sha256 cellar: :any_skip_relocation, catalina:       "710d9ca36083d449f22ae57e3653f4e426fe09c1c356f21ed5e4a98848e23ad6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "927f9350ff4c0c777eed1bf607167e808f110699ccb471f9b26fc0233b5f8776"
   end
 
   depends_on "python@3.10"
