@@ -1,17 +1,17 @@
 class Epinio < Formula
   desc "CLI for Epinio, the Application Development Engine for Kubernetes"
   homepage "https://epinio.io/"
-  url "https://github.com/epinio/epinio/archive/refs/tags/v0.6.2.tar.gz"
-  sha256 "37cd7536aa8baf165f8717b2f5ec895045a53ac2ca4fdbb808354b20736969c9"
+  url "https://github.com/epinio/epinio/archive/refs/tags/v0.7.1.tar.gz"
+  sha256 "3216304faef81e7668cf55f98c39ca5aef65bc3bf7a34dc8e3a9e582ba472e49"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ffa0a592fc84b025c0e558300a2feab9229d0e2b105265941a2189eaa7ddf3dd"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "38271b9c3f2fb336a420789d5d369505ab2c381e5e3cb19f660f09cc08880922"
-    sha256 cellar: :any_skip_relocation, monterey:       "0e44fbe33803626c18f8d16f3aa0f1176364019229ca518ad32032070b8ec846"
-    sha256 cellar: :any_skip_relocation, big_sur:        "694d80845f198c73c337f42e15bea139940e8827afdbf68b26f0a143c3663fa1"
-    sha256 cellar: :any_skip_relocation, catalina:       "3476de9b6f59c73d0b447bac6a0e62507380c49d0dca90492f83a7ebfd2bd1bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "89141a8238d8d124d9b509df98bf4158ee6e322fabe69b551dbdd1f8c1429a8a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d06c1f2d6ba97932c384523524156c3ef3a85233136929cceeee6af5f8214a8d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b4e39f6c06d93d6dc04bfeb9b9edb32e22e8b2b35400366ca4eac66080cf77bd"
+    sha256 cellar: :any_skip_relocation, monterey:       "bb5ec09403d1bae1f7c735ae1421a971ea36f66adad487f658168c0d36cbef9c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ab564a1321193caf8ae2c811634076db7b20c2d75be4bea442b6e0569520fb10"
+    sha256 cellar: :any_skip_relocation, catalina:       "4884df241229b354bee98edb7f60169c9f253a14c077641cd6ae27579d9cb27b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af8db289bd0578f756eff57d1a120d260e2e62d4c7d087f3ed7debc7f236bc80"
   end
 
   depends_on "go@1.17" => :build

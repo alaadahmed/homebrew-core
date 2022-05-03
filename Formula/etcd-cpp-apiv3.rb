@@ -1,18 +1,17 @@
 class EtcdCppApiv3 < Formula
   desc "C++ implementation for etcd's v3 client API, i.e., ETCDCTL_API=3"
   homepage "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3"
-  url "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3/archive/refs/tags/v0.2.3.tar.gz"
-  sha256 "f74607eebffce8391b5355ed7d12d46f6627f2882687cd0f5574c90b275f77fd"
+  url "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3/archive/refs/tags/v0.2.6.tar.gz"
+  sha256 "ef2bee616031316bc4cbc416cf9932fd1b2273f5f8fe9c24d2b3602c14277e8a"
   license "BSD-3-Clause"
-  revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "e33c757ad43b507b4763cd8e3d4e6f4c683ee1edc77a32220eb95031daaf6b96"
-    sha256 cellar: :any,                 arm64_big_sur:  "c0060ea9b87f72b1afda96e104e1ee259e0a7b8c43185716cf211c4833e4f31e"
-    sha256 cellar: :any,                 monterey:       "aa7ed19ee501feb7e0d95ef406f3c9193e2f9af35395b0624dd2a4a01c9bfcfe"
-    sha256 cellar: :any,                 big_sur:        "e2c00e0364088bffae4a8c005791a5348f76b8cd2ff495b01041fb64aba29e29"
-    sha256 cellar: :any,                 catalina:       "9e71a2529486ad64920f72e457637b86b6665fdf50e1d9fc35ea68c13856671a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f3e35454bba0e02195e091c60f869e75e87bb8b9503f9a7d336e4dcbd75177a9"
+    sha256 cellar: :any,                 arm64_monterey: "46b956c53e0a8733a10184fa5e23640da8692553387db583aaf538c729b5ed7b"
+    sha256 cellar: :any,                 arm64_big_sur:  "bd43a834c305ae85a3b3c2b793c6150b1e3c9227aa4373ebc1e16690045f234a"
+    sha256 cellar: :any,                 monterey:       "0189c701acffaeaaf6432e802533de8d6e5b57f10187e53fc2fce6a3d2adba02"
+    sha256 cellar: :any,                 big_sur:        "7b9e04e6598cc4f5f53ce372b91044b43b1bb7c8994c643dde1dc6e2de75301c"
+    sha256 cellar: :any,                 catalina:       "1147d1f15f3c67da6274c2c87684b07ebb4352ad24e1adb1f598987e560e01b2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "120dcfe3e52b0a2a13407ccbf9461e983190c242c6afd50d1c9d81fe40d5208f"
   end
 
   depends_on "cmake" => :build

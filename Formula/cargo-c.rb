@@ -1,10 +1,9 @@
 class CargoC < Formula
   desc "Helper program to build and install c-like libraries"
   homepage "https://github.com/lu-zero/cargo-c"
-  url "https://github.com/lu-zero/cargo-c/archive/v0.9.8.tar.gz"
-  sha256 "7c649061826e0ad3c2c8735718f4a0c4afd12eed9b9fdc5fe59e34582902e1c5"
+  url "https://github.com/lu-zero/cargo-c/archive/v0.9.9.tar.gz"
+  sha256 "d35f91e3e57bb0b5459789c02d1fa8a875bc55ca603a85ed63138d6d8193b53f"
   license "MIT"
-  revision 2
 
   livecheck do
     url :stable
@@ -12,12 +11,12 @@ class CargoC < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "4eaf3f9baa7b86d145965549c863852edb96dd912c4eaef79479348733bd5fc0"
-    sha256 cellar: :any,                 arm64_big_sur:  "289aed48fcf4e1882d50765c746acd5d76f5b7ac2d82062b2b626d490189c0fc"
-    sha256 cellar: :any,                 monterey:       "d4b991d5730d25cbe12153143eab2b85638fcab48664a53a9f4078c908cf3179"
-    sha256 cellar: :any,                 big_sur:        "336d17a7a76a35cb36ef451d930cf1397bb8b753882770e61c2cc1de0bfb2035"
-    sha256 cellar: :any,                 catalina:       "1076573f2cd24eee139882b151ff9966c5f72e54d2796c109784816633f81f07"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef52f235d170217052147b35a54381e3eb472221b8ec918ac95fefe52ff4e070"
+    sha256 cellar: :any,                 arm64_monterey: "66aeb043716db062fa8e706153b92b23ba0e364c3f38da6a8cc13ef217031f65"
+    sha256 cellar: :any,                 arm64_big_sur:  "97872ff704fc91d5a1d27133bb41bf253b38edad9d39089ff56421933cd3cea9"
+    sha256 cellar: :any,                 monterey:       "739bb8b5ef685fed9734e96579f9389028765e772da26f267a95e037a23d1c06"
+    sha256 cellar: :any,                 big_sur:        "484b8e813a0af81d26b660a90393de3503b3c5fe016ae93389b6759271d947cd"
+    sha256 cellar: :any,                 catalina:       "44658a0bbb06e7497c993dadc986ecd2907b041310e217577f920a944c39b208"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "88078fe5d3739f20760329ff00244d75455426fa4b125bcc1abdf7c5f53d0126"
   end
 
   depends_on "rust" => :build
@@ -31,34 +30,7 @@ class CargoC < Formula
     depends_on "pkg-config" => :build
   end
 
-  # Workaround to patch cargo dependency tree for libgit2 issue
-  # Issue ref: https://github.com/rust-lang/cargo/issues/10446
-  # Using .crate as GitHub source tarball results in build failures.
-  # TODO: Remove when cargo-c release uses cargo version with fix
-  resource "cargo" do
-    url "https://static.crates.io/crates/cargo/cargo-0.60.0.crate"
-    sha256 "bc194fab2f0394703f2794faeb9fcca34301af33eee96fa943b856028f279a77"
-  end
-
-  # Fix issue with libgit2 >= 1.4 and git2-rs < 0.14.
-  # Issue ref: https://github.com/rust-lang/git2-rs/issues/813
-  # TODO: Remove when release dependency tree uses git2-rs >= 0.14
-  patch :DATA
-
   def install
-    # TODO: Remove locally patched `cargo` when issue is fixed and in release
-    resource("cargo").stage do
-      system "tar", "--strip-components", "1", "-xzvf", "cargo-0.60.0.crate"
-      # Cannot directly apply upstream commit since the Cargo.toml is different.
-      # Commit ref: https://github.com/rust-lang/cargo/commit/e756c130cf8b6348278db30bcd882a7f310cf58e
-      inreplace "Cargo.toml" do |s|
-        s.gsub!(/(\.git2\]\nversion) .*/, "\\1 = \"0.14.1\"")
-        s.gsub!(/(\.git2-curl\]\nversion) .*/, "\\1 = \"0.15.0\"")
-        s.gsub!(/(\.libgit2-sys\]\nversion) .*/, "\\1 = \"0.13.1\"")
-      end
-      (buildpath/"vendor/cargo").install Dir["*"]
-    end
-
     ENV["LIBGIT2_SYS_USE_PKG_CONFIG"] = "1"
     ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
 
@@ -71,19 +43,3 @@ class CargoC < Formula
     assert_match cargo_error, shell_output("#{bin}/cargo-cbuild cbuild 2>&1", 1)
   end
 end
-
-__END__
-diff --git a/Cargo.toml b/Cargo.toml
-index c8426f2..d82b2b5 100644
---- a/Cargo.toml
-+++ b/Cargo.toml
-@@ -43,6 +43,9 @@ cc = "1.0"
- glob = "0.3"
- itertools = "0.10"
-
-+[patch.crates-io]
-+cargo = { path = "vendor/cargo" }
-+
- [features]
- default = []
- vendored-openssl = ["cargo/vendored-openssl"]

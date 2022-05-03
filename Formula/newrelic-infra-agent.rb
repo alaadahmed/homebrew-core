@@ -2,16 +2,23 @@ class NewrelicInfraAgent < Formula
   desc "New Relic infrastructure agent"
   homepage "https://github.com/newrelic/infrastructure-agent"
   url "https://github.com/newrelic/infrastructure-agent.git",
-      tag:      "1.24.0",
-      revision: "6b639750a46d781f32444b0a77bc4e965b85a569"
+      tag:      "1.24.2",
+      revision: "1b77c90dd817f609f2155b2ac63bdeaf0653ae5d"
   license "Apache-2.0"
   head "https://github.com/newrelic/infrastructure-agent.git", branch: "master"
 
+  # Upstream sometimes creates a tag with a stable version format but marks it
+  # as pre-release on GitHub.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, monterey:     "781856b152edfb19df8334df6dbce4b3336925edd47c0f06b45e6da9513f9545"
-    sha256 cellar: :any_skip_relocation, big_sur:      "a81d7fcbc212cffbc0eb9da610a15e2e05488458118f46cb8593337707ba3d51"
-    sha256 cellar: :any_skip_relocation, catalina:     "ecad63ec09777215aecac15f1ee6e2c21f2b72c1aa5b4c019fd321bcf8a0f4aa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "e5a6bb4cfe547f99e6b0aec27cd44c5bbf8b974b3c82027c40f6a1ce3a19fb92"
+    sha256 cellar: :any_skip_relocation, monterey:     "b804df86273840109d81a32ae3c0bd24caf3e5b9ff34d5286ec3de19409b1d23"
+    sha256 cellar: :any_skip_relocation, big_sur:      "dd52832433221849310d6d328175c2b352ecee96792ebfbaea9a7c159aad2932"
+    sha256 cellar: :any_skip_relocation, catalina:     "4f2622f553812fff41f614f05fa32c0d450bc2e204d6c238be01b69b7b88a338"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "bc538ce2ee4bc032dffee53737e75141203f49d1f5e633a4b593b6b40e4bb197"
   end
 
   # https://github.com/newrelic/infrastructure-agent/issues/723

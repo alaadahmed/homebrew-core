@@ -13,30 +13,25 @@ class CrosstoolNg < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "928ab5b65f02d60d2d5d3216b56f9fce9f3231ef7bac30641539936240baf8f6"
-    sha256 cellar: :any, arm64_big_sur:  "254e9876927261a6efc043b3e856efc9c03950dd12e54be66924dd4653683a78"
-    sha256 cellar: :any, monterey:       "11cdeefd6ff97a4d2c3e71f036589381aa7311efe095509490abfb4dcf729b44"
-    sha256 cellar: :any, big_sur:        "6955331d9b2ba412d96239337c8a46630c351f9081f0193607d89939ac38c66e"
-    sha256 cellar: :any, catalina:       "162c6baa79fd3f140e750d6ec65273c4e9f3b48b82f491937dd53b5debd21a89"
-    sha256 cellar: :any, mojave:         "d0fbd991dd2862f0edeca38ecc360743f78d0d67ec9b4ad41e3a4b2949b39acd"
+    sha256 cellar: :any,                 arm64_monterey: "928ab5b65f02d60d2d5d3216b56f9fce9f3231ef7bac30641539936240baf8f6"
+    sha256 cellar: :any,                 arm64_big_sur:  "254e9876927261a6efc043b3e856efc9c03950dd12e54be66924dd4653683a78"
+    sha256 cellar: :any,                 monterey:       "11cdeefd6ff97a4d2c3e71f036589381aa7311efe095509490abfb4dcf729b44"
+    sha256 cellar: :any,                 big_sur:        "6955331d9b2ba412d96239337c8a46630c351f9081f0193607d89939ac38c66e"
+    sha256 cellar: :any,                 catalina:       "162c6baa79fd3f140e750d6ec65273c4e9f3b48b82f491937dd53b5debd21a89"
+    sha256 cellar: :any,                 mojave:         "d0fbd991dd2862f0edeca38ecc360743f78d0d67ec9b4ad41e3a4b2949b39acd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a0d552b694e908e2e6a8a71fe7a0bd4eef275150f7b8819eb41abdbe408e144b"
   end
 
   depends_on "help2man" => :build
   depends_on "autoconf"
   depends_on "automake"
-  depends_on "bash"
   depends_on "binutils"
   depends_on "bison"
-  depends_on "coreutils"
   depends_on "flex"
-  depends_on "gawk"
   depends_on "gettext"
-  depends_on "gnu-sed"
-  depends_on "grep"
   depends_on "libtool"
   depends_on "lzip"
   depends_on "m4"
-  depends_on "make"
   depends_on "ncurses"
   depends_on "python@3.10"
   depends_on "xz"
@@ -46,20 +41,36 @@ class CrosstoolNg < Formula
   uses_from_macos "texinfo" => :build
   uses_from_macos "unzip" => :build
 
+  on_macos do
+    depends_on "bash"
+    depends_on "coreutils"
+    depends_on "gawk"
+    depends_on "gnu-sed"
+    depends_on "grep"
+    depends_on "make"
+  end
+
   def install
     system "./bootstrap" if build.head?
 
-    ENV["BISON"] = "#{Formula["bison"].opt_bin}/bison"
-    ENV["M4"] = "#{Formula["m4"].opt_bin}/m4"
-    ENV["MAKE"] = "#{Formula["make"].opt_bin}/gmake"
-    ENV["PYTHON"] = "#{Formula["python@3.10"].opt_bin}/python3"
-    ENV.append "LDFLAGS", "-lintl"
+    ENV["BISON"] = Formula["bison"].opt_bin/"bison"
+    ENV["M4"] = Formula["m4"].opt_bin/"m4"
+    ENV["MAKE"] = Formula["make"].opt_bin/"gmake" if OS.mac?
+    ENV["PYTHON"] = Formula["python@3.10"].opt_bin/"python3"
+    ENV.append "LDFLAGS", "-lintl" if OS.mac?
+    ENV.append "CFLAGS", "-I#{Formula["ncurses"].include}/ncursesw" unless OS.mac?
 
     system "./configure", "--prefix=#{prefix}"
 
     # Must be done in two steps
     system "make"
     system "make", "install"
+
+    unless OS.mac?
+      [bin/"ct-ng", pkgshare/"paths.sh"].each do |file|
+        inreplace file, Superenv.shims_path/"make", "make"
+      end
+    end
   end
 
   test do

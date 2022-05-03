@@ -3,17 +3,17 @@ class YtDlp < Formula
 
   desc "Fork of youtube-dl with additional features and fixes"
   homepage "https://github.com/yt-dlp/yt-dlp"
-  url "https://files.pythonhosted.org/packages/1b/a9/781ef55dd51d331e3d8ca60723853f13e75be5b8713870c015b3c4283326/yt-dlp-2022.3.8.2.tar.gz"
-  sha256 "68546578c18e6ce87450b53769d5d5b7f5a23e5209784976db6c7ccbf7954b21"
+  url "https://files.pythonhosted.org/packages/40/dd/5a359d561d708edbfe5269c583fd91fd9493a2fce0b77644ffb69219436b/yt-dlp-2022.4.8.tar.gz"
+  sha256 "8758d016509d4574b90fbde975aa70adaef71ed5e7a195141588f6d6945205ba"
   license "Unlicense"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "04a66663091fff7b60ace9485ccf7ade6b0b601ecd6b96591d715f1482d6a1e2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "028a2ffddc30225f1c9ac1a491378c654cbb8b3d61dba66859016a8aa39780b4"
-    sha256 cellar: :any_skip_relocation, monterey:       "1f4b9776f84164a0a368b88df92e9fa3becd6f131596aad42b985136a94385e6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bfe37bd46ddbe9e9cfe70a5acf6b3b96aefa6eacb62e934e27dabef3457ac763"
-    sha256 cellar: :any_skip_relocation, catalina:       "39aef10bbcecbf19b282cd48b6d6a3df5a2694476435d169714f1e41eaa5ea3a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "40f2bb1b7d505a0fbaef1f5dcd2f1086a14b8a3fa70408d69ce0d97b5052232f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9b2041f41dea6a8ac73afccaf0449cdb3383ed9b10b7a8616f7dbfe886c08b55"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c838b3f4067f1e8b16eea702f2b11c293f0621326f636d48d3f315142fbf9535"
+    sha256 cellar: :any_skip_relocation, monterey:       "9c2b7c6aad3c35b9aff1866605c5f27fbb1eb680df89bbe88a47270c7265c1f2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "dd674e28d38cb6f3b4b41a518cdb080d7955daa76afe554eb09daf8904b5399f"
+    sha256 cellar: :any_skip_relocation, catalina:       "6fe4fce06c6cc8ecc6a71749e7a29e901a23d21b8c60ec97f856b6ff707244c0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "64e719273d9f1669597470ae44efbdc176348d8a2d8975f77360960e6cc0a9e7"
   end
 
   head do
@@ -26,6 +26,11 @@ class YtDlp < Formula
   resource "Brotli" do
     url "https://files.pythonhosted.org/packages/2a/18/70c32fe9357f3eea18598b23aa9ed29b1711c3001835f7cf99a9818985d0/Brotli-1.0.9.zip"
     sha256 "4d1b810aa0ed773f81dceda2cc7b403d01057458730e309856356d4ef4188438"
+  end
+
+  resource "certifi" do
+    url "https://files.pythonhosted.org/packages/6c/ae/d26450834f0acc9e3d1f74508da6df1551ceab6c2ce0766a593362d6d57f/certifi-2021.10.8.tar.gz"
+    sha256 "78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872"
   end
 
   resource "mutagen" do

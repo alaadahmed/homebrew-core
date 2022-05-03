@@ -1,17 +1,17 @@
 class JfrogCli < Formula
   desc "Command-line interface for JFrog products"
   homepage "https://www.jfrog.com/confluence/display/CLI/JFrog+CLI"
-  url "https://github.com/jfrog/jfrog-cli/archive/refs/tags/v2.15.0.tar.gz"
-  sha256 "55ab46499145d00a0ae639a5bb9ad588abda78a0f7eaaca2e387d06e151f9daf"
+  url "https://github.com/jfrog/jfrog-cli/archive/refs/tags/v2.16.2.tar.gz"
+  sha256 "9c4da58c688d5d680602c4ac12505ac7a4bbaaffe1d7dc3a788ea08a087aa29f"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e003b6a58dbc29ab2e120d5f4747d2f94e689ad709f3fa8e565264256e322827"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "81b41dffb36d53bbe505d05d63070409a76efbc184fada75b8bb4a56038817e9"
-    sha256 cellar: :any_skip_relocation, monterey:       "aa454739cea0ed59afc03db56f745c465baf06d25c5248efd587841204ca2c10"
-    sha256 cellar: :any_skip_relocation, big_sur:        "98daa6d22ffba1380a99054ceae38a94349822608885119111d1c039d14ac666"
-    sha256 cellar: :any_skip_relocation, catalina:       "568363987acd1ba77fa89bc001c1e8c3f1708c330fbb5839ccb2dab19251c6f5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "81eaf3d2e30828f29df71bc3a468779d84634fd0ebdb796123e349418ded2b4e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b6cae12fc152657435e597e578bfd1bb504679dd7ca0280910b1bdb4441e484a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "992a22d0b20fd16d375d6c2348e3446b18e092ca3d47370fd3bd4d700f0158a7"
+    sha256 cellar: :any_skip_relocation, monterey:       "f65fbd0c1c219dbf0b71bc118b1caf02e7b6c9eae37b5c142652cfb0bfd1fd46"
+    sha256 cellar: :any_skip_relocation, big_sur:        "57eda6198033e44ee786cc0d9217b6581178f52a276bf8bdc9173e46161d3318"
+    sha256 cellar: :any_skip_relocation, catalina:       "fa7865f73bd5de17609d3d0c934512a38317481d50614fe5b7d0efa31f1bdc3c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "38cd6060f992d5601fadad8b3e9900d3595fe302cf326bc40c133b0855fffe99"
   end
 
   depends_on "go" => :build

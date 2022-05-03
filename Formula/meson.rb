@@ -3,18 +3,18 @@ class Meson < Formula
 
   desc "Fast and user friendly build system"
   homepage "https://mesonbuild.com/"
-  url "https://github.com/mesonbuild/meson/releases/download/0.62.0/meson-0.62.0.tar.gz"
-  sha256 "06f8c1cfa51bfdb533c82623ffa524cacdbea02ace6d709145e33aabdad6adcb"
+  url "https://github.com/mesonbuild/meson/releases/download/0.62.1/meson-0.62.1.tar.gz"
+  sha256 "a0f5caa1e70da12d5e63aa6a9504273759b891af36c8d87de381a4ed1380e845"
   license "Apache-2.0"
   head "https://github.com/mesonbuild/meson.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "574cbd1941554288673cae34643fe51ec130f7a26ca19deec7d4f47707930a8b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "053f189c8e19e0a2e6d63479b0450237060b4b88bcec51a5d46b627ca1b74ea8"
-    sha256 cellar: :any_skip_relocation, monterey:       "d3d333492b00d8539418ff29776bed4e0259bd2b102ed805282e5997a0e0281e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5cdc50a7fee26aeb7d2b9e134ccf7af08e55001cc91925339765e9cf1baea8eb"
-    sha256 cellar: :any_skip_relocation, catalina:       "4a5fde510e6384e12039ca1e1ba0d766de1bd140d0a03aabc0b19a115210759b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "46f6c33901fb68783eab08a21037f20b6923fc41cae21c416d8e9fb8e4eec439"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "74ec8b05193ad6f0a192ea976a898362d322d8a51056a0563baf60f844403ed8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f61040da2d88d7e57b8ec042d0f61fd88d1d296582d52203c5558acfc62d7b4b"
+    sha256 cellar: :any_skip_relocation, monterey:       "7b26a7c72350fc2d72957a0b1b26393d6ce99f2f77d8f97eebc7b0bc174a227c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "dd5c2f2ca156a974b1c85960091ece4a477211a79db360a925f86a9bfc4dd97c"
+    sha256 cellar: :any_skip_relocation, catalina:       "ce1d410239c715e3f42dd2dfcc193bd7db7a3cd50231029b6d76f73fe7b6bd9b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3caf61e3ad496e94e4ce6292a01241bd7dd7ae2571bae949760e574b8fa80b1c"
   end
 
   depends_on "ninja"
@@ -22,6 +22,8 @@ class Meson < Formula
 
   def install
     virtualenv_install_with_resources
+    bash_completion.install "data/shell-completions/bash/meson"
+    zsh_completion.install "data/shell-completions/zsh/_meson"
   end
 
   test do

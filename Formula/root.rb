@@ -6,19 +6,8 @@ class Root < Formula
   head "https://github.com/root-project/root.git", branch: "master"
 
   stable do
-    url "https://root.cern.ch/download/root_v6.26.00.source.tar.gz"
-    sha256 "5fb9be71fdf0c0b5e5951f89c2f03fcb5e74291d043f6240fb86f5ca977d4b31"
-
-    # ROOT 6.26.00 doesn't support installation in directories starting with a
-    # dot (.linuxbrew, for example) - two commit merge
-    patch do
-      url "https://github.com/root-project/root/commit/6802514256e948582c26ad938c2c34f22b2d1bc3.patch?full_index=1"
-      sha256 "7988fa9e842c821c9be681c0e783dc299ecc74805750a4323e2921da26e7fc5b"
-    end
-    patch do
-      url "https://github.com/root-project/root/commit/efc67e432206771fe934ad7763529cf3621696a1.patch?full_index=1"
-      sha256 "b3ca4e06abd9c69315433717ae3a75677d8175cb53b8731c93f655634df1e22c"
-    end
+    url "https://root.cern.ch/download/root_v6.26.02.source.tar.gz"
+    sha256 "7ba96772271a726079506c5bf629c3ceb21bf0682567ed6145be30606d7cd9bb"
   end
 
   livecheck do
@@ -27,12 +16,12 @@ class Root < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "ef02cb001110ae59b8b2ae762872260bfde1343468f55138953067f0c4a0af31"
-    sha256 arm64_big_sur:  "1a4f2a4c76c8f4b5e3156cd93a8b711575e4c3fe5dfb48ba7e20a565f665cc88"
-    sha256 monterey:       "d4178f39a5d0ab0929a53064f88c94f3f7aa425bcd85827a4b452633c6f5b677"
-    sha256 big_sur:        "2152d73f05514fb43b8e752ac825177c543063de89fb75ff884d29acbb4a7660"
-    sha256 catalina:       "3182efe7a1972bd95bd3a1639ef89042a587678ea278046d95ae950436554eed"
-    sha256 x86_64_linux:   "6fd84e34aa4d53a951a8a802da84b8990ac95bd6d0ae6733fb2857dd60a79b66"
+    sha256 arm64_monterey: "4f5223ee441865d869a1b935d31a22c85f8f9aac869d69eba7d9109aaebbee3b"
+    sha256 arm64_big_sur:  "980a8bdec3fd26a6912066935634bb5826dbfeaee72cdfb8f3d921531aeba61e"
+    sha256 monterey:       "aab0d84528e3ecd8441ad4bacd54f60d7183a9153f3273f5fa46877924369a15"
+    sha256 big_sur:        "3d79db03d061064ba67b06dc2b79d8c823d517d656e1c94793c17bcfecc9c97e"
+    sha256 catalina:       "bad4b634d1adb2287765b5bd1c097888277b84415a4efcab20d1e2385ffeb8f5"
+    sha256 x86_64_linux:   "054d674fcbd968b84a21c88c229e666553f319882ea20ea6864a80ceeb431326"
   end
 
   depends_on "cmake" => :build

@@ -1,8 +1,8 @@
 class Openimageio < Formula
   desc "Library for reading, processing and writing images"
   homepage "https://openimageio.org/"
-  url "https://github.com/OpenImageIO/oiio/archive/v2.3.13.0.tar.gz"
-  sha256 "78f5754f1a9eb8215d66ca62a2963b87fc2b91465cb181dfc4ef73ca3ed76adb"
+  url "https://github.com/OpenImageIO/oiio/archive/v2.3.15.0.tar.gz"
+  sha256 "37bb0ba854d512b7b3a74e2008416a247d5cab882e750360b16c3dd4dd8d0f81"
   license "BSD-3-Clause"
   head "https://github.com/OpenImageIO/oiio.git", branch: "master"
 
@@ -13,12 +13,12 @@ class Openimageio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "5956a668b8b4b578772432f1e22f04cc70e24ae32fecabc291a8e06999a8075e"
-    sha256 cellar: :any,                 arm64_big_sur:  "703887011c3821b4435050812f69e8db36597d4115b910e7535c0ba61c65bcc5"
-    sha256 cellar: :any,                 monterey:       "a909f9cf9ce4bfa270f62030fc13066183c87cabccb891204386b8c8a67af126"
-    sha256 cellar: :any,                 big_sur:        "6aa0b34dbb4f6da9b9696de6e1c7d42eb684d954c8198d1de6992dee92cdd248"
-    sha256 cellar: :any,                 catalina:       "28e1fea9d382e68a2493d93b0a90968e2f0e27fac239c5f323a7fad44aadca2b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "88427cb079d590980127f293103b17425aeb9a68702c3d557707ceed1792b060"
+    sha256 cellar: :any,                 arm64_monterey: "91eb83a9081f4fdc0a90b999250df437be11a0830d433d6cc8bdbc16ca57cc33"
+    sha256 cellar: :any,                 arm64_big_sur:  "af722546f68a154bfc23be764b15dc21824ab438b95a829d4eac13c16077b8cc"
+    sha256 cellar: :any,                 monterey:       "63673fcd06de79f9323f1d6af7c7874409e0758b3fb760a98c8236b6038fbaa2"
+    sha256 cellar: :any,                 big_sur:        "9ed3f3f09d3e3eb6a8494aaa90dcad0e7dd33ebacc22f8b72fa8eee3cc065249"
+    sha256 cellar: :any,                 catalina:       "b9ba47638cd5a46f4655854d9552fdf161ca079ec092b8af4317c8998e2f7cd9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e798be73b3577e75c4f8956a495b23c3e752ee89af77110fc93d8faa5e71abea"
   end
 
   depends_on "cmake" => :build

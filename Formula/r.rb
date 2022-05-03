@@ -1,8 +1,8 @@
 class R < Formula
   desc "Software environment for statistical computing"
   homepage "https://www.r-project.org/"
-  url "https://cran.r-project.org/src/base/R-4/R-4.1.3.tar.gz"
-  sha256 "15ff5b333c61094060b2a52e9c1d8ec55cc42dd029e39ca22abdaa909526fed6"
+  url "https://cran.r-project.org/src/base/R-4/R-4.2.0.tar.gz"
+  sha256 "38eab7719b7ad095388f06aa090c5a2b202791945de60d3e2bb0eab1f5097488"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,12 +11,12 @@ class R < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "a34f069127fda71f97b119036520d56703212ab38137b79b7e92cf351f69292e"
-    sha256 arm64_big_sur:  "5f1088340bcd5f8bfc75d2dee84212f8eda0769464e06c24c0819612fb415ee7"
-    sha256 monterey:       "edae2c1cd7044eca95092fdf6f370991db60393baf902acf35844f7fd8203e0c"
-    sha256 big_sur:        "28f9d5c6639eca65d2556b20e8816e04353c5d879ac21ff0186843ced832096e"
-    sha256 catalina:       "bda2b0bd71f0922a8c275b03c8191b4e54acff3a9a8e572df708b096fc17324b"
-    sha256 x86_64_linux:   "39c7d343bb57f8804402e5322bcf97ac49e06933d048d73e2ab0adfa14a8c80a"
+    sha256 arm64_monterey: "1204b8d876d6aef1104d294e43485ffb6bf7fdc0806c72f28f304a0e9df6e3ee"
+    sha256 arm64_big_sur:  "757ceaf387c83395c488b4a3085ae2dc8c583105a884a52352f68942132b2831"
+    sha256 monterey:       "3b78da431cfb87ad783ee196d41a4e0fdd5b63c084b038b8b054604daa95b6bd"
+    sha256 big_sur:        "a5c00f17343545f8646e512a99ad52b17a5b4ba0cf9f976b3d091e1f60090a1a"
+    sha256 catalina:       "a846d6b2d34064ca16e545e57d31a82ef6ddc36792fada118996ea06cff9caf1"
+    sha256 x86_64_linux:   "21df0e3519c96277f20f191c949c5781ab84d29f8f03f8f99ed24991d0a276cb"
   end
 
   depends_on "pkg-config" => :build
@@ -60,6 +60,10 @@ class R < Formula
       "--enable-R-shlib",
       "--disable-java",
       "--with-cairo",
+      # This isn't necessary to build R, but it's saved in Makeconf
+      # and helps CRAN packages find gfortran when Homebrew may not be
+      # in PATH (e.g. under RStudio, launched from Finder)
+      "FC=#{Formula["gcc"].opt_bin}/gfortran",
     ]
 
     if OS.mac?

@@ -4,8 +4,8 @@ class Sysdig < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/draios/sysdig/archive/0.29.1.tar.gz"
-    sha256 "3721c97f0da43c1a68d2962d30363525d8532ab5f2534dfefc86d175e17e423e"
+    url "https://github.com/draios/sysdig/archive/0.29.2.tar.gz"
+    sha256 "38ea602085f706af5d07630189216fa240064122650a81456cb092579313ae8e"
 
     # Update to value of FALCOSECURITY_LIBS_VERSION found in
     # https://github.com/draios/sysdig/blob/#{version}/cmake/modules/falcosecurity-libs.cmake
@@ -21,12 +21,12 @@ class Sysdig < Formula
   end
 
   bottle do
-    sha256                               arm64_monterey: "99007e29c317d182eac5d1bbc012923cfe79fe55d18a2d67c59a1ccfc5f1f4cd"
-    sha256                               arm64_big_sur:  "f5cd5f54755bc6a11cd7caa668b77443cef3525d5ecd83c16ac55f457ad8e825"
-    sha256                               monterey:       "9e216bff3c6b1aa19f941e59ff1ebf87f8ae654652b3a420b9b241e06273f117"
-    sha256                               big_sur:        "e0dc81c3a526b17c763adef4571ed9d45f363e34bdc60b7ec0b70aba60e45f1d"
-    sha256                               catalina:       "7224fe9f8964fccd29f046e071e2d36aa0828b74afa68c57618928c007bda98c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7160997a58095eb261ab953439596afdb5eaf25030fdf4796d8d470361f92d3a"
+    sha256                               arm64_monterey: "064c6b7c08ce6aa2d5664d2364c25b3fc0680b7f3fda8835a2040ec4b4dd808b"
+    sha256                               arm64_big_sur:  "9046be4e17cffbedda501dd5555cb4686b9cac8a011d6faaa346401c69a3f591"
+    sha256                               monterey:       "0a920e7d804e06a0092349581f30d7b5956ece4fbebed5601a590a8d08a03d06"
+    sha256                               big_sur:        "03b2ffd477c14e19eaa1523e1fd9b1fbe3b016f5bcfaa1d7c8e3f94e018084d9"
+    sha256                               catalina:       "e4828e09ace8aba03ef82fdf232a6182a31b4f9d17e761cf11b555bee5582bf8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb70a32b4216e74583e16b6931ce5a633092052ee544f0a8b332a090c31bc1a8"
   end
 
   head do

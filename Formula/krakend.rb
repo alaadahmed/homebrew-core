@@ -1,17 +1,17 @@
 class Krakend < Formula
   desc "Ultra-High performance API Gateway built in Go"
   homepage "https://www.krakend.io/"
-  url "https://github.com/devopsfaith/krakend-ce/archive/v2.0.1.tar.gz"
-  sha256 "65177673e535a5bc0ac05801d2a02bd0cae609ae1e8223e9fe33979404670bf6"
+  url "https://github.com/devopsfaith/krakend-ce/archive/v2.0.3.tar.gz"
+  sha256 "17bebd9d500434184f09e22ddf00bf6d688e9277b0836d3795fe42bdb7db7919"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "684183cf0ee8b759dc0cdeda4a1cf62ce715422b446e204b189e8419d0841224"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7f766f400d42527adaca881a2e10a02677126e29e8004a7cb7c63343d6335b6c"
-    sha256 cellar: :any_skip_relocation, monterey:       "13f1a476d7ab6d9143ab3286a4789cbd59c708038e9aee274424b417a1449abe"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d3b4827433c0ee693da6251e53efb34bd271c6fe35c3f3b27f25aa413eefad91"
-    sha256 cellar: :any_skip_relocation, catalina:       "62024a4f84cd638b0cb6bf795332cbe53faafff0f311805941e5d65c95aa9ac2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "81eba06c4a0d8ab38a58753f8848c9b0e9a8eab281ff2362aa13fe030ca18ea8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "447e030b8bc5f80d7f1ae1839fd3c8ce219113807e8f74ece3fdf16ede03f196"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0f6171e11c718317373f6ccbb8d71c236e5826fb904c947fae6f4cb541b3654e"
+    sha256 cellar: :any_skip_relocation, monterey:       "356cdb59bdfe01ca84270cf9d2e46a94e4b0ae9756d769ae849b1df69d975279"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e10b295fcd2d4cdd195a151d0695c956e2e8f8a1e9d96b2d0153d46f46387279"
+    sha256 cellar: :any_skip_relocation, catalina:       "0fa29e98b49d179d567503c0ac59fa5a13fa12e6f2c025bef55c8cdbf6e95431"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1076ba1934b2b0ea16527bf89a727d8fde4d51f15b06781f5fe91da6975ab6a3"
   end
 
   depends_on "go" => :build

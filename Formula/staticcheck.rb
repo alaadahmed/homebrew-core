@@ -1,27 +1,24 @@
 class Staticcheck < Formula
   desc "State of the art linter for the Go programming language"
   homepage "https://staticcheck.io/"
-  url "https://github.com/dominikh/go-tools/archive/2022.1.tar.gz"
-  sha256 "aecfced0299fc70d17fc7d8d8dc87590429081250f03cb4c6bdd378fd50353ab"
+  url "https://github.com/dominikh/go-tools/archive/2022.1.1.tar.gz"
+  sha256 "988756d12527bf9843459a30cc6fbbf2a7d6d75e62326b0387eab6273e992543"
   license "MIT"
   head "https://github.com/dominikh/go-tools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "713b2331e3491b90fded2129d8c8e3e0aece85fa17a294e32276d227ac7c06d2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "33371bac06520a5c72772dae5ee442fc070946d0a9559d7372584dcebe6f7818"
-    sha256 cellar: :any_skip_relocation, monterey:       "589194bc56d52e1c2d4a069ef1d953b6101644079a5eb55bb1cd8be427173f95"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c4928baae580c74e51a8917207f6a717b6704bf678374971463dc9f9e24fb2c5"
-    sha256 cellar: :any_skip_relocation, catalina:       "bbc1d022792158774f07554e1705ebb2be414665813be279884e1a2efe34cee9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c101d6ba2c26032cc51cabb2ab1ea67f7513cce233f8925f4c8c483742a55d17"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c0c9327adaead8b33acf9ac31a7543f4881b443fa064acc96b6c034a7bdb764b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ec11a5ad26ae2ee8e5d31f2ceafbc96b38c44b0ab63cc6d6375ae01b6c71bb6a"
+    sha256 cellar: :any_skip_relocation, monterey:       "98959fc5a4362c9e9bcaa52b6d9012975805a751a40421edd11cc7d14c36db94"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a4f53c3b2bf2c2b94ee71c8635eeea9626b87313809f601b0df5f71784daa199"
+    sha256 cellar: :any_skip_relocation, catalina:       "b05ed2c4f9a64d1d3c4fe43655188c0e2a5ffd6c3cf1180e2437587664d07b8a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fd69e33fa3c007c141e6a767933c0b086ee51e1a6f073afa022d1cc56eba3c56"
   end
 
-  # Bump to 1.18 on the next release.
-  depends_on "go@1.17"
+  depends_on "go"
 
   def install
-    output = libexec/"bin/staticcheck"
-    system "go", "build", *std_go_args(output: output), "./cmd/staticcheck"
-    (bin/"staticcheck").write_env_script(output, PATH: "$PATH:#{Formula["go@1.17"].opt_bin}")
+    system "go", "build", *std_go_args, "./cmd/staticcheck"
   end
 
   test do

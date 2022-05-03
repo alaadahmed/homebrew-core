@@ -3,18 +3,18 @@ class Pocsuite3 < Formula
 
   desc "Open-sourced remote vulnerability testing framework"
   homepage "https://pocsuite.org/"
-  url "https://files.pythonhosted.org/packages/17/1d/bdaacb23a558c2dea0bd57ea7fd0890f72343e9fa18b83620f50b0dc1646/pocsuite3-1.9.1.tar.gz"
-  sha256 "72123bc05f0c45f73d6f9be2d1a1278fbf96973fa97fead501141d3771a3d91b"
+  url "https://files.pythonhosted.org/packages/72/68/7e51f93895ba2765e20eced23b5bf501bb49f68874f43edf47e9a9d17af2/pocsuite3-1.9.2.tar.gz"
+  sha256 "474dd34097b511f22e748b5290896d52523923b76373a3b0c43b47cbee3ca915"
   license "GPL-2.0-only"
   head "https://github.com/knownsec/pocsuite3.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "72a5e6a39bd826ac989d57795697c4fb1ae175940daf29659e2749060aa1735e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2dce1deb23a869a71a846a69a48ab93309f1718950b3cc0aebebb818a386c3ef"
-    sha256 cellar: :any_skip_relocation, monterey:       "f2ba757339353c83e685162be45e38337c0dce0f83be1bbcaffd6e428f254d03"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f9a1f08bc60c98cb4d5bc5cd13846433f76ed1ee82c4128e14caad7ed40cb0f1"
-    sha256 cellar: :any_skip_relocation, catalina:       "24260a33d7f4b48d7bc6f67366567e5f1fe7e3a1f8092b4c367aa6f962d9afcc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4c88b007863e9a2ae67837d519e5f09b62ecea735ae31b75fbf0a13234d76d0a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8dee91c50fe0732ace43b3ab1448487fb1fe048b3f55c6de8cc6ad343c7b99fa"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "588f17e31b0d1cdb59e7ce5431f09369d88b3b53d1f1deff69de358c49981984"
+    sha256 cellar: :any_skip_relocation, monterey:       "c694bd7e03b7ae07e0c707296276e4de34db89ccab8b706ea05770583d1139dd"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9d509a7c15da275034e38167badd1bd381fca788ebd60e29ab287d1b46ca7b4a"
+    sha256 cellar: :any_skip_relocation, catalina:       "621f3a04123cdb4c026086d70d8f21854856a95f5cb452b95fb9d190618c052a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0108fc9027c427e40858fe53267a3dfbfeb254171e0c9871eb7d5cc80a2e027a"
   end
 
   depends_on "python@3.10"
@@ -52,8 +52,8 @@ class Pocsuite3 < Formula
   end
 
   resource "Faker" do
-    url "https://files.pythonhosted.org/packages/4e/34/86691abe2391c30854becce2e2c4cd63680e94b1d54269473e6ec253da1f/Faker-13.3.2.tar.gz"
-    sha256 "fe969607836ce7100e38b88dcb598aacb733d895e6e9401894dd603e35623000"
+    url "https://files.pythonhosted.org/packages/d6/3e/972fd4552247f8a2d746264da80ff720969b9609fef6e687b914deed56ab/Faker-13.3.4.tar.gz"
+    sha256 "188961065fb5c78ea639f42176f55100f72c90c3a3179ac6c955c4bd712b0511"
   end
 
   resource "idna" do

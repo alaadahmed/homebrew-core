@@ -1,24 +1,24 @@
 class Lsyncd < Formula
   desc "Synchronize local directories with remote targets"
   homepage "https://github.com/lsyncd/lsyncd"
-  url "https://github.com/lsyncd/lsyncd/archive/release-2.2.3.tar.gz"
-  sha256 "7bcd0f4ae126040bb078c482ff856c87e61c22472c23fa3071798dcb1dc388dd"
+  url "https://github.com/lsyncd/lsyncd/archive/release-2.2.4.tar.gz"
+  sha256 "3f51c6456604b5acce191c3539e7693a63bd395045dfd5ba35fa4222ca76ed79"
   license "GPL-2.0-or-later"
-  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "165c395578ec77b4fd2245acf892614374a34a7bd5e7ea35bba962543330fb42"
-    sha256 cellar: :any,                 arm64_big_sur:  "6ffc6208ece7bca906962b2bfac750bf44577b633c0e0e3b063c19b2c82d2e59"
-    sha256 cellar: :any,                 monterey:       "3e6af0900bacbd5232e39697812b49e14d321a0cf355d50d5a3b94dfe9341036"
-    sha256 cellar: :any,                 big_sur:        "8da2a07aa79a0dc8398c1a7140a4d0052fa01ad70a9a7e1a502e46842884e063"
-    sha256 cellar: :any,                 catalina:       "ae1272e27d3aa44d42a79a4840b7e0d91cd5eca2e48e4df3e8bbc82c0db04849"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "787d4f0b68f03feff9ec497f4cbbbffa4f53e487558c4f5de381c679c9f55c09"
+    sha256 cellar: :any,                 arm64_monterey: "3a78bb8674296e77a9e186f9e11f4d88b1bbf78ad83689855254d4884456a421"
+    sha256 cellar: :any,                 arm64_big_sur:  "05b9a07bcac8df4416b10a81223623fcfada7e73c7398639381631ce2bdcfd12"
+    sha256 cellar: :any,                 monterey:       "fbf835efa75b8a087fc022034fe9c54c841f1f0c43c70ec5176d0373d39f042c"
+    sha256 cellar: :any,                 big_sur:        "8792501d81fe3c1ece7b0df75c37b106587f2bc32e8cf4c9c31a45cf916aef31"
+    sha256 cellar: :any,                 catalina:       "a567eb529289b0b04d73700fe78f376e601866f00b7f1b19628e2667e74c9db4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "73f0ffe184f0788b239fe9780d9d4ee998df95f5db05dc078a4c15170c5685e7"
   end
 
   depends_on "cmake" => :build
   depends_on "lua"
 
   on_macos do
+    # From https://opensource.apple.com/releases/
     xnu_headers = {
       "10.10"   => ["xnu-2782.1.97.tar.gz",       "612a0eb12d2b2fad3b2df33224abd1c65b89f1c95cd1cea6853694840d48d322"],
       "10.10.1" => ["xnu-2782.1.97.tar.gz",       "612a0eb12d2b2fad3b2df33224abd1c65b89f1c95cd1cea6853694840d48d322"],
@@ -90,34 +90,8 @@ class Lsyncd < Formula
     end
   end
 
-  # Fix issues with 10.15+ volume layout.
-  # Remove with the next release.
-  patch do
-    url "https://github.com/lsyncd/lsyncd/commit/7bb8715bfd425621a57068e39fac37bac3456318.patch?full_index=1"
-    sha256 "578278ca7a1f2e23a53da207daeb58bc946e2fe03751b8e2990af008f580c3da"
-  end
-
-  # Fix finding of unversioned Lua.
-  # Remove with the next release.
-  patch do
-    url "https://github.com/lsyncd/lsyncd/commit/0af99d8d5ba35118e8799684a2d4a8ea4b0c6957.patch?full_index=1"
-    sha256 "a4f9eba3246c611febec68a0599935fa5ec0e4ad16a165ae19cd634afea45523"
-  end
-
-  # Fix compile with Lua 5.4.
-  # Remove with the next release.
-  patch do
-    url "https://github.com/lsyncd/lsyncd/commit/a609f34971955450c90db246e992c511cc933d5e.patch?full_index=1"
-    sha256 "69d32ae25704523e11c0774983f43bdadf1d7d22bb693eb18b62523bc716c9c4"
-  end
-
   def install
-    # Fix manpage install location.
-    # https://github.com/lsyncd/lsyncd/commit/a410ddebb88bdc346476e80b3e50f5d2e35b4e41
-    # Remove with the next release.
-    inreplace "CMakeLists.txt", "DESTINATION man", "DESTINATION share/man/man1 COMPONENT man"
-
-    args = []
+    args = ["-DCMAKE_INSTALL_MANDIR=#{man}"]
     if OS.mac?
       resource("xnu").stage buildpath/"xnu"
       args += %W[-DWITH_INOTIFY=OFF -DWITH_FSEVENTS=ON -DXNU_DIR=#{buildpath}/xnu]

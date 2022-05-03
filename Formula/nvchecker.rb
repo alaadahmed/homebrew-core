@@ -3,17 +3,17 @@ class Nvchecker < Formula
 
   desc "New version checker for software releases"
   homepage "https://github.com/lilydjwg/nvchecker"
-  url "https://files.pythonhosted.org/packages/71/23/c8839d59b5f7bb64bd8ebc7117c85f18431ca1fc645fce8162762658beca/nvchecker-2.7.tar.gz"
-  sha256 "08ce8629025bdfbc3afeceace5319e7dab5f1304f02684aec8f84b8b416e1876"
+  url "https://files.pythonhosted.org/packages/7a/c0/61b7c2dab2e9d3526d8542ccab27577cf82fa5c4534ce661740dd2670beb/nvchecker-2.8.post1.tar.gz"
+  sha256 "bba8cf0bfa7af6c412b87d9d9e9d8b1d0711a04e2fc0d69839fc78fbdde90f91"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ad940b8747a66ae199e29ee5dbc78343393e70829325dc93c04a71ce02e3a57c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "888b6250a3a6a0e9d22253c580d79b686fe0bd62b8011b03e13f0d9551e100b4"
-    sha256 cellar: :any_skip_relocation, monterey:       "c950f0601b938cd1c2b32675f7cc2a5a072ef1c5f78e4c721340467acf638984"
-    sha256 cellar: :any_skip_relocation, big_sur:        "579a8ac1b36136aa893fbc9a65941b5498a1d22e4eddfd873e919565224f7157"
-    sha256 cellar: :any_skip_relocation, catalina:       "ab42194df2f9ca3483b953bb64a129c515f1c1730cf24bfa7500b4571947d15a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec281e84b81957e45bf5e2db1cd3fddfd26c7412e24088d12a28c6d8593497d8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "91ea1dbd8ebd40b06990b3dc5fb12422aedc1ff503b22d9308672145b1f1bff2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4a1366a7be20680f4bbd8cd9f51d3347d9785b393a92fc88879050c463e73ba0"
+    sha256 cellar: :any_skip_relocation, monterey:       "6f1b25e837dcd6c34562b8f503ebd035662cac74c5fe1a769e2e6ca89b576d3e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bdae888f2840f60947dd5d0a964019405fc3a19cfe9e8fc2f2d7b5089ceeb02e"
+    sha256 cellar: :any_skip_relocation, catalina:       "b0a4f98e1736e4185f35706418c266659ba7290c2b2636634e2bb0f1b8c20291"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fbad5191e70162cc80eeb1856f08f538a9df174c473351a7311df8ece484b313"
   end
 
   depends_on "jq" => [:test]
@@ -26,9 +26,19 @@ class Nvchecker < Formula
     sha256 "7d5d0167b2b1ba821647616af46a749d1c653740dd0d2415100fe26e27afdf41"
   end
 
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
+    sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
+  end
+
   resource "pycurl" do
     url "https://files.pythonhosted.org/packages/09/ca/0b6da1d0f391acb8991ac6fdf8823ed9cf4c19680d4f378ab1727f90bd5c/pycurl-7.45.1.tar.gz"
     sha256 "a863ad18ff478f5545924057887cdae422e1b2746e41674615f687498ea5b88a"
+  end
+
+  resource "pyparsing" do
+    url "https://files.pythonhosted.org/packages/31/df/789bd0556e65cf931a5b87b603fcf02f79ff04d5379f3063588faaf9c1e4/pyparsing-3.0.8.tar.gz"
+    sha256 "7bf433498c016c4314268d95df76c81b842a4cb2b276fa3312cfb1e1d85f6954"
   end
 
   resource "structlog" do
@@ -54,10 +64,8 @@ class Nvchecker < Formula
     file = testpath/"example.toml"
     file.write <<~EOS
       [nvchecker]
-      source = "github"
-      github = "lilydjwg/nvchecker"
-      use_max_tag = true
-      prefix = "v"
+      source = "pypi"
+      pypi = "nvchecker"
     EOS
 
     out = shell_output("#{bin}/nvchecker -c #{file} --logger=json | jq '.[\"version\"]' ").strip

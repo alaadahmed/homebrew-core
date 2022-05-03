@@ -1,8 +1,8 @@
 class Imagemagick < Formula
   desc "Tools and libraries to manipulate images in many formats"
   homepage "https://imagemagick.org/index.php"
-  url "https://www.imagemagick.org/download/releases/ImageMagick-7.1.0-29.tar.xz"
-  sha256 "a89df63da5ec823ae77049d747bf6b370bc867a06659b410f42652e5773fc62c"
+  url "https://www.imagemagick.org/download/releases/ImageMagick-7.1.0-32.tar.xz"
+  sha256 "2af6d31428d8f6ca112b34f29efba015f50077f1f72ee430638aad79bb3823ac"
   license "ImageMagick"
   head "https://github.com/ImageMagick/ImageMagick.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Imagemagick < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "b27053cd75f46ff538ba2c2be59bfa65e6f8d229939fe07a3f39e1e496546ed5"
-    sha256 arm64_big_sur:  "58d5b63e3f7442c83cb84e5ad8cdf23fadf0a8b463c985d28261836e79db11fa"
-    sha256 monterey:       "925c2372e74ebc61583ee872dccabcfe81adca9446d87c6766763531afd0a118"
-    sha256 big_sur:        "1a239cf2ea8b4ef10fb38fcc776eef0862743f5bc8ed52ef995a6f49cc1cca1c"
-    sha256 catalina:       "b7e0d4f79d7b5f32d507401d63425e3569b45d9953a1fb6746304e911f07baf8"
-    sha256 x86_64_linux:   "49c3e49cb9ee7003a398dc796e3bf546d5cbe28ba69c423ff63be6b644bd8920"
+    sha256 arm64_monterey: "a000a3d98820aad5aba1d1b27967c992a680af6073d3776c5615ad85c65cfe5b"
+    sha256 arm64_big_sur:  "cd8e156ab68b436afaafee16362814886217d420ff25ebe5a026ef7f84594fb5"
+    sha256 monterey:       "ca5f4b21069ba55a8721dc979c93854b4d9083b08d4d998569563f03eeabf246"
+    sha256 big_sur:        "1602ec46afbe6cd6eef61605d904db05277637de1e55a262973657d6ce48c62e"
+    sha256 catalina:       "cba2739bf96a77e5e7502ffb86561fcb8c546e1bdfc3ab1bed45b6feecf7030e"
+    sha256 x86_64_linux:   "8f3597d568169af3d0121c35407274444cb626167980a7e135d12b8867594d3a"
   end
 
   depends_on "pkg-config" => :build
@@ -28,6 +28,7 @@ class Imagemagick < Formula
   depends_on "liblqr"
   depends_on "libomp"
   depends_on "libpng"
+  depends_on "libraw"
   depends_on "libtiff"
   depends_on "libtool"
   depends_on "little-cms2"
@@ -65,6 +66,7 @@ class Imagemagick < Formula
       "--with-openexr",
       "--with-webp=yes",
       "--with-heic=yes",
+      "--with-raw=yes",
       "--with-gslib",
       "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts",
       "--with-lqr",
@@ -87,11 +89,18 @@ class Imagemagick < Formula
 
   test do
     assert_match "PNG", shell_output("#{bin}/identify #{test_fixtures("test.png")}")
+
     # Check support for recommended features and delegates.
-    features = shell_output("#{bin}/convert -version")
-    %w[Modules freetype jpeg png tiff].each do |feature|
+    features = shell_output("#{bin}/magick -version")
+    %w[Modules freetype heic jpeg png raw tiff].each do |feature|
       assert_match feature, features
     end
-    assert_match "Helvetica", shell_output("#{bin}/identify -list font")
+
+    # Check support for a few specific image formats, mostly to ensure LibRaw linked correctly.
+    formats = shell_output("#{bin}/magick -list format")
+    ["AVIF  HEIC      rw+", "ARW  DNG       r--", "DNG  DNG       r--"].each do |format|
+      assert_match format, formats
+    end
+    assert_match "Helvetica", shell_output("#{bin}/magick -list font")
   end
 end

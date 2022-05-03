@@ -6,20 +6,25 @@ class Sslyze < Formula
   license "AGPL-3.0-only"
 
   stable do
-    url "https://files.pythonhosted.org/packages/b7/1b/dcf21b1f6b2bd3a0a5bafa7de91a5807cda93b8ceec9dbb593267966f099/sslyze-5.0.3.tar.gz"
-    sha256 "258cca18f6b01ab4419acc356a73e1443fe24174e0fd9b7b46448d823a5c7dc0"
+    url "https://files.pythonhosted.org/packages/7a/c5/92c28ccdd0641c3b5c59b246861f50d738ac0d4a4e0314f9f2700191c464/sslyze-5.0.4.tar.gz"
+    sha256 "369adefac083c3ef6ad60b84ffd48c5fd66cfa47d3bd6cdbdf9a546c50123d23"
 
     resource "nassl" do
       url "https://github.com/nabla-c0d3/nassl/archive/4.0.2.tar.gz"
       sha256 "440296e07ee021dc283bfe7b810f3139349e26445bc21b5e05820808e15186a2"
+      # patch is needed until https://github.com/nabla-c0d3/nassl/pull/89 is merged
+      patch do
+        url "https://github.com/nabla-c0d3/nassl/commit/f210a0d15d65c6ec11f43d3fef9f6004549bf19a.patch?full_index=1"
+        sha256 "270d5a76c8753afa318cd3fa0d53fe29f89786cba57096e384697acc1259552d"
+      end
     end
   end
 
   bottle do
-    sha256 cellar: :any,                 monterey:     "3c669d78e696b79eb1fc3f4773e23f16697303dcd4cd654d3cdc6650a8894ea7"
-    sha256 cellar: :any,                 big_sur:      "123e47b23c6e77da43e30186ab6b18869d4f2b163d9f4f785db8f774800b1dc5"
-    sha256 cellar: :any,                 catalina:     "527edd3733f6b7ed3643f8929318a746b5ac28c5000ac0e19d0706e9bc01ce5c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "69f556a849cae8daee06e63da570f888204a59d21fae3967be42d2679aadcb5c"
+    sha256 cellar: :any,                 monterey:     "c55c4bea4ee7beb0320c1b12d315ae340409b036fee4e630b80e16634b0b4f27"
+    sha256 cellar: :any,                 big_sur:      "5e946542c424ed0446128a9fd0287482a4088e1f84a3393c4878e2e0151eaa9d"
+    sha256 cellar: :any,                 catalina:     "6ee55f116dd5aae0385167ae2ea634b6e66f984a93983ab2f000d405b8cf15d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "24c6d236aa6fc9f1b93f1002fc734eeee0292d24658846822a2e10c97c1c6380"
   end
 
   head do
@@ -62,8 +67,8 @@ class Sslyze < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/b1/5a/8b5fbb891ef3f81fc923bf3cb4a578c0abf9471eb50ce0f51c74212182ab/typing_extensions-4.1.1.tar.gz"
-    sha256 "1a9462dcc3347a79b1f1c0271fbe79e844580bb598bafa1ed208b94da3cdcd42"
+    url "https://files.pythonhosted.org/packages/fe/71/1df93bd59163c8084d812d166c907639646e8aac72886d563851b966bf18/typing_extensions-4.2.0.tar.gz"
+    sha256 "f1c24655a0da0d1b67f07e17a5e6b2a105894e6824b92096378bb3668ef02376"
   end
 
   def install

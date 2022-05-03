@@ -1,8 +1,8 @@
 class Duck < Formula
   desc "Command-line interface for Cyberduck (a multi-protocol file transfer tool)"
   homepage "https://duck.sh/"
-  url "https://dist.duck.sh/duck-src-8.3.0.37309.tar.gz"
-  sha256 "8026494f8b387647bf4208732fa5195488b7c0cadb0b5ef974240ff97b75a1c9"
+  url "https://dist.duck.sh/duck-src-8.3.3.37544.tar.gz"
+  sha256 "32d7b3e966e4faf6572b30bd145b3512e651346ead93ada0c2eab25583e4ed8b"
   license "GPL-3.0-only"
   head "https://github.com/iterate-ch/cyberduck.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Duck < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "cc939a9b4e76fca24a4d3266ed80ea0c08ac196b251a916f72a5230c9334aec6"
-    sha256 cellar: :any, arm64_big_sur:  "9054002923fd5281eb846889095c9663400cffbb06f9816cbf16e6f8bdc870a9"
-    sha256 cellar: :any, monterey:       "0146be30fec06f0f925433968be1a853bcebac739f1cf9c8d243486ea5700bdd"
-    sha256 cellar: :any, big_sur:        "ae5573e4ebe55477abc8b51e6d56eac1309e044ccee4f7e048559632de682fc0"
-    sha256 cellar: :any, catalina:       "f0e388d9c21261ad6e7c08a790630d6b2ee8d77034c8d5bf45988acdbe51df5b"
-    sha256               x86_64_linux:   "05badf4264c941f7ce8c7e5289e84c77b940b8d9e58419281afd359f68747b3d"
+    sha256 cellar: :any, arm64_monterey: "9a1e7518db63c20d091e3683fd920d344bbf94219817dfa55d89b21e3aaf9c1f"
+    sha256 cellar: :any, arm64_big_sur:  "77eea3daebae6527e0233f37b173d77365ac1cedab793f70d7593d46757262d5"
+    sha256 cellar: :any, monterey:       "76c0fb3281c6b5489f896805fcd321d79eb8b9d376aa9f252a967c6bc98e5538"
+    sha256 cellar: :any, big_sur:        "c7d955410dd8f949fe630bb3ffeffdfb04a91d65ad1943f92daf0747d12c6f32"
+    sha256 cellar: :any, catalina:       "094737c11314b75b5363518ad6b30400d3de64a501d0981829d4c980f0bb001c"
+    sha256               x86_64_linux:   "81f56532a64c7e6e3ea50be4d9e7263f3951fde2e09c6268f816a1b21bb2786c"
   end
 
   depends_on "ant" => :build

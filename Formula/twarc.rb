@@ -3,17 +3,17 @@ class Twarc < Formula
 
   desc "Command-line tool and Python library for archiving Twitter JSON"
   homepage "https://github.com/DocNow/twarc"
-  url "https://files.pythonhosted.org/packages/31/74/0e3b7af9c5f1b2f3b51d0f38b131a1e8cc6ec08c1da01f759b3be6985272/twarc-2.10.2.tar.gz"
-  sha256 "c6ae32a94d5cd51f2f6991f4e540582263d24bb685933181b0f6e846321396f1"
+  url "https://files.pythonhosted.org/packages/46/a2/71696490c3d7318554a56200f3af3dd307996476dffd5239a001889e9ba7/twarc-2.10.4.tar.gz"
+  sha256 "f26d52f4aee133ab8fee516dca4a97ddc0c42fa5240db4be53cd52dd48b6a67b"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3c26b35c9ff75c65f76a8eaab3460c4a2d5e6a27530b2e91deec1eff39ebe0ad"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4d516d0d249b176491e55c5a3c7f107b278ee6fc2261e04ad3d25ea219dc2c1e"
-    sha256 cellar: :any_skip_relocation, monterey:       "e6254304ceee5d89c3cc888659cb9eed40f34eaf2f0ce943245c02c4f6e5e62c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "50c66d4b627cee289bef8b35283d1761be15b68fb4f40bd0f0b96359af91083f"
-    sha256 cellar: :any_skip_relocation, catalina:       "0f44046d12b6f0d17360f08b228ea328c6e5f3f68ca00a32974d4b616f268afe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "446956811bc8d397ff1ae8399af50c72f2dc76a74aa775c704ed3e2fbf7c261c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8aec632d60c04539b2a1a5789028e0f80b4edbafc97ecda0c2919158aca2a50e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9b800d7f1abd384bdd0ccddc143943aa6fbb4dcab328fba92e6ece21b914af74"
+    sha256 cellar: :any_skip_relocation, monterey:       "3b4a5938950508b3264450b3cec49d5e5237d8b88cd2cc28359402bae724c4d7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "626bb2e6acf6b731ffe75b9a8712d730c338b12b89c801990fcac4f8d53d7248"
+    sha256 cellar: :any_skip_relocation, catalina:       "458ae61c947a6505e543ba82dfaab185efec20a18d05b1df5858d4a2125c36fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0203b44b431c4a23b640f2024b723cbab7f778b2604a40998e2071c05e9335fc"
   end
 
   depends_on "python@3.10"
@@ -30,8 +30,8 @@ class Twarc < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/42/e1/4cb2d3a2416bcd871ac93f12b5616f7755a6800bccae05e5a99d3673eb69/click-8.1.2.tar.gz"
-    sha256 "479707fe14d9ec9a0757618b7a100a0ae4c4e236fac5b7f80ca68028141a1a72"
+    url "https://files.pythonhosted.org/packages/59/87/84326af34517fca8c58418d148f2403df25303e02736832403587318e9e8/click-8.1.3.tar.gz"
+    sha256 "7682dc8afb30297001674575ea00d1814d808d6a36af415a82bd481d37ba7b8e"
   end
 
   resource "click-config-file" do
@@ -80,8 +80,8 @@ class Twarc < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/3c/77/e75fb048907ccc065030bf7d9d2d1441247e4e234dbfceb5466207190962/tqdm-4.63.1.tar.gz"
-    sha256 "4230a49119a416c88cc47d0d2d32d5d90f1a282d5e497d49801950704e49863d"
+    url "https://files.pythonhosted.org/packages/98/2a/838de32e09bd511cf69fe4ae13ffc748ac143449bfc24bb3fd172d53a84f/tqdm-4.64.0.tar.gz"
+    sha256 "40be55d30e200777a307a7585aee69e4eabb46b4ec6a4b4a5f2d9f11e7d5408d"
   end
 
   resource "urllib3" do

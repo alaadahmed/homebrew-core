@@ -1,18 +1,18 @@
 class YleDl < Formula
   desc "Download Yle videos from the command-line"
   homepage "https://aajanki.github.io/yle-dl/index-en.html"
-  url "https://files.pythonhosted.org/packages/88/7f/bd83f99ce0de2a6b05dbf2b67657b167f5c23b46d86029f4b8f17bef6cc8/yle-dl-20220213.tar.gz"
-  sha256 "b6b1cc9d03d5416f342bcfd2c0304988e6cc3f8bd09e0c1bf5a63790cf775f9d"
+  url "https://files.pythonhosted.org/packages/4b/61/60092eb1103605003f18f8dbe7482d13d7e5a5b5901dc5d1243a192e900d/yle-dl-20220425.tar.gz"
+  sha256 "fb6a5d22c8234360b8b993dd758f52d09523fcac0edef2cf54c4fe21fd87b406"
   license "GPL-3.0-or-later"
   head "https://github.com/aajanki/yle-dl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "96ffd398b7d2dc5e1cac3b40e83932def14b356a59d4965712bec1c5a5b16ce1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4f952070056d2050821219c99c4a96f0439ba2f88e1eff81b0fc180b08952f56"
-    sha256 cellar: :any_skip_relocation, monterey:       "8a2d7e8d79d63b319798f765e5d62a891e525968418a7ea9a3444879bd0f63f0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b0e9d7ce0cbde4ecd637b2923c10a1a199cc9eb2308a41905ca778c1fca4a120"
-    sha256 cellar: :any_skip_relocation, catalina:       "2032f3feb7a918454c41851d3f97dae809bbfec9292a2f4c5ab5f8d051a21408"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e819148faa9caa3640e9ff924103c4e57e243ec3b6f052e776ab6ccc90d21506"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "34ecea6e71e7aacd72f61429036a014220d68fa4ba3e9a495fe322e3ad5e3a1a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6d350d2381ea68eb4a5a8918ae4ff8aaca2069974378ae37c38427718fd6b2d9"
+    sha256 cellar: :any_skip_relocation, monterey:       "c1d107aa657bd308399f993616b867d4216815e5079054b9285c9e57692a6600"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1e18e1491ef4a319b70a906b0605f56abcc668b747df7e605f5be49d0f8f41ec"
+    sha256 cellar: :any_skip_relocation, catalina:       "173403cc4a4b80fa8ccd49f3127d7b75c3aaa804bcf74b3b99e031ec31bf3646"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "61fd8949f454ee17ba4f81c4672df12e2a83384200cbeccb8468e676fb8a1c4f"
   end
 
   depends_on "ffmpeg"
@@ -71,14 +71,11 @@ class YleDl < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b0/b1/7bbf5181f8e3258efae31702f5eab87d8a74a72a0aa78bc8c08c1466e243/urllib3-1.26.8.tar.gz"
-    sha256 "0e7c33d9a63e7ddfcb86780aac87befc2fbddf46c58dbb487e0855f7ceec283c"
+    url "https://files.pythonhosted.org/packages/1b/a5/4eab74853625505725cefdf168f48661b2cd04e7843ab836f3f63abf81da/urllib3-1.26.9.tar.gz"
+    sha256 "aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"
   end
 
   def install
-    # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
-    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
-
     xy = Language::Python.major_minor_version "python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
     (resources - [resource("AdobeHDS.php")]).each do |r|

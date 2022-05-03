@@ -2,17 +2,17 @@ class Kubevela < Formula
   desc "Application Platform based on Kubernetes and Open Application Model"
   homepage "https://kubevela.io"
   url "https://github.com/oam-dev/kubevela.git",
-      tag:      "v1.3.0",
-      revision: "3aa4412a0f7023fda2625a07ffea2747b215c850"
+      tag:      "v1.3.3",
+      revision: "45e1de19dc736b10b3eb2d908d809210f470b24f"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2f1e4b410fb1c17a17bb249720078a842ed2b8ffae522334d5dbbb523bcd5242"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2f1e4b410fb1c17a17bb249720078a842ed2b8ffae522334d5dbbb523bcd5242"
-    sha256 cellar: :any_skip_relocation, monterey:       "0b7b7b6226db37100b4c23abf4378a718750c65f9f68745b6dc0d6b1fbc2cef4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0b7b7b6226db37100b4c23abf4378a718750c65f9f68745b6dc0d6b1fbc2cef4"
-    sha256 cellar: :any_skip_relocation, catalina:       "0b7b7b6226db37100b4c23abf4378a718750c65f9f68745b6dc0d6b1fbc2cef4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ee7cdcea7e72ce1b2db1798fccac0fd1389d551c7391ff5852834a91b0c1d8e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cad332ae13671750a609b10b5c4b0cad36f6e715019023ebcad010123f721789"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cad332ae13671750a609b10b5c4b0cad36f6e715019023ebcad010123f721789"
+    sha256 cellar: :any_skip_relocation, monterey:       "bbcca5ed1c5aeaec3453b9dd39ef8cf95467b3db64671bdb58062d4489869fd8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bbcca5ed1c5aeaec3453b9dd39ef8cf95467b3db64671bdb58062d4489869fd8"
+    sha256 cellar: :any_skip_relocation, catalina:       "bbcca5ed1c5aeaec3453b9dd39ef8cf95467b3db64671bdb58062d4489869fd8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0d4ec51b1bb48ce2d247ec1ad81d4f9e6cb9aa564d672d47d59e58a3da125ff"
   end
 
   depends_on "go" => :build
@@ -31,7 +31,7 @@ class Kubevela < Formula
   test do
     # Should error out as vela up need kubeconfig
     status_output = shell_output("#{bin}/vela up 2>&1", 1)
-    assert_match "Error: invalid configuration: no configuration", status_output
+    assert_match "error: no configuration has been provided", status_output
 
     (testpath/"kube-config").write <<~EOS
       apiVersion: v1

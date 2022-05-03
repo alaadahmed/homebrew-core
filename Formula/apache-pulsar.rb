@@ -1,17 +1,17 @@
 class ApachePulsar < Formula
   desc "Cloud-native distributed messaging and streaming platform"
   homepage "https://pulsar.apache.org/"
-  url "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=pulsar/pulsar-2.9.2/apache-pulsar-2.9.2-src.tar.gz"
-  mirror "https://archive.apache.org/dist/pulsar/pulsar-2.9.2/apache-pulsar-2.9.2-src.tar.gz"
-  sha256 "66cf22136488aabe443d92284fbb3edb15e1b9d8a64cf498b36236f75af29bbc"
+  url "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=pulsar/pulsar-2.10.0/apache-pulsar-2.10.0-src.tar.gz"
+  mirror "https://archive.apache.org/dist/pulsar/pulsar-2.10.0/apache-pulsar-2.10.0-src.tar.gz"
+  sha256 "fadf27077c5a15852791bea45f34191de1edc25799ecd6e2730a9ff656789c0b"
   license "Apache-2.0"
   head "https://github.com/apache/pulsar.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, monterey:     "e0db8c6b3a3565dbff3778b0ab4e526ee1821e1679c326043502936a4c0304cd"
-    sha256 cellar: :any_skip_relocation, big_sur:      "c2cd45e0f5ccd01a5d33e674bd99ee71f9c0cf9a04f9797590a369afbc7605ac"
-    sha256 cellar: :any_skip_relocation, catalina:     "c7cffc9c7f31d10d51d15ee6ca515d20c17e9429395ab5288f71d13174c65614"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "bb8b8a862e1fe14691c28f40a23c3304346c7e67693f798ff2372818ed165710"
+    sha256 cellar: :any_skip_relocation, monterey:     "957c2fa40cd1b7867dc4463ba65fb613ba3e67b672294ede255d6920881af932"
+    sha256 cellar: :any_skip_relocation, big_sur:      "4badd3eebc91259b2e8e0654b66e1a775c56c915529e10ee8bd90ed87d51feb7"
+    sha256 cellar: :any_skip_relocation, catalina:     "a1af20becc06d2d7984ba32906a35f12c9ff988fe8c5eff4381027ecf4e72f98"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "72fc6caf2b5ad176ca9345befa61173e13f72fa11bed603b5ce0f757e5aa2f78"
   end
 
   depends_on "autoconf" => :build
@@ -63,6 +63,8 @@ class ApachePulsar < Formula
   end
 
   test do
+    ENV["PULSAR_GC_LOG"] = "-Xlog:gc*:#{testpath}/pulsar_gc_%p.log:time,uptime:filecount=10,filesize=20M"
+    ENV["PULSAR_LOG_DIR"] = testpath
     fork do
       exec bin/"pulsar", "standalone", "--zookeeper-dir", "#{testpath}/zk", " --bookkeeper-dir", "#{testpath}/bk"
     end

@@ -1,18 +1,17 @@
 class Openfortivpn < Formula
   desc "Open Fortinet client for PPP+SSL VPN tunnel services"
   homepage "https://github.com/adrienverge/openfortivpn"
-  url "https://github.com/adrienverge/openfortivpn/archive/v1.17.1.tar.gz"
-  sha256 "c674c59cf3201a55d56cb503053982752fb641b13a85ea406b8a7e7df301e30f"
+  url "https://github.com/adrienverge/openfortivpn/archive/v1.17.2.tar.gz"
+  sha256 "0f3f3c767cb8bf81418a0fc7c6ab7636c574840c3b6a95c50901c3e1a09c079a"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_monterey: "ec8d7033e8e96e347ed56b4fc81ee11805ba23a0f343b1519eb496533f1c5bca"
-    sha256 arm64_big_sur:  "c4748e81cb20fb01c9d414e0ed293fc368e564301a5bd30a12331c874110386f"
-    sha256 monterey:       "b26201d5191b156c69840c7116e0ba57afb2e32290884d7da3a1826c2aa9f6b2"
-    sha256 big_sur:        "bd22ebd6c3c8303346885799b63c8fc75c324d5d5a3b467960852bbc3be0bb7a"
-    sha256 catalina:       "4a6d61358a7c7d950cc10c59089eed15fb8b8dfc3bcf345c83a87b08c1308028"
-    sha256 mojave:         "07ed32d58eeee4cd3fc6ee3635cd70ad5ecdb67fd0e44265da4784c81b3442fa"
-    sha256 x86_64_linux:   "a6e1156d037a572b3f9dcb511bb9d708e6775a7a68027399f5451f690c097cd6"
+    sha256 arm64_monterey: "4416e29cdcd1cea5a67b9f43a884379b42d4a1182c343ca00282508736e936dd"
+    sha256 arm64_big_sur:  "841251f14102aac8428f452673c59802c53f15704a76c90378777a70e1eae92e"
+    sha256 monterey:       "0f556551fb7844bb8954e02256c03270442a259a54ddfe006bfa1cb66f724488"
+    sha256 big_sur:        "ccc9bb9f730dfe2042b1122075a489a21a0e2670a6476629ee3378a8dcbe30be"
+    sha256 catalina:       "0b29d6c3803757515db40e0c9316fabed9d3eff7487a02f074ae52fe431f95e6"
+    sha256 x86_64_linux:   "816c71078dd6b6a17409595e226409de00d6c25614460ca708f6340b3b1c7db2"
   end
 
   depends_on "autoconf" => :build
@@ -28,6 +27,15 @@ class Openfortivpn < Formula
                           "--sysconfdir=#{etc}/openfortivpn"
     system "make", "install"
   end
+
+  plist_options startup: true
+  service do
+    run [opt_bin/"openfortivpn", "-c", etc/"openfortivpn/openfortivpn/config"]
+    keep_alive true
+    log_path var/"log/openfortivpn.log"
+    error_log_path var/"log/openfortivpn.log"
+  end
+
   test do
     system bin/"openfortivpn", "--version"
   end

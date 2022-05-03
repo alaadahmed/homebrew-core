@@ -1,17 +1,17 @@
 class Gedit < Formula
   desc "GNOME text editor"
   homepage "https://wiki.gnome.org/Apps/Gedit"
-  url "https://download.gnome.org/sources/gedit/41/gedit-41.0.tar.xz"
-  sha256 "7a9b18b158808d1892989165f3706c4f1a282979079ab7458a79d3c24ad4deb5"
+  url "https://download.gnome.org/sources/gedit/42/gedit-42.0.tar.xz"
+  sha256 "a87991f42961eb4f6abcdbaabb784760c23aeaeefae6363d3e21a61e9c458437"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_monterey: "742ecff3107cae13ab538fba653fbdb4e8290325269d5b105731a161513f4430"
-    sha256 arm64_big_sur:  "1ea1042d4a49639ac76fe90382af0a1d8c5ec660ed4d4355b7c6b0d379fb3d28"
-    sha256 monterey:       "5ff599ceb42be1e20f92783f6508aca717f7a6267386c8c17e9bcef21889b438"
-    sha256 big_sur:        "c744068a0ba46c7a8fd85f4b3678b358625383cfcf4df058665f92de5c2c84d4"
-    sha256 catalina:       "f08082b19703213a84e42a5d7e70bfcd61305c03d4a276fb35095044c5f839d5"
-    sha256 x86_64_linux:   "1c9d10dcef030f49dad3dc5f23579b99d809a1258a93861f9cec445dbb0f0fbc"
+    sha256 arm64_monterey: "e86676c92593d01d9b0d1c04ae138d8c9d0653f5f9e67e957328ec13bedd52cd"
+    sha256 arm64_big_sur:  "d663b941cc3dd78c2d9c48cc4cbb98e9326245bf68f10f44c36e7d36300e8f95"
+    sha256 monterey:       "ec72280a13bd5c78436afcd1c829774fd778f8956656ec3be93aa2bbc04108d7"
+    sha256 big_sur:        "5e53509d003a7597561e0457510cd8fc12aa48458c4d1ca11d60b8197c941815"
+    sha256 catalina:       "2f9741e8a1ccca51e097e52d81eed9b268a8081491739a267a89f968f11a870e"
+    sha256 x86_64_linux:   "cf0e8b86045a61b1a67af714598b9bee08573b2d78634cc9c72fb0d458945ace"
   end
 
   depends_on "itstool" => :build
@@ -34,23 +34,6 @@ class Gedit < Formula
   depends_on "libsoup"
   depends_on "libxml2"
   depends_on "pango"
-
-  # Fix build error due to missing function 'gedit_dirs_get_user_cache_dir'
-  # ../gedit/gedit-app.c:675:14: error: implicit declaration of function 'gedit_dirs_get_user_cache_dir'
-  # TODO: Remove in the next release
-  patch do
-    url "https://gitlab.gnome.org/GNOME/gedit/-/commit/741be1b11b977abd529aa2f633e50c2e80864afc.diff"
-    sha256 "e5ffa72b430abe60b357286c7079e8da9da1a05c31c023cb0f6885ed9c69e4cf"
-  end
-
-  # Fix build error due to missing file 'gedit-recent-osx.c'
-  # ../gedit/meson.build:182:0: ERROR: File gedit-recent-osx.c does not exist.
-  # PR ref: https://gitlab.gnome.org/GNOME/gedit/-/merge_requests/128
-  # TODO: Remove when PR is merged and available in release
-  patch do
-    url "https://gitlab.gnome.org/GNOME/gedit/-/commit/b075623f0d21f9d960999aa6dfc2a1072b7f12aa.diff"
-    sha256 "e82c3b38c17887313b9d6d88254427cba3fbbca259571bfa318fcaf917b13143"
-  end
 
   def install
     ENV["DESTDIR"] = "/"
