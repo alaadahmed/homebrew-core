@@ -1,18 +1,18 @@
 class Eigenpy < Formula
   desc "Python bindings of Eigen library with Numpy support"
   homepage "https://github.com/stack-of-tasks/eigenpy"
-  url "https://github.com/stack-of-tasks/eigenpy/releases/download/v2.7.3/eigenpy-2.7.3.tar.gz"
-  sha256 "0a205e10ed9490e4ee7f3fdf6749fff0636a7648ed72bfbba3569986a8ee2b58"
+  url "https://github.com/stack-of-tasks/eigenpy/releases/download/v2.7.6/eigenpy-2.7.6.tar.gz"
+  sha256 "71cc2763e891b7ef013b1c0306cdb7e497d6aff9f648dca30997e541b1a6e05a"
   license "BSD-2-Clause"
   head "https://github.com/stack-of-tasks/eigenpy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "383ad912e8cc7db8f1c126cc3b42621e71f54a45631c7ffdc6b315a133b4c340"
-    sha256 cellar: :any,                 arm64_big_sur:  "ad2c9eb7d43512e2b6b6d0ec5166eee015d36d4c8519b43e25486a485da885a1"
-    sha256 cellar: :any,                 monterey:       "0b837f40e2a68c3d572103e090ab36ec0cd8090b23b8350172920cfcd8b15deb"
-    sha256 cellar: :any,                 big_sur:        "74dfd617bf76ea6e05204cc9e40dd4ea7efd9051ea9f9d0f049e13e5e6c5e431"
-    sha256 cellar: :any,                 catalina:       "69cbccece577e7f566887a75323a54a9b12051601d6deada60e4bb317b25fdf4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a79ea2824d6cd32d1681f7f7d2c3b33491154e42636724bfaed657cbd0ba963"
+    sha256 cellar: :any,                 arm64_monterey: "f4658808221bc42690502300246439c24f03ac0a516173d7237bc7095c40e124"
+    sha256 cellar: :any,                 arm64_big_sur:  "f4b5abc044aab8ac6129c2a55e759f5194fca461037138fd41a7c007231983f3"
+    sha256 cellar: :any,                 monterey:       "a4c7032a1a5770aa28685c8f09101aec4cba410734ca661782aec1191b0a1387"
+    sha256 cellar: :any,                 big_sur:        "7a8da2f69ac4d0ea8db99de1ce2d4f54a1a671321b8c818992d32676772f5c21"
+    sha256 cellar: :any,                 catalina:       "864bc6b6e7cfee2972299840f74e2527dfc9e4e77a60a815f5d51b28927c687f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad1b2f9b2b80f8d33a3306a1ac2e0dd1b107ac90401f28b44aeeb2c9afd6a9bf"
   end
 
   depends_on "boost" => :build

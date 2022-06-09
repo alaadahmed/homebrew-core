@@ -2,18 +2,18 @@ class Vim < Formula
   desc "Vi 'workalike' with many additional features"
   homepage "https://www.vim.org/"
   # vim should only be updated every 50 releases on multiples of 50
-  url "https://github.com/vim/vim/archive/v8.2.4850.tar.gz"
-  sha256 "e4f126af0803e6e88964000f4eebc2a06adbd28fa855cf93b3bc025c17cf13da"
+  url "https://github.com/vim/vim/archive/v8.2.5050.tar.gz"
+  sha256 "8eecb277ad3993bea9f117070ab2a8648299ee37b9282b3e7f6681c3ac95a052"
   license "Vim"
   head "https://github.com/vim/vim.git", branch: "master"
 
   bottle do
-    sha256 arm64_monterey: "1171fee577de22e4b538fa5ac9a9cb0946035f06b023be57096c4b34c4d22942"
-    sha256 arm64_big_sur:  "ecafb5bbfe7d51e6899524c20f39ea32d7a43669e996da99dd699aa5b725cadd"
-    sha256 monterey:       "c5bb72b4c1f6693349f8413fbc39764804ca87193ab3443078997f83f451e3a0"
-    sha256 big_sur:        "6241cd48227e0fc166c0dab77b06831012b66039ea0a45571eaa0fc01b520f9c"
-    sha256 catalina:       "e1d05079b1946f3c63d2c739d3b10647263e896120ab624b0ea842bddb69ebd9"
-    sha256 x86_64_linux:   "ffb7685168820d3d1ba3d5264383f3adf37e329638f1a80ae71fb8a62085de84"
+    sha256 arm64_monterey: "4ef48e137df1d7156af8e3f69f3d2d62e3b2ed91c8f22f2df6c79b72a570eb0b"
+    sha256 arm64_big_sur:  "896fbcbb9ba3f29a8a368bbf5c597dd38675c61872c580c0afc7c8c17c1ead9e"
+    sha256 monterey:       "7fbf5440e911c75079e50e1459a6b4f427a2d89640f8c890653a612983ea1eea"
+    sha256 big_sur:        "9c02dbcaa359108192e43a4de025b587b77d9aab760c83ee756f4b56682fbf76"
+    sha256 catalina:       "271fde1e867e1f9552d07d444b0da255a4ec92b78a6c5ce2ec82f2b3dd1933d6"
+    sha256 x86_64_linux:   "324953739ba7c3063354af2a4d6ae86ca164ebb8a8d8362d1aec92c4608e7abc"
   end
 
   depends_on "gettext"
@@ -54,7 +54,7 @@ class Vim < Formula
                           "--enable-perlinterp",
                           "--enable-rubyinterp",
                           "--enable-python3interp",
-                          "--enable-gui=no",
+                          "--disable-gui",
                           "--without-x",
                           "--enable-luainterp",
                           "--with-lua-prefix=#{Formula["lua"].opt_prefix}"

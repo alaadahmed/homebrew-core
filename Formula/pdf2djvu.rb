@@ -4,16 +4,16 @@ class Pdf2djvu < Formula
   url "https://github.com/jwilk/pdf2djvu/releases/download/0.9.18.2/pdf2djvu-0.9.18.2.tar.xz"
   sha256 "9ea03f21d841a336808d89d65015713c0785e7295a6559d77771dc795333a9fa"
   license "GPL-2.0-only"
-  revision 2
+  revision 4
   head "https://github.com/jwilk/pdf2djvu.git", branch: "master"
 
   bottle do
-    sha256 arm64_monterey: "000d5cd9452f8aaac330b42b25c14638751e43820dd102be724871b8bc917b9e"
-    sha256 arm64_big_sur:  "f1bb42d1c85fae015352fe75c4fb24b979e6cce7dfb0b567e86e71676bc3fa76"
-    sha256 monterey:       "1d7fc618731a7489b251e1bd96a1ed1a15980751e0ae36e7c062b3876ba61f96"
-    sha256 big_sur:        "8f8987f6719bedee79d44c7071aa452de3ee49a0067bacc3963e365f2fe5c9de"
-    sha256 catalina:       "796540989e95c5709006a419616a4f030bee49281faab284562a27883e2f584c"
-    sha256 x86_64_linux:   "808dade3d55a964134d062ebec8df6f12c285ee9540f1fdba78f5df648279375"
+    sha256 arm64_monterey: "af3e5a67dcbf23897f2e90d32bc312e5bb5629b4a1cbde594ebe58da48ebc228"
+    sha256 arm64_big_sur:  "009b759db93148c102a9d1bcfbd5e713389a024aed70187fac8eb8fde08e20f6"
+    sha256 monterey:       "3a94580e6a0e76d30ea5e5feb249ed92b9f2835d51c8cc5ac9725a04f838c432"
+    sha256 big_sur:        "f122c8f6136b441354adaa8d7cb92952a4e12b279c3df28ea4e7a1cfafacef9c"
+    sha256 catalina:       "0686d5eca77bcf30388276dcc75498da713d0b73a12bd4958f260ef80c654304"
+    sha256 x86_64_linux:   "f54bbb88a130a463c8070dd6b35a365b3a57df2bb1f3cb13ae05da10f1a15a6f"
   end
 
   depends_on "pkg-config" => :build

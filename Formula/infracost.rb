@@ -1,18 +1,18 @@
 class Infracost < Formula
   desc "Cost estimates for Terraform"
   homepage "https://www.infracost.io/docs/"
-  url "https://github.com/infracost/infracost/archive/v0.9.23.tar.gz"
-  sha256 "740e6f5f65ae76e18576693c03aa586524d93fcec99451843d120eeedd8f32a7"
+  url "https://github.com/infracost/infracost/archive/v0.10.2.tar.gz"
+  sha256 "f007bafa8592e3c33ef430eed397964b13eeb3ab3b2b0ea33fe526c3f53ae944"
   license "Apache-2.0"
   head "https://github.com/infracost/infracost.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e2071d5c7f67177cc3f18fd96d351bf8bb123c3a6f34b07c76481922a3a40201"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0874c2e73de6d95e3a5b70c31873d2d7696a152703e37b3ac441f7a373835bfa"
-    sha256 cellar: :any_skip_relocation, monterey:       "0116670a708e78440ed6deaceb65591bed85549be4f694eaa4aa67867197a93f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0116670a708e78440ed6deaceb65591bed85549be4f694eaa4aa67867197a93f"
-    sha256 cellar: :any_skip_relocation, catalina:       "0116670a708e78440ed6deaceb65591bed85549be4f694eaa4aa67867197a93f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2f9ca5988f8002da453b86dceefec15f75893cb45b722a776b772d16c3fc2ab3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0429b05f5d99bf32ee6b5871c4af6c4c60db5f34f027fb7741b844ebc2a766b1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f3f4e5354e334bd171c8961fc52d85856ac9c894e978aa10d4ab816819a27da6"
+    sha256 cellar: :any_skip_relocation, monterey:       "b26ae16a6b6c1dcbd0d171e7f49630721712cdb8b6f77fc661bda687299f2c69"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d6f0b57293316e622d480705e136fd3007895c5b3bc7312cf0b088c6d896a783"
+    sha256 cellar: :any_skip_relocation, catalina:       "d6f0b57293316e622d480705e136fd3007895c5b3bc7312cf0b088c6d896a783"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "96151262ba6859e38071af166746e16ecfa0e122288fd7a566e2b47c775a21a7"
   end
 
   depends_on "go" => :build

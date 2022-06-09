@@ -1,8 +1,8 @@
 class Zabbix < Formula
   desc "Availability and monitoring solution"
   homepage "https://www.zabbix.com/"
-  url "https://cdn.zabbix.com/zabbix/sources/stable/6.0/zabbix-6.0.3.tar.gz"
-  sha256 "e6195328942744eca5f0051db42f9830d26612a93f439e89656588d9488a3042"
+  url "https://cdn.zabbix.com/zabbix/sources/stable/6.0/zabbix-6.0.5.tar.gz"
+  sha256 "3eeb7063efc5dad56f84dfdcf9aeb781044be712e11e83f66d043da55f33bdc2"
   license "GPL-2.0-or-later"
   head "https://github.com/zabbix/zabbix.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Zabbix < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "e0a1ca6d07205330596a02216d1cab6a6418115eaba6eb4674dc1c9d4b9b58a4"
-    sha256 arm64_big_sur:  "2d95a5ba43b604a9cbc9b75810405376404dc1ff55ab4e138d9843d7b623e29a"
-    sha256 monterey:       "c76485c47a36607cd4572f2b3c6abf4a7157bec471bdbbeba5fcb3e5c7834731"
-    sha256 big_sur:        "34a9b442f2cb2d2e3482b613a0ee334000a5b2264d32177545351760b1774726"
-    sha256 catalina:       "a7057ed1ac6d60c3a0e22cf95ccd1dae9c753dddc1945981c5dda5377c32dd40"
-    sha256 x86_64_linux:   "8a011bf0af56542f13da387b21e4987f6e8830692fe6996c0f99c8dd874370d2"
+    sha256 arm64_monterey: "03187314c76344360450d3db8d1eb592f2143d8093b055b73571fde117eb6d19"
+    sha256 arm64_big_sur:  "c9f2ac0e4d866a16a82491ec73c9339da24381855f34eddf8184a4505bb3cba7"
+    sha256 monterey:       "11f6d53439663bbb10b539db64f6ea5c02265f309dd02fde8125e990d2576ee9"
+    sha256 big_sur:        "a2bb348493cd263d4e60565627e692057671cac5ca9095fed2d1c6ab5d08cb4e"
+    sha256 catalina:       "591ce4a6478e97c8b59b4beb61ea0b299c2f78e7192e8a1a2b0e5a076bb4c8cf"
+    sha256 x86_64_linux:   "fd03d3a3ad820b134a85668abed40b86a49a1282dafa18d92296f60684103323"
   end
 
   depends_on "openssl@1.1"

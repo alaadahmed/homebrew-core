@@ -1,9 +1,9 @@
 class Go < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://go.dev/"
-  url "https://go.dev/dl/go1.18.1.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.18.1.src.tar.gz"
-  sha256 "efd43e0f1402e083b73a03d444b7b6576bb4c539ac46208b63a916b69aca4088"
+  url "https://go.dev/dl/go1.18.3.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.18.3.src.tar.gz"
+  sha256 "0012386ddcbb5f3350e407c679923811dbd283fcdc421724931614a842ecbc2d"
   license "BSD-3-Clause"
   head "https://go.googlesource.com/go.git", branch: "master"
 
@@ -13,12 +13,12 @@ class Go < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "1f43c3563aa7d0a124745b4873a3122565761400d6d9e363962a3dbddce980d3"
-    sha256 arm64_big_sur:  "87bbda21351bcc22076014a59c5ad5ea45468748170d5f268e2e4c90140bd7b7"
-    sha256 monterey:       "642ebd8d3e2d3ee1e959aa0af67cd597594498480a55557025f4b1d70d2e9057"
-    sha256 big_sur:        "7c10a52de6e68d572ecca1232dc8ca15c9ae0362fca909105326e32527d30199"
-    sha256 catalina:       "fb1371dd30097b6408a9cf37b26bdf714e449785803aadcdc40b88813e79c90a"
-    sha256 x86_64_linux:   "47b7a9af4e2d45035cf2de9d4a62b1ef04dbf3449ba08e3ef5b6b39be14855fa"
+    sha256 arm64_monterey: "f9bfa7562421ece3c7bebe5eb2ea733286b33c009a2f24b932b82978b3e97446"
+    sha256 arm64_big_sur:  "7b405fbace1164c8e28f98f4b005a5b853f033ff08b0da43a7f2e31c203a1d53"
+    sha256 monterey:       "d99358b9ca6dadc9298ef1164d69fadd31ccbadd6fa21f2ddd71018164813395"
+    sha256 big_sur:        "687d07f5cf904d7cdb83a9290e646677717a39c28e52de427d14518ab027339d"
+    sha256 catalina:       "60038eabf8a61afc20dc9031124287b5faf99600613318645850db4b6757b5b4"
+    sha256 x86_64_linux:   "e1a92e8cb4f7fe7bdecaf8ec846b02915af1f0ba3329d1c7a4bf7d0981319fb5"
   end
 
   # Don't update this unless this version cannot bootstrap the new version.

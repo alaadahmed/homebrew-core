@@ -1,8 +1,8 @@
 class Convox < Formula
   desc "Command-line interface for the Convox PaaS"
   homepage "https://convox.com/"
-  url "https://github.com/convox/convox/archive/3.4.4.tar.gz"
-  sha256 "62c288338824285110bc4e3565f9e342acef527d798ee632c3a2a175d5fd1e9b"
+  url "https://github.com/convox/convox/archive/3.5.1.tar.gz"
+  sha256 "4220ad93e5e5028c080f140dd353dda9fe74975a39e4a6c1218eabfd11156c42"
   license "Apache-2.0"
   version_scheme 1
 
@@ -12,12 +12,12 @@ class Convox < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "babedecee1bcb56a57b1fec6db6dc39e225dbea06204460202b3a46febab2b91"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "511992b9f21f701dbfff0c9248078b1bc546ce96d8704a81f69c6ff2eebfce14"
-    sha256 cellar: :any_skip_relocation, monterey:       "699c7f0956cb01a5a3f05d18bd952a27e563f6ae49f5a7400575a75ac9332e46"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4c1126a10f9c48778816aa875313b592310d99d415aaaa8607bcd6fe3d274e88"
-    sha256 cellar: :any_skip_relocation, catalina:       "10f86998c40ea6ff9a163a649dc4340fbad77c4cd176473df1fe5d4c8a2fb058"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4947b4ff1f3a315cf0b2333098426471c380e3c6adf5cb47d4473ea8796eed9b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "98440e6200545507ab3d4cee35075495dff6b915abaed3da4470f795f1179da8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d4bb76b4c8ce3d2acd3167fb7df06c447d0fd0dcd547dbda26d20ae1dc92a404"
+    sha256 cellar: :any_skip_relocation, monterey:       "bd1b840fc6836923c0b401486da91f0212095eb4e62b86bf65b9b6ddd13f6147"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b7b4762af923add4583acb93ec69b639f3d132ca2ae067f456b9d3f7572bc140"
+    sha256 cellar: :any_skip_relocation, catalina:       "4821bb829c9e7f275f9553d83da4742ff4a6ce29fedd71b268b9e55a162ed169"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ad33224a2575d9de5ec593cc237c07eeb031a14ec258eda38f49713558b355c"
   end
 
   depends_on "go" => :build

@@ -12,12 +12,13 @@ class MingwW64 < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "66043b8167ef9fae5d879ea549ad6754385784cf45f4de02a7428692a3641e31"
-    sha256 arm64_big_sur:  "0b92a60973375c4636ca0d89564ba74614640892200bd7598937d6310a1b9d78"
-    sha256 monterey:       "a18de3e11601da04eef97d10af3907d4a4cf32739700ec5ae18b4e66cbd0eb3d"
-    sha256 big_sur:        "5e21a4708419a2cfb06c20addd8c310f4ae32fb8f14e29ea4ed60405d02181c7"
-    sha256 catalina:       "dabe566ca21339fa23ed1165adc21a52fdc49d16869a3ec08e3f2d19a2ce6bfb"
-    sha256 x86_64_linux:   "0fd3183c24bda1f5a2f412ee98157c5d5a06a9e3e73e4a6f5953fdd8506a8af5"
+    rebuild 1
+    sha256 arm64_monterey: "83ac80b88fcf2d47b786d457648bb3f1f1002deb9ff71b1f5f884de8e1c0b392"
+    sha256 arm64_big_sur:  "857aecb324bf425ca3ef2bcfd462a4909df2f6d5152feb69bf86c1371234fbb9"
+    sha256 monterey:       "40976416e23d81cd33649fb1dbb5582d359effee42005f66a7b99bc97019a86d"
+    sha256 big_sur:        "0a6af7c3ce1f1d37a09a0b7e9e526d32a15d4817ee9ca9feab9ad2ce5d8a83d4"
+    sha256 catalina:       "cede2bfb5f915da57afb35cccc4fdfb89fcdec572a16714ef6bdc7a8383d395e"
+    sha256 x86_64_linux:   "e5e8544cc80513ebd44ebbed9207d10bf0419d8ca91f264fea85edaf6b4534aa"
   end
 
   # Apple's makeinfo is old and has bugs
@@ -42,18 +43,9 @@ class MingwW64 < Formula
   end
 
   resource "gcc" do
-    url "https://ftp.gnu.org/gnu/gcc/gcc-11.3.0/gcc-11.3.0.tar.xz"
-    mirror "https://ftpmirror.gnu.org/gcc/gcc-11.3.0/gcc-11.3.0.tar.xz"
-    sha256 "b47cf2818691f5b1e21df2bb38c795fac2cfbd640ede2d0a5e1c89e338a3ac39"
-
-    # Remove when upstream has Apple Silicon support
-    if Hardware::CPU.arm?
-      patch do
-        # patch from gcc-11.1.0-arm branch
-        url "https://github.com/fxcoudert/gcc/commit/eea3046c5fa62d4dee47e074c7a758570d9da61c.patch?full_index=1"
-        sha256 "b55ca05a0ed32f69f63bbe708568df5ad62d938da0e34b515d601bb966d32d40"
-      end
-    end
+    url "https://ftp.gnu.org/gnu/gcc/gcc-12.1.0/gcc-12.1.0.tar.xz"
+    mirror "https://ftpmirror.gnu.org/gcc/gcc-12.1.0/gcc-12.1.0.tar.xz"
+    sha256 "62fd634889f31c02b64af2c468f064b47ad1ca78411c45abe6ac4b5f8dd19c7b"
   end
 
   def target_archs

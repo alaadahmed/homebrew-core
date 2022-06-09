@@ -1,18 +1,18 @@
 class Tflint < Formula
   desc "Linter for Terraform files"
   homepage "https://github.com/terraform-linters/tflint"
-  url "https://github.com/terraform-linters/tflint/archive/v0.35.0.tar.gz"
-  sha256 "0f8e3e501a51f95bee99d7dc00c522aebb7ec1d908b86b7a2e372aa727cf6193"
+  url "https://github.com/terraform-linters/tflint/archive/v0.37.0.tar.gz"
+  sha256 "ec2024762b9e6e12629cb17f724585cc0c29ddd201590562f7f9b4be2da472fb"
   license "MPL-2.0"
   head "https://github.com/terraform-linters/tflint.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6adbb9521a0edff3c7a0cc4eb8e6796aef138d91efda0dcf8993f06962558868"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7712be10a5035dc5c9ec66406cfed66b4a34d4ecad8762db8409a36cc7266865"
-    sha256 cellar: :any_skip_relocation, monterey:       "11fb9f7a18c876973dfa0108c38ab736ee4b5d189d5859c61f2a2152c4c04647"
-    sha256 cellar: :any_skip_relocation, big_sur:        "39c9104f8dc3bd5c54289119b74c36b90ffcefcfb7ef0d619a9fe5d462a55a60"
-    sha256 cellar: :any_skip_relocation, catalina:       "7b6022ba10225581003ea9c9d07121a15812c2cd63072b71de6002cd47deef1f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "132b774e4917a27039a8cdc599d6bef9ad8022dcf6429c3d5a2bdf22a9a6cae2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7884bcf751778ee7eab599ebf80090f0d5aeac639531e67ae90653c624f29a50"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "89daa072539cdfc2bb7c0c8b423230c767f333f97a5d844308af7a117a53cbfd"
+    sha256 cellar: :any_skip_relocation, monterey:       "94902641bde5c01a946e3b0d1f8ef4a6a5ed9c156aaa4ca13b40e0d188df7769"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7b1e1d8b62d84bad8c00371f4c89fe0e55da972bdcbed715f7c4f6bd0ceb47fc"
+    sha256 cellar: :any_skip_relocation, catalina:       "a86b8cbc63e935917ec5cb97a44af0b3bffa14ba6f3806e3df0884550cb00366"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e0f00f0747f73d7f502960ddbb160bfeabf49b7c65d465fcdb4814dbc2bf96a"
   end
 
   depends_on "go" => :build

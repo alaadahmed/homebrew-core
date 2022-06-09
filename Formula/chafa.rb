@@ -1,8 +1,8 @@
 class Chafa < Formula
   desc "Versatile and fast Unicode/ASCII/ANSI graphics renderer"
   homepage "https://hpjansson.org/chafa/"
-  url "https://hpjansson.org/chafa/releases/chafa-1.10.2.tar.xz"
-  sha256 "171042f71f4a1da72322c170d81c4715ac5ac2c907aa663912f74b7a4b1b9bbb"
+  url "https://hpjansson.org/chafa/releases/chafa-1.12.0.tar.xz"
+  sha256 "aafde6275e498f34e5120b56dc20dd15f6bb5e9b35ac590f52fde5ad6b2c7319"
   license "LGPL-3.0-or-later"
 
   livecheck do
@@ -11,12 +11,12 @@ class Chafa < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "d5e90692c1975eaf2fd6de06601d5dc00da71b43bd726097a5538c0b2b980a94"
-    sha256 cellar: :any,                 arm64_big_sur:  "d064702055239a04785debdfb1337f9fd3a286ccfd17eb3d6de35979e4ed6c59"
-    sha256 cellar: :any,                 monterey:       "f5d084b5f3945b027c8a0041bf0fe71d0fa1dc7605e00ef32e8a23b1d2453f67"
-    sha256 cellar: :any,                 big_sur:        "c8956bdbeb2a0bbb4525875b2c089bad467edbcdc4dd7e0e2ffe49fd977b1f0b"
-    sha256 cellar: :any,                 catalina:       "f78ee0e8889ad13e58e29b92bc731ebaf7388026dbc618ee6cc5179b7400889f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "110de3d3360e9dbf8fddb87590a0b0ee876ce38fc2e6ea0f7f0a4cc69ab5c5aa"
+    sha256 cellar: :any,                 arm64_monterey: "f54d4ca089873e9b34724701215f4cbb3d0a58e84729ea1e00653df4b0e21a70"
+    sha256 cellar: :any,                 arm64_big_sur:  "6695f8e918ff63ac750970467ddc3c3143eb5d8c9198884b99144d4fa964d18e"
+    sha256 cellar: :any,                 monterey:       "d42110f4783969867468ff0d8b510ca0ae91ea57a2a0d362d61bf979b3e9f20c"
+    sha256 cellar: :any,                 big_sur:        "f2ae11a9c9581d49eeef3f7e18ea5b69b03646390a564b0addff11098d523f84"
+    sha256 cellar: :any,                 catalina:       "0f5ddb7b7ccb246e6c18cbe18ab328e36a7509c1d2b1b3b474ecdb1e11c5bbdc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "66b6fb5879df30ae0af6391ea1704b01adf6d7c117f6aab8de516090368348e0"
   end
 
   depends_on "pkg-config" => :build
@@ -40,6 +40,6 @@ class Chafa < Formula
 
   test do
     output = shell_output("#{bin}/chafa #{test_fixtures("test.png")}")
-    assert_equal 4, output.lines.count
+    assert_equal 2, output.lines.count
   end
 end

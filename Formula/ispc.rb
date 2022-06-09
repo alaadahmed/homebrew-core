@@ -1,25 +1,25 @@
 class Ispc < Formula
   desc "Compiler for SIMD programming on the CPU"
   homepage "https://ispc.github.io"
-  url "https://github.com/ispc/ispc/archive/v1.17.0.tar.gz"
-  sha256 "37fb1055d6c6b232e112d8d50145d726824ed4d8da93a7396315dceba6c76e62"
+  url "https://github.com/ispc/ispc/archive/v1.18.0.tar.gz"
+  sha256 "81f2cc23b555c815faf53429e9eee37d1f2f16873ae7074e382ede94721ee042"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_monterey: "b27e31b04bdf6f1aebe3d6696b9bb58cf443983750d0f8f4351669e7ac4181c6"
-    sha256 cellar: :any,                 arm64_big_sur:  "c5d80025cd446ee1662da3f4797ca77cfe3f84e6d5d28526a51f8e38b83a45d6"
-    sha256 cellar: :any,                 monterey:       "8181e437ca72955573dfef8d695252cbb1d2000a0a86a2453a186c903a97eb0c"
-    sha256 cellar: :any,                 big_sur:        "c189680f9709868a8ecec85b5289ce320e666d1bc05a67b380bbcef0fbb49954"
-    sha256 cellar: :any,                 catalina:       "0e5c8348e224cb4113e815e7027997ab9010416de92d5fbdddff68d1fbd7ff35"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "44a8c1b1e5a395d15c95c99577d23dfb66e4ca0acc45fd8cb87a2d948aba1fca"
+    sha256 cellar: :any,                 arm64_monterey: "c9cf8cf0b15d029f95bab589d6aec903d19df669fa39e8b844e413ceced5244c"
+    sha256 cellar: :any,                 arm64_big_sur:  "3b13624a6b741e413530b0ac1559b5a82f797af71f945aea54577c77ae2462ff"
+    sha256 cellar: :any,                 monterey:       "673087b8118571ed140a11b5dad66277eab33450cd8ce3fb02a15c35ef45f48c"
+    sha256 cellar: :any,                 big_sur:        "da6ef96870ff6afd9b719dfcf7316a9c207f0f137b4624469f26472a10fbb878"
+    sha256 cellar: :any,                 catalina:       "41beb9f2a721a680564bcd55e0a029c1f99231886ae96cb0d02884fbb2541a2f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "864e22beac49f650331488c5ae56594b70f397c5f290f185e9636883793ec62a"
   end
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "flex" => :build
   depends_on "python@3.10" => :build
-  depends_on "llvm@12"
+  depends_on "llvm" # Must be LLVM 13
 
   on_linux do
     depends_on "gcc"

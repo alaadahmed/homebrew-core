@@ -1,17 +1,17 @@
 class Lsyncd < Formula
   desc "Synchronize local directories with remote targets"
   homepage "https://github.com/lsyncd/lsyncd"
-  url "https://github.com/lsyncd/lsyncd/archive/release-2.2.4.tar.gz"
-  sha256 "3f51c6456604b5acce191c3539e7693a63bd395045dfd5ba35fa4222ca76ed79"
+  url "https://github.com/lsyncd/lsyncd/archive/release-2.3.0.tar.gz"
+  sha256 "08a1bcab041fa5d4c777ae272c72ad9917442b6e654b14ffd1a82ba0cd45e4ef"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "3a78bb8674296e77a9e186f9e11f4d88b1bbf78ad83689855254d4884456a421"
-    sha256 cellar: :any,                 arm64_big_sur:  "05b9a07bcac8df4416b10a81223623fcfada7e73c7398639381631ce2bdcfd12"
-    sha256 cellar: :any,                 monterey:       "fbf835efa75b8a087fc022034fe9c54c841f1f0c43c70ec5176d0373d39f042c"
-    sha256 cellar: :any,                 big_sur:        "8792501d81fe3c1ece7b0df75c37b106587f2bc32e8cf4c9c31a45cf916aef31"
-    sha256 cellar: :any,                 catalina:       "a567eb529289b0b04d73700fe78f376e601866f00b7f1b19628e2667e74c9db4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "73f0ffe184f0788b239fe9780d9d4ee998df95f5db05dc078a4c15170c5685e7"
+    sha256 cellar: :any,                 arm64_monterey: "7efe77196dbd68eed6bf1756d431c8d673ef190bc9a34a3e4cd4b69ec68ed86f"
+    sha256 cellar: :any,                 arm64_big_sur:  "9cd46cb4d36241420c4016c10745fbe8086d79426e3c65428f9ec6918ef7471f"
+    sha256 cellar: :any,                 monterey:       "8aa99334757054b742bdf154cb9062975bc9971e10e86fb6fd3d829efa4195db"
+    sha256 cellar: :any,                 big_sur:        "216c8d2fcebd0ce0402d68697e209fc35f47b31f8628a1c73d31a6a21fe75b52"
+    sha256 cellar: :any,                 catalina:       "9bf855ed792d5c2a66b23f326d4093c49c1d35012400e02a305b43bb5155d45e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e199eed33824a260fad6c0cd15edafe30a7e6b727e9d626e9974e7ccce3a170"
   end
 
   depends_on "cmake" => :build
@@ -72,6 +72,7 @@ class Lsyncd < Formula
       "12.0"    => ["xnu-8019.41.5.tar.gz",       "54540440f73d5dcfe94ed33591f2fa40609f932213a5e6862268589d32ff7ac4"],
       "12.1"    => ["xnu-8019.61.5.tar.gz",       "1e035fcf9a2b86dfadcccbbaf963f98b878772ae29c5058f1dc0e5852f70650e"],
       "12.2"    => ["xnu-8019.80.24.tar.gz",      "2fbfe90ec8c93d93f0dd69f09610011d26a722f98266202de6a7c2af764712b4"],
+      "12.3"    => ["xnu-8020.101.4.tar.gz",      "df715e7b2bd5db0ba212b5b0613fbbc85c3cbc4e61f6ee355a8b6cf9a87d3374"],
     }
 
     macos_version = if MacOS.version >= :big_sur

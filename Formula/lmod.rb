@@ -1,23 +1,24 @@
 class Lmod < Formula
   desc "Lua-based environment modules system to modify PATH variable"
   homepage "https://lmod.readthedocs.io"
-  url "https://github.com/TACC/Lmod/archive/8.7.1.tar.gz"
-  sha256 "7b271a6e8509174707154fee502ab18a059c3e3c9d4b37cbb3c930bdd5b75e37"
+  url "https://github.com/TACC/Lmod/archive/8.7.4.tar.gz"
+  sha256 "acc71d2c6cd1135b04ff03ebceff3e88c03b999afccfb887f26c1d84bce9a6b6"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f00b89e0dc6a01e7ebceff9de480dc5e01f1a91c6854d64128fb8698c2777fbb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5860251e9fa6cff3efe092cb3a731e2d95296842e469f42e0175f172e3b5e67b"
-    sha256 cellar: :any_skip_relocation, monterey:       "25983d95bbcd6e1aa96611153118897ddd602ab17fa801bb51b33f1c82f746ab"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f526716f46508f484885cf12b443d1fba8392f0977d1a00be9777fce87faeaf8"
-    sha256 cellar: :any_skip_relocation, catalina:       "52c19ff673524f4f23f6fcad782d358599dbc757c1a8393eebb1fd417c4e634c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e99dbf4a7b05f3173165be6c66c5d29d63293916e0dfac182559537438395f4a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d69a4e3279d4bab06637fa3ac0ee14fe6bccea61e91acf079c26d106d6a55b43"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "af37060286aec93c5b383fbea7103b8840c45072ea6865a4dbf03e341fa285b0"
+    sha256 cellar: :any_skip_relocation, monterey:       "e7fbf309b137ebfff08dce0998f21c0fb38d9bf55c176fd324c3a69060e80d6b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d87a7c45f170178f32e3e312e15bec6e5daab87295d84d210805e8dd8061a091"
+    sha256 cellar: :any_skip_relocation, catalina:       "b7c8851625a7fccf203e24325bbee378625706c107e2d763f0723a0e34dc82fb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "99249d0367e4535d0b6ef87fc67aa954de8f7ca56f0549224df7ae6b6b88be43"
   end
 
   depends_on "luarocks" => :build
   depends_on "pkg-config" => :build
   depends_on "lua"
 
+  uses_from_macos "libxcrypt"
   uses_from_macos "tcl-tk"
 
   resource "luafilesystem" do

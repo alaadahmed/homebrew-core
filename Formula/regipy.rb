@@ -3,18 +3,18 @@ class Regipy < Formula
 
   desc "Offline registry hive parsing tool"
   homepage "https://github.com/mkorman90/regipy"
-  url "https://files.pythonhosted.org/packages/b1/7c/7198c96f40a40a70a3c8d0ff269b957fdf7a573e26c6c499d3a3b7a89835/regipy-2.3.0.tar.gz"
-  sha256 "d7d446fcf09c510fe2e896ec0db491c7fd8c842de812fc7383f553e38def7c95"
+  url "https://files.pythonhosted.org/packages/2b/34/f71bebb13f414513427c08594087decc79a84d26845279402a4425c76b7b/regipy-2.4.1.tar.gz"
+  sha256 "6177ea938d7b87f1c2c537ef9eb87c46a4c28f0e8aa2a2a10fff80d520deb5c0"
   license "MIT"
   head "https://github.com/mkorman90/regipy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1c4ef28de6f3fe559b9b00d1be0be8efad07ea6220f43bc32bcf8eeea119bc8b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cc6e76207e907bb4e3873fc1aeac2c7002f367316c95262d9cd12fcb7d4d8c82"
-    sha256 cellar: :any_skip_relocation, monterey:       "50360526cf4d69f24a87ddbd98239ce5d3760bae9c95e153643cc75c5dca4452"
-    sha256 cellar: :any_skip_relocation, big_sur:        "52352859fc0566f3c856f079eabce518eaf3ced5eff7fc6cc42632796deba1c4"
-    sha256 cellar: :any_skip_relocation, catalina:       "ba756d7f1fbab51da6efec3f069f5677f10fb59107b7a50d660fc5432f87c957"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1919606c5b298cf50ab185db4149b980425e0b38d5af03ccf41052bcff8defb1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0c48b301e266805ff64055895838c68f7e2c4264671c67bbdea752e3f14e192f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8a73c9e714e64456d1f55783b37346e67a47be514664d4e2ae947101e269980e"
+    sha256 cellar: :any_skip_relocation, monterey:       "a18ece36769dd9854a0bf34fada5a56901805c7099b552289d2b89a4776a22ca"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7378042e02974dc014feeac8868a526dddca59ee1ea03a8960ab1aa5c41eeb60"
+    sha256 cellar: :any_skip_relocation, catalina:       "e2c8655932b421d1e0093f96b8b8b59a2024ad44294286d8b28fdc2f394c487b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2654db1913eb749e4178e36fe6d767b535e16bee8c6fc1a3a9ad6497518ee8a6"
   end
 
   depends_on "python-tabulate"
@@ -26,8 +26,8 @@ class Regipy < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/45/2b/7ebad1e59a99207d417c0784f7fb67893465eef84b5b47c788324f1b4095/click-8.1.0.tar.gz"
-    sha256 "977c213473c7665d3aa092b41ff12063227751c41d7b17165013e10069cc5cd2"
+    url "https://files.pythonhosted.org/packages/59/87/84326af34517fca8c58418d148f2403df25303e02736832403587318e9e8/click-8.1.3.tar.gz"
+    sha256 "7682dc8afb30297001674575ea00d1814d808d6a36af415a82bd481d37ba7b8e"
   end
 
   resource "construct" do

@@ -4,8 +4,8 @@ class Podman < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/containers/podman/archive/v4.0.3.tar.gz"
-    sha256 "e3b53fc9142d4f2dc085f17a377d92ffb8bfe7756c4f47b8128b38bcc3540cbc"
+    url "https://github.com/containers/podman/archive/v4.1.0.tar.gz"
+    sha256 "f814e12a7311d486c1ccdc4eb021bc6dd24499569de7a572e436342876f70e95"
     resource "gvproxy" do
       url "https://github.com/containers/gvisor-tap-vsock/archive/v0.3.0.tar.gz"
       sha256 "6ca454ae73fce3574fa2b615e6c923ee526064d0dc2bcf8dab3cca57e9678035"
@@ -13,12 +13,12 @@ class Podman < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d1b7e427ca2bc38957a4455e1beafeb42df4f454e4720d80c5e08df99d490c11"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "65c7531cede713e450859f725b709ab684b9e2b3ac53e2a09284538728046d61"
-    sha256 cellar: :any_skip_relocation, monterey:       "a69aa668172be5b2870da5bb45f944baa4c2b1285ecf81ca8e7cce46b39b8260"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d1bfadd2a72a22c889d186e3323e6b5606ff0255ae77ae6030cb0433c0875b7b"
-    sha256 cellar: :any_skip_relocation, catalina:       "52859377261c37ccd6dc1cabf4f1e8d07618e4942d82da4c641a842967c095e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7625c294d41ea3d920b847539abc0b2210559b9f663b9a14f769897c28c02164"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "34b03da74b82f34694d6f464ff77898d1fe707a63ed3349d19c87763793bd272"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7bc69157851c143df0ba30e985ff0595e5ed4f3d3ce67be896eb43d5aec3fa6d"
+    sha256 cellar: :any_skip_relocation, monterey:       "856d167796145995c33442db516e427ec441883ac1378ef48b3d2fd801fedcb8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6a0e56bcc3f326dd293de7b735fed378fcf5a026d2293d18c7a9c9fe874f069b"
+    sha256 cellar: :any_skip_relocation, catalina:       "b815a6573cf499978877e5512d3a18586bbf76a603b02cf331b377fd58355344"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e744b5d2c8d7e8808d9e1fb42a72ecdd25a42ae7c4c33e89634c8165bcd5413"
   end
 
   head do

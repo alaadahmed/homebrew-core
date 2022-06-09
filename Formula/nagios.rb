@@ -16,12 +16,15 @@ class Nagios < Formula
     sha256 monterey:       "28aee4339d0c5a399ed695f66bedef3fa16dcd3779d500ed4a9ca919b8f19297"
     sha256 big_sur:        "c6e08e7b0dccc9b77167145ec7dba514bb907eaadd7d2c7b4e15a73818d29649"
     sha256 catalina:       "382d4b6be1a3a45eac3f573cb2c6454f83ee6cf6befb4a4473ff43dbaef69551"
+    sha256 x86_64_linux:   "ee38e8425334de22a988b6c8dd67baff99df1c131296b62a27333e9154714e17"
   end
 
   depends_on "gd"
   depends_on "libpng"
   depends_on "nagios-plugins"
   depends_on "openssl@1.1"
+
+  uses_from_macos "unzip"
 
   def nagios_sbin
     prefix/"cgi-bin"
@@ -48,23 +51,24 @@ class Nagios < Formula
   end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--sbindir=#{nagios_sbin}",
-                          "--sysconfdir=#{nagios_etc}",
-                          "--localstatedir=#{nagios_var}",
-                          "--datadir=#{htdocs}",
-                          "--libexecdir=#{HOMEBREW_PREFIX}/sbin", # Plugin dir
-                          "--with-cgiurl=/nagios/cgi-bin",
-                          "--with-htmurl=/nagios",
-                          "--with-nagios-user=#{user}",
-                          "--with-nagios-group='#{group}'",
-                          "--with-command-user=#{user}",
-                          "--with-command-group=_www",
-                          "--with-httpd-conf=#{share}",
-                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
-                          "--disable-libtool"
+    args = std_configure_args + [
+      "--sbindir=#{nagios_sbin}",
+      "--sysconfdir=#{nagios_etc}",
+      "--localstatedir=#{nagios_var}",
+      "--datadir=#{htdocs}",
+      "--libexecdir=#{HOMEBREW_PREFIX}/sbin", # Plugin dir
+      "--with-cgiurl=/nagios/cgi-bin",
+      "--with-htmurl=/nagios",
+      "--with-nagios-user=#{user}",
+      "--with-nagios-group='#{group}'",
+      "--with-command-user=#{user}",
+      "--with-httpd-conf=#{share}",
+      "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
+      "--disable-libtool",
+    ]
+    args << "--with-command-group=_www" if OS.mac?
+
+    system "./configure", *args
     system "make", "all"
     system "make", "install"
 

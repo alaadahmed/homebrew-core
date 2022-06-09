@@ -13,6 +13,7 @@ class Corsixth < Formula
     sha256 monterey:       "45fcd5591710383a1b437f6d74266b6a9d1f587f3b820b8a0499199bf581e4c2"
     sha256 big_sur:        "400cdf58edc5407ba28bdc2437fef922a1ab4748c6c74dc047a6a6273291f583"
     sha256 catalina:       "d4b4c1abbd7c4329792a2a96304d95b8289d5f5f4be841872e5a9079e2349cf0"
+    sha256 x86_64_linux:   "23e347e4c34e7b5ffdb7738adf242fd742ce36de7f4eb6b19510f07bac61f688"
   end
 
   depends_on "cmake" => :build
@@ -23,6 +24,11 @@ class Corsixth < Formula
   depends_on "lua"
   depends_on "sdl2"
   depends_on "sdl2_mixer"
+
+  on_linux do
+    depends_on "gcc"
+    depends_on "mesa"
+  end
 
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 
@@ -54,24 +60,58 @@ class Corsixth < Formula
       end
     end
 
-    system "cmake", ".", "-DLUA_INCLUDE_DIR=#{lua.opt_include}/lua",
-                         "-DLUA_LIBRARY=#{lua.opt_lib}/liblua.dylib",
-                         "-DLUA_PROGRAM_PATH=#{lua.opt_bin}/lua",
-                         "-DCORSIX_TH_DATADIR=#{prefix}/CorsixTH.app/Contents/Resources/",
-                         *std_cmake_args
+    datadir = OS.mac? ? prefix/"CorsixTH.app/Contents/Resources/" : pkgshare
+    args = std_cmake_args + %W[
+      -DLUA_INCLUDE_DIR=#{lua.opt_include}/lua
+      -DLUA_LIBRARY=#{lua.opt_lib/shared_library("liblua")}
+      -DLUA_PROGRAM_PATH=#{lua.opt_bin}/lua
+      -DCORSIX_TH_DATADIR=#{datadir}
+    ]
+    # On Linux, install binary to libexec/bin so we can put an env script with LUA_PATH in bin.
+    args << "-DCMAKE_INSTALL_BINDIR=#{libexec}/bin" unless OS.mac?
+
+    system "cmake", ".", *args
     system "make"
-    cp_r %w[CorsixTH/CorsixTH.lua CorsixTH/Lua CorsixTH/Levels CorsixTH/Campaigns CorsixTH/Graphics CorsixTH/Bitmap],
-         "CorsixTH/CorsixTH.app/Contents/Resources/"
-    prefix.install "CorsixTH/CorsixTH.app"
+    if OS.mac?
+      resources = %w[
+        CorsixTH/CorsixTH.lua
+        CorsixTH/Lua
+        CorsixTH/Levels
+        CorsixTH/Campaigns
+        CorsixTH/Graphics
+        CorsixTH/Bitmap
+      ]
+      cp_r resources, "CorsixTH/CorsixTH.app/Contents/Resources/"
+      prefix.install "CorsixTH/CorsixTH.app"
+    else
+      system "make", "install"
+    end
 
     lua_env = { LUA_PATH: ENV["LUA_PATH"], LUA_CPATH: ENV["LUA_CPATH"] }
-    (bin/"CorsixTH").write_env_script(prefix/"CorsixTH.app/Contents/MacOS/CorsixTH", lua_env)
+    bin_path = OS.mac? ? prefix/"CorsixTH.app/Contents/MacOS/CorsixTH" : libexec/"bin/corsix-th"
+    (bin/"CorsixTH").write_env_script(bin_path, lua_env)
   end
 
   test do
-    lua = Formula["lua"]
+    if OS.mac?
+      lua = Formula["lua"]
 
-    app = prefix/"CorsixTH.app/Contents/MacOS/CorsixTH"
-    assert_includes MachO::Tools.dylibs(app), "#{lua.opt_lib}/liblua.dylib"
+      app = prefix/"CorsixTH.app/Contents/MacOS/CorsixTH"
+      assert_includes MachO::Tools.dylibs(app), "#{lua.opt_lib}/liblua.dylib"
+    end
+
+    PTY.spawn(bin/"CorsixTH") do |r, _w, pid|
+      sleep 30
+      Process.kill "KILL", pid
+
+      output = ""
+      begin
+        r.each_line { |line| output += line }
+      rescue Errno::EIO
+        # GNU/Linux raises EIO when read is done on closed pty
+      end
+
+      assert_match "Welcome to CorsixTH", output
+    end
   end
 end

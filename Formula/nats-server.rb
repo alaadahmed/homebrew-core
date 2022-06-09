@@ -1,18 +1,18 @@
 class NatsServer < Formula
   desc "Lightweight cloud messaging system"
   homepage "https://nats.io"
-  url "https://github.com/nats-io/nats-server/archive/v2.8.1.tar.gz"
-  sha256 "510c766aee83742190c0ff63dccd58eb27282b6aa292f0e6752fbeafda1d0ecb"
+  url "https://github.com/nats-io/nats-server/archive/v2.8.4.tar.gz"
+  sha256 "172c5d04c3867adcb6b2322d87d7f7029b63e9465fffffcf99d4ca652820635f"
   license "Apache-2.0"
   head "https://github.com/nats-io/nats-server.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a6daa57b7acc4bb5b1b8db3c761d31d383ca2ecc0aeb817d5606322fc4897174"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c8fc698ca698da74ebe187f759ba0f86db0c9bf00c5d7b71fe674aa7469b9600"
-    sha256 cellar: :any_skip_relocation, monterey:       "5c36eb066f972a8ae97eea7f4556ba3005e2164334a0dfc4d848d9c7a7fdcf6f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bf1d0cf7a8914dc36653b27c08cb64cd277c63d34bf6a6b4668dcf41af770cb2"
-    sha256 cellar: :any_skip_relocation, catalina:       "3a31e407cb7f283674d044a577d28ff0c8a2d42f6fdbb956a10b0c327c5bb300"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1fad94e89b0d83abc21369cbd155cbb807ec6fe12764c8e9835a0061628b3141"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "efb4a51929a301a6693bf1c419ab59007e67cf85cc807b5a839a510b4b7a7e9c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6cf17da47a1a5ef20c9feb60eb9576954e31ddece2b3666cf79ba6be6ffdd874"
+    sha256 cellar: :any_skip_relocation, monterey:       "69900b5eab7c108efb7d8142e7013dd7a0510f00e414980722e7c4c16e9ddcd5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ccce5f7a723ead5586c2aeb21e53636d38841814f452351b14932eabd207aff7"
+    sha256 cellar: :any_skip_relocation, catalina:       "ed13d4e0ce70db2a99652070489f4234abd7574f2942dc673263499ea833c993"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f2dbd10f04fcd17e079ffe4786d939d112fc73c78009779af38b1269553efba0"
   end
 
   depends_on "go" => :build

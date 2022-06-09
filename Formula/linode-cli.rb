@@ -3,18 +3,18 @@ class LinodeCli < Formula
 
   desc "CLI for the Linode API"
   homepage "https://www.linode.com/products/cli/"
-  url "https://github.com/linode/linode-cli/archive/refs/tags/5.18.0.tar.gz"
-  sha256 "ad8a76791b42982a1d2b4388a5bdc337a9fa8c622be2482fca18333ab7f0c54b"
+  url "https://github.com/linode/linode-cli/archive/refs/tags/5.20.0.tar.gz"
+  sha256 "f8c6cca3249fa0146a6dbf8e48e95b8347c070629ca63b8f08b00b4acd0bd7b3"
   license "BSD-3-Clause"
   head "https://github.com/linode/linode-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ee3facd1cf75aacfc4ac1c2773d4f10c4c090c124317ba5c6e1793f319ac77eb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "42ddf0fb6c7883221ad6a0f9fef43d2e85ff4c727a831789d80018256c0d368f"
-    sha256 cellar: :any_skip_relocation, monterey:       "cf09bc85e820c26400690a21849d4103fdd55a5f9b26118da6c98e42fc83a41f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bd473fa5dc814fae4956b8bc51b18394cabc2b2231413c1106056a9add907e3b"
-    sha256 cellar: :any_skip_relocation, catalina:       "2368da6e916a4e5fc9189725e626f523d940a0540a974c1f71b3fb1a4aa95bc3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b54a760cedf46ec6653dc38e9c3846230361e3321b5352651545114c3b1a833"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a38b13a3229aeb6931f6ae14be5b3d1d5650a423a9fb1e895f50d5aa1e20ba1f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ae306a494c410a00f38ba8b2c822aba53042db05bad4868caa530a6017d3a74b"
+    sha256 cellar: :any_skip_relocation, monterey:       "7f18f6245f674d43c37fec28b82a5c2a76e88b2253536fcea73d092a9839389c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "adb9f316134e6f194ac2eaf0597700b788e004811ddd4de198fcaf12b78839ee"
+    sha256 cellar: :any_skip_relocation, catalina:       "54de4df3948703276ad5dfa1e2f4493e4c9f5c9d5ab133b2c637d35243cfd928"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e93b6873c92f1007a5fad182c88600a5b8247561505128e600116ff8e2fd3f4e"
   end
 
   depends_on "poetry" => :build # for terminaltables
@@ -27,8 +27,8 @@ class LinodeCli < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/6c/ae/d26450834f0acc9e3d1f74508da6df1551ceab6c2ce0766a593362d6d57f/certifi-2021.10.8.tar.gz"
-    sha256 "78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872"
+    url "https://files.pythonhosted.org/packages/07/10/75277f313d13a2b74fc56e29239d5c840c2bf09f17bf25c02b35558812c6/certifi-2022.5.18.1.tar.gz"
+    sha256 "9c5705e395cd70084351dd8ad5c41e65655e08ce46f2ec9cf6c2c08390f71eb7"
   end
 
   resource "charset-normalizer" do

@@ -2,10 +2,11 @@ class Sysdig < Formula
   desc "System-level exploration and troubleshooting tool"
   homepage "https://sysdig.com/"
   license "Apache-2.0"
+  revision 1
 
   stable do
-    url "https://github.com/draios/sysdig/archive/0.29.2.tar.gz"
-    sha256 "38ea602085f706af5d07630189216fa240064122650a81456cb092579313ae8e"
+    url "https://github.com/draios/sysdig/archive/0.29.3.tar.gz"
+    sha256 "6b96797859002ab69a2bed4fdba1c7fe8064ecf8661621ae7d8fbf8599ffa636"
 
     # Update to value of FALCOSECURITY_LIBS_VERSION found in
     # https://github.com/draios/sysdig/blob/#{version}/cmake/modules/falcosecurity-libs.cmake
@@ -21,12 +22,12 @@ class Sysdig < Formula
   end
 
   bottle do
-    sha256                               arm64_monterey: "064c6b7c08ce6aa2d5664d2364c25b3fc0680b7f3fda8835a2040ec4b4dd808b"
-    sha256                               arm64_big_sur:  "9046be4e17cffbedda501dd5555cb4686b9cac8a011d6faaa346401c69a3f591"
-    sha256                               monterey:       "0a920e7d804e06a0092349581f30d7b5956ece4fbebed5601a590a8d08a03d06"
-    sha256                               big_sur:        "03b2ffd477c14e19eaa1523e1fd9b1fbe3b016f5bcfaa1d7c8e3f94e018084d9"
-    sha256                               catalina:       "e4828e09ace8aba03ef82fdf232a6182a31b4f9d17e761cf11b555bee5582bf8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb70a32b4216e74583e16b6931ce5a633092052ee544f0a8b332a090c31bc1a8"
+    sha256                               arm64_monterey: "979ffa88d44db34a6d5f35970fdf27e567d537e0afd0730467fa8ec0533153a1"
+    sha256                               arm64_big_sur:  "51277a8142a80004f80797c4911f4c313eac17204bd22c503aafc96e31423160"
+    sha256                               monterey:       "4d001e9d629eaf852fad855038e91ca0bd442eeeaf457ba67be3f18f18d6d755"
+    sha256                               big_sur:        "002e52b9c0a7f3dc3a4d9c5be978e3433b3cda168eb2b2f598c32e66ef04e221"
+    sha256                               catalina:       "2b980e510f7f51ea1769a41de2054092b9152bbdf4b5de9f907aada40497cb34"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5cbf4e1cd7f00742bf62c400c749dd056c6559b41c5cf0990504064aa46bd869"
   end
 
   head do
@@ -38,6 +39,7 @@ class Sysdig < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "nlohmann-json" => :build
   depends_on "c-ares"
   depends_on "jsoncpp"
   depends_on "luajit-openresty"
