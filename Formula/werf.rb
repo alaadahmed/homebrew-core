@@ -1,17 +1,25 @@
 class Werf < Formula
   desc "Consistent delivery tool for Kubernetes"
   homepage "https://werf.io/"
-  url "https://github.com/werf/werf/archive/refs/tags/v1.2.113.tar.gz"
-  sha256 "ee5d2dc6baeda01b3df8b74bfaa2ee591eb84e269edbcb862ce14876429a0133"
+  url "https://github.com/werf/werf/archive/refs/tags/v1.2.116.tar.gz"
+  sha256 "b24c6e3a5122c0f53ba7398ee2e990e7cca5426950748dc4a3492756c0a8aa17"
   license "Apache-2.0"
   head "https://github.com/werf/werf.git", branch: "main"
 
+  # This repository has some tagged versions that are higher than the newest
+  # stable release (e.g., `v1.5.2`) and the `GithubLatest` strategy is
+  # currently necessary to identify the correct latest version.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7fc057008f6027f8d8ff34a6e921a3d9969412baeb5513a2c1000c1e4319167c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "de6c72e8730619bcfaba1a71a19721c2604dc864571f4fb8863c1e5d79e591ba"
-    sha256 cellar: :any_skip_relocation, monterey:       "0d9e7a6d20517baf659e17151b2a331abf9e06d1d15e0e0a413aa20e1eb40780"
-    sha256 cellar: :any_skip_relocation, big_sur:        "afbe09e5cee13b7eba65a08967fd304f77fa14762d888da884bd18392a2c9ff1"
-    sha256 cellar: :any_skip_relocation, catalina:       "46bd2a2e1bcbac10967c6b457c61dcdae4b6a9095876843ffc17ea898ef5b377"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6a7cb1380c2db8bd314ca2166c4dd01208afa75b24c27418700180971ca69fc3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7beb1052df8c98341fd44dc5e86311416b99e013bea39b1b0bfe68cbe9add671"
+    sha256 cellar: :any_skip_relocation, monterey:       "3a9d6d2a4eab69d15bd26ee0fc126f744c8537f896e0a4988ee9ad480e26c9c2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8a769a45e9c21be659d97700f23f2122316a0578bb503339e30f87b7947397e2"
+    sha256 cellar: :any_skip_relocation, catalina:       "6bc164a5e877ef89e000cc072302b1374a5d987236a24d0782b51f0b4be49332"
   end
 
   depends_on "go" => :build

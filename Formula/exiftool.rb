@@ -7,6 +7,7 @@ class Exiftool < Formula
   mirror "https://exiftool.org/Image-ExifTool-12.42.tar.gz"
   sha256 "31d805ed59f2114f19c569f8a2aaffb89fa211453733d2c650d843a3e46236df"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
+  revision 1
 
   livecheck do
     url "https://exiftool.org/history.html"
@@ -14,12 +15,12 @@ class Exiftool < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4d262f00f8f26d69838dad118928276859984c4b69885c606cb3bcf7eee44452"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "52deb0d5fdb3e25412439bdc3c0a9f0fd827e4d9903cb37d4a0e50be3963e4ad"
-    sha256 cellar: :any_skip_relocation, monterey:       "b5087be17a279128ca05aafd3c2332dff4ccadbb3e13e808596b65a8b2a87b5e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2d1fd5bd75287ece6407d067a30a89886e1fcaefd42afa3f4d6ca07f2bb9c6e5"
-    sha256 cellar: :any_skip_relocation, catalina:       "80da9ac3b1b54b839ff144a8cd35c0785e431bcd95c4aa437a3f8c82ac959e8e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "975e2a4b41e750db055cfd0e40c87fce2e49bd0cbef810ebc8e00a12e3e9f598"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6e424311955c3d99967bbed07db50debfed9679ce818a745c9c00a9baf44e166"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cba13fbd607ab06ed51322537c8872dcd97526e2a73bf0e9068d13385c968b89"
+    sha256 cellar: :any_skip_relocation, monterey:       "ec0dc0fef8e628c082a615d6e4d463bc6a49650fc4a05f7ade1c255b3eb68bd5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cb6f7097abf5fd559d2a9321bc0bb9cefe787b556bc422f5f50a7d1b51d24ac7"
+    sha256 cellar: :any_skip_relocation, catalina:       "5a32f4e2cf0bf03b9e8767653e858f0e2bf741b8e684ddf881090e79dd9d9201"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "77f263d6e8fe29f4ac068e2623a2c0592a227f11e0335f99a24a50b70c02b563"
   end
 
   uses_from_macos "perl"
@@ -30,7 +31,7 @@ class Exiftool < Formula
     inreplace "lib/Image/ExifTool.pm", "LargeFileSupport => undef", "LargeFileSupport => 1"
 
     # replace the hard-coded path to the lib directory
-    inreplace "exiftool", "$1/lib", libexec/"lib"
+    inreplace "exiftool", "unshift @INC, $incDir;", "unshift @INC, \"#{libexec}/lib\";"
 
     system "perl", "Makefile.PL"
     system "make", "all"

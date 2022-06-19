@@ -3,18 +3,18 @@ class Regipy < Formula
 
   desc "Offline registry hive parsing tool"
   homepage "https://github.com/mkorman90/regipy"
-  url "https://files.pythonhosted.org/packages/2b/34/f71bebb13f414513427c08594087decc79a84d26845279402a4425c76b7b/regipy-2.4.1.tar.gz"
-  sha256 "6177ea938d7b87f1c2c537ef9eb87c46a4c28f0e8aa2a2a10fff80d520deb5c0"
+  url "https://files.pythonhosted.org/packages/73/4a/7a5c7ccdfa0858c636ebe267c235d32a6d75e83e26477c98c4e550396ef0/regipy-2.5.3.tar.gz"
+  sha256 "4d69dd28dfe0796829fa4ac032208df686242b94df90bb8ff96c286176dcd153"
   license "MIT"
   head "https://github.com/mkorman90/regipy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0c48b301e266805ff64055895838c68f7e2c4264671c67bbdea752e3f14e192f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8a73c9e714e64456d1f55783b37346e67a47be514664d4e2ae947101e269980e"
-    sha256 cellar: :any_skip_relocation, monterey:       "a18ece36769dd9854a0bf34fada5a56901805c7099b552289d2b89a4776a22ca"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7378042e02974dc014feeac8868a526dddca59ee1ea03a8960ab1aa5c41eeb60"
-    sha256 cellar: :any_skip_relocation, catalina:       "e2c8655932b421d1e0093f96b8b8b59a2024ad44294286d8b28fdc2f394c487b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2654db1913eb749e4178e36fe6d767b535e16bee8c6fc1a3a9ad6497518ee8a6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "12e64447c14e5ec71ca4e46dcd45ebe2402768778fa9a3dd55d61706e14055f1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bdea63bb5919174e7c76e0d21a31313c357bb17751afb15df406fc187f91d3e7"
+    sha256 cellar: :any_skip_relocation, monterey:       "926d95ad52d4509626611aba9248fcebbf6e4fa575a87c22f70ccf1d56496103"
+    sha256 cellar: :any_skip_relocation, big_sur:        "58a94eeab978e129269fa3e062451ecefa1a5f259ab266d319af20d2cd5d1d62"
+    sha256 cellar: :any_skip_relocation, catalina:       "89faf5f8c9dee3ab9daca294f543a505fe2f3c5bde9ccc38556b161b4a348f23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ba2e9703f2e5d139971903eb5ad9eb9d2164324b93af0571881954c6eb62da61"
   end
 
   depends_on "python-tabulate"
@@ -38,6 +38,11 @@ class Regipy < Formula
   resource "inflection" do
     url "https://files.pythonhosted.org/packages/e1/7e/691d061b7329bc8d54edbf0ec22fbfb2afe61facb681f9aaa9bff7a27d04/inflection-0.5.1.tar.gz"
     sha256 "1a29730d366e996aaacffb2f1f1cb9593dc38e2ddd30c91250c6dde09ea9b417"
+  end
+
+  resource "libfwsi-python" do
+    url "https://files.pythonhosted.org/packages/63/c8/47a7197167a11da6a68704f08053057922c1f73a91441824207099310b90/libfwsi-python-20220123.tar.gz"
+    sha256 "faef9fb8e76faf6ad43a785a9129a110d80eb7d540c1382349ed5cec07714873"
   end
 
   resource "pytz" do

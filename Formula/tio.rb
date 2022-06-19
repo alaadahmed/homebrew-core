@@ -1,17 +1,17 @@
 class Tio < Formula
   desc "Simple TTY terminal I/O application"
   homepage "https://tio.github.io"
-  url "https://github.com/tio/tio/releases/download/v1.38/tio-1.38.tar.xz"
-  sha256 "5945b0ff27756bc5728c34bce7557d8160829c6abb05f21790a5458e9d6324b5"
+  url "https://github.com/tio/tio/releases/download/v1.40/tio-1.40.tar.xz"
+  sha256 "beafc4763552ff7cf3a368e8af36258018ef85fac32133c4635051d7615ab527"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "530eed9eae90dc2bcc731101ae887c1c0db9ddf61fd01a008b5df7669cc4d546"
-    sha256 cellar: :any,                 arm64_big_sur:  "2a76da6680bbd4354a010d79d64f256599d4b1687a946c4187e3979773a20efc"
-    sha256 cellar: :any,                 monterey:       "bd7d64ec64e56bec794529239125c1e8223a4f0ddc2edb2d1d4f07018db1e46f"
-    sha256 cellar: :any,                 big_sur:        "59bd9132a9d6846548159e2f0f4d960434029eb4ae4ce49b8874601e1fd7e4ec"
-    sha256 cellar: :any,                 catalina:       "6bf004a5c55730bb95e4d5194e4357ac7bad35a70af262ebda7581132ce4839d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f94d5f84a07eaadc61bdcdc518f375c6ebde7eeaa0919bdb6d4d1a49822b4e3f"
+    sha256 cellar: :any,                 arm64_monterey: "6db8b849e260c8aaf4277fd9c953f7b53d94b14455c84eeb47316e75cc97f6a4"
+    sha256 cellar: :any,                 arm64_big_sur:  "aad6e24a0bcc292168bf02805924d68f3636c072b4f82f1175b8ad424c305b09"
+    sha256 cellar: :any,                 monterey:       "67867c2b1f0460c89804037c3a36e75acb4f1b5de5bc95cbbd390807862f1d2f"
+    sha256 cellar: :any,                 big_sur:        "e6a586eb7df30ac97d13196c2ea1ce6bc0d5df7529b232100ff01c2c47e769e1"
+    sha256 cellar: :any,                 catalina:       "9158c3b4e216aa37637d9216c56f8cccd21aea0dde67c6fcae19061c381d4796"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "612e100468b4fa7235328c4ec199ac84d59f8e433992d0df95ea5e192628f0de"
   end
 
   depends_on "meson" => :build
