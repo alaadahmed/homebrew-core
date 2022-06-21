@@ -3,17 +3,17 @@ class Moto < Formula
 
   desc "Mock AWS services"
   homepage "http://getmoto.org/"
-  url "https://files.pythonhosted.org/packages/e6/84/71189c5a2f97f06bdb34b3552de7ce0777ed358b5d6a284efc073738f3ec/moto-3.1.13.tar.gz"
-  sha256 "7d72e66f233109d0403b20547d4c661f885185ccb502db186ff30572333034a3"
+  url "https://files.pythonhosted.org/packages/84/65/c288dcb23cfa7d31f4c64debbd5ae8bcab2ae3ca76a91ad1fbeb971803d6/moto-3.1.14.tar.gz"
+  sha256 "40690fa899c26eca00dbd8155a5cadff43995faaf760f548952105b4c901d7d3"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "75ef60f004534eed268d1fd4c4506d2e7f7636fd598f0d838764215c2705dea7"
-    sha256 cellar: :any,                 arm64_big_sur:  "0790fe755939c3ecbc3b2677735c54e6f3925a6c1d5fd69bc2122a09382bc81f"
-    sha256 cellar: :any,                 monterey:       "11ac32940b47df4ff72c6032c312db11cc7edeaf6402a3316a26b10aea8caf09"
-    sha256 cellar: :any,                 big_sur:        "b803596f9ec01016997e33c7a164144affffba7882acc80c09358ec1bf3232a0"
-    sha256 cellar: :any,                 catalina:       "aa88c83bd1e9e94fa4b279f338135c6fab3ab03afc94259fa63a88196688262a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b6d4540bbc3a82d699b365fb6bee4782c150034905a8936cfa3c0e61542e120"
+    sha256 cellar: :any,                 arm64_monterey: "386857df4c9d847bd85d2685d23a46922d850488ffc02add803b76e971025b58"
+    sha256 cellar: :any,                 arm64_big_sur:  "35f026e5131480055c8338ec3a0e29c4ae90a45361b360284f734dd567b28abf"
+    sha256 cellar: :any,                 monterey:       "ed7ba7c0dabaa4a09040ad748fff0a71a1adb8e576c51f730fa87f25947b43c9"
+    sha256 cellar: :any,                 big_sur:        "d146fb3565226af93dbfe852002250201cd694fbcc8b068a09590fec1579e387"
+    sha256 cellar: :any,                 catalina:       "85830c4b86c5f844e8d0db61a86e3a1cc85be8724a446775b4f75a4a8317af5c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0dd922c4afd8e05802116c644dfa5ede9aa4d96fd96b025826dc2b2f3c340b37"
   end
 
   depends_on "rust" => :build # for cryptography
@@ -36,18 +36,18 @@ class Moto < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/4f/e7/b727c30479d7fa72166f7aaa2ffb6da688ad6e4904e0949411eef321a21f/boto3-1.24.7.tar.gz"
-    sha256 "6e243e28c804dccd2015935acfac0567e1861b20fdd96aa47f232b47aa214a69"
+    url "https://files.pythonhosted.org/packages/b5/7e/be7ddf5864c28f5b17f3afd9d86f2110743072a35edc279900197495e123/boto3-1.24.12.tar.gz"
+    sha256 "f39b91a4c3614db8e44912ee82426fb4b16d5df2cd66883f3aff6f76d7f5d310"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/6b/bb/5a95618c2f3cc5d3a32dd77b5560b0af0e9c98a0990ab4803a42bd352a1b/botocore-1.27.7.tar.gz"
-    sha256 "dc83ef991c730ab0f06b51fcefda74f493b990903b882452aff78c123e3040e2"
+    url "https://files.pythonhosted.org/packages/c1/62/39c2431576aa1d5c608a11b3a09b6f4a6f9ce511cfc7d3bd72f7873441bc/botocore-1.27.12.tar.gz"
+    sha256 "17d3ec9f684d21e06b64d9cb224934557bcd95031e2ecb551bf16271e8722fec"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/07/10/75277f313d13a2b74fc56e29239d5c840c2bf09f17bf25c02b35558812c6/certifi-2022.5.18.1.tar.gz"
-    sha256 "9c5705e395cd70084351dd8ad5c41e65655e08ce46f2ec9cf6c2c08390f71eb7"
+    url "https://files.pythonhosted.org/packages/cc/85/319a8a684e8ac6d87a1193090e06b6bbb302717496380e225ee10487c888/certifi-2022.6.15.tar.gz"
+    sha256 "84c85a9078b11105f04f3036a9482ae10e4621616db313fe045dd24743a0820d"
   end
 
   resource "cffi" do
@@ -121,8 +121,8 @@ class Moto < Formula
   end
 
   resource "jmespath" do
-    url "https://files.pythonhosted.org/packages/06/7e/44686b986ef9ca6069db224651baaa8300b93af2a085a5b135997bf659b3/jmespath-1.0.0.tar.gz"
-    sha256 "a490e280edd1f57d6de88636992d05b71e97d69a26a19f058ecf7d304474bf5e"
+    url "https://files.pythonhosted.org/packages/00/2a/e867e8531cf3e36b41201936b7fa7ba7b5702dbef42922193f05c8976cd6/jmespath-1.0.1.tar.gz"
+    sha256 "90261b206d6defd58fdd5e85f478bf633a2901798906be2ad389150c5c60edbe"
   end
 
   resource "jschema-to-python" do
@@ -166,8 +166,8 @@ class Moto < Formula
   end
 
   resource "networkx" do
-    url "https://files.pythonhosted.org/packages/78/6c/85c0664365d32a32806bd12d46ea5dc466aa3aa7e8086e5daf3505b8cf33/networkx-2.8.3.tar.gz"
-    sha256 "67fab04a955a73eb660fe7bf281b6fa71a003bc6e23a92d2f6227654c5223dbe"
+    url "https://files.pythonhosted.org/packages/5d/3b/9ca0d8bbfbf418eb158fe7b8a5e4233ddc390d995cfb1dd32726dba8c8e5/networkx-2.8.4.tar.gz"
+    sha256 "5e53f027c0d567cf1f884dbb283224df525644e43afd1145d64c9d88a3584762"
   end
 
   resource "openapi-schema-validator" do
