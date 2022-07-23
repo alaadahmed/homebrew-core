@@ -3,23 +3,24 @@ class Esphome < Formula
 
   desc "Make creating custom firmwares for ESP32/ESP8266 super easy"
   homepage "https://github.com/esphome/esphome"
-  url "https://files.pythonhosted.org/packages/f3/b2/311b34dffd517f4d187dc97a357edda941f459af8a415966303834873e56/esphome-2022.6.1.tar.gz"
-  sha256 "c1f379df53559f796de6df45ea14af77198e8edce17ca7bd614b2381aaa0de5b"
+  url "https://files.pythonhosted.org/packages/1c/02/8a1409bba74e502136a7026aec9e3350d7c09544e77c1aa55c3bc88bbf81/esphome-2022.6.2.tar.gz"
+  sha256 "ae3bcfa25668ee63d3b83e16e9f6747d837141ae911b8fa84472182d4e25d2f2"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "460794a88cc0d77a4ffc7790ff822f179cbee8e60f40b0dbbcd2e50de96f0f34"
-    sha256 cellar: :any,                 arm64_big_sur:  "44be7cf035ab29c1797940ab29c0f8e33b120ff1aa5dfe073e11c62e707f5f13"
-    sha256 cellar: :any,                 monterey:       "02975bc8b2e40d519838abfab1c5f5dd2b204931c1a6be189dc692f02cbb02f6"
-    sha256 cellar: :any,                 big_sur:        "b4c7a81ee8a98eb3c28fc4f27ac4285f24fd7a42472125f7754ead8e7a6dc740"
-    sha256 cellar: :any,                 catalina:       "9923c3fda7665809331c1b574f5446d294776c92665a42e91a566d80aa837cc0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "02519f047537584e8444efad62ac005d859f8386541748fe7ecd1d57a8a0d27b"
+    sha256 cellar: :any,                 arm64_monterey: "aa4134f498ad43e314986102e5dc307891a770ad0a43be12ed14e65bfca2e953"
+    sha256 cellar: :any,                 arm64_big_sur:  "57d647c3bf96db390d1c1036aeac24f1481696ee4a2837e8d798b0aa1f3f9d8d"
+    sha256 cellar: :any,                 monterey:       "1559fbdab40f7fa19b2b0dedb8456f719f6b2736e52f9f1d6187836d186ffb73"
+    sha256 cellar: :any,                 big_sur:        "75339c097df6bb1d67001137a269432f00d5acaf927bc27f252a361ce06874b3"
+    sha256 cellar: :any,                 catalina:       "f05de2500f96a0da3c7f33e266a41f63050d4805d378206628bdda51d763258f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aed97fbf902c2a5b96e1dac3987a8fdf32374f1e42f7cffcc555b8131d38817e"
   end
 
   depends_on "rust" => :build # for cryptography
+  depends_on "libpython-tabulate"
   depends_on "protobuf"
-  depends_on "python-tabulate"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   resource "aioesphomeapi" do
@@ -83,8 +84,8 @@ class Esphome < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/51/05/bb2b681f6a77276fc423d04187c39dafdb65b799c8d87b62ca82659f9ead/cryptography-37.0.2.tar.gz"
-    sha256 "f224ad253cc9cea7568f49077007d2263efa57396a2f2f78114066fd54b5c68e"
+    url "https://files.pythonhosted.org/packages/67/82/9dd8ef695c7f928b25927e8956f73bdba09a752a51871678f320c498c535/cryptography-37.0.3.tar.gz"
+    sha256 "ae430d51c67ac638dfbb42edf56c669ca9c74744f4d225ad11c6f3d355858187"
   end
 
   resource "ecdsa" do

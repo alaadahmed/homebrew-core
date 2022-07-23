@@ -1,18 +1,18 @@
 class OhMyPosh < Formula
   desc "Prompt theme engine for any shell"
   homepage "https://ohmyposh.dev"
-  url "https://github.com/JanDeDobbeleer/oh-my-posh/archive/v8.5.2.tar.gz"
-  sha256 "3d47b73927f60c8072e8b4b4bbf14596556dca24b6338ca777ddc6720b848579"
+  url "https://github.com/JanDeDobbeleer/oh-my-posh/archive/v8.22.1.tar.gz"
+  sha256 "6015b57ed79fb69c3d96db6de19931aac588428bcb0346bef8c0175dfffd25bb"
   license "MIT"
   head "https://github.com/JanDeDobbeleer/oh-my-posh.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "60a9ec7507914c0f5c7b6ad35df547c184a51b99a5f8ecf21cd0e437ac0ca543"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3507b7237d4c5ed00aba1d098600591acce4b6517fe8274686ce1c54488b3868"
-    sha256 cellar: :any_skip_relocation, monterey:       "b948279480fc57af0749a59df11dc0c430835ae07a48c4b61a992bcc48c91a36"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f14a0906c55475c7e06ed5f2aee1a1b4ec1922d616e228feb8b9fc4783960857"
-    sha256 cellar: :any_skip_relocation, catalina:       "8ce2043a680dd53b35fed40902531bc9cf9ecb834228ef7e22d06e287adb2f0b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0dd25dff7fa06135fc98342eef2edd6f4f0e36c706310950069d5ab7edf8dcfa"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "04782e79c636814dad9975c183ebc83a0e2bda5acefbab8b28e1d7b566f109fb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "736217d1e5dae57613f4c6163ad589ae26aa2ddb52831f710921397c0ec9173a"
+    sha256 cellar: :any_skip_relocation, monterey:       "a3d6939fe8f8a870fa2b4a7de85f2323e6c1bc1c3abf7f7a6764db9bb76905e5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ebcdfbdc1be615270c08c8d565cab2188230bd4a8fd49b11b76a25e80d04518e"
+    sha256 cellar: :any_skip_relocation, catalina:       "1c0d5e2b7efbb3fbcebb2f2514026f2be45fadf316fe955f87918d1b05e519c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28439ae367c354931c7da6623fdc9b71a9bf9465893dddeb1e8dae465867aed8"
   end
 
   depends_on "go" => :build

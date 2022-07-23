@@ -1,18 +1,18 @@
 class Ipopt < Formula
   desc "Interior point optimizer"
   homepage "https://coin-or.github.io/Ipopt/"
-  url "https://github.com/coin-or/Ipopt/archive/releases/3.14.6.tar.gz"
-  sha256 "e4f2ac6968107003ab6a7b226cc12b94cfc59443159d6bdbf74d9a07047e1d84"
+  url "https://github.com/coin-or/Ipopt/archive/releases/3.14.9.tar.gz"
+  sha256 "e12eba451269ec30f4cf6e2acb8b35399f0d029c97dff10465416f5739c8cf7a"
   license "EPL-2.0"
   head "https://github.com/coin-or/Ipopt.git", branch: "stable/3.14"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "86a8cb8db896796eabe19c34cd411b67cf46a238b5eee6bbf316c9c887aab3d5"
-    sha256 cellar: :any,                 arm64_big_sur:  "4bcf4fe0e9d0ad032779342a0c0774ee794fd904f66a4bb6ded4926b75255c26"
-    sha256 cellar: :any,                 monterey:       "0244c011e27c359763c7c24d710a5dd5e0e09e5300771e45716c01cdbc4076d0"
-    sha256 cellar: :any,                 big_sur:        "48d13cffe2b93922c7def38cd9ff9d726eef6fe4545184d5a1e0b9ce723f023f"
-    sha256 cellar: :any,                 catalina:       "b977a8a4b28ce23acfd59057153355808f6bbbee9a2ebfb635228a58ce80c4bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "46256acf4fd0fa41f981ad26464c113208c16a707ba66f1cb5a6ee62668c3cda"
+    sha256 cellar: :any,                 arm64_monterey: "92d079f60349b7cf736ad0d735e5b963c803fe304cd982f991881d566eb4d825"
+    sha256 cellar: :any,                 arm64_big_sur:  "f873f1ed005cfcf664b91c496529ce2f275d349d3616be7e1f2efc0998d8fff2"
+    sha256 cellar: :any,                 monterey:       "1bed93a1fd80a81acd34fc03e118a299fa1804dc9bfdb4861320675316672927"
+    sha256 cellar: :any,                 big_sur:        "73662a54cb6d0b693e16c3488e281197f9085bb32b1225989f01eef3cdbd90ea"
+    sha256 cellar: :any,                 catalina:       "0bfa306e0a52253f26340259d1852efbf7c36e5ac8837f975bb12683af5be0be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e0b4cd0f198bd3a071566e3d7742b69910b8de99b8055905ec21820bafb72e39"
   end
 
   depends_on "openjdk" => :build
@@ -22,8 +22,8 @@ class Ipopt < Formula
   depends_on "openblas"
 
   resource "mumps" do
-    url "http://mumps.enseeiht.fr/MUMPS_5.4.0.tar.gz"
-    sha256 "c613414683e462da7c152c131cebf34f937e79b30571424060dd673368bbf627"
+    url "http://mumps.enseeiht.fr/MUMPS_5.5.0.tar.gz"
+    sha256 "e54d17c5e42a36c40607a03279e0704d239d71d38503aab68ef3bfe0a9a79c13"
 
     patch do
       # MUMPS does not provide a Makefile.inc customized for macOS.
@@ -40,8 +40,8 @@ class Ipopt < Formula
   end
 
   resource "test" do
-    url "https://github.com/coin-or/Ipopt/archive/releases/3.14.6.tar.gz"
-    sha256 "e4f2ac6968107003ab6a7b226cc12b94cfc59443159d6bdbf74d9a07047e1d84"
+    url "https://github.com/coin-or/Ipopt/archive/releases/3.14.9.tar.gz"
+    sha256 "e12eba451269ec30f4cf6e2acb8b35399f0d029c97dff10465416f5739c8cf7a"
   end
 
   def install

@@ -1,13 +1,13 @@
 class OpensslAT11 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.1.1o.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1o.tar.gz"
-  mirror "http://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1o.tar.gz"
-  mirror "https://www.openssl.org/source/old/1.1.1/openssl-1.1.1o.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/old/1.1.1/openssl-1.1.1o.tar.gz"
-  mirror "http://www.mirrorservice.org/sites/ftp.openssl.org/source/old/1.1.1/openssl-1.1.1o.tar.gz"
-  sha256 "9384a2b0570dd80358841464677115df785edb941c71211f75076d72fe6b438f"
+  url "https://www.openssl.org/source/openssl-1.1.1q.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1q.tar.gz"
+  mirror "http://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1q.tar.gz"
+  mirror "https://www.openssl.org/source/old/1.1.1/openssl-1.1.1q.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/old/1.1.1/openssl-1.1.1q.tar.gz"
+  mirror "http://www.mirrorservice.org/sites/ftp.openssl.org/source/old/1.1.1/openssl-1.1.1q.tar.gz"
+  sha256 "d7939ce614029cdff0b6c20f0e2e5703158a489a72b2507b8bd51bf8c8fd10ca"
   license "OpenSSL"
   version_scheme 1
 
@@ -17,12 +17,12 @@ class OpensslAT11 < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "d8bb66ca56126d2cde992ce24498db9a4961ff23012383489f073f277e23792b"
-    sha256 arm64_big_sur:  "54ed3b2d95c9e1fb2473cf93c69f49e89a14be7bb6d6d23c6f86c39bf0a5b3fa"
-    sha256 monterey:       "630f1510f71f8ad7f9521d3e7371bee08f1956544a48d9796fb5d1fab4058581"
-    sha256 big_sur:        "e06a860f033d55c6bfa42e9453f5d12f0ea62c049c8d2dcfa07913a5be681af5"
-    sha256 catalina:       "1da475def33874bd51321fcf9bef11a6b11d9e5a8079d9303b48f6a54b20a226"
-    sha256 x86_64_linux:   "d9247330901759191d61ee7787b55f4d627cc75f73f39384b57dd185c81fee60"
+    sha256 arm64_monterey: "4e7b6cb2252c554a8e25ecae960f2fcd9a7fa742aa3fc99e6b533bb4e5d32483"
+    sha256 arm64_big_sur:  "f0b206023866473514bd5540dc8d2ba18967625d3befee6191bab8f1878f9b6c"
+    sha256 monterey:       "b4dabe01061f98a870548cc1bb5a18b68bcbc9021dc87781ead6e3e29a9abadc"
+    sha256 big_sur:        "9a130889462e43fdc473302fb7fa0ac871af0ad6a3e9df3de27c1ea2b211f2e0"
+    sha256 catalina:       "497b7711e3dff815210fdb690b851ddc4c25cd46ab2b20642194b47aa018db66"
+    sha256 x86_64_linux:   "abec715f01eb20edda202463ca91403e3fa767afcba0fe732ef8e072bb99d2fd"
   end
 
   keg_only :shadowed_by_macos, "macOS provides LibreSSL"
@@ -47,17 +47,6 @@ class OpensslAT11 < Formula
       mirror "http://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.48.tar.gz"
       sha256 "94e64a630fc37e80c0ca02480dccfa5f2f4ca4b0dd4eeecc1d65acd321c68289"
     end
-  end
-
-  # Fix failing test due to expired certificates.
-  # Remove with the next version (1.1.1p).
-  patch do
-    url "https://github.com/openssl/openssl/commit/73db5d82489b3ec09ccc772dfcee14fef0e8e908.patch?full_index=1"
-    sha256 "4b04ce0b7a3132c640bdc7726c7efaeb28572c5b8cdffcdc80fea700ded964e3"
-  end
-  patch do
-    url "https://github.com/openssl/openssl/commit/b7ce611887cfac633aacc052b2e71a7f195418b8.patch?full_index=1"
-    sha256 "6a81f4b2edb9ca3d56d897b4c85faac59fb488434dae6f0b5c525e9f96c879df"
   end
 
   # SSLv2 died with 1.1.0, so no-ssl2 no longer required.

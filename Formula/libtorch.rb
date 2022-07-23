@@ -4,8 +4,8 @@ class Libtorch < Formula
   desc "Tensors and dynamic neural networks"
   homepage "https://pytorch.org/"
   url "https://github.com/pytorch/pytorch.git",
-      tag:      "v1.11.0",
-      revision: "bc2c6edaf163b1a1330e37a6e34caf8c553e4755"
+      tag:      "v1.12.0",
+      revision: "67ece03c8cd632cce9523cd96efde6f2d1cc8121"
   license "BSD-3-Clause"
   revision 1
 
@@ -15,13 +15,12 @@ class Libtorch < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_monterey: "ade0e2426a912e8d258bb3fe0526e3411ef0476fcfed0fc49adb86f0c0117cd4"
-    sha256 cellar: :any,                 arm64_big_sur:  "382de43ea289eb525774caeeabc6d55aba6c6dcebda187d947fb5704f09322b0"
-    sha256 cellar: :any,                 monterey:       "8a0e504fa8c7203f836a75497dbbd01900dafbf87ed96c431362f08d39ba5e16"
-    sha256 cellar: :any,                 big_sur:        "e00080ee66a776d07a397aca9e5cbe78e5b4b3b7e4ba3f4c593a36c3b8fb21cd"
-    sha256 cellar: :any,                 catalina:       "52f809178bf99c740c9f45905397617df6856b59ce21aaa5ae175442ef46f547"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "70acc2535e0856a43896c394f2014ed58d65c5f7cda15a692bc33d7d2bda4bfb"
+    sha256 cellar: :any,                 arm64_monterey: "686f303c779745ed5783ef13c7960d16f843d3d0c7e7f30abebb4713d98c32ab"
+    sha256 cellar: :any,                 arm64_big_sur:  "4a4634af0fc675988c9f92ff5ddadeaa4b200795c9348695bbc81147122e7874"
+    sha256 cellar: :any,                 monterey:       "271abaa70085d2b71236f310efb69627a7c3e21e3fd2a132fb9505bbc6a2686e"
+    sha256 cellar: :any,                 big_sur:        "1330a22befa5c55dfa06213cd5d1cdfeb1ef791643b415370e006008a8e8c32e"
+    sha256 cellar: :any,                 catalina:       "937c5e220841d09a46d3ed3dd982c7d1459fe609c020f5c476f6d375919dea16"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dfbca1c50824431e00e6fa0dc2bd979a06739fe8b479b15a053a84bba5011a7b"
   end
 
   depends_on "cmake" => :build
@@ -41,8 +40,8 @@ class Libtorch < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/b1/5a/8b5fbb891ef3f81fc923bf3cb4a578c0abf9471eb50ce0f51c74212182ab/typing_extensions-4.1.1.tar.gz"
-    sha256 "1a9462dcc3347a79b1f1c0271fbe79e844580bb598bafa1ed208b94da3cdcd42"
+    url "https://files.pythonhosted.org/packages/fe/71/1df93bd59163c8084d812d166c907639646e8aac72886d563851b966bf18/typing_extensions-4.2.0.tar.gz"
+    sha256 "f1c24655a0da0d1b67f07e17a5e6b2a105894e6824b92096378bb3668ef02376"
   end
 
   def install

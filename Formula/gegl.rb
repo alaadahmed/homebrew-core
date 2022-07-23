@@ -1,8 +1,8 @@
 class Gegl < Formula
   desc "Graph based image processing framework"
   homepage "https://www.gegl.org/"
-  url "https://download.gimp.org/pub/gegl/0.4/gegl-0.4.36.tar.xz"
-  sha256 "6fd58a0cdcc7702258adaeffb573a389228ae8f0eff47578efda2309b61b2ca6"
+  url "https://download.gimp.org/pub/gegl/0.4/gegl-0.4.38.tar.xz"
+  sha256 "e4a33c8430a5042fba8439b595348e71870f0d95fbf885ff553f9020c1bed750"
   license all_of: ["LGPL-3.0-or-later", "GPL-3.0-or-later", "BSD-3-Clause", "MIT"]
   head "https://gitlab.gnome.org/GNOME/gegl.git", branch: "master"
 
@@ -12,15 +12,15 @@ class Gegl < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "a91f3f6b32deacfc1c91169b4e5183929e9b82430bef2fdbf3e4da4663d188c4"
-    sha256 arm64_big_sur:  "f8bf081e087a3e5b470e9a327ff50047cf17c9ebb9f7570f530cab92a7736a0c"
-    sha256 monterey:       "a04deb788626f77457cde16d421839eda775f45afaa11d7fc48eb038a8d27be8"
-    sha256 big_sur:        "d59252856cebc4916eb25f2af230cda980c56594d63cc5e91084cc4936f6d966"
-    sha256 catalina:       "b5018fc41c0a7cb2ba44812798790b51014ff51b0c10e9535bea53ac8f476ac3"
-    sha256 x86_64_linux:   "4dbaf182578d98e5048bc3cd3eacdfdf0e1b0de787a6e97457ae5b6e05d016dc"
+    sha256 arm64_monterey: "e3b8f3e5feaf9c697262e1b1469424f29e211a2f32143f8c6726e5b4eba6e917"
+    sha256 arm64_big_sur:  "d960f0db802df919fab8370732d106bdfe7ff48f3ca9bd97825b86a43a9c898e"
+    sha256 monterey:       "a009fb78d8f660473b439434a5a63bf19b00de4f5397bfd013fc26373c0bf212"
+    sha256 big_sur:        "43fd908bb5129152caf51a455d7ec666f8f5b4bcb7db216c5957958931f2bd8d"
+    sha256 catalina:       "59a7117dc1a029a5e24904f9f40319b53d1c200a41df0a54df53e8da78b2ad60"
+    sha256 x86_64_linux:   "9d82f54188b03437bf8db9c8cdf8be55fde5cdac6cc358e3ea9245212e7933a6"
   end
 
-  depends_on "glib" => :build
+  depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build

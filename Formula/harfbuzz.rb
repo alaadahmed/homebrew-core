@@ -1,20 +1,30 @@
 class Harfbuzz < Formula
   desc "OpenType text shaping engine"
   homepage "https://github.com/harfbuzz/harfbuzz"
-  url "https://github.com/harfbuzz/harfbuzz/archive/4.3.0.tar.gz"
-  sha256 "32184860ddc0b264ff95010e1c64e596bd746fe4c2e34014a1185340cdddeba6"
   license "MIT"
   head "https://github.com/harfbuzz/harfbuzz.git", branch: "main"
 
-  bottle do
-    sha256 cellar: :any, arm64_monterey: "f60423051df871df3587324817b8d0f3ee4e80d3ff8fd7362876e5eacb1319a2"
-    sha256 cellar: :any, arm64_big_sur:  "c85635d41d343311ad030ab42e2c130bdd639cb45bd10cd7873c46983b19f902"
-    sha256 cellar: :any, monterey:       "505a3697b4d5220856bd2df2d79f69e28652c037e84d784b77b5d1db6daf1ad1"
-    sha256 cellar: :any, big_sur:        "1c7491c9c78f13ef72ee1535a6d5dab14c7873b030b35d60012e7279d604135e"
-    sha256 cellar: :any, catalina:       "a9da619ad628d6080aa2f19d7b94c97bd2b3a09f7e616c640e812402a643cfca"
-    sha256               x86_64_linux:   "f5975c60af6c00c66e0a15f581023c9197ac9d04f01fb1957580ec5927093f68"
+  stable do
+    url "https://github.com/harfbuzz/harfbuzz/archive/4.4.1.tar.gz"
+    sha256 "1a95b091a40546a211b6f38a65ccd0950fa5be38d95c77b5c4fa245130b418e1"
+
+    # Fix build on GCC <7, remove on next release.
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/ae5613e951257f508f4b17e9e24a3ea2ccb43a3f/harfbuzz/fix-pregcc7-build.patch"
+      sha256 "17abbae47e09a0daa3f5afa5f6ba37353db00c2f0fe025a014856d8b023672b6"
+    end
   end
 
+  bottle do
+    sha256 cellar: :any, arm64_monterey: "43eb9dffca6648a3b4718b7ba7a7a51dde9a9b5342c52ce3c586dfbf23f97c5f"
+    sha256 cellar: :any, arm64_big_sur:  "c420a6936767080423fed5c12063be25d9e12c71372d07a3dee6dd3d5a17a970"
+    sha256 cellar: :any, monterey:       "073d043d408cc4defd7d3b337d30b8fcdfac18c07e6928002038687102b90c90"
+    sha256 cellar: :any, big_sur:        "2ee365068d158bb4e885b4ca73297e7c8def54b6adbc1b6bb34b56258a4b7a00"
+    sha256 cellar: :any, catalina:       "60d36dcca15c1102e6b29ec41937ca87d56fd0467ea1ebb59efee1462c9da92d"
+    sha256               x86_64_linux:   "130224a18f8f53fc96386bc6cb47b0868ff5434d725e83a352c035d06f195f32"
+  end
+
+  depends_on "glib-utils" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "cairo"

@@ -1,18 +1,18 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.land/"
-  url "https://github.com/denoland/deno/releases/download/v1.22.0/deno_src.tar.gz"
-  sha256 "ffa1cd143ba1e53ab5d380c1e630a2fe73910b7be4e483b0d643d14b31b23ed4"
+  url "https://github.com/denoland/deno/releases/download/v1.23.3/deno_src.tar.gz"
+  sha256 "1f2df9477c44e48e67a93a8d424ae2e9ca59075ab20f3470ccb391e146c6ef0b"
   license "MIT"
   head "https://github.com/denoland/deno.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ef4b117706e007e417804196ce60872e1ce6f7202ea3f862184c25278cccffb2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ebb26e6a478fbbfe089532b5ded2661ddf7e14041a9c8619a8baf10c6ff84877"
-    sha256 cellar: :any_skip_relocation, monterey:       "85628d306b00dca9cdc8a989f859bd8074427607f61a158c71bdc5ae792c38b0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b866adea0a356019407a3172095f708831f48ca7a4578d5b8d47e587d4575f50"
-    sha256 cellar: :any_skip_relocation, catalina:       "1c4a4feccfcc738dfa6127eadde112793ee82521043e4df21eec13f655ff360b"
-    sha256                               x86_64_linux:   "b5a64d4feae3eae0b2837dfed6d0d7b1bfea07a8a643f6c6abc565ac9cf4cf73"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e80196c99c15f3e6c721a9dfd71c1eb30042c8e0c8ec2a1b69ca64f64050f65c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5e24491a5688a662a11fea25fbda0c9b6e59777a2f7e25da695e5c78a2e7b65f"
+    sha256 cellar: :any_skip_relocation, monterey:       "2cdc33f9d435c5676b18451882ba45e0699f72d82c3309c8bf364e9fcba785e9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "14db851e91f04ba3d92c1789965fde71edefe697474fb8def6ce03e371c283d6"
+    sha256 cellar: :any_skip_relocation, catalina:       "c8f4c89abb35b47fa01e22f538903f764034f81489f2e78278aa4c45c7537e59"
+    sha256                               x86_64_linux:   "e18ba1c0efac957bb3f0f7bb6942766cee4eaeb46c9e6b09c8573a330bfd34ba"
   end
 
   depends_on "llvm" => :build
@@ -30,6 +30,15 @@ class Deno < Formula
     depends_on "pkg-config" => :build
     depends_on "gcc"
     depends_on "glib"
+
+    # Temporary v8 resource to work around build failure due to missing MFD_CLOEXEC in Homebrew's glibc.
+    # We use the crate as GitHub tarball lacks submodules and this allows us to avoid git overhead.
+    # TODO: Remove when deno's v8 is on 10.5.x, a backport/patch is added, or Homebrew uses a newer glibc.
+    # Ref: https://chromium.googlesource.com/v8/v8.git/+/8fdb91cdb80ae0dd0223c0d065f724e480c5e0db
+    resource "v8" do
+      url "https://static.crates.io/crates/v8/v8-0.44.3.crate"
+      sha256 "f3f92c29dd66c7342443280695afc5bb79d773c3aa3eb02978cf24f058ae2b3d"
+    end
   end
 
   fails_with gcc: "5"
@@ -41,10 +50,32 @@ class Deno < Formula
   # 4. Find full gn commit hash: https://gn.googlesource.com/gn.git/+/#{gn_commit}
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-        revision: "53d92014bf94c3893886470a1c7c1289f8818db0"
+        revision: "bf4e17dc67b2a2007475415e3f9e1d1cf32f6e35"
   end
 
   def install
+    # Work around Homebrew's old glibc using same temporary patch as `v8` formula.
+    # TODO: Remove this at the same time as `v8` resource
+    if OS.linux?
+      (buildpath/"v8").mkpath
+      resource("v8").stage do |r|
+        system "tar", "--strip-components", "1", "-xzvf", "v8-#{r.version}.crate", "-C", buildpath/"v8"
+      end
+      inreplace "v8/v8/src/base/platform/platform-posix.cc" do |s|
+        s.sub!(/^namespace v8 {$/, <<~EOS)
+          #ifndef MFD_CLOEXEC
+          #define MFD_CLOEXEC 0x0001U
+          #define MFD_ALLOW_SEALING 0x0002U
+          #endif
+
+          namespace v8 {
+        EOS
+      end
+      inreplace %w[core/Cargo.toml serde_v8/Cargo.toml],
+                /^v8 = ("[\d.]+")$/,
+                "v8 = { version = \\1, path = \"../v8\" }"
+    end
+
     if OS.mac? && (MacOS.version < :mojave)
       # Overwrite Chromium minimum SDK version of 10.15
       ENV["FORCE_MAC_SDK_MIN"] = MacOS.version
@@ -67,11 +98,10 @@ class Deno < Formula
       system "ninja", "-C", "out"
     end
 
-    cd "cli" do
-      # cargo seems to build rusty_v8 twice in parallel, which causes problems,
-      # hence the need for -j1
-      system "cargo", "install", "-vv", "-j1", *std_cargo_args
-    end
+    # cargo seems to build rusty_v8 twice in parallel, which causes problems,
+    # hence the need for -j1
+    # Issue ref: https://github.com/denoland/deno/issues/9244
+    system "cargo", "install", "-vv", "-j1", *std_cargo_args(path: "cli")
 
     bash_output = Utils.safe_popen_read(bin/"deno", "completions", "bash")
     (bash_completion/"deno").write bash_output

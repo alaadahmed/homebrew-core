@@ -2,17 +2,17 @@ class ArgocdAutopilot < Formula
   desc "Opinionated way of installing Argo CD and managing GitOps repositories"
   homepage "https://argoproj.io"
   url "https://github.com/argoproj-labs/argocd-autopilot.git",
-      tag:      "v0.3.7",
-      revision: "9ba4ca5f5b489bd8f30a3f017a745d2863af795b"
+      tag:      "v0.4.2",
+      revision: "6875c3cec6f58b26e29fdddf86377aacfe63eeff"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2e48fce2893d5d68863f94ec8520bb511db5e8611ac5d7ff5647f2b11305edf6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "553860f88e2c4324f3cffe1d027f5d55eb98528458f51b1271782ce3f0b262a9"
-    sha256 cellar: :any_skip_relocation, monterey:       "960be71469df0163c447be0f00e604d6c3211f7efa15f1650a6b362656db4469"
-    sha256 cellar: :any_skip_relocation, big_sur:        "708601d9b4faf2b64981956e9cf32715a5494683440785ff047875a616bb0e93"
-    sha256 cellar: :any_skip_relocation, catalina:       "fd22d8ca571c4523f6c3988084c20224d4a989b4bf007f6b9b7c919c7536099a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c03a0f448fd62ba2f18ec0a974d13fcbfe18562e4b165667fa4babda8272d82"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1af6ae4d0e7b77c9c78ea09960d73c3df20d6c7c13928b092c8991f2963c9e1a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "732151964cc3eca0f1c84ce1d2a2419aecb78ef068477e4107488ca65a4bcc32"
+    sha256 cellar: :any_skip_relocation, monterey:       "61dc13392319a228b9eeaa7c13376e96f1337dc33287a09858f0a3966f98fd5b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "85311f4c74d86c323a7673094aebc904e166d55c420df99a5033935b52c8aaab"
+    sha256 cellar: :any_skip_relocation, catalina:       "1ff152c5a1514f318fc65b13e5fc25692b675070601a5051c6624445599d6a07"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6dcdff8e784ab89ca8b61e413f0b1301f700b127fef9ab6b111810454c4b12e"
   end
 
   depends_on "go" => :build

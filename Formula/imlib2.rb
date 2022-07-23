@@ -1,17 +1,17 @@
 class Imlib2 < Formula
   desc "Image loading and rendering library"
   homepage "https://sourceforge.net/projects/enlightenment/"
-  url "https://downloads.sourceforge.net/project/enlightenment/imlib2-src/1.9.0/imlib2-1.9.0.tar.xz"
-  sha256 "5ac9e8ca7c6700919fe72749ad7243c42de4b22823c81769a1bf8e480e14c650"
+  url "https://downloads.sourceforge.net/project/enlightenment/imlib2-src/1.9.1/imlib2-1.9.1.tar.gz"
+  sha256 "c319292f5bcab33b91bffaa6f7b0842f9e2d1b90df6c9a2a39db4f24d538b35b"
   license "Imlib2"
 
   bottle do
-    sha256 arm64_monterey: "acaa25e7ae6473d124fe9eccd31cdf3f968b250fe6ceb90aa0bca03bb5aefde4"
-    sha256 arm64_big_sur:  "ce46c731364d432530301e1e3f8b16c5cf09d269e658ba091b107d4dd0bcbdf0"
-    sha256 monterey:       "426a3a9bbb3d2dcc1fc034528397d4d5dca5632658948afaea5f894c9d4962f8"
-    sha256 big_sur:        "1040596216b85a75b8c4d7f7e8411c324974e50eac47e0a12b5d031d6aea2497"
-    sha256 catalina:       "d130d1bac13c47e10e81bf89a57aa06b0fef78710a4a40c14bb454f5dc0a3029"
-    sha256 x86_64_linux:   "e23cfeb030588b855455841f10d6a1fcb5a33ece3d00c7d6a88f38394ac15519"
+    sha256 arm64_monterey: "296de1a8aa74eaca3f8f7eba32d8d34152aa02f56cb30c36c5008c9076aef3fe"
+    sha256 arm64_big_sur:  "153b96c3fc1fe5e69e9cb473b9e5b8561dab9d84b33291fce1bb4cd1ba794cd8"
+    sha256 monterey:       "1cdde4e46948424b4cfc8d9913ed43f28245e72fb3f507ea2aaac9d2f3b37d43"
+    sha256 big_sur:        "9b86cac71be3a227b3ae6b54ff7818a304bce206c20a5d7d4ea1a397ce635255"
+    sha256 catalina:       "b81a47752d753827da8ef5f67257a1fbd8a87047ebba869b4d22dc420a4fd06e"
+    sha256 x86_64_linux:   "d39b5dce347d1b8bdfb1bf0384b1d37fc4f393bac3cdb6ce722e448319764ec8"
   end
 
   depends_on "pkg-config" => :build
@@ -23,12 +23,6 @@ class Imlib2 < Formula
   depends_on "libx11"
   depends_on "libxcb"
   depends_on "libxext"
-
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-  end
 
   def install
     args = %W[

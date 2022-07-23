@@ -2,18 +2,18 @@ class K9s < Formula
   desc "Kubernetes CLI To Manage Your Clusters In Style!"
   homepage "https://k9scli.io/"
   url "https://github.com/derailed/k9s.git",
-      tag:      "v0.25.18",
-      revision: "6085039f83cd5e8528c898cc1538f5b3287ce117"
+      tag:      "v0.26.0",
+      revision: "ee07b98755437c6a85cd82dfdb377d2c30337f65"
   license "Apache-2.0"
   head "https://github.com/derailed/k9s.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fabed8c642a6242e1e169b774f450c3a1206efdbd4b8dba6927ff73db8c65135"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4073ea13ff799d8ee9beaf78f32050895b4f67eee630ca2c1e91188e8e373f9f"
-    sha256 cellar: :any_skip_relocation, monterey:       "c869f9a76bb60f92bb3cdd11dabfa239381def0bd117b5395c7a9c70bcca9e5e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f341e0a3c66071e280207a46716a2b354f784a253539960d4335118ba4328537"
-    sha256 cellar: :any_skip_relocation, catalina:       "424a41b797240daee6ba710c63c52d062b47a9b987a566bb5e63e17b6a6a7cbd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "300598cf8c533553ecef66565215384980b9cf8187e66cca4ca8cecdca4f8fb4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4ac1f746d7c939effea615aca7455aa12ecd7ca9190326f318efbef938560c45"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6bee026d578b6ae1a8c294ba830f035f3ffbaf9dddea5dd09426f474a5d65c75"
+    sha256 cellar: :any_skip_relocation, monterey:       "8d36d712b89f398076b661e453c37d83dde6f85c9e8503172f0e0a8388ee806b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "43202d32f23a1be5918a1dabe91dee01aea94ff6e68f5da56fe77a890842704a"
+    sha256 cellar: :any_skip_relocation, catalina:       "7619f82b93b8572ae350b8fb4ca2113bf50db64bca8bd4e88ebb8c917cde8b18"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2bb06ae43271f987a4c0ce989b7d5eef4290565209083b9b98f57136df96707a"
   end
 
   depends_on "go" => :build

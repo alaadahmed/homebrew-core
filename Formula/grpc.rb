@@ -2,23 +2,27 @@ class Grpc < Formula
   desc "Next generation open source RPC library and framework"
   homepage "https://grpc.io/"
   url "https://github.com/grpc/grpc.git",
-      tag:      "v1.46.3",
-      revision: "53d69cc581c5b7305708587f4f1939278477c28a"
+      tag:      "v1.47.1",
+      revision: "4ead675492d87c155a4b1d32a3000471f0468167"
   license "Apache-2.0"
   head "https://github.com/grpc/grpc.git", branch: "master"
 
+  # The "latest" release on GitHub is sometimes for an older major/minor and
+  # there's sometimes a notable gap between when a version is tagged and
+  # released, so we have to check the releases page instead.
   livecheck do
-    url :stable
-    strategy :github_latest
+    url "https://github.com/grpc/grpc/releases?q=prerelease%3Afalse"
+    regex(%r{href=["']?[^"' >]*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    strategy :page_match
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "44c86ae3d0ac898182e529003600d21f758c2b64331f5bb687fbf7d0da82fd31"
-    sha256 cellar: :any,                 arm64_big_sur:  "b8d381e04ba85368fcfc5d0cd1ce9e80ec231cf015ac83e1a513bdc5e5a72116"
-    sha256 cellar: :any,                 monterey:       "634b00d5e0d915a3de01a4c8da55443353f245c57546185c8ab2eaf4220aa5f6"
-    sha256 cellar: :any,                 big_sur:        "98b386a1fb989df033512ddbd00e2f2b675beec8e01f090f13d5e7cebcaf8163"
-    sha256 cellar: :any,                 catalina:       "eeafca2bf7fdf6a6c22dd387d10ea63cec6da1eb16e47d595f8c75901071e7d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b08fc8b6877f2e5dad2c8d9765df37d4adc5fec8c5f9c510bcfbf6a06fdf5ab"
+    sha256 cellar: :any,                 arm64_monterey: "411cb6fee11f213c11a70ee53df501c678ecaf0f6e6175c47a2bb96af6f3bb4d"
+    sha256 cellar: :any,                 arm64_big_sur:  "155c7aa6a2e27a8ad7e0bb0fef2cac926aa813e7b72e9aaf52e5c302f4a8306c"
+    sha256 cellar: :any,                 monterey:       "af1af10670b534d46aff09659eb027289663c023a20ae7d7c1bda5afa86c2d87"
+    sha256 cellar: :any,                 big_sur:        "2253e27ef584c9f31b4c913da871332ea2e8492766c95d1aa1e11bc1cd9126d2"
+    sha256 cellar: :any,                 catalina:       "987c9bb65a74af1dc4fe52dc3a9ef743cae482a8324d1c3c9978bf471c2ead12"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "00a0ab3614637d6573db1303d16bfe390f3ad69d7923d4b7fd53e1d86e6881a0"
   end
 
   depends_on "autoconf" => :build

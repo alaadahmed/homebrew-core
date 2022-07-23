@@ -1,10 +1,10 @@
 class Torchvision < Formula
   desc "Datasets, transforms, and models for computer vision"
   homepage "https://github.com/pytorch/vision"
-  url "https://github.com/pytorch/vision/archive/refs/tags/v0.12.0.tar.gz"
-  sha256 "99e6d3d304184895ff4f6152e2d2ec1cbec89b3e057d9c940ae0125546b04e91"
+  url "https://github.com/pytorch/vision/archive/refs/tags/v0.13.0.tar.gz"
+  sha256 "2fe9139150800820d02c867a0b64b7c7fbc964d48d76fae235d6ef9215eabcf4"
   license "BSD-3-Clause"
-  revision 3
+  revision 1
 
   livecheck do
     url :stable
@@ -12,12 +12,12 @@ class Torchvision < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "f529abcd84607665ceb38504a3d2e428a9a2a8045cdba6f872eebca36c1cd5ca"
-    sha256 cellar: :any,                 arm64_big_sur:  "2f5c89f380d583073b45e3779305eb7e6d661b5ad89b4ea4d52e000bf3f7ab7b"
-    sha256 cellar: :any,                 monterey:       "c945a73465c33fe3b3c70d73b4bc21cb2eb6e7f4b50b92efcd1aefada2c99019"
-    sha256 cellar: :any,                 big_sur:        "42f11c0cedc2fa68d794a7de44880608c1759c5d3ad3a44257ebd0a035b43cc3"
-    sha256 cellar: :any,                 catalina:       "0b32716eed61ee7a9886eaae38a5d47b38735a1d1813dffd139c8ea9689032d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c62d6de5eda5fa07bcc68bf6e800fa504b0baad791b1255ec2f1b3d19b42b42d"
+    sha256 cellar: :any,                 arm64_monterey: "a62246f4fc7b3a9ae5c60fa639acbcb5e816bceafd8012d9c8b9043a4ab2fab9"
+    sha256 cellar: :any,                 arm64_big_sur:  "eeaf9f79fe88550ffcaceb197da8988d790be5ed9615a72782a29298d11486fe"
+    sha256 cellar: :any,                 monterey:       "ae5f08fc5d3ef71123240741bc0d52ca9fdf0b1172c49774b602aa8e1c2f3748"
+    sha256 cellar: :any,                 big_sur:        "0e2007b37beb9e4e93109d49c0ecd9a10b8693f4cc9321bc31c158cbd78d5d1b"
+    sha256 cellar: :any,                 catalina:       "a4b28b4758ef43a587ab8b2256d90e5226494e167c45f2553368b8fdd7e3c01a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "75d663161fc5639845c3c8193215ebc54af2842790ab6fd2fab193062f0c3460"
   end
 
   depends_on "cmake" => :build

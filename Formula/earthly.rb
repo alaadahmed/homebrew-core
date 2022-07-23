@@ -1,35 +1,33 @@
 class Earthly < Formula
   desc "Build automation tool for the container era"
   homepage "https://earthly.dev/"
-  url "https://github.com/earthly/earthly/archive/v0.6.16.tar.gz"
-  sha256 "be379e19d16275fa67fe553dd39b63d7f0a69ba345e7d1dc6870c673832fd370"
+  url "https://github.com/earthly/earthly.git",
+      tag:      "v0.6.20",
+      revision: "ad869c06c884b10f88948b5852ab22b4d7262e20"
   license "MPL-2.0"
   head "https://github.com/earthly/earthly.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d3cbc7ce9ca3587bed9cf2e3f8b3e05a067ad4d70d450235da48515d3bb83a0c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6b84f870da9bea35c17142aaf7b4b95605f152c024ff8fcbd0d0660534b47898"
-    sha256 cellar: :any_skip_relocation, monterey:       "8a9ea705979dc7d24a5806110ba11a957573ee9fbcf66e314e1ef11e959da043"
-    sha256 cellar: :any_skip_relocation, big_sur:        "af977b0b76245ddee0a1851be9aa2c8167219d0d660d87131cbc11aafea91fd0"
-    sha256 cellar: :any_skip_relocation, catalina:       "3b01cba18dcbb83fc44c0a44eb158b826867b14805cf95addfdfc29c68e1a65a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c6817a572a2a4f9e9ca88b6ece4699bad34f2a20626e6a625a66e80e1935e94"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "17631724a77df509b204e6ecd7cbcdbfd295feac8302912f897110030e515b73"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "72f93115cee671ffd1baa2b61a6d395fb16f050d344da5597bc97d9004dbb450"
+    sha256 cellar: :any_skip_relocation, monterey:       "50c27f452dd0e24f8429f19dc77396a4dd54fc9fe2aa638e55e3228da1faa85a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d7abff5df8c9b1ea9d641650d91901f9efd551d53bbce78614f0ea75a5fc15f9"
+    sha256 cellar: :any_skip_relocation, catalina:       "851f8fa9b8fc098348278ff64b57d476fb2e5c4320ce14955be1c934e5999a04"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f7d19864a6bb6c6a91061ddbcc63c38e4219b5f29f4a0e1c85478d0fbcadf536"
   end
 
   depends_on "go" => :build
 
   def install
-    # the earthly_gitsha variable is required by the earthly release script, moving this value it into
-    # the ldflags string will break the upstream release process.
-    earthly_gitsha = "05fc449487ad0c8a1721b4fbfc527eb9870dfcfd"
-
-    ldflags = "-X main.DefaultBuildkitdImage=earthly/buildkitd:v#{version} -X main.Version=v#{version} " \
-              "-X main.GitSha=#{earthly_gitsha}"
+    ldflags = %W[
+      -s -w
+      -X main.DefaultBuildkitdImage=earthly/buildkitd:v#{version}
+      -X main.Version=v#{version}
+      -X main.GitSha=#{Utils.git_head}
+      -X main.BuiltBy=homebrew
+    ]
     tags = "dfrunmount dfrunsecurity dfsecrets dfssh dfrunnetwork"
-    system "go", "build",
-        "-tags", tags,
-        "-ldflags", ldflags,
-        *std_go_args,
-        "./cmd/earthly/main.go"
+    system "go", "build", "-tags", tags, *std_go_args(ldflags: ldflags), "./cmd/earthly"
 
     bash_output = Utils.safe_popen_read("#{bin}/earthly", "bootstrap", "--source", "bash")
     (bash_completion/"earthly").write bash_output

@@ -2,8 +2,8 @@ class ArduinoCli < Formula
   desc "Arduino command-line interface"
   homepage "https://github.com/arduino/arduino-cli"
   url "https://github.com/arduino/arduino-cli.git",
-      tag:      "0.23.0",
-      revision: "899dc91b3e2e12948badaffc25eca2cfaefa2eda"
+      tag:      "0.25.0",
+      revision: "4fd9583416bf6dc7494894c629d079bfeb0dc0ff"
   license "GPL-3.0-only"
   head "https://github.com/arduino/arduino-cli.git", branch: "master"
 
@@ -13,12 +13,12 @@ class ArduinoCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "14059e9426764c67f82e777b58ad474cb97edbc8cbb3bc47d85c3bf104689bd5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7dfab4653e679f08b935f243cab2941be847d07403dd90deb75055e2674416ae"
-    sha256 cellar: :any_skip_relocation, monterey:       "2f4b83fbe895e74b4e39cb83009ce0de862b5386b37f35780a51040abcb1a5e6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fb56c1951a0d092b7ad159e0d5c59261061a80a080e00aa9f8efb65e1ebb5919"
-    sha256 cellar: :any_skip_relocation, catalina:       "a8e597af1b23aac4d071753482787ae725787dc703df35aa051bd8ebaee57533"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d3c9149b0898e105763ae8375ac025c23944d6e6ea3617fc828cd5aaf58d81a6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cb56ffdc8770bd516514b01e6d37e1478657553893dd01024ea4cfae369f9818"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "84d2f4ecacbfead666b32bbb146a2b356352d3bcff1c392b70abe5dfe0259c61"
+    sha256 cellar: :any_skip_relocation, monterey:       "2252bd32bb00cd26254cb7750f82d01337d414fbb5ae305a60a611c7aaea5a1f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bf45fdf32b7021561a9d83f123d45211cd32e323b8261b16dbdbcae6feea3395"
+    sha256 cellar: :any_skip_relocation, catalina:       "6ead344696fceb05d68995acdcfbb079d19e13de2a959d09404007c56f5e9e03"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fd43ff4f1a7a5ec08143e7b34f94d788b50324610a02672e942d6e048c09ebc2"
   end
 
   depends_on "go" => :build

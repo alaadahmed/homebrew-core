@@ -4,7 +4,7 @@ class Efl < Formula
   url "https://download.enlightenment.org/rel/libs/efl/efl-1.26.2.tar.xz"
   sha256 "2979cfbc728a1a1f72ad86c2467d861ed91e664d3f17ef03190fb5c5f405301c"
   license all_of: ["GPL-2.0-only", "LGPL-2.1-only", "BSD-2-Clause", "FTL", "zlib-acknowledgement"]
-  revision 2
+  revision 3
 
   livecheck do
     url "https://download.enlightenment.org/rel/libs/efl/"
@@ -12,12 +12,12 @@ class Efl < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "a28fed0a6a904981625fcf9b4273154dadcc14d65ef09866540e5f9bebe1f954"
-    sha256 arm64_big_sur:  "3e8df373fdfc7ba95631cf9c13fa761a9a52e2cba3a4eed55212db50246b8c33"
-    sha256 monterey:       "63f286d93d9508d31d4f349b14b5e408fffef1fba070c11cd2a4d6fcb59cb6bc"
-    sha256 big_sur:        "fd211587cd2494877f504790c7f22edf1e8933956bff9158646d7016b2454e09"
-    sha256 catalina:       "fba40bd5bd9cf29748ad6710ad518c59ed6cfa7685c9e251bb6f5b55db2e300c"
-    sha256 x86_64_linux:   "5f7c7fd4c934ef677d1d71e3d3254306f5c3272bd67d12ab9274375db6efc707"
+    sha256 arm64_monterey: "fcb912876fcc610fee8108c9151b0f208daefc5b30783f2d699a090e916ff04c"
+    sha256 arm64_big_sur:  "6ae7250d61e6bc69b1932af53c50bf7f1f907674ea99879bc0851ae65e26ada1"
+    sha256 monterey:       "26a77dc44a3c55384cf56a2b720f8540ecd813395b82b077a0f67cde2e3b51f8"
+    sha256 big_sur:        "1a91ccdaaaab858e84afa5c81c1917836154e7d72f4720e634c545d5c67df47f"
+    sha256 catalina:       "0de6b570a992692620ed6077e27757009350499da6a6bbc8f16dd8630298a0dc"
+    sha256 x86_64_linux:   "d9d796f24d1853fc0af038675de91f94dfd153efcd123e4db57288e984c98a07"
   end
 
   depends_on "meson" => :build
@@ -46,6 +46,7 @@ class Efl < Formula
   depends_on "poppler"
   depends_on "pulseaudio"
   depends_on "shared-mime-info"
+  depends_on "webp"
 
   uses_from_macos "zlib"
 

@@ -1,8 +1,8 @@
 class Rdkit < Formula
   desc "Open-source chemoinformatics library"
   homepage "https://rdkit.org/"
-  url "https://github.com/rdkit/rdkit/archive/Release_2022_03_3.tar.gz"
-  sha256 "e2832077e258bfe906c9c0dc1664d2ba4fc0acf98bfe073c6383cb1d051b6ef0"
+  url "https://github.com/rdkit/rdkit/archive/Release_2022_03_4.tar.gz"
+  sha256 "e587a7251d8c7df0139652c004bb9384c90dd335111391526643d319572f4c28"
   license "BSD-3-Clause"
   head "https://github.com/rdkit/rdkit.git", branch: "master"
 
@@ -15,12 +15,12 @@ class Rdkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "93291fa147f8372941f8afd8eaf30e0eb8d958b7cc2d34728a1a76cae8110fb5"
-    sha256 cellar: :any,                 arm64_big_sur:  "9f27c0447edd57aae540f6b0b212f07db6bbd49b8a69ed11ef6892ad14db9092"
-    sha256 cellar: :any,                 monterey:       "72f5b93f55c6c8443117edeb7acc68c9ac921980d382682e36592eff63665847"
-    sha256 cellar: :any,                 big_sur:        "be15d4e449c6c0d7587fe57f4aece13d9b9b0b290595b463b4534955251ef192"
-    sha256 cellar: :any,                 catalina:       "0feeb0240e29f048681a577d2eaf680fb8d9eef847b236c75fc43d6ae471c963"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "46c1ef107dbb9ed82292fab9d74fb99c24899c9656c6e4fcef4aaa9b45d8774f"
+    sha256 cellar: :any,                 arm64_monterey: "d4e6875a4d9a8adfaca6df02e871aeb1d891d4d01088edb4273517312d67d85b"
+    sha256 cellar: :any,                 arm64_big_sur:  "39c2ac4ee29041704f034fa651b3b75c5bfcaab7fc54cc9448cb2870a1d3af4e"
+    sha256 cellar: :any,                 monterey:       "6e55f69cb29ddacf3d9b97628a93a9e6af1a0e07ba7afc26087a313b8d9686aa"
+    sha256 cellar: :any,                 big_sur:        "4c4f18593d50b1a82482e7138e57aec6fd000de20ac5bae9b8073a080307d45f"
+    sha256 cellar: :any,                 catalina:       "f6225fc16d559b86237cbe6088757b14dd7ea233952013ecdf08c0a5121f2c6e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d278cc193c4fd2ef3c4a0f15df35ee0e93f2734931577439dcd1d8996a47e895"
   end
 
   depends_on "cmake" => :build

@@ -4,16 +4,17 @@ class Qemu < Formula
   url "https://download.qemu.org/qemu-7.0.0.tar.xz"
   sha256 "f6b375c7951f728402798b0baabb2d86478ca53d44cedbefabbe1c46bf46f839"
   license "GPL-2.0-only"
+  revision 1
   head "https://git.qemu.org/git/qemu.git", branch: "master"
 
   bottle do
     rebuild 1
-    sha256 arm64_monterey: "466fb9c770ac70cc8e3ef8026580f314f87cb701477002e5aeb3de016eecfb38"
-    sha256 arm64_big_sur:  "e85c4e915493bf2d1d3aa5dbcbcb81cc9c15e95f1779fff1c7ab501e104bbb5c"
-    sha256 monterey:       "6555ceadb3c8036fa4044fccf5b042e94ccb0881afb873fe8e82947d1fcbb808"
-    sha256 big_sur:        "503cfc745f35d8a82b57159e5db582c30e0073dfb0345bde2ef909837b1a1286"
-    sha256 catalina:       "6a90ca805c151721133c024806d51129ba5078875a81897ed288951111751d24"
-    sha256 x86_64_linux:   "79e257ffef5dc420f087708d64da5b6b3fe348b570be608c6d7b6512f79da498"
+    sha256 arm64_monterey: "f392a90d2ffce27b0dc370bf2d487b68bf15c174c5c22124f3ffef1bf77c3e6c"
+    sha256 arm64_big_sur:  "961dd7152f2aa4cd3f87429a6928c77307748fdda00ad55c359b2b77c383d99c"
+    sha256 monterey:       "083ca77ed158f6df966acbeeefd086fcb922ea5fe14cea4ff390475403c98686"
+    sha256 big_sur:        "334d48d38b97e7724a64dacd2548594e5264e9995d117f8c4e81351574325090"
+    sha256 catalina:       "806796c78fbb4c453361e94a502e1c0bdef1711959a6307334e4a97380475986"
+    sha256 x86_64_linux:   "200b3d9d2b454dac6e6a0de585ca3267a1b3aab8de327548650de59b895498bd"
   end
 
   depends_on "libtool" => :build
@@ -49,6 +50,13 @@ class Qemu < Formula
   resource "homebrew-test-image" do
     url "https://www.ibiblio.org/pub/micro/pc-stuff/freedos/files/distributions/1.2/official/FD12FLOPPY.zip"
     sha256 "81237c7b42dc0ffc8b32a2f5734e3480a3f9a470c50c14a9c4576a2561a35807"
+  end
+
+  # Fixes RDTSCP not being exposed to hosts
+  # See https://gitlab.com/qemu-project/qemu/-/issues/1011
+  patch do
+    url "https://gitlab.com/qemu-project/qemu/-/commit/d8cf2c29cc1077cd8f8ab0580b285bff92f09d1c.diff"
+    sha256 "b7c0db81e136fb3b9692e56f4c95abbcbd196dc0b7feb517241dda20d9ec3166"
   end
 
   def install

@@ -1,18 +1,18 @@
 class Stencil < Formula
   desc "Smart templating engine for service development"
   homepage "https://engineering.outreach.io/stencil/"
-  url "https://github.com/getoutreach/stencil/archive/refs/tags/v1.19.3.tar.gz"
-  sha256 "bfd6e5a45f2f15bf4ae96d62305b6da646d257b13eeb060731cfca66c1554256"
+  url "https://github.com/getoutreach/stencil/archive/refs/tags/v1.21.0.tar.gz"
+  sha256 "b119463ede8c6fc75e206158111447f2ebe586f4cc371b180045fc80bba6856d"
   license "Apache-2.0"
   head "https://github.com/getoutreach/stencil.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cca5c5dce389e47beda1766a64d3e51f949a40c2560c74034cd9f92f155a0cf1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0316d312dc7c05c3415ad4a6f73c76d17907b408f2898dc9e28726f4c183045c"
-    sha256 cellar: :any_skip_relocation, monterey:       "8d93a86de3610b54cd29daf0aa58797b65da25c527612ba81a75d3bcc95de546"
-    sha256 cellar: :any_skip_relocation, big_sur:        "352459765d91abc3271304748e079dbbbbe5d375bf5a7ce4d43b994ab47c03e9"
-    sha256 cellar: :any_skip_relocation, catalina:       "6ab57781d99ec0c0ef2b9bb2ac6e43de67d316fb90bc4c9881b97270fc2a3f96"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b137d8b6cf40337dd4a3a04522aad9c7192d58e740a0a6fa1ecc29859aeb5f2b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fbf4d1ebe1e36600710d5396fce3b6b0ac8014f76e2234813e8535a36dfd7924"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c418a14ca606ccf4244a9f24f58eeb2595c849def4c0e340fd6c13ec3795ea82"
+    sha256 cellar: :any_skip_relocation, monterey:       "f54d26e68ee1805a73feb669b33124b90df216209eeb2a9fa965ed82e4482811"
+    sha256 cellar: :any_skip_relocation, big_sur:        "185c719d9e3d48d0f217e2239cccb1a68b64a18ee14cbcbc5acb12a98ad6463b"
+    sha256 cellar: :any_skip_relocation, catalina:       "abd638b636fadc11ccfa834d17448827dde44c1b3fbc0af86432ed0717615751"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c3523ecd6ea5a94fbce046645b47c2935204b51ac4df13f087272229530ce857"
   end
 
   depends_on "go" => :build

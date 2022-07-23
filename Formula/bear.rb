@@ -4,16 +4,16 @@ class Bear < Formula
   url "https://github.com/rizsotto/Bear/archive/3.0.19.tar.gz"
   sha256 "2fcfe2c6e029182cfc54ed26b3505c0ef12b0f43df03fb587f335afdc2ca9431"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 4
   head "https://github.com/rizsotto/Bear.git", branch: "master"
 
   bottle do
-    sha256 arm64_monterey: "266042902f03ce27b36921ff9b558b3b894b32cee3e6cabe3d7c3f2d5c867add"
-    sha256 arm64_big_sur:  "fb43e08998008413b01a5326ef4cd918a3e3afcf23a28c50c41dda74f07a0c1f"
-    sha256 monterey:       "557d16d8427721118fb594fce2abda828ad97bcb4223108b4f4202a8eb397a39"
-    sha256 big_sur:        "14d47bff99c2319cac532f38e141e82c998deea0746965f18cdf0ada09bae6e5"
-    sha256 catalina:       "adc831813186d909afb02bc28f273692c3aec99354689f500c26df795970b787"
-    sha256 x86_64_linux:   "795b15c351033fab20a279c1903fe5e1b7a31fbc215a1d52fc3c63732a7c3d6b"
+    sha256 arm64_monterey: "46fda09b07595c10b4f1bae2cbd9f5c173e141cfb74ad0aa29c774ae209d4210"
+    sha256 arm64_big_sur:  "1840d46bfb570e651bbbfaca709a9872cf5a674125b3694213ac43b9bb756687"
+    sha256 monterey:       "52596f07897a556ef2e7ed8fe1410d472be84b1fb0824776bddf672854ea3a3e"
+    sha256 big_sur:        "5846258cbacc252bfd87a6d49b250e78e5408b513d7da02364e0c76596082115"
+    sha256 catalina:       "ff0993843631f66dc67851e65638331d7d038b2e8c12229485ac3e060000652f"
+    sha256 x86_64_linux:   "3c3fb34c3ea1936602996325f211f4c58d46d7660e0e3bf523a3498574150191"
   end
 
   depends_on "cmake" => :build
@@ -51,11 +51,9 @@ class Bear < Formula
       -DENABLE_FUNC_TESTS=OFF
     ]
 
-    mkdir "build" do
-      system "cmake", "..", *args, *std_cmake_args
-      system "make", "all"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

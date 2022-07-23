@@ -1,17 +1,17 @@
 class Opensearch < Formula
   desc "Open source distributed and RESTful search engine"
   homepage "https://github.com/opensearch-project/OpenSearch"
-  url "https://github.com/opensearch-project/OpenSearch/archive/2.0.1.tar.gz"
-  sha256 "b573ad74ce36618ca11e36289618653df507e53dc3cada89352ae1630dcf8851"
+  url "https://github.com/opensearch-project/OpenSearch/archive/2.1.0.tar.gz"
+  sha256 "608f3de99bb98b570e19c565bde908e1fce074c3a6bd354da15c857348f00278"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "dc28542fb1dc8231ea20d6d1aab5049d21a52a112de55e3ad461efc9331c9794"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dc28542fb1dc8231ea20d6d1aab5049d21a52a112de55e3ad461efc9331c9794"
-    sha256 cellar: :any_skip_relocation, monterey:       "aae67392096668e171c26fb41ba4b02ae14bca44f2e2375d51321ef076ad70e1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "aae67392096668e171c26fb41ba4b02ae14bca44f2e2375d51321ef076ad70e1"
-    sha256 cellar: :any_skip_relocation, catalina:       "aae67392096668e171c26fb41ba4b02ae14bca44f2e2375d51321ef076ad70e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "65c64f19fb0d4b4d300f50ae82ef12a3b28654da6a64decdaf40b157863c767d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9389eb5cf590e7e1bf57b44dfbf9992c1b61311d70ff2f29c4fa3083924814c9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9389eb5cf590e7e1bf57b44dfbf9992c1b61311d70ff2f29c4fa3083924814c9"
+    sha256 cellar: :any_skip_relocation, monterey:       "7911a82a46c1fae03d377551c62e183d04bc5994456da763eae28480ed40176d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7911a82a46c1fae03d377551c62e183d04bc5994456da763eae28480ed40176d"
+    sha256 cellar: :any_skip_relocation, catalina:       "7911a82a46c1fae03d377551c62e183d04bc5994456da763eae28480ed40176d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "684efd2f12d9a34f6d977f6e7dd6bc0250d3617db7be3b8be24d8d09f8e8d520"
   end
 
   depends_on "gradle" => :build

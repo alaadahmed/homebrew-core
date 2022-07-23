@@ -2,21 +2,21 @@ class Argocd < Formula
   desc "GitOps Continuous Delivery for Kubernetes"
   homepage "https://argoproj.github.io/cd"
   url "https://github.com/argoproj/argo-cd.git",
-      tag:      "v2.4.0",
-      revision: "91aefabc5b213a258ddcfe04b8e69bb4a2dd2566"
+      tag:      "v2.4.7",
+      revision: "81630e6d5075ac53ac60457b51343c2a09a666f4"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b0dba05f11ad72af04c09c5d9a7829fc5e6bb18a0ad7e54f9c35ee45f221ca04"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "810406be572fcca0134df22dbf3bb15076984e03926318338542b3877c964939"
-    sha256 cellar: :any_skip_relocation, monterey:       "d72412a06ea27cef68feb02d11e39ef7282af2ae2c0d6b088bfcbcb273f56e8e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "821dc05549c031e713ef0e23a71584ad811e12a16d2405188fa8198bb7301216"
-    sha256 cellar: :any_skip_relocation, catalina:       "489a4ed331ad3c7bac94fd2a41cd3965614d3bf1cb3c76eca31cc9607c9610a6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9176b4cc07699fd746aa807c127ad4ac13e6758b674df2b44f064be84493000f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7e7740e8fc72771f101d9068190b68bf92410445fb0a15f561225ec5eaa58062"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fb4d4613718cd8857c552c5d7bb35e0b5afa25f90db7c096f13d4149f8d18d0c"
+    sha256 cellar: :any_skip_relocation, monterey:       "9c6d50743cdf30190018c514c5908d88b10d2080e3c7969b1aba81515d92dbb6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d8dc3f81541a6a7a43b3ebf7c44e53e871272f764ac94616459c00e6d827b79f"
+    sha256 cellar: :any_skip_relocation, catalina:       "8f192d7db90f50f719749ece5499b343193169bc46e62cdbae4a55a84074310b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "09f8760fc2d05bf60bf5f45f513c5d16010c0ad80701409f6b338b1397c66416"
   end
 
   depends_on "go" => :build
-  depends_on "node@14" => :build
+  depends_on "node" => :build
   depends_on "yarn" => :build
 
   def install

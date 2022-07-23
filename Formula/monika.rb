@@ -3,17 +3,17 @@ require "language/node"
 class Monika < Formula
   desc "Synthetic monitoring made easy"
   homepage "https://monika.hyperjump.tech"
-  url "https://registry.npmjs.org/@hyperjumptech/monika/-/monika-1.8.0.tgz"
-  sha256 "07caa733153f765a5ce570a9a6234a67ef09edf0fcb65427cb0706d08a0ed63d"
+  url "https://registry.npmjs.org/@hyperjumptech/monika/-/monika-1.9.3.tgz"
+  sha256 "b26ea8d25a28340704530587dbf00a9db64f80e3937a66ccc62d6d57c1907445"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "897ea7f3c4480efdcd86f445752eaead291592e100369b8343906704bb5aa27c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c87e41ada705a6d65ddd9141b5b184b7a14f0ecc0264266b9ca46ee0243044f5"
-    sha256 cellar: :any_skip_relocation, monterey:       "371aa428b8d23fe9c28954c1c0b759868b129105e1a294639107681bf41527e0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "520f49c4ee0d9549695931a900baf9eb7fae9c4b22898c39d47d3ab2b52cd1cd"
-    sha256 cellar: :any_skip_relocation, catalina:       "94e2003b6a774030b63186a38ea1274e8a2f3575826644eb7f4fd754b63e70c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "584ee09b5a361d603dfec24efbd50be5a23147fb3c1f562bd200259f01c39c8e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "35cc383eb28ce47024d746c02b89518e89cdec9409ec6bfbfbf3578f6a10f686"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "58d54a62eeb79e5f6f126fd5a3bae012a6baaf501b2864150ab7a7c398679122"
+    sha256 cellar: :any_skip_relocation, monterey:       "c0a35bb82d8e937ab88448a3592533c0d1ccb7950bb6fa76942365069682559a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4848e54f9bc1ac964a21cdcb6ec816d631001b34d8a20b12ce47bdfef29d0017"
+    sha256 cellar: :any_skip_relocation, catalina:       "b987901968fe9404e8ee98269795d24a81ff49fe538cb206bdcb90d26fb701be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28e0f500317e27b74c51883e777ee904e1dd08cac6a886c3ce0ed2f55c770a67"
   end
 
   depends_on "node"

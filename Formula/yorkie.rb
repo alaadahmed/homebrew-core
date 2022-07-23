@@ -2,18 +2,18 @@ class Yorkie < Formula
   desc "Document store for collaborative applications"
   homepage "https://yorkie.dev/"
   url "https://github.com/yorkie-team/yorkie.git",
-    tag:      "v0.2.7",
-    revision: "d5a7dea64f9353510f95a396ae7cfab5d64a376a"
+    tag:      "v0.2.12",
+    revision: "d25124e51efcfc23125cdbba9c231b11cd57cc7a"
   license "Apache-2.0"
   head "https://github.com/yorkie-team/yorkie.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2572898c5836fcca5f89a7876388b1f91f47d6f9f9d646e5bf86bb8911792b9e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2de1ce27177d363ddab9388865d39a1f78d9804ead5c300fa113f70263f69a9b"
-    sha256 cellar: :any_skip_relocation, monterey:       "34e309f620e084fc818c48152ace74451e0c3fe1e292845fa67cca225b10ff0d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fcaca9337a32d1826c9d86b39899decd0063808dfd4af03394ff17ca5f434981"
-    sha256 cellar: :any_skip_relocation, catalina:       "334d13e3287ad6fd5789ac713607fdb6291a1d754c9fc1ed44a3e5600ca02057"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "52707f707983de19e68dff372c12ac9c3255cb98e1ac9d0170f098c795a8352e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6f0582d14ea566f90612a320d487ee253b60a9a9f320f2879cadf43b2f986247"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dd45360489ff4fc27a7f8dfe814423c64bd52efc9c10b960272bc821f8c51942"
+    sha256 cellar: :any_skip_relocation, monterey:       "8eb581b16090e698d99368782a7dfd226f05529ae61007eefb122611a98c0ef8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b271d4e6b0809253a0353ef644bf5558966b87dc700fa66066844eb926facb3a"
+    sha256 cellar: :any_skip_relocation, catalina:       "3ffb4b3a6d66ac73e9e098beea491f603f89b8f180c0f387d4b405b34be91176"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "664b61c007bd4110f9003d28a341345ed0f1c600a543c6bfe472e595437a9163"
   end
 
   depends_on "go" => :build

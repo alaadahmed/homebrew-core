@@ -3,22 +3,22 @@ class Regipy < Formula
 
   desc "Offline registry hive parsing tool"
   homepage "https://github.com/mkorman90/regipy"
-  url "https://files.pythonhosted.org/packages/73/4a/7a5c7ccdfa0858c636ebe267c235d32a6d75e83e26477c98c4e550396ef0/regipy-2.5.3.tar.gz"
-  sha256 "4d69dd28dfe0796829fa4ac032208df686242b94df90bb8ff96c286176dcd153"
+  url "https://files.pythonhosted.org/packages/25/6f/c30493842b226190d521a0a5039bf46147a91dd055887ec9b82019e3e5b5/regipy-3.0.2.tar.gz"
+  sha256 "4a2551f360c4f5d299de1a960fb3213a9521a955e23bef692ff8bc04b4365f35"
   license "MIT"
   head "https://github.com/mkorman90/regipy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "12e64447c14e5ec71ca4e46dcd45ebe2402768778fa9a3dd55d61706e14055f1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bdea63bb5919174e7c76e0d21a31313c357bb17751afb15df406fc187f91d3e7"
-    sha256 cellar: :any_skip_relocation, monterey:       "926d95ad52d4509626611aba9248fcebbf6e4fa575a87c22f70ccf1d56496103"
-    sha256 cellar: :any_skip_relocation, big_sur:        "58a94eeab978e129269fa3e062451ecefa1a5f259ab266d319af20d2cd5d1d62"
-    sha256 cellar: :any_skip_relocation, catalina:       "89faf5f8c9dee3ab9daca294f543a505fe2f3c5bde9ccc38556b161b4a348f23"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ba2e9703f2e5d139971903eb5ad9eb9d2164324b93af0571881954c6eb62da61"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e0ad6c8c250f34c8f58589cc926b4570419263aa7057a8c3f75ffa8884be2f31"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ad3006a63cb76f5c7fc60dd00f2a9b79b062566d12e489bbf0cb1f4023598d17"
+    sha256 cellar: :any_skip_relocation, monterey:       "eb137800df6c0252e1ea6e691ab64a387d55a1b08f9fcc2b5db8af823962cc65"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d9c51479e98a9975574c9d32f291f9b494aaed0709bc672bc0758b11d3e32905"
+    sha256 cellar: :any_skip_relocation, catalina:       "fc70b34c8e251c4b50aa231479d2f2bdcd4ef2d2ae2bd59da00eb0cb2b504e2b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7b91cc6de0a3e66ffbf8de5f13887bdc28dbea6e571db9033292e851e92203da"
   end
 
-  depends_on "python-tabulate"
-  depends_on "python@3.9"
+  depends_on "libpython-tabulate"
+  depends_on "python@3.10"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/d7/77/ebb15fc26d0f815839ecd897b919ed6d85c050feeb83e100e020df9153d2/attrs-21.4.0.tar.gz"
@@ -56,14 +56,8 @@ class Regipy < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.9")
-    res = resources.map(&:name).to_set
-    res -= %w[test_hive]
-
-    res.each do |r|
-      venv.pip_install resource(r)
-    end
-
+    venv = virtualenv_create(libexec, "python3")
+    venv.pip_install resources.reject { |r| r.name == "test_hive" }
     venv.pip_install_and_link buildpath
   end
 

@@ -1,8 +1,8 @@
 class Gopls < Formula
   desc "Language server for the Go language"
   homepage "https://github.com/golang/tools/tree/master/gopls"
-  url "https://github.com/golang/tools/archive/gopls/v0.8.4.tar.gz"
-  sha256 "815060abeb22755352414ef62ffb265b2f0f9d38786c164595f85c9c25c8a7cb"
+  url "https://github.com/golang/tools/archive/gopls/v0.9.1.tar.gz"
+  sha256 "420fd56ed614fc8a56547ad7737c2d0f163255a6a2953f1e57d854eeb5cb1b7b"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,12 +12,12 @@ class Gopls < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7f0527083d31cbaf2a8e8c6efe85064f572595e074dc54d7f1421bd867336ed7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4c0ce67b991ebc991758a2d688f428f3824fb89423d73b8c4d0b125ecf497ac4"
-    sha256 cellar: :any_skip_relocation, monterey:       "1cb4dfb00f2ea950068d9a433b3ebe5e5c5bb8ecc7209d9c293f2ec3d82f5896"
-    sha256 cellar: :any_skip_relocation, big_sur:        "24bd7bb3984e3f752c85fd860cbcea64d9caa5eb7c2b4ff3c9d00e05768d3165"
-    sha256 cellar: :any_skip_relocation, catalina:       "54ce5315e6e7325e82f25b11737d7a5cadf4a3afe32b1a3c5e45c182551c6fe3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "15e897f3a75d55c2ae26a6abb34ecac448a72218e496d2dd6cad693b30b35213"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "aeb6c0399f46251f71f35ccf2c03c4aa7054a11fb8680475a7b30d940b9c8267"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "99f0cba834a4cd92ee990b18ea1ff09c4a385a7f770b36a7db95f277b970d7c0"
+    sha256 cellar: :any_skip_relocation, monterey:       "9792a14d46dde65a8b92ba30a7c06adf3e05ec9ac85f28de7b19fd90204bd9db"
+    sha256 cellar: :any_skip_relocation, big_sur:        "96362c163dd164a1a3e188f5792f1cd30ef7fec4ab0eec52e9e9077c680d60b8"
+    sha256 cellar: :any_skip_relocation, catalina:       "41973a7906d4bf4b40c62b10af7ef2e09cc334ecad4432de9705b306c1b05655"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd00cffb45a3cfef16c3d163f92d234f0857b951f2b1f616a2cbe7d28f342ce2"
   end
 
   depends_on "go" => :build

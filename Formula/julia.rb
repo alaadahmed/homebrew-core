@@ -2,11 +2,12 @@ class Julia < Formula
   desc "Fast, Dynamic Programming Language"
   homepage "https://julialang.org/"
   license all_of: ["MIT", "BSD-3-Clause", "Apache-2.0", "BSL-1.0"]
+  revision 1
   head "https://github.com/JuliaLang/julia.git", branch: "master"
 
   stable do
-    url "https://github.com/JuliaLang/julia/releases/download/v1.7.2/julia-1.7.2.tar.gz"
-    sha256 "0847943dd65001f3322b00c7dc4e12f56e70e98c6b798ccbd4f02d27ce161fef"
+    url "https://github.com/JuliaLang/julia/releases/download/v1.7.3/julia-1.7.3.tar.gz"
+    sha256 "06df2a81e6a18d0333ffa58d36f6eb84934c38984898f9e0c3072c8facaa7306"
 
     # Patches for compatibility with LLVM 13
     patch do
@@ -34,8 +35,8 @@ class Julia < Formula
     # Backported from:
     # https://github.com/JuliaLang/julia/commit/6330398088e235e4d4fdbda38c41c87e02384edb.patch
     patch do
-      url "https://raw.githubusercontent.com/archlinux/svntogit-community/df73abb8162e31e6541d2143d1db5f9f1d70b632/trunk/63303980.patch"
-      sha256 "ce9cd140c3bc39987d60340bf365d6238e79cf4d5385494272c49c64af22ef78"
+      url "https://raw.githubusercontent.com/archlinux/svntogit-community/bee1243b4ec66da31097f84600b37451435cfb1e/trunk/63303980.patch"
+      sha256 "96303f5cb520e861c7fdc5eb6d64767b597ecf2057a0aa37250af546738da63e"
     end
 
     # Fix compatibility with LibGit2 1.2.0+
@@ -47,10 +48,10 @@ class Julia < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 monterey:     "1952d5d5e006180fc02ca3b362cdee7e3c25f2eed26a4e58bda1b1cf75f2b52c"
-    sha256 cellar: :any,                 big_sur:      "6bf092ffc5838d21cbaf35ba5330e8674ac79f4a314c6321d042b6b7eb9a78c7"
-    sha256 cellar: :any,                 catalina:     "cbcd464ba9cb10e78920e3dc38c23bd4b61347527ed3737ec61e71d390a83441"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "741aa32d988bcd48dba2f51ea58a21ef0461719768e14e53544aadccaa60d386"
+    sha256 cellar: :any,                 monterey:     "15be9006213658ba3d7c05c71b823350a6f9fbab94bb8c7932b883ed1d05ef05"
+    sha256 cellar: :any,                 big_sur:      "b6e385b9bf7df494671cf133b0c18f2efc73c2a93572d25a8908c1a0a73c38d8"
+    sha256 cellar: :any,                 catalina:     "a5c1388da7344d1d64ba709579a60ca61457dd6e0551f170791c66e98a9dc6f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "22f2a645abca68dab52522cb1840c174a0d02ed97022096a4960c701eeb4dddc"
   end
 
   # Requires the M1 fork of GCC to build
@@ -63,7 +64,7 @@ class Julia < Formula
   depends_on "libgit2"
   depends_on "libnghttp2"
   depends_on "libssh2"
-  depends_on "llvm"
+  depends_on "llvm@13"
   depends_on "mbedtls@2"
   depends_on "mpfr"
   depends_on "openblas"
@@ -89,13 +90,6 @@ class Julia < Formula
 
   fails_with gcc: "5"
 
-  # Fix segfaults with Curl 7.81. We need to patch the contents of a tarball, so this can't be a `patch` block.
-  # https://github.com/JuliaLang/Downloads.jl/issues/172
-  resource "curl-patch" do
-    url "https://raw.githubusercontent.com/archlinux/svntogit-community/6751794c82949589805db950119afba77549554a/trunk/julia-curl-7.81.patch"
-    sha256 "710587dd88c7698dc5cdf47a1a50f6f144b584b7d9ffb85fac3f5f79c65fce11"
-  end
-
   # Fix compatibility with LibGit2 1.4.0+
   patch do
     url "https://raw.githubusercontent.com/archlinux/svntogit-community/cd813138d8a6fd496d0972a033d55028613be06d/trunk/julia-libgit-1.4.patch"
@@ -103,24 +97,6 @@ class Julia < Formula
   end
 
   def install
-    # Fix segfaults with Curl 7.81. Remove when this is resolved upstream.
-    srccache = buildpath/"stdlib/srccache"
-    srccache.install resource("curl-patch")
-
-    cd srccache do
-      tarball = Pathname.glob("Downloads-*.tar.gz").first
-      system "tar", "-xzf", tarball
-      extracted_dir = Pathname.glob("JuliaLang-Downloads.jl-*").first
-      to_patch = extracted_dir/"src/Curl/Multi.jl"
-      system "patch", to_patch, "julia-curl-7.81.patch"
-      system "tar", "-czf", tarball, extracted_dir
-
-      md5sum = Digest::MD5.file(tarball).hexdigest
-      sha512sum = Digest::SHA512.file(tarball).hexdigest
-      (buildpath/"deps/checksums"/tarball/"md5").atomic_write md5sum
-      (buildpath/"deps/checksums"/tarball/"sha512").atomic_write sha512sum
-    end
-
     # Build documentation available at
     # https://github.com/JuliaLang/julia/blob/v#{version}/doc/build/build.md
     args = %W[

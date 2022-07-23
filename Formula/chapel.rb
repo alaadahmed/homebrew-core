@@ -1,18 +1,17 @@
 class Chapel < Formula
   desc "Programming language for productive parallel computing at scale"
   homepage "https://chapel-lang.org/"
-  url "https://github.com/chapel-lang/chapel/releases/download/1.26.0/chapel-1.26.0.tar.gz"
-  sha256 "ba396b581f0a17f8da3f365a3f8b079b8d2e229a393fbd1756966b0019931ece"
+  url "https://github.com/chapel-lang/chapel/releases/download/1.27.0/chapel-1.27.0.tar.gz"
+  sha256 "558b1376fb7757a5e1f254c717953f598a3e89850c8edd1936b8d09c464f3e8b"
   license "Apache-2.0"
-  revision 1
 
   bottle do
-    sha256 arm64_monterey: "64d6aec51c37987b02b097485e201e6d6bbbf750c4f4ec1f6a0c42a5ad3b00b5"
-    sha256 arm64_big_sur:  "2af1e2f47d881b45fceb8269c0e0072651f2c31636d18477a69ed40cfe183425"
-    sha256 monterey:       "071524c6a8974377d6331048878bc05213e292995985d7211855a54fe83fb8af"
-    sha256 big_sur:        "6357ed5ffe3478282d7260364c9cbbde0b9043c32d6f40057a4906ee2cc364ec"
-    sha256 catalina:       "9b6177315ed483d8bf5767d02d911d67aa9968219e21eaca8901a6f0b5c554e5"
-    sha256 x86_64_linux:   "2fd94cac965b48ddb70ab6c5d2104c79c9ae8b892f25131a33356ab012dcc5ef"
+    sha256 arm64_monterey: "47e7d368c685aed62e699dbb9e87a881ab7d6a65873425b10d83d58458b62557"
+    sha256 arm64_big_sur:  "632ea42631efaed6c650d311b8dbfa4b643869f55699192b4bb600b77d37079d"
+    sha256 monterey:       "2863cfb4bc1082fba46a7c24a01db3a63abb2d6902ac1d5876fba13289b63eb4"
+    sha256 big_sur:        "67f5179a97496c53649f6a851256246d419262aee7d0fdbdf734a380de1023b2"
+    sha256 catalina:       "85a12fe66532bb5bcb31714054b7c081613886198fa4cc7bb8736053beb20c37"
+    sha256 x86_64_linux:   "953787b24c4237de21e019d663bb779374968c878ffc08e72291c2f72afb8c6b"
   end
 
   depends_on "gmp"
@@ -22,13 +21,13 @@ class Chapel < Formula
   # when Python dependency matches LLVM's Python for all OS versions.
   depends_on "python@3.9"
 
-  on_macos do
-    depends_on "llvm" if MacOS.version > :catalina
-    # fatal error: cannot open file './sys_basic.h': No such file or directory
-    # Issue ref: https://github.com/Homebrew/homebrew-core/issues/96915
-    depends_on "llvm@11" if MacOS.version <= :catalina
+  # fatal error: cannot open file './sys_basic.h': No such file or directory
+  # Issue ref: https://github.com/Homebrew/homebrew-core/issues/96915
+  on_catalina :or_older do
+    depends_on "llvm@11"
   end
-  on_linux do
+
+  on_system :linux, macos: :big_sur_or_newer do
     depends_on "llvm"
   end
 

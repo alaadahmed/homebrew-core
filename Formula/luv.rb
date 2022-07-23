@@ -1,22 +1,23 @@
 class Luv < Formula
   desc "Bare libuv bindings for lua"
   homepage "https://github.com/luvit/luv"
-  url "https://github.com/luvit/luv/archive/1.43.0-0.tar.gz"
-  sha256 "a36865f34db029e2caa01245a41341a067038c09e94459b50db1346d9fdf82f0"
+  url "https://github.com/luvit/luv/archive/1.44.2-0.tar.gz"
+  sha256 "44ccda27035bfe683e6325a2a93f2c254be1eb76bde6efc2bd37c56a7af7b00a"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/luvit/luv.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "b4529c59f0e8f58f507bd11e5d8967578714314a087c0785258acde0be0bef3c"
-    sha256 cellar: :any,                 arm64_big_sur:  "0fcb0c6d13ac07df04e17a333ef7ac8b7d31deff84b704b3ef0c460c71e8820a"
-    sha256 cellar: :any,                 monterey:       "a89289ec8dae280bc34f0a3e1e2a64a02b121f008d649bfd9eac4482845a5bc9"
-    sha256 cellar: :any,                 big_sur:        "96f504631a2d774ddc620ce51c629df26bed837bb6f2c05bd5c57c8449a4417d"
-    sha256 cellar: :any,                 catalina:       "93af33e578778e57173481255a4da1cd04994a358220545484a295d798928a78"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4123f80ab177e7d5346b2d045f76c6a8dc7ae052fddbdfc0d5208bf0b50f1d43"
+    sha256 cellar: :any,                 arm64_monterey: "6649f9cf388d3247f1a1fad0b36a27712b1a6f957c7de650452bc08f067bb43c"
+    sha256 cellar: :any,                 arm64_big_sur:  "cab0b66ac788ce3e35d2e1206962cf6697b91252e104d736b628408b20a2ffcd"
+    sha256 cellar: :any,                 monterey:       "b7b651df09aef8b9c92defa233facb7c2c7ca717e6b0df5d43055d3d0bf1b999"
+    sha256 cellar: :any,                 big_sur:        "02bb94d8c10f2b76d60f38c1568be31263d1a2572f0efef9199c27d5a6fdcc8d"
+    sha256 cellar: :any,                 catalina:       "5b7d1d428cdbe4fd9a285cae45b2bce3d70a2f292557f6dd9101355241a7ab87"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "63b17d98ac5b4194fdb9aa6851c90a311e8b14b0412b679d231e6b172d45426e"
   end
 
   depends_on "cmake" => :build
-  depends_on "luajit-openresty" => [:build, :test]
+  depends_on "luajit" => [:build, :test]
   depends_on "libuv"
 
   resource "lua-compat-5.3" do
@@ -43,8 +44,6 @@ class Luv < Formula
   end
 
   test do
-    ENV["LUA_CPATH"] = opt_lib/"lua/5.1/?.so"
-    ENV.prepend_path "PATH", Formula["luajit-openresty"].opt_bin
     (testpath/"test.lua").write <<~EOS
       local uv = require('luv')
       local timer = uv.new_timer()

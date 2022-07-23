@@ -1,18 +1,18 @@
 class Pillow < Formula
   desc "Friendly PIL fork (Python Imaging Library)"
   homepage "https://python-pillow.org"
-  url "https://files.pythonhosted.org/packages/43/6e/59853546226ee6200f9ba6e574d11604b60ad0754d2cbd1c8f3246b70418/Pillow-9.1.1.tar.gz"
-  sha256 "7502539939b53d7565f3d11d87c78e7ec900d3c72945d4ee0e2f250d598309a0"
+  url "https://files.pythonhosted.org/packages/8c/92/2975b464d9926dc667020ed1abfa6276e68c3571dcb77e43347e15ee9eed/Pillow-9.2.0.tar.gz"
+  sha256 "75e636fd3e0fb872693f23ccb8a5ff2cd578801251f3a4f6854c6a5d437d3c04"
   license "HPND"
   head "https://github.com/python-pillow/Pillow.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "142827974efb241ae56f07efcb96b881805f1427d23b2082da013ab8ca101cba"
-    sha256 cellar: :any, arm64_big_sur:  "8058b9ca59c22f45a093af250d15bc13a430754027de29897abe37fd7f714834"
-    sha256 cellar: :any, monterey:       "966d8109030a11974a8317ac948c5f45f6687fa20115abe4e667ffdabcd53b02"
-    sha256 cellar: :any, big_sur:        "b35f040fffe4932161ec63a10298946172e2c3e37986014a513271a156f22801"
-    sha256 cellar: :any, catalina:       "d5a27ccc4097cc30aca0526f943e927a83e07d256d9bf1edaf9aaa315684d88e"
-    sha256               x86_64_linux:   "de807623e96438f46de52e12526879653b258805e081e68778a6e97caf870e7c"
+    sha256 cellar: :any, arm64_monterey: "1e711fdd9a6037ef3b5c38a7315a8abf348ca6d37c158c28c29e5ee44299e395"
+    sha256 cellar: :any, arm64_big_sur:  "0405a844258ef3936071721cd469d208fe26a7555ddcc9c937f00592f1ee1bc9"
+    sha256 cellar: :any, monterey:       "6cdb4abb1233c3d0027b7fc5f65d6fcd34bcbff24ebad5a5354bb74bd38f7725"
+    sha256 cellar: :any, big_sur:        "480b975ceb439446c5a5e290377ebee8fd2e254d2ce01b967f9145a97f08393f"
+    sha256 cellar: :any, catalina:       "e4000316af483495b4005f455bd23c104771de896b20f82103e9514267fd7630"
+    sha256               x86_64_linux:   "d0a95895bbf1eb40225fc217f9d9258c9c8d13840acf30c986a67d904a4e0dbe"
   end
 
   depends_on "pkg-config" => :build
@@ -30,10 +30,6 @@ class Pillow < Formula
   depends_on "webp"
 
   uses_from_macos "zlib"
-
-  on_macos do
-    depends_on "python@3.7" => [:build, :test] unless Hardware::CPU.arm?
-  end
 
   def pythons
     deps.map(&:to_formula)

@@ -1,8 +1,8 @@
 class Lxc < Formula
   desc "CLI client for interacting with LXD"
   homepage "https://linuxcontainers.org"
-  url "https://linuxcontainers.org/downloads/lxd/lxd-5.2.tar.gz"
-  sha256 "e22d2b34a1848d33b2080b2b1c82355afb6d36fdfe49e67f44b3749edbc02e4c"
+  url "https://linuxcontainers.org/downloads/lxd/lxd-5.4.tar.gz"
+  sha256 "e234b67c5077d05e22f958e3256bd91f262450545993d0aaf1b4ce2bdb99393a"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class Lxc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5e6286afca19e897a62e10b6313305a4049fd72a5431469db792f7b37dbc6fd6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7cebd6ab8b9b1df8d991ef8a5ee7e4e8371d2c79e6d61341dae1a349e1966fc2"
-    sha256 cellar: :any_skip_relocation, monterey:       "b42554626fec692903613de96b4152ac12d8128af68958a6d183362a41d24dc7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "aac03f613d7c69420b3b29e139f98977660cd8854d845cc4e22a270aa7e04544"
-    sha256 cellar: :any_skip_relocation, catalina:       "10144d3bd53a80ea865dfa652bddb6f2626cf6788a36dc75cd2f0e55f3d50940"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "02e0e33a85c043872b2fa48243d6dda562e8e3089ab95fabfd388cd132c7ec6b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ac3666284d34cd2a26acbd1607295d5352b752cb07a56a64c78af586de0a4821"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3f6cd2e85bb1e22664d0cee8e267f69b203b4e1800a2342596490d1ae265f20d"
+    sha256 cellar: :any_skip_relocation, monterey:       "b7a504196ff540b9c88f10132e0429de0e0ec97c2ca0059c63bbe28a164d4376"
+    sha256 cellar: :any_skip_relocation, big_sur:        "855fb5b4a1c70323c7b26e586ea4f47c6a95f1d29979fbb884f2ee6f5c714f07"
+    sha256 cellar: :any_skip_relocation, catalina:       "c5eef694b1917901a74e685d26d5cf9458a13c59332b017bca079bda58472d68"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6b18243ec2da647b7515453534380861cbb0ddc19da9ac708a18b2cb9c22c433"
   end
 
   depends_on "go" => :build

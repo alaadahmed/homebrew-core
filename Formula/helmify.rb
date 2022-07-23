@@ -2,18 +2,18 @@ class Helmify < Formula
   desc "Create Helm chart from Kubernetes yaml"
   homepage "https://github.com/arttor/helmify"
   url "https://github.com/arttor/helmify.git",
-      tag:      "v0.3.13",
-      revision: "f96b7aede441a03b6da20d1c09efe6055046b51d"
+      tag:      "v0.3.17",
+      revision: "011c7794c8a3f3bfcee4cd32faafe7648c0b8ead"
   license "MIT"
   head "https://github.com/arttor/helmify.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "643eed3d48ac4b22fea2c92f45e1d246e58c0b9e3ce3207035ee6321e5a73327"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8b3c432acbf2002f55e01a97896f7c42cdf86b6e8ff07bdf46cb4d85d050d16e"
-    sha256 cellar: :any_skip_relocation, monterey:       "e19798b0feed40368127bedd58404c8a6a7e5cfce949c2c38609eb2b203e2a63"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ad0a381f606960de3462de66e746990aa6f65c1d04b008adb830066a66145920"
-    sha256 cellar: :any_skip_relocation, catalina:       "60856b6382dd86c84f9177a513aa4b57de028a6aeebd76abfd1c731b04d7ddcc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d47b3bef45543611f2b8a13a0e4a1ae2a5ebfd9178b179703afeeefc8aa9dccc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "70fc0f08908d9de948a8999991281c085b687d12b348c38ca54d69fa774853a3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "00671e85f60e9259bfac8f2bbaab04e3c86cb926bd242927d7e45fac25182d50"
+    sha256 cellar: :any_skip_relocation, monterey:       "86f4ab628135acabd46c18456347363c0fe125ed682468ad4d2eb94bb2a78a39"
+    sha256 cellar: :any_skip_relocation, big_sur:        "52acc5a42769825d44b68f119d79d93753c7ff4a52db21d47e70ef8eb8fcc1d9"
+    sha256 cellar: :any_skip_relocation, catalina:       "f2ff05fa018a337c62068c52c9b337189d3fcc82b0998a841cd3f2c041c0bbc7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f6947a2ba458476686f715af3f7d1591fba0dca70ac2ac4f3cf60a0ea60b693e"
   end
 
   depends_on "go" => :build

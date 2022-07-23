@@ -1,18 +1,18 @@
 class Octosql < Formula
   desc "SQL query tool to analyze data from different file formats and databases"
   homepage "https://github.com/cube2222/octosql/"
-  url "https://github.com/cube2222/octosql/archive/refs/tags/v0.7.3.tar.gz"
-  sha256 "859af30e263756d9fd9bd5cd6bc987ab057de7c9a89794be80371f6e4355ae11"
+  url "https://github.com/cube2222/octosql/archive/refs/tags/v0.9.1.tar.gz"
+  sha256 "128f9505d37a682193e6db4aa5424a1874fdb8d446c16dcbf08fc1c1bc1830c8"
   license "MPL-2.0"
   head "https://github.com/cube2222/octosql.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9641fc0f86cfa01cd6ce34d0fc137ed432b8bfef5f1bbf7bc90cef34f2a1bf03"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "26c5ee63019e395a53c8420247b6ed55583ea453f2893c5be31fde2af11f6194"
-    sha256 cellar: :any_skip_relocation, monterey:       "96d1ebf67c88226704dc5cc337b539270355def75cd9c179ff177c684a3822fe"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f7df9f7303a5e4542252d18bfcec99078ca2d1403efc1ef61d9b1a8ba589afab"
-    sha256 cellar: :any_skip_relocation, catalina:       "576e365db9a507f1ecdab95eaf91b10d5a3ebb290965080847bfe0dccedb6fa4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "291308631024d6a002188aef28099344d1cc9a97f3158a62c3006b5c0a29997e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d4903d3cb0843744c0fb557e1b5d6cbb4b252d8bb435ade2fbef6f848fb33317"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a8a4a8fe273a4282c0ffa621d9628b98f220c33c2b7f59915452644a27fee309"
+    sha256 cellar: :any_skip_relocation, monterey:       "ed070cf7a0bbc69a8c424a3b244fc6570c6c9806fcadb5df3cdb2bead43b4034"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b9215b5b56cf9ef8435a846749796fe26a62b3a5f6142fdb172bfa764987c025"
+    sha256 cellar: :any_skip_relocation, catalina:       "bb67990fb928b7cbfa02075403ba2772df76382e584fa9ba231667106e53781c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c0f02f9c03b423f2864cd024c16933263271b8d3b7db12462bff51d6eed04fd"
   end
 
   depends_on "go" => :build
@@ -41,13 +41,13 @@ class Octosql < Formula
     EOS
 
     expected = <<~EOS
-      +-------------+-------------+--------------------------+
-      | test.field1 | test.field2 |       test.field3        |
-      +-------------+-------------+--------------------------+
-      | 'value'     |          42 | { <null>, 'eulav',       |
-      |             |             | 'value' }                |
-      | 'value'     |          42 | { 'eulav', 24, <null> }  |
-      +-------------+-------------+--------------------------+
+      +---------+--------+--------------------------+
+      | field1  | field2 |          field3          |
+      +---------+--------+--------------------------+
+      | 'value' |     42 | { <null>, 'eulav',       |
+      |         |        | 'value' }                |
+      | 'value' |     42 | { 'eulav', 24, <null> }  |
+      +---------+--------+--------------------------+
     EOS
 
     assert_equal expected, shell_output("#{bin}/octosql \"select * from test.json\"")

@@ -1,18 +1,18 @@
 class LeanCli < Formula
   desc "Command-line tool to develop and manage LeanCloud apps"
   homepage "https://github.com/leancloud/lean-cli"
-  url "https://github.com/leancloud/lean-cli/archive/v1.0.0.tar.gz"
-  sha256 "4e8b9d33fd57e68e2f3e94f69572945ae2860e4eaf25a72fd6d72b8580dce8ba"
+  url "https://github.com/leancloud/lean-cli/archive/v1.0.2.tar.gz"
+  sha256 "4d844ee3a216da8c2aa720adb936d8364280439f9839f8cd6eca59d91321f742"
   license "Apache-2.0"
   head "https://github.com/leancloud/lean-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "15fb26ba22cb952223109e0972df9922fe0eca21ea86e2fc4804515e26201670"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "420a19e7e6b42501fbfaf65a5400e585dc6de4da0b02bba76ec49f9e2a0fde26"
-    sha256 cellar: :any_skip_relocation, monterey:       "f7b7f47312af11dece30e6608a6145f49ee613482874b87308af69e79e81356a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3e4e38188e3d42649e1954de6e6d9a9095e7649d84a09bcad17a29e4f7fcad2e"
-    sha256 cellar: :any_skip_relocation, catalina:       "9067248d2f2995bebafc858563bd72dde361ebf9706ce1ac370186a4989bdddc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "88893d965ff05d9a760a001cb2a47ae6009b8c9c542dfd78820cf94103695e90"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b5b45c5844013bff570daa151a887169d2372fcc6f5c9c7485699319a6e7c95e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8841e891aa32691f045605c1f2b6f5575c9385a12a18b24972599fc2ce4273de"
+    sha256 cellar: :any_skip_relocation, monterey:       "264cf235fff9973ad9ab3c65fc98601e0150822677e2baa370e623a4cea3deac"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e22af123feebef39e979c855573549e2ead53719076e13beb3814204bd7f2ae2"
+    sha256 cellar: :any_skip_relocation, catalina:       "cbfd78697ad3acaeaa07d0ce96b8bb8dd801d9caf1e88b79b8a84bac11ae15c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "50699b68f8cd4adc66f438591ff8dc3fa1d2912fa126167ccd4d6808783d2e9f"
   end
 
   # Bump to 1.18 on the next release, if possible.

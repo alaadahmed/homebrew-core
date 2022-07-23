@@ -1,10 +1,9 @@
 class Nss < Formula
   desc "Libraries for security-enabled client and server applications"
   homepage "https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS"
-  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_79_RTM/src/nss-3.79.tar.gz"
-  sha256 "ebdf2d6a96613b6fe70ad579e9f983e0e94e0110171cfb2999db633d3394a514"
+  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_81_RTM/src/nss-3.81.tar.gz"
+  sha256 "a8bf5f3bb617068d57e7b15f3d9d528f109af0d57df2eaab0519b6423edccca6"
   license "MPL-2.0"
-  revision 1
 
   livecheck do
     url "https://ftp.mozilla.org/pub/security/nss/releases/"
@@ -15,12 +14,12 @@ class Nss < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "ea8ff2b79cd3b1abe1eb392a3302f123d7a0a9eee1da950107ae3aa54626e849"
-    sha256 cellar: :any,                 arm64_big_sur:  "965de73d76eafe85838436dcb1e7985f4989b439319dc291b228dbe5d783b7a5"
-    sha256 cellar: :any,                 monterey:       "db5e20780dc32ed7a4f74cf39687e47c02cd170a18f6ca1b027d56a28821ff66"
-    sha256 cellar: :any,                 big_sur:        "d11c6f8adb43a4836b6ec91b2cdcd2a6dea38c1d5688c19377283327e436aa79"
-    sha256 cellar: :any,                 catalina:       "1e274e46bf156039ffdb83be2462fd4357749a65f110cceb49c5039591a5dabb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cc2c318389604fc6e777999aad12a4a3fb26c1bbed4d8564ac93ff405dc43875"
+    sha256 cellar: :any,                 arm64_monterey: "d38c467b6066510be497a43de18a8909184646447b20023da424612df242221b"
+    sha256 cellar: :any,                 arm64_big_sur:  "c1018723bcaa32991eb2741e3288b4e6c222e073fd0fa37986a20dab11b06534"
+    sha256 cellar: :any,                 monterey:       "3299626273ea5be81b42a7b758dd605e21a95a1fcc28198b4ccd88c4a180fb5b"
+    sha256 cellar: :any,                 big_sur:        "0908c255c657f82b5c5d78cd584df7a74fc0c2e733373fbc8a92e2135f97b0ec"
+    sha256 cellar: :any,                 catalina:       "f2dc9232aece2c16e095841ed01250d7bb73c067088dcd979bb0c6bf4590dcba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "691198c5568fb13853ba1ef329c42dfac73309afcfb06f2545a51b52b24d83af"
   end
 
   depends_on "nspr"
@@ -28,6 +27,7 @@ class Nss < Formula
   uses_from_macos "sqlite"
   uses_from_macos "zlib"
 
+  conflicts_with "arabica", because: "both install `mangle` binaries"
   conflicts_with "resty", because: "both install `pp` binaries"
 
   def install

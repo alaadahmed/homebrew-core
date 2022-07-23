@@ -2,7 +2,7 @@ class Sysdig < Formula
   desc "System-level exploration and troubleshooting tool"
   homepage "https://sysdig.com/"
   license "Apache-2.0"
-  revision 1
+  revision 3
 
   stable do
     url "https://github.com/draios/sysdig/archive/0.29.3.tar.gz"
@@ -22,12 +22,12 @@ class Sysdig < Formula
   end
 
   bottle do
-    sha256                               arm64_monterey: "979ffa88d44db34a6d5f35970fdf27e567d537e0afd0730467fa8ec0533153a1"
-    sha256                               arm64_big_sur:  "51277a8142a80004f80797c4911f4c313eac17204bd22c503aafc96e31423160"
-    sha256                               monterey:       "4d001e9d629eaf852fad855038e91ca0bd442eeeaf457ba67be3f18f18d6d755"
-    sha256                               big_sur:        "002e52b9c0a7f3dc3a4d9c5be978e3433b3cda168eb2b2f598c32e66ef04e221"
-    sha256                               catalina:       "2b980e510f7f51ea1769a41de2054092b9152bbdf4b5de9f907aada40497cb34"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5cbf4e1cd7f00742bf62c400c749dd056c6559b41c5cf0990504064aa46bd869"
+    sha256                               arm64_monterey: "2d6f3f56bc296c1a61ebb845d21c306f0c221649ec4e9eef1dc960e1436eb7cd"
+    sha256                               arm64_big_sur:  "2b94a4f8b946be161a4049e197d03f7d3c9b4d6515e84777c90de54fe8e6847d"
+    sha256                               monterey:       "a036c52834863c81b36d9bc61f2e4beae91071e5a78dcdffcf7cff0c42ee50cb"
+    sha256                               big_sur:        "d7f3d67ee95aab34dd69b2be6df866ac50968d83b3ba30d2ba32f6afeb1dfc49"
+    sha256                               catalina:       "f2a6d211b2ae24f9223a90a5ca0a278a93ee8cee8f0dfe132f6cab0227bfde9b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b8b585f6db774e56c095f30b22807c509b41d5f9ecf8638eb2c7b352b7a5ee5f"
   end
 
   head do
